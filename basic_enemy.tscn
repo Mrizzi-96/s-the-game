@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://blv157hrl1gat"]
+
+[ext_resource type="Texture2D" uid="uid://d3srwpqqw2rdq" path="res://S_sprites_burger.png" id="1_mx4ig"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3qsql"]
+radius = 32.0
+
+[node name="basicEnemy" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.01
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("1_mx4ig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_3qsql")
