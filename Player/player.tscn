@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cn8mtnkswehm1"]
+
+[ext_resource type="Texture2D" uid="uid://dy1t15boopbo2" path="res://Player/Assets/RightLegNEW.png" id="1_vjovi"]
+[ext_resource type="Texture2D" uid="uid://cllvrc2ip451i" path="res://Player/Assets/LeftLegNEW.png" id="2_w1l44"]
+[ext_resource type="Texture2D" uid="uid://ccw4jyyt226nj" path="res://Player/Assets/Ass.png" id="3_v0y02"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c73fx"]
+radius = 15.0
+height = 112.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5w4i3"]
+radius = 19.0
+height = 80.0
+
+[node name="Player" type="Node2D"]
+
+[node name="Hips" type="Node2D" parent="."]
+
+[node name="RightLeg" type="Node2D" parent="Hips"]
+
+[node name="RightLegSprite" type="Sprite2D" parent="Hips/RightLeg"]
+position = Vector2(15, 4.76837e-07)
+rotation = 0.0102961
+texture = ExtResource("1_vjovi")
+centered = false
+offset = Vector2(-19.97, 0)
+
+[node name="RLRigidBody2D" type="RigidBody2D" parent="Hips/RightLeg"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hips/RightLeg/RLRigidBody2D"]
+position = Vector2(15, 60)
+shape = SubResource("CapsuleShape2D_c73fx")
+
+[node name="LeftLeg" type="Node2D" parent="Hips"]
+
+[node name="LeftLegSprite" type="Sprite2D" parent="Hips/LeftLeg"]
+position = Vector2(-18, 0)
+texture = ExtResource("2_w1l44")
+centered = false
+offset = Vector2(-16.745, 0)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Hips/LeftLeg"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hips/LeftLeg/RigidBody2D"]
+position = Vector2(-18, 59)
+shape = SubResource("CapsuleShape2D_c73fx")
+
+[node name="Ass" type="Node2D" parent="Hips"]
+
+[node name="AssSprite" type="Sprite2D" parent="Hips/Ass"]
+texture = ExtResource("3_v0y02")
+
+[node name="AssRigidBody2D" type="RigidBody2D" parent="Hips/Ass"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hips/Ass/AssRigidBody2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5w4i3")
