@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://digawdek3m2tg"]
+
+[ext_resource type="Script" path="res://enemy_spawner.gd" id="1_kpsgk"]
+[ext_resource type="PackedScene" uid="uid://blv157hrl1gat" path="res://enemy_base.tscn" id="2_5c2ke"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ou4nk"]
+
+[node name="enemySpawner" type="Area2D"]
+script = ExtResource("1_kpsgk")
+enemyToSpawn = ExtResource("2_5c2ke")
+waveNumber = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ou4nk")
+
+[node name="Marker2D" type="Marker2D" parent="."]
