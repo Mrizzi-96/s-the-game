@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy1t15boopbo2"
-path="res://.godot/imported/RightLegNEW.png-023e8d4f00b9fd86f68d08612d3c2640.ctex"
+uid="uid://b8kx3myqekewy"
+path="res://.godot/imported/RightLegFIXED.png-bbacea4c0afcb8e673d9665602e6f5e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Assets/RightLegNEW.png"
-dest_files=["res://.godot/imported/RightLegNEW.png-023e8d4f00b9fd86f68d08612d3c2640.ctex"]
+source_file="res://Player/Assets/RightLegFIXED.png"
+dest_files=["res://.godot/imported/RightLegFIXED.png-bbacea4c0afcb8e673d9665602e6f5e6.ctex"]
 
 [params]
 
