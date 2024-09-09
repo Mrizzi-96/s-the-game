@@ -4,14 +4,19 @@ var _smoothed_mouse_pos : Vector2 # use to have a smooth leg rotation movement
 var max_speed = 2000
 @onready var left_leg = $Hips/Ass/LeftLeg
 @onready var right_leg = $Hips/Ass/RightLeg
-
+@export var health_bar : ProgressBar
+@export var hit_amount: int
 var active_leg
 var max_rotation_speed = 10
+var is_game_over: bool
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	active_leg = right_leg
-
+	# setup to max value
+	health_bar.value = health_bar.max_value
+	is_game_over = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -25,8 +30,20 @@ func _unhandled_input(event):
 		# TODO: finish implementing Act
 	elif Input.is_action_pressed("switch"):
 		toggle_active_leg()
+	# TODO: move hit logic on Area2D colliding with enemy!
+	elif Input.is_key_pressed(KEY_H):
+		if !is_game_over:
+			player_hit(hit_amount) # amount will vary based on enemy
 	return 
 	
 func toggle_active_leg():
 	# toggle selected leg
 	active_leg = left_leg if active_leg == right_leg else right_leg
+
+func player_hit(amount):
+	health_bar.value -= amount
+	if health_bar.value <= 0:
+		health_bar.value = 0
+		is_game_over = true
+		print("GAME_OVER!")
+		# TODO: call global game_over()!

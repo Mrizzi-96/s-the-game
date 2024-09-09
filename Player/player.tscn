@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn8mtnkswehm1"]
+[gd_scene load_steps=9 format=3 uid="uid://cn8mtnkswehm1"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_c6ce5"]
 [ext_resource type="Texture2D" uid="uid://b8kx3myqekewy" path="res://Player/Assets/RightLegFIXED.png" id="3_kfhbd"]
@@ -10,9 +10,35 @@
 radius = 20.0
 height = 76.0
 
-[node name="Player" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_747sp"]
+bg_color = Color(0.415279, 0.0663713, 0.0174634, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg0ff"]
+bg_color = Color(0.905882, 0.207843, 0.101961, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Player" type="Node2D" node_paths=PackedStringArray("health_bar")]
 rotation = 0.00144899
 script = ExtResource("1_c6ce5")
+health_bar = NodePath("PlayerGUI/CanvasLayer/ProgressBar")
+hit_amount = 25
 
 [node name="Hips" type="RigidBody2D" parent="."]
 mass = 5.0
@@ -23,16 +49,32 @@ shape = SubResource("CapsuleShape2D_5w4i3")
 
 [node name="RightLeg" type="Sprite2D" parent="Hips/Ass"]
 position = Vector2(2.56879, -17.8891)
-scale = Vector2(1, 1)
 texture = ExtResource("3_kfhbd")
 offset = Vector2(75.4079, 1.77608)
 
 [node name="LeftLeg" type="Sprite2D" parent="Hips/Ass"]
 position = Vector2(3.67789, 16.3653)
-scale = Vector2(1, 1)
 texture = ExtResource("4_r4vhv")
 offset = Vector2(73.3466, 0.523102)
 
 [node name="AssSprite" type="Sprite2D" parent="Hips/Ass"]
 rotation = -1.5821
 texture = ExtResource("3_v0y02")
+
+[node name="PlayerGUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PlayerGUI"]
+
+[node name="ProgressBar" type="ProgressBar" parent="PlayerGUI/CanvasLayer"]
+custom_minimum_size = Vector2(360, 60)
+offset_right = 360.0
+offset_bottom = 60.0
+pivot_offset = Vector2(1.97231, 13.4959)
+theme_override_styles/background = SubResource("StyleBoxFlat_747sp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jg0ff")
+value = 50.0
+show_percentage = false
