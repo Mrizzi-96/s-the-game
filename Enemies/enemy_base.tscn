@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://blv157hrl1gat"]
+[gd_scene load_steps=4 format=3 uid="uid://blv157hrl1gat"]
 
 [ext_resource type="Script" path="res://Enemies/enemy_base.gd" id="1_oqnef"]
+[ext_resource type="Texture2D" uid="uid://d3srwpqqw2rdq" path="res://Enemies/Assets/S_sprites_burger.png" id="2_eah4h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3qsql"]
+radius = 42.6739
 
 [node name="enemyBase" type="Node2D"]
 script = ExtResource("1_oqnef")
@@ -12,6 +14,8 @@ mass = 0.01
 gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture_filter = 1
+texture = ExtResource("2_eah4h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_3qsql")
