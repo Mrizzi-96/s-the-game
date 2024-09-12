@@ -5,7 +5,7 @@ extends MarginContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	play.pressed.connect(Global.goto_scene.bind("res://test.tscn"))
+	play.pressed.connect(Global.load_random_arena_scene)
 	quit.pressed.connect(Global.quit_game)
 
 
