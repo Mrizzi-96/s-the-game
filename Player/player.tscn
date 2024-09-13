@@ -61,6 +61,10 @@ offset = Vector2(73.3466, 0.523102)
 rotation = -1.5821
 texture = ExtResource("3_v0y02")
 
+[node name="Camera2D" type="Camera2D" parent="Hips"]
+scale = Vector2(1, 1)
+process_callback = 0
+
 [node name="PlayerGUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
