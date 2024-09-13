@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cllvrc2ip451i"
-path="res://.godot/imported/LeftLegNEW.png-23df937ca1d59a5e1385267d022f9535.ctex"
+uid="uid://bprrhg6b7u6fq"
+path="res://.godot/imported/tilesheet_complete.png-19dd0d0f52c89a27dea2b3286d99c548.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Assets/LeftLegNEW.png"
-dest_files=["res://.godot/imported/LeftLegNEW.png-23df937ca1d59a5e1385267d022f9535.ctex"]
+source_file="res://Levels/Assets/tilesheet_complete.png"
+dest_files=["res://.godot/imported/tilesheet_complete.png-19dd0d0f52c89a27dea2b3286d99c548.ctex"]
 
 [params]
 
