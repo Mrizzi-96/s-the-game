@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkv0603eufss2"]
+[gd_scene load_steps=6 format=3 uid="uid://bkv0603eufss2"]
 
 [ext_resource type="PackedScene" uid="uid://cn8mtnkswehm1" path="res://Player/player.tscn" id="1_luigw"]
 [ext_resource type="Texture2D" uid="uid://c6sv7qh6tvyog" path="res://icon.svg" id="2_cu8ye"]
@@ -8,7 +8,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqc77"]
 size = Vector2(127.906, 138)
 
-[node name="Test" type="Node2D" groups=["Level"]]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c146u"]
+distance = 279.454
+
+[node name="Test" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_luigw")]
 position = Vector2(354.446, 162.875)
@@ -21,6 +24,11 @@ physics_material_override = SubResource("PhysicsMaterial_ivto3")
 position = Vector2(600, 340)
 scale = Vector2(9.3819, 1)
 shape = SubResource("RectangleShape2D_lqc77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain"]
+position = Vector2(417.411, 554.454)
+scale = Vector2(19.56, 1)
+shape = SubResource("WorldBoundaryShape2D_c146u")
 
 [node name="Sprite2D" type="Sprite2D" parent="Terrain"]
 position = Vector2(582, 341)

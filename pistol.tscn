@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://j0sro5m3nwys"]
+
+[ext_resource type="Texture2D" uid="uid://c7vgqocop427e" path="res://Player/Assets/Weapon/pistol.png" id="1_v0bcq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yau6o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_158hg"]
+radius = 12.0
+height = 38.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_yau6o")
+can_sleep = false
+lock_rotation = true
+freeze_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_158hg")
+
+[node name="Pistol" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 0)
+scale = Vector2(0.113571, 0.113571)
+texture = ExtResource("1_v0bcq")
+
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(16, -6)
