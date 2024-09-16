@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://j0sro5m3nwys"]
 
-[ext_resource type="Texture2D" uid="uid://c7vgqocop427e" path="res://Player/Assets/Weapon/pistol.png" id="1_v0bcq"]
+[ext_resource type="Texture2D" uid="uid://c7vgqocop427e" path="res://Weapons/Assets/pistol.png" id="1_v0bcq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yau6o"]
 

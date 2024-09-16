@@ -1,17 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://b3bsfcpqqewps"]
 
-[ext_resource type="Script" path="res://player_bullet.gd" id="1_t5h16"]
-[ext_resource type="Texture2D" uid="uid://cy688hm50jcda" path="res://Player/Assets/Weapon/bullet.png" id="2_133lx"]
+[ext_resource type="Script" path="res://Weapons/Pistol/player_bullet.gd" id="1_8rsxb"]
+[ext_resource type="Texture2D" uid="uid://cy688hm50jcda" path="res://Weapons/Assets/bullet.png" id="2_bpna2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi0tt"]
 size = Vector2(20, 4)
 
 [node name="Area2D" type="Area2D"]
-script = ExtResource("1_t5h16")
+script = ExtResource("1_8rsxb")
+despawn_after_seconds = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yi0tt")
 
 [node name="Bullet" type="Sprite2D" parent="."]
 scale = Vector2(0.346154, 0.346154)
-texture = ExtResource("2_133lx")
+texture = ExtResource("2_bpna2")
