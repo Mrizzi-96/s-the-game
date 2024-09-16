@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cn8mtnkswehm1"]
+[gd_scene load_steps=12 format=3 uid="uid://cn8mtnkswehm1"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_c6ce5"]
-[ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Player/player_bullet.tscn" id="2_2mb6t"]
+[ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Pistol/player_bullet.tscn" id="2_7cjiu"]
 [ext_resource type="Texture2D" uid="uid://b8kx3myqekewy" path="res://Player/Assets/RightLegFIXED.png" id="3_kfhbd"]
 [ext_resource type="Texture2D" uid="uid://ccw4jyyt226nj" path="res://Player/Assets/Ass.png" id="3_v0y02"]
 [ext_resource type="PhysicsMaterial" uid="uid://b51d82i67iuj6" path="res://Player/Assets/Materials/ass_physics_material.tres" id="4_lmmrb"]
-[ext_resource type="PackedScene" uid="uid://j0sro5m3nwys" path="res://pistol.tscn" id="4_njt60"]
 [ext_resource type="Texture2D" uid="uid://cfgc07hefqko2" path="res://Player/Assets/LeftLegFIXED.png" id="4_r4vhv"]
+[ext_resource type="PackedScene" uid="uid://j0sro5m3nwys" path="res://Weapons/Pistol/pistol.tscn" id="5_yato8"]
+[ext_resource type="Script" path="res://Weapons/Pistol/pistol.gd" id="6_40wmo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5w4i3"]
 radius = 20.0
@@ -39,7 +40,7 @@ corner_radius_bottom_left = 8
 [node name="Player" type="Node2D" node_paths=PackedStringArray("health_bar")]
 rotation = 0.00144899
 script = ExtResource("1_c6ce5")
-player_bullet = ExtResource("2_2mb6t")
+player_bullet = ExtResource("2_7cjiu")
 health_bar = NodePath("PlayerGUI/CanvasLayer/ProgressBar")
 hit_amount = 25
 
@@ -55,8 +56,11 @@ position = Vector2(2.56879, -17.8891)
 texture = ExtResource("3_kfhbd")
 offset = Vector2(75.4079, 1.77608)
 
-[node name="Pistol" parent="Hips/Ass/RightLeg" instance=ExtResource("4_njt60")]
+[node name="Pistol" parent="Hips/Ass/RightLeg" instance=ExtResource("5_yato8")]
 position = Vector2(120.411, 3.71088)
+freeze = true
+script = ExtResource("6_40wmo")
+player_bullet = ExtResource("2_7cjiu")
 
 [node name="LeftLeg" type="Sprite2D" parent="Hips/Ass"]
 position = Vector2(3.67789, 16.3653)
@@ -68,7 +72,6 @@ rotation = -1.5821
 texture = ExtResource("3_v0y02")
 
 [node name="Camera2D" type="Camera2D" parent="Hips"]
-scale = Vector2(1, 1)
 process_callback = 0
 
 [node name="PlayerGUI" type="Control" parent="."]
@@ -92,3 +95,5 @@ theme_override_styles/background = SubResource("StyleBoxFlat_747sp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jg0ff")
 value = 50.0
 show_percentage = false
+
+[editable path="Hips/Ass/RightLeg/Pistol"]

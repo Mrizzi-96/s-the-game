@@ -11,7 +11,7 @@ var max_speed = 2000
 var active_leg
 var max_rotation_speed = 10
 var is_game_over: bool
-
+var right_leg_weapon : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +19,9 @@ func _ready():
 	# setup to max value
 	health_bar.value = health_bar.max_value
 	is_game_over = false
-
+	# TODO: add Equip(weapon_scene_path) method to change weapons
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	_smoothed_mouse_pos = lerp(_smoothed_mouse_pos, get_global_mouse_position(), 0.25)
@@ -29,7 +31,7 @@ func _process(delta):
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("act"):
 		print('act')
-		pistol_shoot()
+		
 		# TODO: finish implementing Act
 	elif Input.is_action_pressed("switch"):
 		toggle_active_leg()
@@ -50,26 +52,3 @@ func player_hit(amount):
 		is_game_over = true
 		print("GAME_OVER!")
 		# TODO: call global game_over()!
-
-func pistol_shoot():
-	var bullet = player_bullet.instantiate()
-	bullet.position =$Hips/Ass/RightLeg/Pistol/BulletSpawn.global_position
-	bullet.rotation =$Hips/Ass/RightLeg/Pistol/BulletSpawn.global_rotation 
-	var level_node = get_level_node()
-	if level_node:
-		level_node.add_child(bullet)
-	else:
-		print("Level node not found")
-		
-	# Calcola la direzione opposta
-	#var direction = Vector2(cos($BulletSpawn.global_rotation), sin($BulletSpawn.global_rotation)).normalized() * -1
-	#var force = direction * 100  # Modifica il valore della forza secondo necessità
-
-	# Applica la forza al player
-	#apply_impulse(Vector2(), force)
-
-func get_level_node():
-	var node = self
-	while node and not node.is_in_group("Level"):
-		node = node.get_parent()
-	return node

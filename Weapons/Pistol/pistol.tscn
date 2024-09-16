@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://j0sro5m3nwys"]
 
-[ext_resource type="Texture2D" uid="uid://c7vgqocop427e" path="res://Weapons/Assets/pistol.png" id="1_v0bcq"]
+[ext_resource type="Texture2D" uid="uid://c7vgqocop427e" path="res://Weapons/Assets/pistol.png" id="1_k6s1r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yau6o"]
 
@@ -22,7 +22,7 @@ shape = SubResource("CapsuleShape2D_158hg")
 [node name="Pistol" type="Sprite2D" parent="."]
 position = Vector2(-1.19209e-07, 0)
 scale = Vector2(0.113571, 0.113571)
-texture = ExtResource("1_v0bcq")
+texture = ExtResource("1_k6s1r")
 
 [node name="BulletSpawn" type="Marker2D" parent="."]
 position = Vector2(16, -6)
