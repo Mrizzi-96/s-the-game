@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cn8mtnkswehm1"]
+[gd_scene load_steps=11 format=3 uid="uid://cn8mtnkswehm1"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_c6ce5"]
+[ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Player/player_bullet.tscn" id="2_2mb6t"]
 [ext_resource type="Texture2D" uid="uid://b8kx3myqekewy" path="res://Player/Assets/RightLegFIXED.png" id="3_kfhbd"]
 [ext_resource type="Texture2D" uid="uid://ccw4jyyt226nj" path="res://Player/Assets/Ass.png" id="3_v0y02"]
 [ext_resource type="PhysicsMaterial" uid="uid://b51d82i67iuj6" path="res://Player/Assets/Materials/ass_physics_material.tres" id="4_lmmrb"]
+[ext_resource type="PackedScene" uid="uid://j0sro5m3nwys" path="res://pistol.tscn" id="4_njt60"]
 [ext_resource type="Texture2D" uid="uid://cfgc07hefqko2" path="res://Player/Assets/LeftLegFIXED.png" id="4_r4vhv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5w4i3"]
@@ -37,6 +39,7 @@ corner_radius_bottom_left = 8
 [node name="Player" type="Node2D" node_paths=PackedStringArray("health_bar")]
 rotation = 0.00144899
 script = ExtResource("1_c6ce5")
+player_bullet = ExtResource("2_2mb6t")
 health_bar = NodePath("PlayerGUI/CanvasLayer/ProgressBar")
 hit_amount = 25
 
@@ -51,6 +54,9 @@ shape = SubResource("CapsuleShape2D_5w4i3")
 position = Vector2(2.56879, -17.8891)
 texture = ExtResource("3_kfhbd")
 offset = Vector2(75.4079, 1.77608)
+
+[node name="Pistol" parent="Hips/Ass/RightLeg" instance=ExtResource("4_njt60")]
+position = Vector2(120.411, 3.71088)
 
 [node name="LeftLeg" type="Sprite2D" parent="Hips/Ass"]
 position = Vector2(3.67789, 16.3653)
@@ -68,15 +74,19 @@ process_callback = 0
 [node name="PlayerGUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 34.1275
+offset_top = 47.9506
+offset_right = 74.1275
+offset_bottom = 87.9506
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PlayerGUI"]
 
 [node name="ProgressBar" type="ProgressBar" parent="PlayerGUI/CanvasLayer"]
 custom_minimum_size = Vector2(360, 60)
-offset_right = 360.0
-offset_bottom = 60.0
+offset_left = 34.058
+offset_top = 48.0
+offset_right = 394.058
+offset_bottom = 108.0
 pivot_offset = Vector2(1.97231, 13.4959)
 theme_override_styles/background = SubResource("StyleBoxFlat_747sp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jg0ff")
