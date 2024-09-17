@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://sajg2kokf874"]
+[gd_scene load_steps=5 format=3 uid="uid://sajg2kokf874"]
 
 [ext_resource type="Script" path="res://Levels/arena_global.gd" id="1_fh0qs"]
 [ext_resource type="PackedScene" uid="uid://c0p3intqprtut" path="res://Levels/Assets/tilemap.tscn" id="1_iyaas"]
 [ext_resource type="PackedScene" uid="uid://digawdek3m2tg" path="res://Enemies/Spawner/enemy_spawner.tscn" id="2_1u3vl"]
+[ext_resource type="PackedScene" uid="uid://bq88ved7wpcvg" path="res://Player/player_spawner.tscn" id="4_roijp"]
 
 [node name="Arena1" type="Node2D"]
 script = ExtResource("1_fh0qs")
@@ -14,3 +15,6 @@ layer_1/tile_data = PackedInt32Array(65550, 1, 6, 14, 1, 6, -65522, 1, 6, -13105
 [node name="enemySpawner" parent="." instance=ExtResource("2_1u3vl")]
 position = Vector2(1042, 193)
 enemyToSpawn = null
+
+[node name="PlayerSpawner" parent="." instance=ExtResource("4_roijp")]
+position = Vector2(962, 182)
