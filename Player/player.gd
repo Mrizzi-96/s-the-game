@@ -13,6 +13,8 @@ var max_rotation_speed = 10
 var is_game_over: bool
 var right_leg_weapon : PackedScene
 
+signal game_ended
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	active_leg = right_leg
@@ -50,5 +52,4 @@ func player_hit(amount):
 	if health_bar.value <= 0:
 		health_bar.value = 0
 		is_game_over = true
-		print("GAME_OVER!")
-		# TODO: call global game_over()!
+		emit_signal("game_ended")
