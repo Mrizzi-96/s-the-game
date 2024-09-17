@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cn8mtnkswehm1"]
+[gd_scene load_steps=13 format=3 uid="uid://cn8mtnkswehm1"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_c6ce5"]
 [ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Pistol/player_bullet.tscn" id="2_7cjiu"]
@@ -7,11 +7,13 @@
 [ext_resource type="PhysicsMaterial" uid="uid://b51d82i67iuj6" path="res://Player/Assets/Materials/ass_physics_material.tres" id="4_lmmrb"]
 [ext_resource type="Texture2D" uid="uid://cfgc07hefqko2" path="res://Player/Assets/LeftLegFIXED.png" id="4_r4vhv"]
 [ext_resource type="PackedScene" uid="uid://j0sro5m3nwys" path="res://Weapons/Pistol/pistol.tscn" id="5_yato8"]
-[ext_resource type="Script" path="res://Weapons/Pistol/pistol.gd" id="6_40wmo"]
+[ext_resource type="PackedScene" uid="uid://cf6ymy1cigvxm" path="res://Weapons/Knife/knife.tscn" id="7_5mucm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5w4i3"]
 radius = 20.0
 height = 76.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8kxor"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_747sp"]
 bg_color = Color(0.415279, 0.0663713, 0.0174634, 1)
@@ -59,13 +61,21 @@ offset = Vector2(75.4079, 1.77608)
 [node name="Pistol" parent="Hips/Ass/RightLeg" instance=ExtResource("5_yato8")]
 position = Vector2(120.411, 3.71088)
 freeze = true
-script = ExtResource("6_40wmo")
 player_bullet = ExtResource("2_7cjiu")
 
 [node name="LeftLeg" type="Sprite2D" parent="Hips/Ass"]
 position = Vector2(3.67789, 16.3653)
 texture = ExtResource("4_r4vhv")
 offset = Vector2(73.3466, 0.523102)
+
+[node name="RigidBody2D" parent="Hips/Ass/LeftLeg" instance=ExtResource("7_5mucm")]
+position = Vector2(119.347, 0.456457)
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_8kxor")
+can_sleep = false
+lock_rotation = true
+freeze = true
+freeze_mode = 1
 
 [node name="AssSprite" type="Sprite2D" parent="Hips/Ass"]
 rotation = -1.5821

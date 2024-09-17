@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf6ymy1cigvxm"]
+
+[ext_resource type="Script" path="res://Weapons/Knife/knife.gd" id="1_regss"]
+[ext_resource type="Texture2D" uid="uid://pl5rq385ep8" path="res://Weapons/Assets/knife.png" id="2_otqdt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bl7iy"]
+height = 90.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+scale = Vector2(0.600001, 0.600001)
+script = ExtResource("1_regss")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.933334, 1)
+shape = SubResource("CapsuleShape2D_bl7iy")
+
+[node name="Knife" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.270492, 0.270492)
+texture = ExtResource("2_otqdt")
+
+[node name="Direction" type="Marker2D" parent="."]
+position = Vector2(42, 0)
