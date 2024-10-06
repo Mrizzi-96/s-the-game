@@ -26,4 +26,4 @@ func _on_game_ended():
 	_show_game_over_UI()
 
 func _show_game_over_UI():
-	print("Signal emitted! Simon says: GAME OVER!")
+	Global.goto_scene("res://GameOverUI/game_over_ui.tscn")
