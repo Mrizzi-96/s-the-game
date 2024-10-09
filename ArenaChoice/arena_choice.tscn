@@ -51,7 +51,7 @@ layout_mode = 2
 theme = ExtResource("1_ujjqg")
 theme_override_font_sizes/font_size = 50
 text = "Arena 1
-Enemies: 1
+Waves: 1
 Reward: $"
 
 [node name="ArenaChoice2" type="Button" parent="VBoxContainer/HBoxContainer"]
@@ -60,7 +60,7 @@ layout_mode = 2
 theme = ExtResource("1_ujjqg")
 theme_override_font_sizes/font_size = 50
 text = "Arena 2
-Enemies: 2
+Waves: 2
 Reward: $$"
 
 [node name="ArenaChoice3" type="Button" parent="VBoxContainer/HBoxContainer"]
@@ -69,7 +69,7 @@ layout_mode = 2
 theme = ExtResource("1_ujjqg")
 theme_override_font_sizes/font_size = 50
 text = "Arena 3
-Enemies: 3
+Waves: 3
 Reward: $$$"
 
 [node name="Back" type="Button" parent="VBoxContainer"]
