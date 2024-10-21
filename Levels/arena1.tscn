@@ -23,7 +23,7 @@ position = Vector2(962, 182)
 position = Vector2(286, 410)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [node name="enemySpawner4" parent="." instance=ExtResource("2_1u3vl")]
