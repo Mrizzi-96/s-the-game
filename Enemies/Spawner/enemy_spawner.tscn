@@ -5,7 +5,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ou4nk"]
 
-[node name="enemySpawner" type="Area2D"]
+[node name="enemySpawner" type="Area2D" groups=["spawners"]]
 script = ExtResource("1_rtbwg")
 enemyToSpawn = ExtResource("2_12n4v")
 waveNumber = 1

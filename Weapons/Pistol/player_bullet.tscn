@@ -16,3 +16,5 @@ shape = SubResource("RectangleShape2D_yi0tt")
 [node name="Bullet" type="Sprite2D" parent="."]
 scale = Vector2(0.346154, 0.346154)
 texture = ExtResource("2_bpna2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

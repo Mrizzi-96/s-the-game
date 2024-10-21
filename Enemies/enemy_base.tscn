@@ -9,7 +9,7 @@ radius = 42.6739
 [node name="enemyBase" type="Node2D"]
 script = ExtResource("1_oqnef")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["enemies"]]
 mass = 0.01
 gravity_scale = 0.0
 

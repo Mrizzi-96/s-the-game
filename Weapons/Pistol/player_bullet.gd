@@ -13,3 +13,8 @@ func _physics_process(delta):
 	# despawn after 5 secs 
 	await get_tree().create_timer(despawn_after_seconds).timeout
 	queue_free()
+
+func _on_body_entered(body):
+	if body.is_in_group("enemies"):
+		body.get_parent()._hit(50)
+	queue_free()
