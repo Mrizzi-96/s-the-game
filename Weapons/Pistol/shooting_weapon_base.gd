@@ -1,6 +1,9 @@
 extends RigidBody2D
 
+class_name ShootingWeapon
+
 @export var player_bullet : PackedScene
+@export var recoil_force = 2000
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _unhandled_input(_event):
@@ -10,7 +13,6 @@ func _unhandled_input(_event):
 func act():
 	spawn_bullet()
 	add_impulse_player()
-	# TODO: add opposing force to player
 
 func spawn_bullet():
 	var bullet = player_bullet.instantiate()
@@ -19,7 +21,5 @@ func spawn_bullet():
 	get_tree().root.add_child(bullet)
 	
 func add_impulse_player():
-	var bullet_direction = ($BulletSpawn.global_position - global_position).normalized()
-	var impulse_strength = 1000  # Puoi modificare questa forza come preferisci
-	var impulse = -bullet_direction * impulse_strength
-	$"../../..".apply_central_impulse(impulse)
+	$"../../..".apply_impulse(Vector2(-recoil_force, 0).rotated($"..".global_rotation))
+	#  ^Hips node										 ^RightLeg node
