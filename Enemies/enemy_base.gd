@@ -12,7 +12,11 @@ func _getHealth() -> int:
 
 func _hit(damage: int) -> void:
 	hp -= damage
+	if hp <= 0:
+		_death()
+	
 	
 func _death() -> void:
 	if hp <= 0:
 		queue_free()
+		Global.enemyNum -= 1

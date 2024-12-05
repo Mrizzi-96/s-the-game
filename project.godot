@@ -11,12 +11,18 @@ config_version=5
 [application]
 
 config/name="S-the-game"
+run/main_scene="res://MainMenu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://global.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [dotnet]
 

@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsw72w50t0a52"]
+
+[ext_resource type="Script" path="res://GameOverUI/game_over_ui.gd" id="1_xqch0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fs8n4"]
+font_size = 90
+
+[node name="GameOverUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xqch0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.180392, 0, 0.572549, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Game over!"
+label_settings = SubResource("LabelSettings_fs8n4")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="BackToMenu" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(350, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+text = "Main menu"
+
+[connection signal="pressed" from="VBoxContainer/BackToMenu" to="." method="back_to_menu"]
