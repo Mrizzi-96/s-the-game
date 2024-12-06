@@ -7,6 +7,7 @@
 size = Vector2(20, 4)
 
 [node name="Area2D" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_8rsxb")
 despawn_after_seconds = 5.0
 

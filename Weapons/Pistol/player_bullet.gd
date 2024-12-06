@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var despawn_after_seconds : float
-var speed = 750
+@export var speed = 750
 var direction : Vector2
 
 func _ready():
