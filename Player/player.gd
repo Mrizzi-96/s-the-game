@@ -8,7 +8,6 @@ var max_speed = 2000
 @onready var right_leg = $Hips/Ass/RightLeg
 @export var health_bar : ProgressBar
 @export var hit_amount: int
-var active_leg
 var max_rotation_speed = 10
 var is_game_over: bool
 var right_leg_weapon : PackedScene
@@ -17,7 +16,7 @@ signal game_ended
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	active_leg = right_leg
+	Global.active_leg = right_leg
 	# setup to max value
 	health_bar.value = health_bar.max_value
 	is_game_over = false
@@ -28,7 +27,7 @@ func _ready():
 func _process(delta):
 	_smoothed_mouse_pos = lerp(_smoothed_mouse_pos, get_global_mouse_position(), 0.25)
 	# make selected leg look at mouse pos
-	active_leg.look_at(_smoothed_mouse_pos)
+	Global.active_leg.look_at(_smoothed_mouse_pos)
 	
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("act"):
@@ -45,7 +44,7 @@ func _unhandled_input(event):
 	
 func toggle_active_leg():
 	# toggle selected leg
-	active_leg = left_leg if active_leg == right_leg else right_leg
+	Global.active_leg = left_leg if Global.active_leg == right_leg else right_leg
 
 func player_hit(amount):
 	health_bar.value -= amount

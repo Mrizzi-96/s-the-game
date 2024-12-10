@@ -4,6 +4,7 @@ var current_scene = null
 var wave: int
 var level_path: String
 var enemyNum: int
+var active_leg
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
