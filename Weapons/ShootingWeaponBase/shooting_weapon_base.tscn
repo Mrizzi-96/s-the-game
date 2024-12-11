@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://j0sro5m3nwys"]
 
-[ext_resource type="Script" path="res://Weapons/Pistol/shooting_weapon_base.gd" id="1_6a70b"]
+[ext_resource type="Script" path="res://Weapons/ShootingWeaponBase/shooting_weapon_base.gd" id="1_6a70b"]
 [ext_resource type="Texture2D" uid="uid://c7vgqocop427e" path="res://Weapons/Assets/pistol.png" id="1_k6s1r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yau6o"]
