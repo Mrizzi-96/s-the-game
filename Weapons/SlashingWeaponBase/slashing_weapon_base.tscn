@@ -7,8 +7,9 @@
 height = 90.0
 
 [node name="RigidBody2D" type="RigidBody2D"]
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_8ds5h")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -22,3 +23,5 @@ texture = ExtResource("2_b3wkg")
 
 [node name="Direction" type="Marker2D" parent="."]
 position = Vector2(42, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
