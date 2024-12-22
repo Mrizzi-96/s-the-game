@@ -21,5 +21,5 @@ func spawn_bullet() -> void:
 	get_tree().root.add_child(bullet)
 	
 func add_impulse_player() -> void:
-	$"../../..".apply_impulse(Vector2(-recoil_force, 0).rotated($"..".global_rotation))
+	$"../../../..".apply_impulse(Vector2(-recoil_force, 0).rotated($"../..".global_rotation))
 	#  ^Hips node										 		  ^RightLeg node

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://j0sro5m3nwys"]
+[gd_scene load_steps=6 format=3 uid="uid://j0sro5m3nwys"]
 
 [ext_resource type="Script" path="res://Weapons/ShootingWeaponBase/shooting_weapon_base.gd" id="1_6a70b"]
 [ext_resource type="Texture2D" uid="uid://c7vgqocop427e" path="res://Weapons/Assets/pistol.png" id="1_k6s1r"]
+[ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Bullet/player_bullet.tscn" id="2_7pahs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yau6o"]
 
@@ -15,8 +16,10 @@ mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_yau6o")
 can_sleep = false
 lock_rotation = true
+freeze = true
 freeze_mode = 1
 script = ExtResource("1_6a70b")
+player_bullet = ExtResource("2_7pahs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

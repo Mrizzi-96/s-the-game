@@ -10,7 +10,6 @@ var max_speed = 2000
 @export var hit_amount: int
 var max_rotation_speed = 10
 var is_game_over: bool
-var right_leg_weapon : PackedScene
 
 signal game_ended
 
@@ -20,8 +19,8 @@ func _ready():
 	# setup to max value
 	health_bar.value = health_bar.max_value
 	is_game_over = false
-	# TODO: add Equip(weapon_scene_path) method to change weapons
-	
+	equipWeapon("shooting_weapon_base", "RightLeg")
+	equipWeapon("slashing_weapon_base", "LeftLeg")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -52,3 +51,11 @@ func player_hit(amount):
 		health_bar.value = 0
 		is_game_over = true
 		emit_signal("game_ended")
+		
+func equipWeapon(weapon: String, leg:String):
+	var weaponScene = load(Global.weapons[weapon])
+	if weaponScene:
+		var weaponInstance = weaponScene.instantiate()
+		var legNode = get_node("Hips/Ass/" + leg + "/Marker2D")
+		legNode.add_child(weaponInstance)
+		weaponInstance.position = Vector2.ZERO
