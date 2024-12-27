@@ -57,5 +57,7 @@ func equipWeapon(weapon: String, leg:String):
 	if weaponScene:
 		var weaponInstance = weaponScene.instantiate()
 		var legNode = get_node("Hips/Ass/" + leg + "/Marker2D")
+		for child in legNode.get_children():
+			child.queue_free()
 		legNode.add_child(weaponInstance)
 		weaponInstance.position = Vector2.ZERO
