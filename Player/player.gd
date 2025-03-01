@@ -29,13 +29,8 @@ func _process(delta):
 	Global.active_leg.look_at(_smoothed_mouse_pos)
 	
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("act"):
-		print('act')
-		
-		# TODO: finish implementing Act
-	elif Input.is_action_pressed("switch"):
+	if Input.is_action_pressed("switch"):
 		toggle_active_leg()
-	# TODO: move hit logic on Area2D colliding with enemy!
 	elif Input.is_key_pressed(KEY_H):
 		if !is_game_over:
 			player_hit(hit_amount) # amount will vary based on enemy
