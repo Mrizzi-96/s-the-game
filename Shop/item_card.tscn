@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://sbi55htjegl2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trial"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="ItemCard" type="Control"]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 400.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_trial")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ImageContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="ImagePreview" type="ColorRect" parent="Panel/VBoxContainer/ImageContainer"]
+layout_mode = 2
+color = Color(0.219608, 0.584314, 0.513726, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemPrice" type="Label" parent="Panel/VBoxContainer/ImageContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Price: 8G"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Buy"
