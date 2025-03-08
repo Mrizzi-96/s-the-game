@@ -7,8 +7,8 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yau6o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_158hg"]
-radius = 12.0
-height = 38.0
+radius = 8.0
+height = 48.0
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 2

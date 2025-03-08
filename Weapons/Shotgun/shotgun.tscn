@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy1ckcvtrnja2"]
+
+[ext_resource type="PackedScene" uid="uid://j0sro5m3nwys" path="res://Weapons/ShootingWeaponBase/shooting_weapon_base.tscn" id="1_lgopi"]
+[ext_resource type="Script" path="res://Weapons/Shotgun/shotgun.gd" id="2_bnyxn"]
+[ext_resource type="Texture2D" uid="uid://dawghkj06ihjk" path="res://Weapons/Assets/shotgun.png" id="3_brur4"]
+
+[node name="RigidBody2D" instance=ExtResource("1_lgopi")]
+script = ExtResource("2_bnyxn")
+shooting_angle = 30
+bullet_number = 8
+recoil_force = 4000
+
+[node name="Pistol" parent="." index="1"]
+texture = ExtResource("3_brur4")
+
+[node name="BulletSpawn" parent="." index="2"]
+position = Vector2(20, 0)
