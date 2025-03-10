@@ -8,6 +8,11 @@ var max_speed = 2000
 @onready var right_leg = $Hips/Ass/RightLeg
 @export var health_bar : ProgressBar
 @export var hit_amount: int
+
+# Equipped Weapons references:
+var left_leg_weapon
+var right_leg_weapon 
+
 var max_rotation_speed = 10
 var is_game_over: bool
 
@@ -15,12 +20,12 @@ signal game_ended
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.active_leg = right_leg
+	Global.active_leg = left_leg
 	# setup to max value
 	health_bar.value = health_bar.max_value
 	is_game_over = false
-	equipWeapon("shooting_weapon_base", "RightLeg")
-	equipWeapon("slashing_weapon_base", "LeftLeg")
+	right_leg_weapon = equipWeapon("shooting_weapon_base", "RightLeg")
+	left_leg_weapon = equipWeapon("slashing_weapon_base", "LeftLeg")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,8 +34,13 @@ func _process(delta):
 	Global.active_leg.look_at(_smoothed_mouse_pos)
 	
 func _unhandled_input(event):
-	if Input.is_action_pressed("switch"):
-		toggle_active_leg()
+	if Input.is_action_just_pressed("act"):
+		if Global.active_leg != left_leg:
+			# left click ==> left leg
+			toggle_active_leg()
+	if Input.is_action_just_pressed("switch"):
+		if Global.active_leg != right_leg:
+			toggle_active_leg()
 	elif Input.is_key_pressed(KEY_H):
 		if !is_game_over:
 			player_hit(hit_amount) # amount will vary based on enemy
@@ -56,3 +66,5 @@ func equipWeapon(weapon: String, leg:String):
 			child.queue_free()
 		legNode.add_child(weaponInstance)
 		weaponInstance.position = Vector2.ZERO
+		# return weapon instance to have a reference
+		return weaponInstance

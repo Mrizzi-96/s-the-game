@@ -7,7 +7,7 @@ class_name ShootingWeapon
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _unhandled_input(_event) -> void:
-	if Input.is_action_just_pressed("act") && Global.active_leg.name == "RightLeg":
+	if Input.is_action_just_pressed("switch"):
 		act()
 
 func act() -> void:
