@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://benl0845mu8x2"]
+
+[ext_resource type="Script" path="res://Resources/Items/item_data.gd" id="1_4n7uk"]
+[ext_resource type="Texture2D" uid="uid://pl5rq385ep8" path="res://Weapons/Assets/knife.png" id="2_x02a4"]
+
+[resource]
+script = ExtResource("1_4n7uk")
+type = 3
+name = "knife"
+description = "A basic knife. Small damage, high movement.
+It propels you forward for a small distance. "
+texture = ExtResource("2_x02a4")
+price = 100

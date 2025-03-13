@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cfe4ld0lhwfgr"]
+
+[ext_resource type="Script" path="res://Resources/Items/item_data.gd" id="1_lj5jm"]
+[ext_resource type="Texture2D" uid="uid://codmtju3y4ckq" path="res://Weapons/Assets/smg.png" id="2_otx04"]
+
+[resource]
+script = ExtResource("1_lj5jm")
+type = 3
+name = "SMG"
+description = "High fire rate, low damage.
+Small recoil"
+texture = ExtResource("2_otx04")
+price = 200

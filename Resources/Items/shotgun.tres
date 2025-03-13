@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ckovpwherkt3b"]
+
+[ext_resource type="Script" path="res://Resources/Items/item_data.gd" id="1_5gx2x"]
+[ext_resource type="Texture2D" uid="uid://dawghkj06ihjk" path="res://Weapons/Assets/shotgun.png" id="2_wkhk3"]
+
+[resource]
+script = ExtResource("1_5gx2x")
+type = 3
+name = "Shotgun"
+description = "A basic shotgun.
+High power, fires in a small area in front of you.
+High recoil."
+texture = ExtResource("2_wkhk3")
+price = 500

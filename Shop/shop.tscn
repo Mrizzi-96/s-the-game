@@ -1,21 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://domdmetpninmx"]
+[gd_scene load_steps=3 format=3 uid="uid://domdmetpninmx"]
 
-[ext_resource type="Theme" uid="uid://dbmbbfa2dj733" path="res://UI/Themes/arena_choice.tres" id="1_gv8eu"]
-[ext_resource type="LabelSettings" uid="uid://cmgl7sm2k83h3" path="res://UI/Themes/TitleLabelSettings.tres" id="2_0oas0"]
-[ext_resource type="PackedScene" uid="uid://sbi55htjegl2" path="res://Shop/item_card.tscn" id="3_s1w5a"]
+[ext_resource type="Script" path="res://Shop/shop_manager.gd" id="1_8dvge"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2i8xi"]
-bg_color = Color(0.227451, 0.333333, 0.376471, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3cj6m"]
+bg_color = Color(0.223529, 0.184314, 0.298039, 1)
 
 [node name="Shop" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -1.0
-offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8dvge")
+metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -26,83 +24,47 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.258824, 0.258824, 0.258824, 1)
 
-[node name="MainContainer" type="VBoxContainer" parent="."]
+[node name="MainContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TitleWrapper" type="Control" parent="MainContainer"]
-custom_minimum_size = Vector2(100, 200)
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="Title" type="Label" parent="MainContainer/TitleWrapper"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0390625
-anchor_top = 0.28
-anchor_right = 0.267708
-anchor_bottom = 0.72
-grow_vertical = 2
-theme = ExtResource("1_gv8eu")
-theme_override_font_sizes/font_size = 64
-text = "Shop (wave N)"
-label_settings = ExtResource("2_0oas0")
 metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="MainContainer/TitleWrapper"]
-layout_mode = 0
-offset_left = 1468.0
-offset_top = 56.0
-offset_right = 1858.0
-offset_bottom = 144.0
-text = "Coins: 12000"
-label_settings = ExtResource("2_0oas0")
 
 [node name="MarginContainer" type="MarginContainer" parent="MainContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Panel3" type="PanelContainer" parent="MainContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_3cj6m")
+
+[node name="ShopGrid" type="GridContainer" parent="MainContainer/MarginContainer/VBoxContainer/Panel3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 270
+theme_override_constants/v_separation = 300
+columns = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 70
 theme_override_constants/margin_bottom = 50
 
-[node name="ShopItemsContainer" type="HBoxContainer" parent="MainContainer/MarginContainer"]
+[node name="Panel" type="Panel" parent="MainContainer/MarginContainer2"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-theme_override_constants/separation = 70
-
-[node name="ItemCard" parent="MainContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("3_s1w5a")]
-layout_mode = 2
-
-[node name="ItemCard2" parent="MainContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("3_s1w5a")]
-layout_mode = 2
-
-[node name="ItemCard3" parent="MainContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("3_s1w5a")]
-layout_mode = 2
-
-[node name="ItemCard4" parent="MainContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("3_s1w5a")]
-layout_mode = 2
-
-[node name="ItemCard5" parent="MainContainer/MarginContainer/ShopItemsContainer" instance=ExtResource("3_s1w5a")]
-layout_mode = 2
-
-[node name="Inventory" type="MarginContainer" parent="MainContainer"]
-custom_minimum_size = Vector2(0, 269.17)
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_constants/margin_left = 70
-theme_override_constants/margin_right = 70
-
-[node name="Panel" type="Panel" parent="MainContainer/Inventory"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2i8xi")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="MainContainer/Inventory"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Your items"
-label_settings = ExtResource("2_0oas0")

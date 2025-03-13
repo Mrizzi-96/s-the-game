@@ -17,9 +17,9 @@ func _ready():
 	
 	var weapon_dir = "res://Weapons/"
 	scan_directory(weapon_dir)
-	print(weapons)  # Debug: Check the generated dictionary
+	#print(weapons)  # Debug: Check the generated dictionary
 
-func _process(delta):
+func _process(_delta):
 	# TODO: after wave completed, goto random scene
 	if Input.is_key_pressed(KEY_SPACE):
 		load_random_arena_scene()
