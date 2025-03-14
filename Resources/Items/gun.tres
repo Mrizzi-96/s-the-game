@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://t6h8xeh2f1b8"]
 
-[ext_resource type="Script" path="res://Resources/Items/item_data.gd" id="1_dhn6n"]
+[ext_resource type="Script" path="res://Resources/item_data.gd" id="1_dhn6n"]
 [ext_resource type="Texture2D" uid="uid://c7vgqocop427e" path="res://Weapons/Assets/pistol.png" id="2_7660e"]
 
 [resource]
