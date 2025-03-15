@@ -23,3 +23,4 @@ MarginContainer/constants/margin_top = 10
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_hxxs8")
 PanelInner/base_type = &"PanelContainer"
 PanelInner/styles/panel = SubResource("StyleBoxFlat_l30vv")
+TabContainer/font_sizes/font_size = 48
