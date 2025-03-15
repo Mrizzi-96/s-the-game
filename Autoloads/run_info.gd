@@ -9,11 +9,6 @@ const ITEMDATA_DIR_PATH : String = "res://Resources/Items/"
 func _ready():
 	populate_items()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func populate_items() -> void:
 	for i in DirAccess.get_files_at(ITEMDATA_DIR_PATH):
 		var item = ResourceLoader.load(ITEMDATA_DIR_PATH + i) as ItemData
