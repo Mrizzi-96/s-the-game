@@ -3,14 +3,6 @@ extends ShootingWeapon
 @export var shooting_angle = 30
 @export var bullet_number = 8
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func spawn_bullet() -> void:
 	for i in range(bullet_number): # Spawn bullets
 		var bullet = player_bullet.instantiate()

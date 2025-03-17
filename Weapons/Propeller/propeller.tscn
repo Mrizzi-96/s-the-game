@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwddr5r2lv0u2"]
+
+[ext_resource type="PackedScene" uid="uid://cf6ymy1cigvxm" path="res://Weapons/SlashingWeaponBase/slashing_weapon_base.tscn" id="1_ov2kn"]
+[ext_resource type="Script" path="res://Weapons/Propeller/propeller.gd" id="2_cr344"]
+[ext_resource type="Texture2D" uid="uid://deqd50oy7501" path="res://Weapons/Assets/propeller.png" id="3_f06oe"]
+
+[node name="RigidBody2D" instance=ExtResource("1_ov2kn")]
+script = ExtResource("2_cr344")
+slash_strength = 2500
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("3_f06oe")
