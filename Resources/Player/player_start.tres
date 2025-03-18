@@ -6,10 +6,10 @@
 
 [resource]
 script = ExtResource("1_nknpw")
-player_gold = 1000
-player_inventory = Array[Resource("res://Resources/item_data.gd")]([ExtResource("1_dnubm"), ExtResource("2_xem2t")])
-player_equipment = {
-"LeftLeg": "slashing_weapon_base",
+gold = 1000
+inventory = Array[Resource("res://Resources/item_data.gd")]([ExtResource("1_dnubm"), ExtResource("2_xem2t")])
+equipment = {
+"LeftLeg": "knife",
 "RightLeg": "gun"
 }
-health = 0
+health = 100
