@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cahh0h2e3psrk"]
+
+[ext_resource type="Script" path="res://Resources/item_data.gd" id="1_p6y00"]
+[ext_resource type="Texture2D" uid="uid://deqd50oy7501" path="res://Weapons/Assets/propeller.png" id="2_vve1b"]
+
+[resource]
+script = ExtResource("1_p6y00")
+type = 3
+name = "Propeller"
+description = "A small propeller, scavenged from a crusty old boat. 
+Works very well as a blender! "
+texture = ExtResource("2_vve1b")
+price = 200

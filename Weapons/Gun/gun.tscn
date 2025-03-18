@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp3tpm4t2y07g"]
+
+[ext_resource type="PackedScene" uid="uid://j0sro5m3nwys" path="res://Weapons/ShootingWeaponBase/shooting_weapon_base.tscn" id="1_7roiq"]
+
+[node name="RigidBody2D" instance=ExtResource("1_7roiq")]
