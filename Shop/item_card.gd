@@ -19,19 +19,20 @@ func init(item: ItemData, cms : Vector2):
 	# set price
 	item_price.set_text(str(item_data.price))
 	# disable buy button if player has not enough money
-	buy_button.disabled = item_data.price > RunInfo.player_gold
+	buy_button.disabled = item_data.price > RunInfo.player_data.gold
 		
 
 func buy():
-	if item_data.price > RunInfo.player_gold:
+	var player_gold = RunInfo.player_data.gold
+	if item_data.price > player_gold:
 		print("NOT ABLE TO BUY")
 	else:
 		# remove item price from player gold
-		RunInfo.player_gold = RunInfo.player_gold - item_data.price
-		if	RunInfo.player_gold < 0:
-			RunInfo.player_gold = 0
+		RunInfo.player_data.gold = player_gold - item_data.price
+		if	RunInfo.player_data.gold < 0:
+			RunInfo.player_data.gold = 0
 			
-		# TODO: add to RunInfo player_inventory
-		 
+		# add to RunInfo player_inventory
+		RunInfo.player_data.add_to_inventory(item_data)
 		# remove card from shop
 		queue_free()
