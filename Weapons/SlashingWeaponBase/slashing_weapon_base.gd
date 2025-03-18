@@ -3,6 +3,7 @@ extends RigidBody2D
 class_name SlashingWeapon
 
 @export var slash_strength = 5000
+@export var item_data : ItemData
 
 var knife
 # Called every frame. 'delta' is the elapsed time since the previous frame.

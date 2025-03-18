@@ -4,6 +4,7 @@ class_name ShootingWeapon
 
 @export var player_bullet : PackedScene
 @export var recoil_force = 2000
+@export var item_data : ItemData
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
