@@ -34,5 +34,6 @@ func buy():
 			
 		# add to RunInfo player_inventory
 		RunInfo.player_data.add_to_inventory(item_data)
+		# TODO: refresh shop inventory, maybe use signal item_bought?
 		# remove card from shop
 		queue_free()

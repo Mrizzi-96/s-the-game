@@ -26,3 +26,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+
+func _on_resume_button_pressed():
+	Global.goto_scene("res://ArenaChoice/arena_choice.tscn")
