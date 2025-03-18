@@ -16,10 +16,10 @@ func _ready():
 	timer_started = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if Global.enemyNum <= 0 && first_wave_spawned && !timer_started:
 		if Global.wave > arena_waves:
-			Global.goto_scene("res://ArenaChoice/arena_choice.tscn")
+			Global.goto_scene("res://Shop/shop.tscn")
 		Global.wave += 1
 		$Timer.start()
 		timer_started = true
