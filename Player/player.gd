@@ -21,19 +21,29 @@ signal game_ended
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.active_leg = left_leg
-	# setup to max value
-	health_bar.value = health_bar.max_value
+	if not RunInfo.ready:
+		await ready
+	# each time we instantiate the player, we use the RunInfo's player data to build it
+	# this way, we always have a snapshot of the player at the time he leaves a shop scene (i.e. current gold, weapons, equipment etc.)
+	_setup(RunInfo.player_data)
+	
 	is_game_over = false
-	right_leg_weapon = equipWeapon("shooting_weapon_base", "RightLeg")
-	left_leg_weapon = equipWeapon("slashing_weapon_base", "LeftLeg")
+
+func _setup(player_data : PlayerData):
+	# setup health 
+	health_bar.value = player_data.health
+	# setup right weapon and left weapon to equipment
+	left_leg_weapon = equipWeapon(player_data.equipment["LeftLeg"], "LeftLeg")
+	right_leg_weapon = equipWeapon(player_data.equipment["RightLeg"], "RightLeg")
+	# TODO: setup money?
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	_smoothed_mouse_pos = lerp(_smoothed_mouse_pos, get_global_mouse_position(), 0.25)
 	# make selected leg look at mouse pos
 	Global.active_leg.look_at(_smoothed_mouse_pos)
 	
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("act"):
 		if Global.active_leg != left_leg:
 			# left click ==> left leg
@@ -65,6 +75,13 @@ func equipWeapon(weapon: String, leg:String):
 		for child in legNode.get_children():
 			child.queue_free()
 		legNode.add_child(weaponInstance)
+		
+		# get weaponInstance's ItemData and add it to the player inventory (if not already in)
+		# WARNING: may not allow duplicate types!
+		var weapon_item_data = weaponInstance.item_data
+		RunInfo.player_data.add_to_inventory(weapon_item_data)
+		# add leg and weapon to player_equipment
+		RunInfo.player_data.add_to_equipment(leg, weaponInstance.item_data)
 		weaponInstance.position = Vector2.ZERO
 		# return weapon instance to have a reference
 		return weaponInstance
