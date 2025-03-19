@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://domdmetpninmx"]
+[gd_scene load_steps=4 format=3 uid="uid://domdmetpninmx"]
 
 [ext_resource type="Script" path="res://Shop/shop_manager.gd" id="1_8dvge"]
 [ext_resource type="Theme" uid="uid://5asui76h3ng0" path="res://UI/Themes/shop_theme.tres" id="2_codet"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t6o7f"]
+font_size = 48
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -92,6 +95,12 @@ theme_override_constants/margin_bottom = 50
 
 [node name="PanelContainer" type="PanelContainer" parent="MainContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Equipment overview"
+label_settings = SubResource("LabelSettings_t6o7f")
 
 [node name="MarginContainer" type="MarginContainer" parent="MainContainer/VBoxContainer"]
 layout_mode = 2

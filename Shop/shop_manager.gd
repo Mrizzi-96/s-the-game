@@ -11,9 +11,10 @@ func _ready():
 	# populate shop
 	for i in RunInfo.items.size():
 		var instCardScn = card_base_scene.instantiate() as ItemShopCard
+		instCardScn.connect("item_bought", add_inventory_card)
 		instCardScn.init(RunInfo.items[i], Vector2(128,128))
 		%ShopGrid.add_child(instCardScn)
-		
+	
 	# do the same for player inventory
 	for i in player_data.inventory.size():
 		var invCard = inv_card_scene.instantiate() as InventoryCard
@@ -21,7 +22,11 @@ func _ready():
 		%InventoryGrid.add_child(invCard)
 
 
-
+func add_inventory_card(item_data : ItemData):
+	# add a new inventory card
+	var invCard = inv_card_scene.instantiate() as InventoryCard
+	invCard.init(item_data, Vector2(128,128))
+	%InventoryGrid.add_child(invCard)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

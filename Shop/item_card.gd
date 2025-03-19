@@ -7,6 +7,8 @@ var item_data : ItemData
 @onready var item_price = %ItemPrice
 @onready var buy_button : Button = %BuyButton
 
+signal item_bought(item_data: ItemData)
+
 func init(item: ItemData, cms : Vector2):
 	if not is_node_ready():
 		await ready
@@ -34,6 +36,7 @@ func buy():
 			
 		# add to RunInfo player_inventory
 		RunInfo.player_data.add_to_inventory(item_data)
-		# TODO: refresh shop inventory, maybe use signal item_bought?
+		# tell shop manager to instantiate a new inventory card
+		item_bought.emit(item_data)
 		# remove card from shop
 		queue_free()
