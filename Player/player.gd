@@ -81,7 +81,7 @@ func equipWeapon(weapon: String, leg:String):
 		var weapon_item_data = weaponInstance.item_data
 		RunInfo.player_data.add_to_inventory(weapon_item_data)
 		# add leg and weapon to player_equipment
-		RunInfo.player_data.add_to_equipment(leg, weaponInstance.item_data)
+		RunInfo.player_data.add_to_equipment(leg, weaponInstance.item_data.name)
 		weaponInstance.position = Vector2.ZERO
 		# return weapon instance to have a reference
 		return weaponInstance
