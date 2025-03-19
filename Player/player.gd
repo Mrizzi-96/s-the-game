@@ -62,6 +62,8 @@ func toggle_active_leg():
 
 func player_hit(amount):
 	health_bar.value -= amount
+	# when player is hit, update player_data health value
+	RunInfo.player_data.health = health_bar.value
 	if health_bar.value <= 0:
 		health_bar.value = 0
 		is_game_over = true
