@@ -46,4 +46,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Play" to="." method="_start_game"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Quit" to="." method="quit"]
