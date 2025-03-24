@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://sajg2kokf874"]
+[gd_scene load_steps=7 format=3 uid="uid://sajg2kokf874"]
 
 [ext_resource type="Script" path="res://Levels/arena_global.gd" id="1_fh0qs"]
 [ext_resource type="PackedScene" uid="uid://c0p3intqprtut" path="res://Levels/Assets/tilemap.tscn" id="1_iyaas"]
 [ext_resource type="PackedScene" uid="uid://digawdek3m2tg" path="res://Enemies/Spawner/enemy_spawner.tscn" id="2_1u3vl"]
 [ext_resource type="PackedScene" uid="uid://fxwfnc2es8rl" path="res://Enemies/JumpingBurger/jumping_burger.tscn" id="4_gy616"]
 [ext_resource type="PackedScene" uid="uid://bq88ved7wpcvg" path="res://Player/player_spawner.tscn" id="4_roijp"]
+[ext_resource type="PackedScene" uid="uid://b10oqhb1x1fnm" path="res://Enemies/FlyingFry/flying_fry.tscn" id="6_eo05g"]
 
 [node name="Arena1" type="Node2D"]
 script = ExtResource("1_fh0qs")
@@ -30,5 +31,6 @@ autostart = true
 
 [node name="enemySpawner4" parent="." instance=ExtResource("2_1u3vl")]
 position = Vector2(713, 410)
+enemyToSpawn = ExtResource("6_eo05g")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
