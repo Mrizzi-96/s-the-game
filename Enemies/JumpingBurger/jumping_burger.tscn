@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://fxwfnc2es8rl"]
+
+[ext_resource type="PackedScene" uid="uid://b1nqhlplo7v6l" path="res://Enemies/BaseEnemy/enemy_base.tscn" id="1_v26io"]
+[ext_resource type="Script" path="res://Enemies/JumpingBurger/jumping_burger.gd" id="2_m5iqq"]
+
+[node name="enemyBase" instance=ExtResource("1_v26io")]
+script = ExtResource("2_m5iqq")
+
+[node name="RigidBody2D" parent="." index="0"]
+mass = 0.4
+gravity_scale = 0.5
+max_contacts_reported = 1
+contact_monitor = true
+
+[connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]
