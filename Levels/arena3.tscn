@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bijkv5ehs84ck"]
+[gd_scene load_steps=7 format=3 uid="uid://bijkv5ehs84ck"]
 
 [ext_resource type="Script" path="res://Levels/arena_global.gd" id="1_aw6xw"]
 [ext_resource type="PackedScene" uid="uid://c0p3intqprtut" path="res://Levels/Assets/tilemap.tscn" id="1_i7gjn"]
 [ext_resource type="PackedScene" uid="uid://digawdek3m2tg" path="res://Enemies/Spawner/enemy_spawner.tscn" id="3_0gbxs"]
 [ext_resource type="PackedScene" uid="uid://bq88ved7wpcvg" path="res://Player/player_spawner.tscn" id="4_a0m8i"]
+[ext_resource type="PackedScene" uid="uid://fxwfnc2es8rl" path="res://Enemies/JumpingBurger/jumping_burger.tscn" id="5_y11k1"]
+[ext_resource type="PackedScene" uid="uid://b10oqhb1x1fnm" path="res://Enemies/FlyingFry/flying_fry.tscn" id="6_skhhi"]
 
 [node name="Arena3" type="Node2D"]
 script = ExtResource("1_aw6xw")
@@ -17,14 +19,27 @@ layer_1/tile_data = PackedInt32Array(-131058, 1, 9, -196594, 1, 9, -262130, 1, 9
 position = Vector2(619, 90)
 
 [node name="enemySpawner" parent="." instance=ExtResource("3_0gbxs")]
-position = Vector2(286, 460)
+position = Vector2(348, 531)
+enemyToSpawn = ExtResource("5_y11k1")
 
 [node name="enemySpawner2" parent="." instance=ExtResource("3_0gbxs")]
-position = Vector2(992, 448)
+position = Vector2(1387, 543)
+enemyToSpawn = ExtResource("5_y11k1")
 waveNumber = 2
 
 [node name="enemySpawner3" parent="." instance=ExtResource("3_0gbxs")]
-position = Vector2(624, 277)
+position = Vector2(966, 391)
+enemyToSpawn = ExtResource("6_skhhi")
+waveNumber = 3
+
+[node name="enemySpawner4" parent="." instance=ExtResource("3_0gbxs")]
+position = Vector2(1653, -220)
+enemyToSpawn = ExtResource("6_skhhi")
+waveNumber = 3
+
+[node name="enemySpawner5" parent="." instance=ExtResource("3_0gbxs")]
+position = Vector2(547, -49)
+enemyToSpawn = ExtResource("6_skhhi")
 waveNumber = 3
 
 [node name="Timer" type="Timer" parent="."]
