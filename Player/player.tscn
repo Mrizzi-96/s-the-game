@@ -45,6 +45,8 @@ hit_amount = 25
 [node name="Hips" type="RigidBody2D" parent="."]
 mass = 5.0
 physics_material_override = ExtResource("4_lmmrb")
+max_contacts_reported = 1
+contact_monitor = true
 
 [node name="Ass" type="CollisionShape2D" parent="Hips"]
 shape = SubResource("CapsuleShape2D_5w4i3")
@@ -93,3 +95,5 @@ theme_override_styles/background = SubResource("StyleBoxFlat_747sp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jg0ff")
 value = 50.0
 show_percentage = false
+
+[connection signal="body_entered" from="Hips" to="." method="_on_hips_body_entered"]

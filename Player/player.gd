@@ -51,9 +51,6 @@ func _unhandled_input(_event):
 	if Input.is_action_just_pressed("switch"):
 		if Global.active_leg != right_leg:
 			toggle_active_leg()
-	elif Input.is_key_pressed(KEY_H):
-		if !is_game_over:
-			player_hit(hit_amount) # amount will vary based on enemy
 	return 
 	
 func toggle_active_leg():
@@ -87,3 +84,9 @@ func equipWeapon(weapon: String, leg:String):
 		weaponInstance.position = Vector2.ZERO
 		# return weapon instance to have a reference
 		return weaponInstance
+
+
+func _on_hips_body_entered(body):
+	if body.is_in_group("enemies"):
+		if !is_game_over:
+			player_hit(hit_amount)
