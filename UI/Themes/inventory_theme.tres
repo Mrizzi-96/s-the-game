@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bog42w88fuy3y"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bog42w88fuy3y"]
 
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_qlivw"]
+[ext_resource type="Texture2D" uid="uid://brgrvcct7gblq" path="res://Shop/Assets/weapon_equipment_empty.png" id="2_lcnjf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psfxv"]
 content_margin_left = 4.0
@@ -71,6 +72,13 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_egj2u"]
+texture = ExtResource("2_lcnjf")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
@@ -88,10 +96,11 @@ Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
 Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
-Button/font_sizes/font_size = 24
+Button/font_sizes/font_size = 12
 Button/fonts/font = ExtResource("1_qlivw")
 Button/styles/disabled = SubResource("StyleBoxFlat_psfxv")
 Button/styles/focus = SubResource("StyleBoxFlat_g1jqy")
 Button/styles/hover = SubResource("StyleBoxFlat_ycbrb")
 Button/styles/normal = SubResource("StyleBoxFlat_26l4r")
 Button/styles/pressed = SubResource("StyleBoxFlat_jtqdd")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_egj2u")

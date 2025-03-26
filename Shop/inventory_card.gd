@@ -5,24 +5,22 @@ var item_data : ItemData
 
 
 @onready var image_texture = %ImageTexture
-@onready var title :Label = %Title
 
 signal left_weapon_equipped(prev_weapon : String, next_weapon : String)
 signal right_weapon_equipped(prev_weapon : String, next_weapon : String)
 
-func init(item: ItemData, cms : Vector2):
+func init(item: ItemData):
 	if not is_node_ready():
 		await ready
 	self.item_data = item
 	add_to_group("InventoryCard")
 	
-	# set title
-	title.text = item_data.name.capitalize()
-	
 	# set image
 	image_path = item.texture.resource_path
 	image_texture.texture = item.texture
-	image_texture.custom_minimum_size = cms
+	# ignore size of image to have them all same size
+	image_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE	
+	image_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	# if equipment contains the itemdata, then disable button using key
 	if RunInfo.player_data.is_equipped("LeftLeg", item_data.name.to_lower()) or RunInfo.player_data.is_equipped("RightLeg", item_data.name.to_lower()):
 		disable_buttons()

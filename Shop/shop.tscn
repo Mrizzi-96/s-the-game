@@ -61,8 +61,6 @@ theme = ExtResource("2_codet")
 
 [node name="Shop" type="TabBar" parent="MainContainer/MarginContainer/TabContainer"]
 layout_mode = 2
-theme = ExtResource("2_codet")
-clip_tabs = false
 
 [node name="ShopGrid" type="GridContainer" parent="MainContainer/MarginContainer/TabContainer/Shop"]
 unique_name_in_owner = true
@@ -80,6 +78,7 @@ columns = 4
 [node name="Inventory" type="TabBar" parent="MainContainer/MarginContainer/TabContainer"]
 visible = false
 layout_mode = 2
+theme = ExtResource("2_codet")
 
 [node name="InventoryGrid" type="GridContainer" parent="MainContainer/MarginContainer/TabContainer/Inventory"]
 unique_name_in_owner = true
@@ -89,8 +88,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 270
-theme_override_constants/v_separation = 300
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
 columns = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
@@ -134,13 +133,16 @@ theme_override_constants/separation = 50
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("4_los8e")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="LeftLegPreviewPanel" type="PanelContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer/TextureRect"]
-layout_mode = 0
-anchor_left = -0.00811688
-anchor_top = 0.794239
-anchor_right = 0.387987
-anchor_bottom = 1.00686
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00974026
+anchor_top = 0.794355
+anchor_right = 0.396104
+anchor_bottom = 1.00672
 theme_override_styles/panel = SubResource("StyleBoxTexture_2s1ta")
 metadata/_edit_use_anchors_ = true
 
@@ -181,6 +183,7 @@ layout_mode = 2
 
 [node name="ResumeButton" type="Button" parent="MainContainer/VBoxContainer/MarginContainer/PanelContainer2"]
 layout_mode = 2
+theme = ExtResource("2_codet")
 theme_override_font_sizes/font_size = 48
 text = "Next"
 

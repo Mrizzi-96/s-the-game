@@ -22,7 +22,7 @@ func _ready():
 	# do the same for player inventory
 	for i in player_data.inventory.size():
 		var invCard = inv_card_scene.instantiate() as InventoryCard
-		invCard.init(player_data.inventory[i], Vector2(128,128))
+		invCard.init(player_data.inventory[i])
 		# connect to signals	
 		invCard.left_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("LeftLeg"))
 		invCard.right_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("RightLeg"))
@@ -35,7 +35,7 @@ func _ready():
 func add_inventory_card(item_data : ItemData):
 	# add a new inventory card
 	var invCard = inv_card_scene.instantiate() as InventoryCard
-	invCard.init(item_data, Vector2(128,128))
+	invCard.init(item_data)
 	# connect to signals
 	invCard.left_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("LeftLeg"))
 	invCard.right_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("RightLeg"))
