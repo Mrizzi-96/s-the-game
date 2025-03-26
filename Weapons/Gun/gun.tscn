@@ -7,6 +7,5 @@
 
 [node name="WeaponSprite" parent="." index="1"]
 texture_filter = 1
-rotation = -1.5708
 scale = Vector2(1, 1)
 texture = ExtResource("2_5hvlo")
