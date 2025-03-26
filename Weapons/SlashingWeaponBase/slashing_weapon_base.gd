@@ -6,6 +6,11 @@ class_name SlashingWeapon
 @export var item_data : ItemData
 
 var knife
+
+func _ready():
+	# set this item's sprite to item_data.texture
+	%WeaponSprite.texture  = item_data.texture
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _unhandled_input(_event) -> void:
 	if Input.is_action_just_pressed("act"):

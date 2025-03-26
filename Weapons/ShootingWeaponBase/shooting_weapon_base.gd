@@ -6,6 +6,10 @@ class_name ShootingWeapon
 @export var recoil_force = 2000
 @export var item_data : ItemData
 
+func _ready():
+	# set this item's sprite to item_data.texture
+	%WeaponSprite.texture  = item_data.texture
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
 	if Global.active_leg == $"../..":  # Ensures only active weapon processes input

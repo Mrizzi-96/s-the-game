@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf6ymy1cigvxm"]
 
 [ext_resource type="Script" path="res://Weapons/SlashingWeaponBase/slashing_weapon_base.gd" id="1_8ds5h"]
-[ext_resource type="Texture2D" uid="uid://pl5rq385ep8" path="res://Weapons/Assets/knife.png" id="2_b3wkg"]
+[ext_resource type="Texture2D" uid="uid://bfmwawfl1ar5s" path="res://Weapons/Assets/knife.png" id="2_b3wkg"]
 [ext_resource type="Resource" uid="uid://benl0845mu8x2" path="res://Resources/Items/knife.tres" id="2_tr6vg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bl7iy"]
@@ -22,9 +22,9 @@ rotation = 1.5708
 scale = Vector2(0.56, 0.6)
 shape = SubResource("CapsuleShape2D_bl7iy")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, 1)
-scale = Vector2(0.15, 0.15)
+[node name="WeaponSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+rotation = -1.5708
 texture = ExtResource("2_b3wkg")
 
 [node name="Direction" type="Marker2D" parent="."]
