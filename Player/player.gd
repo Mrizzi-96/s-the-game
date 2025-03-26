@@ -90,3 +90,7 @@ func _on_hips_body_entered(body):
 	if body.is_in_group("enemies"):
 		if !is_game_over:
 			player_hit(hit_amount)
+
+func _physics_process(delta):
+	if $Hips.linear_velocity.length() > max_speed:
+		$Hips.linear_velocity = $Hips.linear_velocity.normalized() * max_speed
