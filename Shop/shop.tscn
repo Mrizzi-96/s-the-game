@@ -108,6 +108,7 @@ label_settings = SubResource("LabelSettings_t6o7f")
 [node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 50
 
 [node name="LeftLegWeaponPreview" type="TextureRect" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
