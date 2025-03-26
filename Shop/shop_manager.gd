@@ -16,7 +16,7 @@ func _ready():
 		if not player_data.is_in_inventory(current_item):
 			var instCardScn = card_base_scene.instantiate() as ItemShopCard
 			instCardScn.connect("item_bought", add_inventory_card)
-			instCardScn.init(current_item, Vector2(128,128))
+			instCardScn.init(current_item)
 			%ShopGrid.add_child(instCardScn)
 	
 	# do the same for player inventory

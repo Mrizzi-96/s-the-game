@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://domdmetpninmx"]
+[gd_scene load_steps=5 format=3 uid="uid://domdmetpninmx"]
 
 [ext_resource type="Script" path="res://Shop/shop_manager.gd" id="1_8dvge"]
 [ext_resource type="Theme" uid="uid://5asui76h3ng0" path="res://UI/Themes/shop_theme.tres" id="2_codet"]
+[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="3_immxx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t6o7f"]
-font_size = 48
+font = ExtResource("3_immxx")
+font_size = 32
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -59,10 +61,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 270
-theme_override_constants/v_separation = 300
+theme = ExtResource("2_codet")
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 30
 columns = 4
-metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" type="TabBar" parent="MainContainer/MarginContainer/TabContainer"]
 visible = false
@@ -99,7 +101,11 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 400
 
-[node name="Label" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_codet")
+
+[node name="Label" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Equipment overview"
