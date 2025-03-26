@@ -52,6 +52,8 @@ func scan_directory(path: String):
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
+			if file_name.ends_with(".remap"):
+				file_name = file_name.replace(".remap", "")
 			if file_name != "." and file_name != "..":
 				var entry_path = path + file_name
 				if dir.current_is_dir():

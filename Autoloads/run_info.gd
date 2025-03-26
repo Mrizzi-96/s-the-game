@@ -15,5 +15,7 @@ func _ready():
 
 func populate_items() -> void:
 	for i in DirAccess.get_files_at(ITEMDATA_DIR_PATH):
+		if i.ends_with(".remap"):
+			i = i.replace(".remap", "")
 		var item = ResourceLoader.load(ITEMDATA_DIR_PATH + i) as ItemData
 		items.append(item)
