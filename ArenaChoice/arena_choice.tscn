@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4yvx7bjrrwf0"]
+[gd_scene load_steps=6 format=3 uid="uid://c4yvx7bjrrwf0"]
 
 [ext_resource type="Script" path="res://ArenaChoice/arena_choice.gd" id="1_avw62"]
 [ext_resource type="Theme" uid="uid://dbmbbfa2dj733" path="res://UI/Themes/arena_choice.tres" id="1_ujjqg"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_jwqyf"]
-font_size = 90
+[ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_nsak1"]
+[ext_resource type="LabelSettings" uid="uid://cmgl7sm2k83h3" path="res://UI/Themes/TitleLabelSettings.tres" id="3_xxlf5"]
+[ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="5_dgwrc"]
 
 [node name="ArenaChoice" type="Control"]
 layout_mode = 3
@@ -15,14 +15,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_avw62")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.180392, 0, 0.572549, 1)
+texture = ExtResource("2_nsak1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -36,8 +36,9 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Choose a level"
-label_settings = SubResource("LabelSettings_jwqyf")
+label_settings = ExtResource("3_xxlf5")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -77,6 +78,7 @@ custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("5_dgwrc")
 theme_override_font_sizes/font_size = 50
 text = "Main menu"
 

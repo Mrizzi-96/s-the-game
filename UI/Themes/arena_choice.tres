@@ -1,24 +1,12 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dbmbbfa2dj733"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dbmbbfa2dj733"]
 
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_ldmqw"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pp3n"]
-bg_color = Color(0.560784, 0.431373, 0.215686, 0.811765)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75moy"]
-bg_color = Color(0.815686, 0.654902, 0.384314, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gng2o"]
-bg_color = Color(0.682353, 0.533333, 0.282353, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ff2m8"]
-bg_color = Color(0.72549, 0.572549, 0.309804, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_03gkf"]
-bg_color = Color(0.72549, 0.572549, 0.309804, 1)
+[ext_resource type="StyleBox" uid="uid://c1yc6quufg5xg" path="res://UI/Themes/arena_choice_panel.tres" id="2_4sshk"]
+[ext_resource type="StyleBox" uid="uid://csf2dl2y2ocqr" path="res://UI/Themes/arena_choice_panel__hover.tres" id="2_wapbl"]
+[ext_resource type="StyleBox" uid="uid://c4nif31x3b6vj" path="res://UI/Themes/arena_choice_panel__pressed.tres" id="3_shyc4"]
 
 [resource]
-Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
@@ -36,8 +24,7 @@ Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_ldmqw")
-Button/styles/disabled = SubResource("StyleBoxFlat_2pp3n")
-Button/styles/focus = SubResource("StyleBoxFlat_75moy")
-Button/styles/hover = SubResource("StyleBoxFlat_gng2o")
-Button/styles/normal = SubResource("StyleBoxFlat_ff2m8")
-Button/styles/pressed = SubResource("StyleBoxFlat_03gkf")
+Button/styles/focus = ExtResource("2_wapbl")
+Button/styles/hover = ExtResource("2_wapbl")
+Button/styles/normal = ExtResource("2_4sshk")
+Button/styles/pressed = ExtResource("3_shyc4")
