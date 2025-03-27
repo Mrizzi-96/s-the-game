@@ -1,50 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://hp147ctfpi5o"]
+[gd_scene load_steps=5 format=3 uid="uid://hp147ctfpi5o"]
 
 [ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_s46ob"]
+[ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_eqkuv"]
+[ext_resource type="Texture2D" uid="uid://2fvrehdvckub" path="res://UI/Assets/S_sprites_title.png" id="3_bolh1"]
+[ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="4_p4kex"]
 
-[node name="MainMenu" type="MarginContainer"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 120
-theme_override_constants/margin_top = 80
-theme_override_constants/margin_right = 120
-theme_override_constants/margin_bottom = 80
 script = ExtResource("1_s46ob")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_vertical_guides_ = [958.0]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_eqkuv")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-color = Color(0.14902, 0.164706, 0.533333, 1)
+anchor_right = 1.0
+anchor_bottom = 0.498148
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.66
+texture = ExtResource("3_bolh1")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-theme_override_constants/separation = 10
+[node name="VBoxContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.472222
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="Title" type="RichTextLabel" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 60
-text = "       S - The Quest For booty"
-fit_content = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 10
+size_flags_vertical = 4
+theme_override_constants/separation = 60
 
-[node name="Play" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("4_p4kex")
 theme_override_font_sizes/font_size = 50
 text = "Play"
 
-[node name="Quit" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("4_p4kex")
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/Play" to="." method="_start_game"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/Quit" to="." method="quit"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Play" to="." method="_start_game"]

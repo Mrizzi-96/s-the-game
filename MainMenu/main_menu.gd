@@ -1,7 +1,7 @@
-extends MarginContainer
+extends Control
 
-@onready var play = $VBoxContainer/VBoxContainer/Play
-@onready var quit = $VBoxContainer/VBoxContainer/Quit
+@onready var play = %Play
+@onready var quit = %Quit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
