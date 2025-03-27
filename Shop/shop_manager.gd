@@ -38,7 +38,6 @@ func _ready():
 	# set player gold
 	player_gold.text = str(player_data.gold)
 	# set wave num
-	Global.wave
 
 func add_inventory_card(item_data : ItemData):
 	# update player_gold

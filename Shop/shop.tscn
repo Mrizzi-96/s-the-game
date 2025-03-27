@@ -70,15 +70,18 @@ theme = ExtResource("2_codet")
 [node name="ShopGrid" type="GridContainer" parent="MainContainer/MarginContainer/TabContainer/Shop"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.0792997
+anchor_top = 0.0757576
+anchor_right = 0.9207
+anchor_bottom = 0.924242
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_codet")
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
 columns = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Inventory" type="Control" parent="MainContainer/MarginContainer/TabContainer"]
 visible = false
@@ -88,14 +91,16 @@ theme = ExtResource("2_codet")
 [node name="InventoryGrid" type="GridContainer" parent="MainContainer/MarginContainer/TabContainer/Inventory"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.0792997
+anchor_top = 0.0735931
+anchor_right = 0.9207
+anchor_bottom = 0.922078
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
-columns = 4
+columns = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
 layout_mode = 2
