@@ -141,10 +141,12 @@ stretch_mode = 5
 [node name="LeftLegPreviewPanel" type="PanelContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer/TextureRect"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0243506
-anchor_top = 0.791907
-anchor_right = 0.402597
-anchor_bottom = 1.00867
+anchor_left = 0.0626577
+anchor_top = 0.795
+anchor_right = 0.408054
+anchor_bottom = 1.00649
+offset_left = 0.319996
+offset_top = -0.150024
 theme_override_styles/panel = SubResource("StyleBoxTexture_2s1ta")
 metadata/_edit_use_anchors_ = true
 
@@ -158,10 +160,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="RightLegPreviewPanel" type="PanelContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer/TextureRect"]
 layout_mode = 2
-anchor_left = 0.595779
-anchor_top = 0.794239
-anchor_right = 1.00812
-anchor_bottom = 1.00823
+anchor_left = 0.591946
+anchor_top = 0.794805
+anchor_right = 0.936913
+anchor_bottom = 1.00649
 theme_override_styles/panel = SubResource("StyleBoxTexture_2s1ta")
 metadata/_edit_use_anchors_ = true
 
@@ -173,76 +175,64 @@ texture = ExtResource("5_15xmb")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MarginContainer3" type="MarginContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/MarginContainer3"]
+[node name="CenterContainer" type="MarginContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/MarginContainer3/HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.6
 texture = ExtResource("7_kfh3s")
-expand_mode = 1
-stretch_mode = 5
 
-[node name="PlayerGold" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/MarginContainer3/HBoxContainer/TextureRect"]
+[node name="PlayerGold" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2/TextureRect"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.140957
-anchor_top = 0.490385
-anchor_right = 0.478723
-anchor_bottom = 0.677885
+layout_mode = 2
+anchor_left = 0.154856
+anchor_top = 0.561538
+anchor_right = 0.467192
+anchor_bottom = 0.746154
+size_flags_horizontal = 3
 theme = ExtResource("8_hh7ca")
-text = "00000"
+text = "000000000"
 horizontal_alignment = 2
 vertical_alignment = 1
+clip_text = true
 metadata/_edit_use_anchors_ = true
 
-[node name="WaveNum" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/MarginContainer3/HBoxContainer/TextureRect"]
+[node name="Score" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2/TextureRect"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.531915
-anchor_top = 0.288462
-anchor_right = 0.957447
-anchor_bottom = 0.475962
-offset_left = -1.52588e-05
+layout_mode = 2
+anchor_left = 0.527559
+anchor_top = 0.684615
+anchor_right = 0.950131
+anchor_bottom = 0.846154
+theme = ExtResource("8_hh7ca")
+text = "Soon!"
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="WaveNum" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_left = 0.527559
+anchor_top = 0.269231
+anchor_right = 0.931759
+anchor_bottom = 0.453846
 theme = ExtResource("8_hh7ca")
 text = "Soon!"
 vertical_alignment = 2
 clip_text = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Score" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/MarginContainer3/HBoxContainer/TextureRect"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.531915
-anchor_top = 0.605769
-anchor_right = 0.957447
-anchor_bottom = 0.730769
+[node name="CenterContainer" type="CenterContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2/CenterContainer"]
+layout_mode = 2
 theme = ExtResource("8_hh7ca")
-text = "Soon!"
-vertical_alignment = 2
-metadata/_edit_use_anchors_ = true
+text = "CONTINUE"
 
-[node name="MarginContainer" type="MarginContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/MarginContainer3/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 50
-
-[node name="ResumeButton" type="Button" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_codet")
-text = "NEXT"
-
-[connection signal="pressed" from="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/MarginContainer3/HBoxContainer/MarginContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2/CenterContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

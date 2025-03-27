@@ -1,7 +1,36 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://banjow1tlw1ys"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://banjow1tlw1ys"]
 
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_jqti6"]
+[ext_resource type="StyleBox" uid="uid://cbmupyhd0c621" path="res://UI/Themes/basic_btn_panel.tres" id="1_t6ceb"]
+[ext_resource type="StyleBox" uid="uid://dtevgglhyxevy" path="res://UI/Themes/basic_btn_panel__disabled.tres" id="2_4ndf1"]
+[ext_resource type="StyleBox" uid="uid://blvxnv35cfmhp" path="res://UI/Themes/basic_btn_panel__active.tres" id="3_dhj74"]
+[ext_resource type="StyleBox" uid="uid://cqdhmu383ashn" path="res://UI/Themes/basic_btn_panel__pressed.tres" id="4_j1dle"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_slqvw"]
 
 [resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.380392, 0.380392, 0.380392, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_jqti6")
+Button/styles/disabled = ExtResource("2_4ndf1")
+Button/styles/focus = SubResource("StyleBoxEmpty_slqvw")
+Button/styles/hover = ExtResource("3_dhj74")
+Button/styles/normal = ExtResource("1_t6ceb")
+Button/styles/pressed = ExtResource("4_j1dle")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_jqti6")
