@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://domdmetpninmx"]
+[gd_scene load_steps=12 format=3 uid="uid://domdmetpninmx"]
 
 [ext_resource type="Script" path="res://Shop/shop_manager.gd" id="1_8dvge"]
+[ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_4gnlw"]
 [ext_resource type="Theme" uid="uid://5asui76h3ng0" path="res://UI/Themes/shop_theme.tres" id="2_codet"]
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="3_immxx"]
 [ext_resource type="Texture2D" uid="uid://h8xlu34vf17b" path="res://Shop/Assets/equipment bg.png" id="4_los8e"]
@@ -30,14 +31,14 @@ grow_vertical = 2
 script = ExtResource("1_8dvge")
 metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.196078, 0.25098, 0.403922, 1)
+texture = ExtResource("2_4gnlw")
 
 [node name="MainContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -58,11 +59,13 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="TabContainer" type="TabContainer" parent="MainContainer/MarginContainer"]
+clip_contents = true
 layout_mode = 2
 theme = ExtResource("2_codet")
 
-[node name="Shop" type="TabBar" parent="MainContainer/MarginContainer/TabContainer"]
+[node name="Shop" type="Control" parent="MainContainer/MarginContainer/TabContainer"]
 layout_mode = 2
+theme = ExtResource("2_codet")
 
 [node name="ShopGrid" type="GridContainer" parent="MainContainer/MarginContainer/TabContainer/Shop"]
 unique_name_in_owner = true
@@ -77,7 +80,7 @@ theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
 columns = 4
 
-[node name="Inventory" type="TabBar" parent="MainContainer/MarginContainer/TabContainer"]
+[node name="Inventory" type="Control" parent="MainContainer/MarginContainer/TabContainer"]
 visible = false
 layout_mode = 2
 theme = ExtResource("2_codet")
