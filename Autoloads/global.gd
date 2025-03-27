@@ -20,12 +20,13 @@ func _ready():
 	#print(weapons)  # Debug: Check the generated dictionary
 
 func _process(_delta):
-	# TODO: after wave completed, goto random scene
-	if Input.is_key_pressed(KEY_SPACE):
-		load_random_arena_scene()
-		# TODO: bind not here, but in pause menu on button pressed
-	if Input.is_key_pressed(KEY_Q):
-		goto_scene("res://MainMenu/main_menu.tscn")
+	# TODO: after wave completed, update RunInfo wave_number
+	#if Input.is_key_pressed(KEY_SPACE):
+		#load_random_arena_scene()
+		## TODO: bind not here, but in pause menu on button pressed
+	#if Input.is_key_pressed(KEY_Q):
+		#goto_scene("res://MainMenu/main_menu.tscn")
+	pass
 
 func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)

@@ -7,6 +7,10 @@ var inv_card_scene = preload("res://Shop/inventory_card.tscn")
 @onready var player_data = RunInfo.player_data
 @onready var ll_weapon_preview = %LeftLegWeaponPreview
 @onready var rl_weapon_preview = %RightLegWeaponPreview
+# stats: gold, wave num, score
+@onready var score = %Score
+@onready var wave_num = %WaveNum
+@onready var player_gold = %PlayerGold
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,12 +31,18 @@ func _ready():
 		invCard.left_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("LeftLeg"))
 		invCard.right_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("RightLeg"))
 		%InventoryGrid.add_child(invCard)
-	# load textures
+	# load preview textures
 	ll_weapon_preview.texture = player_data.inventory.filter(func(element): return sort_name(element, player_data.get_equipped("LeftLeg")))[0].texture
 	rl_weapon_preview.texture = player_data.inventory.filter(func(element): return sort_name(element, player_data.get_equipped("RightLeg")))[0].texture
-
+	
+	# set player gold
+	player_gold.text = str(player_data.gold)
+	# set wave num
+	Global.wave
 
 func add_inventory_card(item_data : ItemData):
+	# update player_gold
+	player_gold.text = str(player_data.gold)
 	# add a new inventory card
 	var invCard = inv_card_scene.instantiate() as InventoryCard
 	invCard.init(item_data)
