@@ -7,3 +7,4 @@ enum Type {ASS, LEFT_LEG, RIGHT_LEG, WEAPON}
 @export_multiline var description : String
 @export var texture : Texture2D
 @export var price: int
+@export var attack_sound : Resource

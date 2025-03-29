@@ -4,12 +4,17 @@ class_name SlashingWeapon
 
 @export var slash_strength = 5000
 @export var item_data : ItemData
+@onready var attack_sfx = %AttackSfx
 
 var knife
 
-func _ready():
+func init():
 	# set this item's sprite to item_data.texture
 	%WeaponSprite.texture  = item_data.texture
+	attack_sfx.stream = item_data.attack_sound
+	
+func _ready():
+	init()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _unhandled_input(_event) -> void:
@@ -20,6 +25,7 @@ func act() -> void:
 	add_impulse_player()
 
 func add_impulse_player():
+	attack_sfx.play()
 	$"../../../..".apply_impulse(Vector2(slash_strength, 0).rotated($"../..".global_rotation))
 
 func _on_body_entered(body) -> void:

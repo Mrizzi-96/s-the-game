@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ckovpwherkt3b"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://ckovpwherkt3b"]
 
 [ext_resource type="Script" path="res://Resources/item_data.gd" id="1_5gx2x"]
+[ext_resource type="AudioStream" uid="uid://i210kkvwm8qr" path="res://Player/Assets/SFX/gunshot_placeholder.wav" id="1_g5tob"]
 [ext_resource type="Texture2D" uid="uid://dawghkj06ihjk" path="res://Weapons/Assets/shotgun.png" id="2_wkhk3"]
 
 [resource]
@@ -12,3 +13,4 @@ High power, fires in a small area in front of you.
 High recoil."
 texture = ExtResource("2_wkhk3")
 price = 500
+attack_sound = ExtResource("1_g5tob")

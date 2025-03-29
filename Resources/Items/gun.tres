@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://t6h8xeh2f1b8"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://t6h8xeh2f1b8"]
 
+[ext_resource type="AudioStream" uid="uid://i210kkvwm8qr" path="res://Player/Assets/SFX/gunshot_placeholder.wav" id="1_adyuj"]
 [ext_resource type="Script" path="res://Resources/item_data.gd" id="1_dhn6n"]
 [ext_resource type="Texture2D" uid="uid://btrfkaxfy6e3a" path="res://Weapons/Assets/gun.png" id="2_ttfjh"]
 
@@ -11,3 +12,4 @@ description = "A small gun. Fires a single bullet.
 Propels you slightly backwards. "
 texture = ExtResource("2_ttfjh")
 price = 100
+attack_sound = ExtResource("1_adyuj")

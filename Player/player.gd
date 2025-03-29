@@ -16,6 +16,7 @@ var right_leg_weapon
 var max_rotation_speed = 10
 var is_game_over: bool
 @onready var player_gold = %PlayerGold
+@onready var sfx = %Sfx
 
 signal game_ended
 

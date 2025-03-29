@@ -35,3 +35,6 @@ texture = ExtResource("1_k6s1r")
 
 [node name="BulletSpawn" type="Marker2D" parent="."]
 position = Vector2(16, -6)
+
+[node name="AttackSfx" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
