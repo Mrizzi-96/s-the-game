@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cf6ymy1cigvxm"]
 
-[ext_resource type="Script" path="res://Weapons/SlashingWeaponBase/slashing_weapon_base.gd" id="1_8ds5h"]
+[ext_resource type="Script" uid="uid://gkvanoce7cxw" path="res://Weapons/SlashingWeaponBase/slashing_weapon_base.gd" id="1_8ds5h"]
 [ext_resource type="Texture2D" uid="uid://bfmwawfl1ar5s" path="res://Weapons/Assets/knife.png" id="2_b3wkg"]
 [ext_resource type="Resource" uid="uid://benl0845mu8x2" path="res://Resources/Items/knife.tres" id="2_tr6vg"]
 

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cfe4ld0lhwfgr"]
 
-[ext_resource type="Script" path="res://Resources/item_data.gd" id="1_lj5jm"]
+[ext_resource type="Script" uid="uid://cf5if4viigef8" path="res://Resources/item_data.gd" id="1_lj5jm"]
 [ext_resource type="Texture2D" uid="uid://codmtju3y4ckq" path="res://Weapons/Assets/smg.png" id="2_otx04"]
 
 [resource]

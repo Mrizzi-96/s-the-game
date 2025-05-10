@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://benl0845mu8x2"]
 
-[ext_resource type="Script" path="res://Resources/item_data.gd" id="1_4n7uk"]
+[ext_resource type="Script" uid="uid://cf5if4viigef8" path="res://Resources/item_data.gd" id="1_4n7uk"]
 [ext_resource type="AudioStream" uid="uid://bknf7x1ym5fgr" path="res://Player/Assets/SFX/swoosh_placeholder.wav" id="1_cijxa"]
 [ext_resource type="Texture2D" uid="uid://bfmwawfl1ar5s" path="res://Weapons/Assets/knife.png" id="2_x02a4"]
 

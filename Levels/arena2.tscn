@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b6eigfl7wckbo"]
 
-[ext_resource type="Script" path="res://Levels/arena_global.gd" id="1_qf14i"]
+[ext_resource type="Script" uid="uid://bmptw7objvigu" path="res://Levels/arena_global.gd" id="1_qf14i"]
 [ext_resource type="PackedScene" uid="uid://c0p3intqprtut" path="res://Levels/Assets/tilemap.tscn" id="1_rn81d"]
 [ext_resource type="PackedScene" uid="uid://digawdek3m2tg" path="res://Enemies/Spawner/enemy_spawner.tscn" id="3_msxao"]
 [ext_resource type="PackedScene" uid="uid://bq88ved7wpcvg" path="res://Player/player_spawner.tscn" id="4_bisrm"]

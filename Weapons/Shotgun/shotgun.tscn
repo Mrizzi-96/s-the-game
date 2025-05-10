@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dy1ckcvtrnja2"]
 
 [ext_resource type="PackedScene" uid="uid://j0sro5m3nwys" path="res://Weapons/ShootingWeaponBase/shooting_weapon_base.tscn" id="1_lgopi"]
-[ext_resource type="Script" path="res://Weapons/Shotgun/shotgun.gd" id="2_bnyxn"]
+[ext_resource type="Script" uid="uid://2ivcm15e41oy" path="res://Weapons/Shotgun/shotgun.gd" id="2_bnyxn"]
 [ext_resource type="Resource" uid="uid://ckovpwherkt3b" path="res://Resources/Items/shotgun.tres" id="3_vhnrf"]
 
 [node name="RigidBody2D" instance=ExtResource("1_lgopi")]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://sajg2kokf874"]
 
-[ext_resource type="Script" path="res://Levels/arena_global.gd" id="1_fh0qs"]
+[ext_resource type="Script" uid="uid://bmptw7objvigu" path="res://Levels/arena_global.gd" id="1_fh0qs"]
 [ext_resource type="PackedScene" uid="uid://c0p3intqprtut" path="res://Levels/Assets/tilemap.tscn" id="1_iyaas"]
 [ext_resource type="PackedScene" uid="uid://digawdek3m2tg" path="res://Enemies/Spawner/enemy_spawner.tscn" id="2_1u3vl"]
 [ext_resource type="PackedScene" uid="uid://fxwfnc2es8rl" path="res://Enemies/JumpingBurger/jumping_burger.tscn" id="4_gy616"]

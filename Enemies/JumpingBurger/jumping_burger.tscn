@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://fxwfnc2es8rl"]
 
 [ext_resource type="PackedScene" uid="uid://b1nqhlplo7v6l" path="res://Enemies/BaseEnemy/enemy_base.tscn" id="1_v26io"]
-[ext_resource type="Script" path="res://Enemies/JumpingBurger/jumping_burger.gd" id="2_m5iqq"]
+[ext_resource type="Script" uid="uid://ectrfmbnpfh0" path="res://Enemies/JumpingBurger/jumping_burger.gd" id="2_m5iqq"]
 
 [node name="enemyBase" instance=ExtResource("1_v26io")]
 script = ExtResource("2_m5iqq")

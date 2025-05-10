@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://sbi55htjegl2"]
 
 [ext_resource type="Theme" uid="uid://5asui76h3ng0" path="res://UI/Themes/shop_theme.tres" id="1_d1a0i"]
-[ext_resource type="Script" path="res://Shop/item_card.gd" id="1_fawm4"]
+[ext_resource type="Script" uid="uid://cje4jsubt86dq" path="res://Shop/item_card.gd" id="1_fawm4"]
 [ext_resource type="Texture2D" uid="uid://doht6hbbf3jqb" path="res://Shop/Assets/weapon_card_coin.png" id="4_ncpw2"]
 [ext_resource type="LabelSettings" uid="uid://cs47gw2eocgre" path="res://UI/Themes/card_label.tres" id="5_g70ch"]
 [ext_resource type="Texture2D" uid="uid://m3scjjnqmvfx" path="res://Weapons/Gun/gun.png" id="6_xvumt"]

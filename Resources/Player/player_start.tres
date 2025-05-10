@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=4 format=3 uid="uid://jh7hai1y78hf"]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=5 format=3 uid="uid://jh7hai1y78hf"]
 
+[ext_resource type="Script" uid="uid://cf5if4viigef8" path="res://Resources/item_data.gd" id="1_ciwn4"]
 [ext_resource type="Resource" uid="uid://t6h8xeh2f1b8" path="res://Resources/Items/gun.tres" id="1_dnubm"]
-[ext_resource type="Script" path="res://Resources/Player/player_data.gd" id="1_nknpw"]
+[ext_resource type="Script" uid="uid://c3phpkb22d8bc" path="res://Resources/Player/player_data.gd" id="1_nknpw"]
 [ext_resource type="Resource" uid="uid://benl0845mu8x2" path="res://Resources/Items/knife.tres" id="2_xem2t"]
 
 [resource]
 script = ExtResource("1_nknpw")
 gold = 1000
-inventory = Array[Resource("res://Resources/item_data.gd")]([ExtResource("1_dnubm"), ExtResource("2_xem2t")])
+inventory = Array[ExtResource("1_ciwn4")]([ExtResource("1_dnubm"), ExtResource("2_xem2t")])
 equipment = {
 "LeftLeg": "knife",
 "RightLeg": "gun"

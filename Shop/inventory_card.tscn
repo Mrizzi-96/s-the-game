@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxya6hfw77ql7"]
 
-[ext_resource type="Script" path="res://Shop/inventory_card.gd" id="1_1pque"]
+[ext_resource type="Script" uid="uid://cpi7phhw3rr67" path="res://Shop/inventory_card.gd" id="1_1pque"]
 [ext_resource type="Theme" uid="uid://bog42w88fuy3y" path="res://UI/Themes/inventory_theme.tres" id="2_j7kat"]
 [ext_resource type="Texture2D" uid="uid://m3scjjnqmvfx" path="res://Weapons/Gun/gun.png" id="5_uc0lf"]
 

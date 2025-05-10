@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cn8mtnkswehm1"]
 
-[ext_resource type="Script" path="res://Player/player.gd" id="1_c6ce5"]
+[ext_resource type="Script" uid="uid://ba4h4wqjs8jll" path="res://Player/player.gd" id="1_c6ce5"]
 [ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Bullet/player_bullet.tscn" id="2_ifgo3"]
 [ext_resource type="Texture2D" uid="uid://b8kx3myqekewy" path="res://Player/Assets/RightLegFIXED.png" id="3_kfhbd"]
 [ext_resource type="Texture2D" uid="uid://ccw4jyyt226nj" path="res://Player/Assets/Ass.png" id="3_v0y02"]
@@ -56,8 +56,8 @@ metadata/_edit_horizontal_guides_ = [103.0]
 [node name="Hips" type="RigidBody2D" parent="."]
 mass = 5.0
 physics_material_override = ExtResource("4_lmmrb")
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
 
 [node name="Ass" type="CollisionShape2D" parent="Hips"]
 shape = SubResource("CapsuleShape2D_5w4i3")
