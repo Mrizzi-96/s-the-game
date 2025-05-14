@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://domdmetpninmx"]
+[gd_scene load_steps=13 format=3 uid="uid://domdmetpninmx"]
 
 [ext_resource type="Script" uid="uid://bfjhylr5gunmy" path="res://Shop/shop_manager.gd" id="1_8dvge"]
 [ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_4gnlw"]
 [ext_resource type="Texture2D" uid="uid://yycdmfd8c4n5" path="res://Shop/shop-inventory background/shop (background).png" id="3_25km1"]
+[ext_resource type="Theme" uid="uid://5asui76h3ng0" path="res://UI/Themes/shop_theme.tres" id="4_icvdq"]
 [ext_resource type="Texture2D" uid="uid://h8xlu34vf17b" path="res://Shop/Assets/equipment bg.png" id="4_los8e"]
 [ext_resource type="Texture2D" uid="uid://m3scjjnqmvfx" path="res://Weapons/Gun/gun.png" id="5_15xmb"]
 [ext_resource type="Texture2D" uid="uid://dy6n21vwqpftv" path="res://Shop/Assets/currency.png" id="7_kfh3s"]
@@ -42,6 +43,7 @@ offset_left = 77.0
 offset_top = 74.0
 offset_right = 1020.0
 offset_bottom = 802.0
+theme = ExtResource("4_icvdq")
 columns = 4
 
 [node name="InventoryGrid" type="GridContainer" parent="."]
@@ -52,6 +54,7 @@ offset_left = 77.0
 offset_top = 74.0
 offset_right = 1020.0
 offset_bottom = 802.0
+theme = ExtResource("4_icvdq")
 columns = 4
 
 [node name="ControlButton" type="Control" parent="."]

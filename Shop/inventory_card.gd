@@ -5,6 +5,7 @@ var item_data : ItemData
 
 
 @onready var image_texture = %ImageTexture
+@onready var title: Label = %Title
 
 signal left_weapon_equipped(prev_weapon : String, next_weapon : String)
 signal right_weapon_equipped(prev_weapon : String, next_weapon : String)
@@ -14,9 +15,12 @@ func init(item: ItemData):
 		await ready
 	self.item_data = item
 	add_to_group("InventoryCard")
-	
+	# TODO: based on ItemData.Type, select the correct scene to instantiate
+	# TODO: if WEAPON, use weapon_card
+	# TODO: 
 	# set image
 	#image_path = item.texture.resource_path
+	title.text = item_data.name.to_upper()
 	image_texture.texture = item.texture
 	# ignore size of image to have them all same size
 	image_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE	

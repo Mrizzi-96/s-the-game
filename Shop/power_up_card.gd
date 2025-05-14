@@ -4,7 +4,7 @@ extends Control
 var image_path : String
 var item_data : ItemData
 
-@onready var bought:bool=true
+@onready var bought: bool
 @export var selection:Texture2D
 @onready var image_texture : TextureRect = %PowerUP
 @onready var item_price = %ItemPrice
@@ -27,7 +27,6 @@ func init(item: ItemData):
 	#buy_button.disabled = item_data.price > RunInfo.player_data.gold
 	
 func buy():
-	bought=true
 	var player_gold = RunInfo.player_data.gold
 	if item_data.price > player_gold:
 		print("NOT ABLE TO BUY")
@@ -43,11 +42,13 @@ func buy():
 		# remove card from shop
 		queue_free()
 
-func _on_control_mouse_entered() -> void:
-	buy_button.visible=true
-	if bought==true:
+
+func _on_buy_button_mouse_entered() -> void:
+		%EmptyTooltip.visible=true
 		buy_button.icon=selection
 
 
-func _on_control_mouse_exited() -> void:
-	buy_button.visible=false
+func _on_buy_button_mouse_exited() -> void:
+	if !is_queued_for_deletion():
+		%EmptyTooltip.visible=false
+		buy_button.icon = null

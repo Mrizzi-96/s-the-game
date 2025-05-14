@@ -19,3 +19,9 @@ func populate_items() -> void:
 			i = i.replace(".remap", "")
 		var item = ResourceLoader.load(ITEMDATA_DIR_PATH + i) as ItemData
 		items.append(item)
+	# TODO: ricordati di inizializzare delle card diverse da speed UP, creandole con parametri diversi.
+	# Ne aggiunge 5 più quelle precedentemente inserite in items!
+	for i in range (0,5):
+		var power_up = ResourceLoader.load("res://Resources/Items/speedUP.tres") as ItemData
+		items.append(power_up)
+		

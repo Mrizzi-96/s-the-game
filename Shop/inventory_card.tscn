@@ -1,18 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxya6hfw77ql7"]
+[gd_scene load_steps=7 format=3 uid="uid://cxya6hfw77ql7"]
 
 [ext_resource type="Script" uid="uid://cpi7phhw3rr67" path="res://Shop/inventory_card.gd" id="1_1pque"]
 [ext_resource type="Theme" uid="uid://bog42w88fuy3y" path="res://UI/Themes/inventory_theme.tres" id="2_j7kat"]
+[ext_resource type="Texture2D" uid="uid://6tngts7ct7hc" path="res://Shop/shop-invetory items/weapon card/weapon card empty.png" id="4_nx812"]
+[ext_resource type="LabelSettings" uid="uid://cs47gw2eocgre" path="res://UI/Themes/card_label.tres" id="5_equpv"]
 [ext_resource type="Texture2D" uid="uid://m3scjjnqmvfx" path="res://Weapons/Gun/gun.png" id="5_uc0lf"]
+[ext_resource type="Texture2D" uid="uid://btrfkaxfy6e3a" path="res://Weapons/Assets/gun.png" id="6_3dcon"]
 
 [node name="InventoryCard" type="Control" groups=["InventoryCard"]]
-custom_minimum_size = Vector2(259, 171)
 layout_mode = 3
-anchor_right = 0.134896
-anchor_bottom = 0.158333
+anchor_right = 0.108854
+anchor_bottom = 0.325
 script = ExtResource("1_1pque")
 metadata/_edit_use_anchors_ = true
 
+[node name="CardBg" type="TextureRect" parent="."]
+offset_right = 210.0
+offset_bottom = 352.0
+texture = ExtResource("4_nx812")
+
 [node name="PanelContainer2" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +37,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ImageTexture" type="TextureRect" parent="PanelContainer2/VBoxContainer/MarginContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_j7kat")
@@ -66,6 +73,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 disabled = true
 text = "EQUIPPED"
+
+[node name="Title" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 196.0
+offset_bottom = 44.0
+text = "TITLE"
+label_settings = ExtResource("5_equpv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ImageTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_left = 27.0
+offset_top = 67.0
+offset_right = 183.0
+offset_bottom = 257.0
+texture = ExtResource("6_3dcon")
+expand_mode = 5
+stretch_mode = 5
 
 [connection signal="pressed" from="PanelContainer2/VBoxContainer/Buttons/EquipButtonLeft" to="." method="_on_equip_button_left_pressed"]
 [connection signal="pressed" from="PanelContainer2/VBoxContainer/Buttons/EquipButtonRight" to="." method="_on_equip_button_right_pressed"]

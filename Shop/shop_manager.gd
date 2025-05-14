@@ -1,5 +1,7 @@
 extends Control
 
+const MAX_POWER_UPS_CARDS : int = 8
+
 var card_base_scene = preload("res://Shop/item_card.tscn")
 var inv_card_scene = preload("res://Shop/inventory_card.tscn")
 var powerUP_card_scene = preload("res://Shop/power_up_card.tscn")
@@ -13,17 +15,15 @@ var powerUP_card_scene = preload("res://Shop/power_up_card.tscn")
 @onready var wave_num = %WaveNum
 @onready var player_gold = %PlayerGold
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# populate shop
-	for i in RunInfo.items.size():
-		var current_item = RunInfo.items[i] as ItemData
+	# populate shop ONLY with power ups
+	var power_ups = RunInfo.items.filter(func(element: ItemData): return element.type == ItemData.Type.POWER_UP)
+	for i in min(MAX_POWER_UPS_CARDS, power_ups.size()):
+		var current_item = power_ups[i] as ItemData
 		if not player_data.is_in_inventory(current_item):
-			var instCardScn = card_base_scene.instantiate() as ItemShopCard
 			var powCardScn = powerUP_card_scene.instantiate() as PowShopCard
-			instCardScn.connect("item_bought", add_inventory_card)
-			instCardScn.init(current_item)
-			%ShopGrid.add_child(instCardScn)
 			powCardScn.connect("item_bought", add_inventory_card)
 			powCardScn.init(current_item)
 			%ShopGrid.add_child(powCardScn)
