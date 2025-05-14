@@ -1,93 +1,67 @@
-[gd_scene load_steps=7 format=3 uid="uid://sbi55htjegl2"]
+[gd_scene load_steps=5 format=3 uid="uid://sbi55htjegl2"]
 
-[ext_resource type="Theme" uid="uid://5asui76h3ng0" path="res://UI/Themes/shop_theme.tres" id="1_d1a0i"]
 [ext_resource type="Script" uid="uid://cje4jsubt86dq" path="res://Shop/item_card.gd" id="1_fawm4"]
-[ext_resource type="Texture2D" uid="uid://doht6hbbf3jqb" path="res://Shop/Assets/weapon_card_coin.png" id="4_ncpw2"]
+[ext_resource type="Texture2D" uid="uid://ck44uxi0sfcn7" path="res://Shop/shop-invetory items/weapon card/weapon card coin.png" id="2_q1fec"]
 [ext_resource type="LabelSettings" uid="uid://cs47gw2eocgre" path="res://UI/Themes/card_label.tres" id="5_g70ch"]
-[ext_resource type="Texture2D" uid="uid://m3scjjnqmvfx" path="res://Weapons/Gun/gun.png" id="6_xvumt"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_heamw"]
-texture = ExtResource("4_ncpw2")
+[ext_resource type="Texture2D" uid="uid://btrfkaxfy6e3a" path="res://Weapons/Assets/gun.png" id="5_k5ww5"]
 
 [node name="ItemShopCard" type="Control"]
 custom_minimum_size = Vector2(210, 352)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1710.0
-offset_bottom = -728.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
+anchors_preset = 0
+offset_right = 210.0
+offset_bottom = 352.0
 size_flags_vertical = 4
 script = ExtResource("1_fawm4")
 
-[node name="PanelContainer2" type="PanelContainer" parent="."]
+[node name="PanelContainer2" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_heamw")
+offset_right = 210.0
+offset_bottom = 352.0
+texture = ExtResource("2_q1fec")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2"]
-layout_mode = 2
-
-[node name="MarginTitle" type="MarginContainer" parent="PanelContainer2/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("1_d1a0i")
-theme_type_variation = &"ShopCardMarginContainer"
-
-[node name="Title" type="Label" parent="PanelContainer2/VBoxContainer/MarginTitle"]
+[node name="Title" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+offset_top = 20.0
+offset_right = 210.0
+offset_bottom = 36.0
 text = "TITLE"
 label_settings = ExtResource("5_g70ch")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Body" type="MarginContainer" parent="PanelContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 4.0
-theme = ExtResource("1_d1a0i")
-theme_type_variation = &"ShopCardImageMargin"
-
-[node name="ImageTexture" type="TextureRect" parent="PanelContainer2/VBoxContainer/Body"]
+[node name="BuyButton" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("6_xvumt")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 10
-
-[node name="BuyButton" type="Button" parent="PanelContainer2/VBoxContainer/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
+offset_left = 20.0
+offset_top = 260.0
+offset_right = 190.0
+offset_bottom = 291.0
 text = "BUY"
 
-[node name="Footer" type="MarginContainer" parent="PanelContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_d1a0i")
-theme_type_variation = &"ShopCardFooterMargin"
-theme_override_constants/margin_left = 20
-
-[node name="ItemPrice" type="Label" parent="PanelContainer2/VBoxContainer/Footer"]
+[node name="ItemPrice" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
+offset_left = 20.0
+offset_top = 302.0
+offset_right = 210.0
+offset_bottom = 349.0
 size_flags_vertical = 1
 text = "200"
 label_settings = ExtResource("5_g70ch")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="PanelContainer2/VBoxContainer/MarginContainer/BuyButton" to="." method="buy"]
+[node name="ImageTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 27.0
+offset_top = 67.0
+offset_right = 183.0
+offset_bottom = 257.0
+texture = ExtResource("5_k5ww5")
+expand_mode = 5
+stretch_mode = 5
+
+[connection signal="pressed" from="BuyButton" to="." method="buy"]

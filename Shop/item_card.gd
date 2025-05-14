@@ -16,11 +16,11 @@ func init(item: ItemData):
 	# set title
 	title.text = item_data.name
 	# set image
-	image_path = item.texture.resource_path
+	#image_path = item.texture.resource_path
 	image_texture.texture = item.texture
 	# ignore size of image to have them all same size
-	image_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE	
-	image_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	#image_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE	
+	#image_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	# set price
 	item_price.set_text(str(item_data.price))
 	# disable buy button if player has not enough money

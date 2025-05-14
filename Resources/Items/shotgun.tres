@@ -14,3 +14,7 @@ High recoil."
 texture = ExtResource("2_wkhk3")
 price = 500
 attack_sound = ExtResource("1_g5tob")
+slots = 0
+speed = 0
+damage_text = null
+damage = 0

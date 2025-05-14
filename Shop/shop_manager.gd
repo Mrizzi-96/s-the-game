@@ -2,6 +2,7 @@ extends Control
 
 var card_base_scene = preload("res://Shop/item_card.tscn")
 var inv_card_scene = preload("res://Shop/inventory_card.tscn")
+var powerUP_card_scene = preload("res://Shop/power_up_card.tscn")
 
 @onready var item_resources_folder_path = "res://Resources/Items/"
 @onready var player_data = RunInfo.player_data
@@ -19,10 +20,14 @@ func _ready():
 		var current_item = RunInfo.items[i] as ItemData
 		if not player_data.is_in_inventory(current_item):
 			var instCardScn = card_base_scene.instantiate() as ItemShopCard
+			var powCardScn = powerUP_card_scene.instantiate() as PowShopCard
 			instCardScn.connect("item_bought", add_inventory_card)
 			instCardScn.init(current_item)
 			%ShopGrid.add_child(instCardScn)
-	
+			powCardScn.connect("item_bought", add_inventory_card)
+			powCardScn.init(current_item)
+			%ShopGrid.add_child(powCardScn)
+
 	# do the same for player inventory
 	for i in player_data.inventory.size():
 		var invCard = inv_card_scene.instantiate() as InventoryCard
@@ -65,7 +70,7 @@ func _on_inventory_card_weapon_equipped(prev_weapon, next_weapon, leg : String):
 	# get inventory card associated to prev_weapon and call "enable_button"
 	var invCard = get_tree().get_nodes_in_group("InventoryCard") as Array[InventoryCard]
 	var prev_weapon_inventory_card = invCard.filter(func(element) : return element.item_data.name.to_lower() == prev_weapon)[0] # single access
-	prev_weapon_inventory_card.enable_buttons()	
+	prev_weapon_inventory_card.enable_buttons()
 	var data = pdata.inventory.filter(func(element): return sort_name(element, next_weapon))
 	if data.size() > 0:
 			# get next weapon item data

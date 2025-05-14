@@ -814,4 +814,3 @@ layer_0/name = "Foreground"
 layer_0/z_index = 1
 layer_1/name = "Background"
 layer_1/modulate = Color(0.533333, 0.533333, 0.533333, 1)
-layer_1/tile_data = PackedInt32Array()

@@ -13,3 +13,11 @@ Works very well as a blender! "
 texture = ExtResource("2_vve1b")
 price = 200
 attack_sound = ExtResource("1_68x0o")
+slots = 0
+movement_speed_text = ""
+movement_speed = 0
+damage_text = ""
+damage = 0
+fire_rate_text = ""
+fire_rate = 0
+bought = false

@@ -13,3 +13,11 @@ It propels you forward for a small distance. "
 texture = ExtResource("2_x02a4")
 price = 100
 attack_sound = ExtResource("1_cijxa")
+slots = 0
+movement_speed_text = ""
+movement_speed = 0
+damage_text = ""
+damage = 0
+fire_rate_text = ""
+fire_rate = 0
+bought = false

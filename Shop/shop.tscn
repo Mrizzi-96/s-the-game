@@ -2,24 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bfjhylr5gunmy" path="res://Shop/shop_manager.gd" id="1_8dvge"]
 [ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_4gnlw"]
-[ext_resource type="Theme" uid="uid://5asui76h3ng0" path="res://UI/Themes/shop_theme.tres" id="2_codet"]
-[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="3_immxx"]
+[ext_resource type="Texture2D" uid="uid://yycdmfd8c4n5" path="res://Shop/shop-inventory background/shop (background).png" id="3_25km1"]
 [ext_resource type="Texture2D" uid="uid://h8xlu34vf17b" path="res://Shop/Assets/equipment bg.png" id="4_los8e"]
 [ext_resource type="Texture2D" uid="uid://m3scjjnqmvfx" path="res://Weapons/Gun/gun.png" id="5_15xmb"]
-[ext_resource type="Texture2D" uid="uid://brgrvcct7gblq" path="res://Shop/Assets/weapon_equipment_empty.png" id="5_f8pvm"]
 [ext_resource type="Texture2D" uid="uid://dy6n21vwqpftv" path="res://Shop/Assets/currency.png" id="7_kfh3s"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="8_hh7ca"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_t6o7f"]
-font = ExtResource("3_immxx")
-font_size = 32
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2s1ta"]
-texture = ExtResource("5_f8pvm")
-texture_margin_left = 30.0
-texture_margin_top = 30.0
-texture_margin_right = 30.0
-texture_margin_bottom = 30.0
+[ext_resource type="Texture2D" uid="uid://b8m63ivhihmu8" path="res://Shop/shop-invetory items/weapon card/weapon equipment empty.png" id="9_25km1"]
+[ext_resource type="Script" uid="uid://dc3jwqghjadke" path="res://Shop/control_button.gd" id="11_8sid2"]
+[ext_resource type="Texture2D" uid="uid://cjuhxu7ygff3q" path="res://Shop/shop-invetory items/shop-inventory parts/shop when cursor is above it.png" id="12_jhfdn"]
+[ext_resource type="Texture2D" uid="uid://cyet7fq00ijj7" path="res://Shop/shop-invetory items/shop-inventory parts/Inventory when cursor is above it.png" id="13_eu4ty"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -40,162 +31,137 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_4gnlw")
 
-[node name="MainContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+[node name="Shop(background)" type="Sprite2D" parent="."]
+texture = ExtResource("3_25km1")
+centered = false
 
-[node name="MarginContainer" type="MarginContainer" parent="MainContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="TabContainer" type="TabContainer" parent="MainContainer/MarginContainer"]
-clip_contents = true
-layout_mode = 2
-theme = ExtResource("2_codet")
-
-[node name="Shop" type="Control" parent="MainContainer/MarginContainer/TabContainer"]
-layout_mode = 2
-theme = ExtResource("2_codet")
-
-[node name="ShopGrid" type="GridContainer" parent="MainContainer/MarginContainer/TabContainer/Shop"]
+[node name="ShopGrid" type="GridContainer" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0792997
-anchor_top = 0.0757576
-anchor_right = 0.9207
-anchor_bottom = 0.924242
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_codet")
-theme_override_constants/h_separation = 30
-theme_override_constants/v_separation = 30
+layout_mode = 0
+offset_left = 77.0
+offset_top = 74.0
+offset_right = 1020.0
+offset_bottom = 802.0
 columns = 4
-metadata/_edit_use_anchors_ = true
 
-[node name="Inventory" type="Control" parent="MainContainer/MarginContainer/TabContainer"]
-visible = false
-layout_mode = 2
-theme = ExtResource("2_codet")
-
-[node name="InventoryGrid" type="GridContainer" parent="MainContainer/MarginContainer/TabContainer/Inventory"]
+[node name="InventoryGrid" type="GridContainer" parent="."]
 unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 77.0
+offset_top = 74.0
+offset_right = 1020.0
+offset_bottom = 802.0
+columns = 4
+
+[node name="ControlButton" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0792997
-anchor_top = 0.0735931
-anchor_right = 0.9207
-anchor_bottom = 0.922078
-grow_horizontal = 2
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
-columns = 3
-metadata/_edit_use_anchors_ = true
+anchors_preset = 0
+script = ExtResource("11_8sid2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="Shop" type="Button" parent="ControlButton"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 25.0
+offset_right = 156.0
+offset_bottom = 58.0
+scale = Vector2(1.14783, 1.14783)
+icon = ExtResource("12_jhfdn")
+flat = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="MainContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+[node name="Inventory" type="Button" parent="ControlButton"]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 28.0
+offset_right = 449.0
+offset_bottom = 61.0
+scale = Vector2(1.00072, 1.03848)
+icon = ExtResource("13_eu4ty")
+flat = true
 
-[node name="PanelContainer" type="PanelContainer" parent="MainContainer/VBoxContainer/MarginContainer2"]
+[node name="ResumeButton" type="Button" parent="ControlButton"]
 layout_mode = 2
+offset_left = 1554.0
+offset_top = 952.0
+offset_right = 1898.0
+offset_bottom = 1054.0
+theme = ExtResource("8_hh7ca")
+text = "CONTINUE"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer"]
-layout_mode = 2
+[node name="ControlPlayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer"]
+[node name="player" type="TextureRect" parent="ControlPlayer"]
 layout_mode = 2
-theme = ExtResource("2_codet")
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="Label" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "Equipment overview"
-label_settings = SubResource("LabelSettings_t6o7f")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 50
-
-[node name="TextureRect" type="TextureRect" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
+offset_left = 1133.0
+offset_top = 28.0
+offset_right = 1739.0
+offset_bottom = 973.0
 size_flags_horizontal = 3
 texture = ExtResource("4_los8e")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="LeftLegPreviewPanel" type="PanelContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer/TextureRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0626577
-anchor_top = 0.795
-anchor_right = 0.408054
-anchor_bottom = 1.00649
-offset_left = 0.319996
-offset_top = -0.150024
-theme_override_styles/panel = SubResource("StyleBoxTexture_2s1ta")
-metadata/_edit_use_anchors_ = true
+[node name="leftpreviewweapon" type="TextureRect" parent="ControlPlayer"]
+layout_mode = 0
+offset_left = 1120.0
+offset_top = 707.0
+offset_right = 1379.0
+offset_bottom = 878.0
+texture = ExtResource("9_25km1")
 
-[node name="LeftLegWeaponPreview" type="TextureRect" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer/TextureRect/LeftLegPreviewPanel"]
+[node name="LeftLegWeaponPreview" type="TextureRect" parent="ControlPlayer/leftpreviewweapon"]
 unique_name_in_owner = true
 layout_mode = 2
+anchor_left = 0.00772201
+anchor_top = 0.0877193
+anchor_right = 0.00772201
+anchor_bottom = 0.0877193
+offset_left = 37.0
+offset_top = 22.0
+offset_right = 220.0
+offset_bottom = 118.0
 texture = ExtResource("5_15xmb")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="RightLegPreviewPanel" type="PanelContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer/TextureRect"]
-layout_mode = 2
-anchor_left = 0.591946
-anchor_top = 0.794805
-anchor_right = 0.936913
-anchor_bottom = 1.00649
-theme_override_styles/panel = SubResource("StyleBoxTexture_2s1ta")
-metadata/_edit_use_anchors_ = true
+[node name="leftpreviewweapon2" type="TextureRect" parent="ControlPlayer"]
+layout_mode = 0
+offset_left = 1493.0
+offset_top = 707.0
+offset_right = 1752.0
+offset_bottom = 878.0
+texture = ExtResource("9_25km1")
 
-[node name="RightLegWeaponPreview" type="TextureRect" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/HBoxContainer/TextureRect/RightLegPreviewPanel"]
+[node name="RightLegWeaponPreview" type="TextureRect" parent="ControlPlayer/leftpreviewweapon2"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
+anchor_left = 0.00772201
+anchor_top = 0.0877193
+anchor_right = 0.00772201
+anchor_bottom = 0.0877193
+offset_left = 37.0
+offset_top = 22.0
+offset_right = 220.0
+offset_bottom = 118.0
 texture = ExtResource("5_15xmb")
 expand_mode = 1
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="CenterContainer" type="MarginContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="ControlPlayer"]
 layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="TextureRect" type="TextureRect" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2"]
-layout_mode = 2
+offset_left = 1114.0
+offset_top = 929.0
+offset_right = 1756.0
+offset_bottom = 1148.0
+scale = Vector2(0.593398, 0.593398)
 size_flags_horizontal = 3
 texture = ExtResource("7_kfh3s")
 
-[node name="PlayerGold" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2/TextureRect"]
+[node name="PlayerGold" type="Label" parent="ControlPlayer/TextureRect"]
 unique_name_in_owner = true
 layout_mode = 2
 anchor_left = 0.154856
@@ -204,13 +170,13 @@ anchor_right = 0.467192
 anchor_bottom = 0.746154
 size_flags_horizontal = 3
 theme = ExtResource("8_hh7ca")
-text = "000000000"
+text = "000000O"
 horizontal_alignment = 2
 vertical_alignment = 1
 clip_text = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Score" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2/TextureRect"]
+[node name="Score" type="Label" parent="ControlPlayer/TextureRect"]
 unique_name_in_owner = true
 layout_mode = 2
 anchor_left = 0.527559
@@ -222,7 +188,7 @@ text = "Soon!"
 vertical_alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="WaveNum" type="Label" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2/TextureRect"]
+[node name="WaveNum" type="Label" parent="ControlPlayer/TextureRect"]
 unique_name_in_owner = true
 layout_mode = 2
 anchor_left = 0.527559
@@ -235,12 +201,6 @@ vertical_alignment = 2
 clip_text = true
 metadata/_edit_use_anchors_ = true
 
-[node name="CenterContainer" type="CenterContainer" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="ResumeButton" type="Button" parent="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2/CenterContainer"]
-layout_mode = 2
-theme = ExtResource("8_hh7ca")
-text = "CONTINUE"
-
-[connection signal="pressed" from="MainContainer/VBoxContainer/MarginContainer2/PanelContainer/VBoxContainer/CenterContainer/HBoxContainer2/CenterContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="ControlButton/Shop" to="ControlButton" method="_on_shop_pressed"]
+[connection signal="pressed" from="ControlButton/Inventory" to="ControlButton" method="_on_inventory_pressed"]
+[connection signal="pressed" from="ControlButton/ResumeButton" to="." method="_on_resume_button_pressed"]
