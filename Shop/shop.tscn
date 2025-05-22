@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://domdmetpninmx"]
+[gd_scene load_steps=16 format=3 uid="uid://domdmetpninmx"]
 
 [ext_resource type="Script" uid="uid://bfjhylr5gunmy" path="res://Shop/shop_manager.gd" id="1_8dvge"]
 [ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_4gnlw"]
@@ -11,7 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://b8m63ivhihmu8" path="res://Shop/shop-invetory items/weapon card/weapon equipment empty.png" id="9_25km1"]
 [ext_resource type="Script" uid="uid://dc3jwqghjadke" path="res://Shop/control_button.gd" id="11_8sid2"]
 [ext_resource type="Texture2D" uid="uid://cjuhxu7ygff3q" path="res://Shop/shop-invetory items/shop-inventory parts/shop when cursor is above it.png" id="12_jhfdn"]
+[ext_resource type="LabelSettings" uid="uid://uq5m7s0wfh64" path="res://Shop/shop_stats.tres" id="13_7nrtk"]
 [ext_resource type="Texture2D" uid="uid://cyet7fq00ijj7" path="res://Shop/shop-invetory items/shop-inventory parts/Inventory when cursor is above it.png" id="13_eu4ty"]
+[ext_resource type="Texture2D" uid="uid://ctthewpj1ix2" path="res://Shop/shop-inventory background/divider.png" id="14_b5trs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhfdn"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -57,12 +61,12 @@ offset_bottom = 802.0
 theme = ExtResource("4_icvdq")
 columns = 4
 
-[node name="ControlButton" type="Control" parent="."]
+[node name="ButtonShop" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 0
 script = ExtResource("11_8sid2")
 
-[node name="Shop" type="Button" parent="ControlButton"]
+[node name="Shop" type="Button" parent="ButtonShop"]
 layout_mode = 0
 offset_left = 51.0
 offset_top = 25.0
@@ -72,7 +76,7 @@ scale = Vector2(1.14783, 1.14783)
 icon = ExtResource("12_jhfdn")
 flat = true
 
-[node name="Inventory" type="Button" parent="ControlButton"]
+[node name="Inventory" type="Button" parent="ButtonShop"]
 layout_mode = 0
 offset_left = 222.0
 offset_top = 28.0
@@ -82,7 +86,7 @@ scale = Vector2(1.00072, 1.03848)
 icon = ExtResource("13_eu4ty")
 flat = true
 
-[node name="ResumeButton" type="Button" parent="ControlButton"]
+[node name="ResumeButton" type="Button" parent="ButtonShop"]
 layout_mode = 2
 offset_left = 1554.0
 offset_top = 952.0
@@ -116,6 +120,7 @@ texture = ExtResource("9_25km1")
 
 [node name="LeftLegWeaponPreview" type="TextureRect" parent="ControlPlayer/leftpreviewweapon"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 anchor_left = 0.00772201
 anchor_top = 0.0877193
@@ -154,7 +159,7 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="ControlPlayer"]
+[node name="PlayerCoin" type="TextureRect" parent="ControlPlayer"]
 layout_mode = 2
 offset_left = 1114.0
 offset_top = 929.0
@@ -164,7 +169,7 @@ scale = Vector2(0.593398, 0.593398)
 size_flags_horizontal = 3
 texture = ExtResource("7_kfh3s")
 
-[node name="PlayerGold" type="Label" parent="ControlPlayer/TextureRect"]
+[node name="PlayerGold" type="Label" parent="ControlPlayer/PlayerCoin"]
 unique_name_in_owner = true
 layout_mode = 2
 anchor_left = 0.154856
@@ -179,7 +184,7 @@ vertical_alignment = 1
 clip_text = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Score" type="Label" parent="ControlPlayer/TextureRect"]
+[node name="Score" type="Label" parent="ControlPlayer/PlayerCoin"]
 unique_name_in_owner = true
 layout_mode = 2
 anchor_left = 0.527559
@@ -191,7 +196,7 @@ text = "Soon!"
 vertical_alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="WaveNum" type="Label" parent="ControlPlayer/TextureRect"]
+[node name="WaveNum" type="Label" parent="ControlPlayer/PlayerCoin"]
 unique_name_in_owner = true
 layout_mode = 2
 anchor_left = 0.527559
@@ -204,6 +209,285 @@ vertical_alignment = 2
 clip_text = true
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="ControlButton/Shop" to="ControlButton" method="_on_shop_pressed"]
-[connection signal="pressed" from="ControlButton/Inventory" to="ControlButton" method="_on_inventory_pressed"]
-[connection signal="pressed" from="ControlButton/ResumeButton" to="." method="_on_resume_button_pressed"]
+[node name="PlayerStats" type="GridContainer" parent="ControlPlayer"]
+layout_direction = 2
+layout_mode = 2
+offset_left = 1721.0
+offset_top = 111.0
+offset_right = 2031.0
+offset_bottom = 367.0
+scale = Vector2(0.593398, 0.593398)
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="Health" type="Label" parent="ControlPlayer/PlayerStats"]
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "HP"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthStats" type="Label" parent="ControlPlayer/PlayerStats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "5"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="FireRate" type="Label" parent="ControlPlayer/PlayerStats"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_hh7ca")
+text = "fire rate"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 1
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="FireRateStats" type="Label" parent="ControlPlayer/PlayerStats"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("8_hh7ca")
+text = "10"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 1
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ShootingDamage" type="Label" parent="ControlPlayer/PlayerStats"]
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "S.damage"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ShootingDamageStats" type="Label" parent="ControlPlayer/PlayerStats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "11"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Luck" type="Label" parent="ControlPlayer/PlayerStats"]
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "Luck"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LuckStats" type="Label" parent="ControlPlayer/PlayerStats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "12"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CritChance" type="Label" parent="ControlPlayer/PlayerStats"]
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "Crit chance"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CritChanceStats" type="Label" parent="ControlPlayer/PlayerStats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "22"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Armor" type="Label" parent="ControlPlayer/PlayerStats"]
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "Armor"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ArmorStats" type="Label" parent="ControlPlayer/PlayerStats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "00"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ThrustSpeed" type="Label" parent="ControlPlayer/PlayerStats"]
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "T.Speed"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ThrustSpeedStats" type="Label" parent="ControlPlayer/PlayerStats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "00"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ThrustDamage" type="Label" parent="ControlPlayer/PlayerStats"]
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "T.Damage"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ThrustDamageStats" type="Label" parent="ControlPlayer/PlayerStats"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("8_hh7ca")
+text = "00"
+label_settings = ExtResource("13_7nrtk")
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Divider" type="VBoxContainer" parent="ControlPlayer"]
+layout_mode = 2
+offset_left = 1720.0
+offset_top = 106.0
+offset_right = 1968.0
+offset_bottom = 389.0
+scale = Vector2(0.593398, 0.593398)
+size_flags_horizontal = 3
+theme_override_constants/separation = 31
+
+[node name="Spacer" type="Control" parent="ControlPlayer/Divider"]
+layout_mode = 2
+
+[node name="Divider" type="TextureRect" parent="ControlPlayer/Divider"]
+layout_mode = 2
+texture = ExtResource("14_b5trs")
+
+[node name="Divider2" type="TextureRect" parent="ControlPlayer/Divider"]
+layout_mode = 2
+texture = ExtResource("14_b5trs")
+
+[node name="Divider3" type="TextureRect" parent="ControlPlayer/Divider"]
+layout_mode = 2
+texture = ExtResource("14_b5trs")
+
+[node name="Divider4" type="TextureRect" parent="ControlPlayer/Divider"]
+layout_mode = 2
+texture = ExtResource("14_b5trs")
+
+[node name="Divider5" type="TextureRect" parent="ControlPlayer/Divider"]
+layout_mode = 2
+texture = ExtResource("14_b5trs")
+
+[node name="Divider6" type="TextureRect" parent="ControlPlayer/Divider"]
+layout_mode = 2
+texture = ExtResource("14_b5trs")
+
+[node name="Divider7" type="TextureRect" parent="ControlPlayer/Divider"]
+layout_mode = 2
+texture = ExtResource("14_b5trs")
+
+[node name="Divider8" type="TextureRect" parent="ControlPlayer/Divider"]
+layout_mode = 2
+texture = ExtResource("14_b5trs")
+
+[node name="ButtGrid" type="GridContainer" parent="ControlPlayer"]
+z_index = 2
+offset_left = 1340.0
+offset_top = 231.0
+offset_right = 1532.0
+offset_bottom = 295.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 64
+columns = 4
+
+[node name="First" type="Control" parent="ControlPlayer/ButtGrid" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="ControlPlayer/ButtGrid/First" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/ButtGrid/First/Area2D" groups=["grid"]]
+shape = SubResource("RectangleShape2D_jhfdn")
+
+[node name="Control2" type="Control" parent="ControlPlayer/ButtGrid" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="ControlPlayer/ButtGrid/Control2" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/ButtGrid/Control2/Area2D" groups=["grid"]]
+shape = SubResource("RectangleShape2D_jhfdn")
+
+[node name="Control3" type="Control" parent="ControlPlayer/ButtGrid" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="ControlPlayer/ButtGrid/Control3" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/ButtGrid/Control3/Area2D" groups=["grid"]]
+shape = SubResource("RectangleShape2D_jhfdn")
+
+[node name="Control4" type="Control" parent="ControlPlayer/ButtGrid" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="ControlPlayer/ButtGrid/Control4" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/ButtGrid/Control4/Area2D" groups=["grid"]]
+shape = SubResource("RectangleShape2D_jhfdn")
+
+[node name="Control5" type="Control" parent="ControlPlayer/ButtGrid" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="ControlPlayer/ButtGrid/Control5" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/ButtGrid/Control5/Area2D" groups=["grid"]]
+shape = SubResource("RectangleShape2D_jhfdn")
+
+[node name="Control6" type="Control" parent="ControlPlayer/ButtGrid" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="ControlPlayer/ButtGrid/Control6" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/ButtGrid/Control6/Area2D" groups=["grid"]]
+shape = SubResource("RectangleShape2D_jhfdn")
+
+[node name="Control7" type="Control" parent="ControlPlayer/ButtGrid" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="ControlPlayer/ButtGrid/Control7" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/ButtGrid/Control7/Area2D" groups=["grid"]]
+shape = SubResource("RectangleShape2D_jhfdn")
+
+[node name="Control8" type="Control" parent="ControlPlayer/ButtGrid" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="ControlPlayer/ButtGrid/Control8" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/ButtGrid/Control8/Area2D" groups=["grid"]]
+shape = SubResource("RectangleShape2D_jhfdn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1299, 224)
+
+[connection signal="pressed" from="ButtonShop/Shop" to="ButtonShop" method="_on_shop_pressed"]
+[connection signal="pressed" from="ButtonShop/Inventory" to="ButtonShop" method="_on_inventory_pressed"]
+[connection signal="pressed" from="ButtonShop/ResumeButton" to="." method="_on_resume_button_pressed"]

@@ -1,7 +1,5 @@
 extends Control
 
-
-
 func _on_shop_pressed() -> void:
 	%InventoryGrid.visible=false
 	%ShopGrid.visible=true

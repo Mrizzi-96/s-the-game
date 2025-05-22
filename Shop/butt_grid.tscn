@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://meu07234467b"]
+
+[ext_resource type="Texture2D" uid="uid://c1mg34bhywg1e" path="res://Shop/shop-inventory background/grid_8.png" id="1_qayx7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qayx7"]
+
+[node name="Butt" type="TextureRect"]
+offset_right = 276.0
+offset_bottom = 200.0
+texture = ExtResource("1_qayx7")
+
+[node name="ButtGrid" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 41.0
+offset_right = 266.0
+offset_bottom = 169.0
+
+[node name="GridContainer" type="GridContainer" parent="." groups=["grid"]]
+z_index = 2
+layout_mode = 0
+offset_left = 42.0
+offset_top = 73.0
+offset_right = 234.0
+offset_bottom = 137.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 64
+columns = 4
+
+[node name="First" type="Control" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer/First" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/First/Area2D"]
+shape = SubResource("RectangleShape2D_qayx7")
+
+[node name="Control2" type="Control" parent="GridContainer" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Control2" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Control2/Area2D"]
+shape = SubResource("RectangleShape2D_qayx7")
+
+[node name="Control3" type="Control" parent="GridContainer" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Control3" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Control3/Area2D" groups=["grid"]]
+shape = SubResource("RectangleShape2D_qayx7")
+
+[node name="Control4" type="Control" parent="GridContainer" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Control4" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Control4/Area2D"]
+shape = SubResource("RectangleShape2D_qayx7")
+
+[node name="Control5" type="Control" parent="GridContainer" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Control5" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Control5/Area2D"]
+shape = SubResource("RectangleShape2D_qayx7")
+
+[node name="Control6" type="Control" parent="GridContainer" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Control6" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Control6/Area2D"]
+shape = SubResource("RectangleShape2D_qayx7")
+
+[node name="Control7" type="Control" parent="GridContainer" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Control7" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Control7/Area2D"]
+shape = SubResource("RectangleShape2D_qayx7")
+
+[node name="Control8" type="Control" parent="GridContainer" groups=["grid"]]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Control8" groups=["grid"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Control8/Area2D"]
+shape = SubResource("RectangleShape2D_qayx7")

@@ -48,12 +48,13 @@ func add_inventory_card(item_data : ItemData):
 	# update player_gold
 	player_gold.text = str(player_data.gold)
 	# add a new inventory card
-	var invCard = inv_card_scene.instantiate() as InventoryCard
-	invCard.init(item_data)
+	var powerCard = powerUP_card_scene.instantiate() as PowShopCard
+	powerCard.init(item_data)
+	powerCard.bought=true
 	# connect to signals
-	invCard.left_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("LeftLeg"))
-	invCard.right_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("RightLeg"))
-	%InventoryGrid.add_child(invCard)
+	#invCard.left_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("LeftLeg"))
+	#invCard.right_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("RightLeg"))
+	%InventoryGrid.add_child(powerCard)
 
 
 func _on_resume_button_pressed():
