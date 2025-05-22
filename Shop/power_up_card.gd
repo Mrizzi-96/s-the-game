@@ -4,11 +4,12 @@ extends Control
 var image_path : String
 var item_data : ItemData
 
+@onready var pickUP:PackedScene=preload("res://Shop/pick_up.tscn")
 @onready var bought: bool
 @onready var buy_selection:Texture2D=load("res://Shop/shop-invetory items/upgrade card/tooltip (when cursor is above card)/card selection (shop) when cursor is above it.png")
 @onready var equip_selection:Texture2D=load("res://Shop/shop-invetory items/upgrade card/tooltip (when cursor is above card)/card selection (inventory) when cursor is above it.png")
 @onready var image_texture : TextureRect = %PowerUP
-@onready var pickUP_texture : TextureRect = %PickUP
+#@onready var pickUP_texture : TextureRect = %PickUP
 @onready var item_price = %ItemPrice
 @onready var buy_button : Button = %BuyButton
 @onready var title : Label = %Title
@@ -16,6 +17,7 @@ var item_data : ItemData
 var start_position=position
 var following = false
 var center=size/2
+var deactive:bool=false
 
 signal item_bought(item_data: ItemData)
 
@@ -32,6 +34,11 @@ func init(item: ItemData):
 	item_price.text=(str(item_data.price))
 	# disable buy button if player has not enough money
 	#buy_button.disabled = item_data.price > RunInfo.player_data.gold
+
+func _process(delta: float) -> void:
+	if deactive==true:
+		%PowerUPCard.modulate=Color(1.0, 1.0, 1.0, 0.450)
+		%PowerUP.modulate=Color(1.0, 1.0, 1.0, 0.450)
 
 func buy():
 	if !bought:
@@ -70,3 +77,12 @@ func drag() -> void:
 	if bought==true:
 		
 		pass # Replace with function body.
+
+
+func _on_buy_button_button_down() -> void:
+	if bought:
+		deactive=true
+		print("pickup spawna")
+		var grab_pickUP=pickUP.instantiate() as PickUP
+		grab_pickUP.init(item_data)
+		get_parent().get_parent().add_child(grab_pickUP)

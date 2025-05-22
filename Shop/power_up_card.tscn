@@ -1,16 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cteoarihki36r"]
+[gd_scene load_steps=10 format=3 uid="uid://cteoarihki36r"]
 
 [ext_resource type="Texture2D" uid="uid://p2gpe5f4p5ss" path="res://Shop/shop-invetory items/upgrade card/upgrade card rarity 0.png" id="1_867x5"]
 [ext_resource type="Script" uid="uid://cnal555r2aylh" path="res://Shop/power_up_card.gd" id="1_ov8pn"]
 [ext_resource type="Texture2D" uid="uid://bgexm62pfk61c" path="res://Shop/shop-invetory items/upgrade card/tooltip (when cursor is above card)/empty tooltip.png" id="3_6hg2r"]
-[ext_resource type="Script" uid="uid://c85ic558hsrgp" path="res://Shop/power_up_pickable.gd" id="4_6hg2r"]
 [ext_resource type="Texture2D" uid="uid://dvj2xnx08go6j" path="res://Shop/shop-invetory items/other/speed up lv1.png" id="4_cx8gg"]
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="5_cx8gg"]
-[ext_resource type="Script" uid="uid://b2cbriqy40rjj" path="res://Shop/collider_powerUP.gd" id="5_er0ik"]
-[ext_resource type="Script" uid="uid://tcar2lgtw2p7" path="res://Shop/clip_powerUP.gd" id="5_m4nxq"]
 [ext_resource type="Script" uid="uid://cvamqen4g6xn0" path="res://Shop/title.gd" id="6_ov8pn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hg2r"]
 
 [sub_resource type="Theme" id="Theme_ov8pn"]
 
@@ -42,29 +37,6 @@ offset_top = 48.0
 offset_right = 73.0
 offset_bottom = 176.0
 texture = ExtResource("4_cx8gg")
-
-[node name="PickUP" type="TextureRect" parent="."]
-unique_name_in_owner = true
-z_index = 5
-layout_mode = 0
-offset_left = 9.0
-offset_top = 48.0
-offset_right = 73.0
-offset_bottom = 176.0
-texture = ExtResource("4_cx8gg")
-stretch_mode = 2
-script = ExtResource("4_6hg2r")
-
-[node name="collider" type="Area2D" parent="PickUP"]
-script = ExtResource("5_er0ik")
-
-[node name="Clip" type="Area2D" parent="PickUP"]
-unique_name_in_owner = true
-position = Vector2(32, 32)
-script = ExtResource("5_m4nxq")
-
-[node name="ClipCollision" type="CollisionShape2D" parent="PickUP/Clip"]
-shape = SubResource("RectangleShape2D_6hg2r")
 
 [node name="Title" type="Label" parent="."]
 unique_name_in_owner = true
@@ -115,9 +87,7 @@ z_index = 50
 position = Vector2(309, 189)
 texture = ExtResource("3_6hg2r")
 
-[connection signal="area_entered" from="PickUP/collider" to="PickUP" method="_on_collider_area_entered"]
-[connection signal="area_exited" from="PickUP/collider" to="PickUP" method="_on_collider_area_exited"]
-[connection signal="area_entered" from="PickUP/Clip" to="PickUP" method="_on_clip_area_entered"]
+[connection signal="button_down" from="BuyButton" to="." method="_on_buy_button_button_down"]
 [connection signal="mouse_entered" from="BuyButton" to="." method="_on_buy_button_mouse_entered"]
 [connection signal="mouse_exited" from="BuyButton" to="." method="_on_buy_button_mouse_exited"]
 [connection signal="pressed" from="BuyButton" to="." method="drag"]

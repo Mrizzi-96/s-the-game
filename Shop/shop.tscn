@@ -411,6 +411,7 @@ texture = ExtResource("14_b5trs")
 
 [node name="ButtGrid" type="GridContainer" parent="ControlPlayer"]
 z_index = 2
+layout_mode = 0
 offset_left = 1340.0
 offset_top = 231.0
 offset_right = 1532.0

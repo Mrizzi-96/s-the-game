@@ -12,10 +12,20 @@ enum Type {ASS, LEFT_LEG, RIGHT_LEG, WEAPON, POWER_UP}
 @export_group("PowerUP_Data")
 @export var pickable_texture : Texture2D
 @export var slots : int
-@export var movement_speed_text : String
-@export var movement_speed : int
-@export var damage_text : String
-@export var damage : int
-@export var fire_rate_text:String
-@export var fire_rate:int
 @export var bought:bool=false
+var shooting_damage_text : String="shooting damage"
+@export var shooting_damage : int
+var fire_rate_text:String="fire rate"
+@export var fire_rate:int
+var health_text : String="health"
+@export var health : int
+var luck_text : String="luck"
+@export var luck : int
+var crit_chance_text : String="crit chance"
+@export var crit_chance : int
+var armor_text : String="armor"
+@export var armor : int
+var thrust_speed_text  : String="thrust speed"
+@export var thrust_speed : int
+var thrust_damage_text : String="thrust damage"
+@export var thrust_damage : int

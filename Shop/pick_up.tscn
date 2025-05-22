@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://pmgucodx60av"]
+
+[ext_resource type="Texture2D" uid="uid://dvj2xnx08go6j" path="res://Shop/shop-invetory items/other/speed up lv1.png" id="1_6avco"]
+[ext_resource type="Script" uid="uid://c85ic558hsrgp" path="res://Shop/power_up_pickUP.gd" id="2_nuxio"]
+[ext_resource type="Script" uid="uid://b2cbriqy40rjj" path="res://Shop/collider_powerUP.gd" id="3_sp1v8"]
+[ext_resource type="Script" uid="uid://tcar2lgtw2p7" path="res://Shop/clip_powerUP.gd" id="4_wxasg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hg2r"]
+size = Vector2(32, 32)
+
+[node name="PickUP" type="TextureRect"]
+z_index = 5
+offset_right = 64.0
+offset_bottom = 128.0
+pivot_offset = Vector2(32, 32)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_6avco")
+stretch_mode = 2
+script = ExtResource("2_nuxio")
+
+[node name="collider" type="Area2D" parent="."]
+script = ExtResource("3_sp1v8")
+
+[node name="Clip" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(32, 32)
+script = ExtResource("4_wxasg")
+
+[node name="ClipCollision" type="CollisionShape2D" parent="Clip"]
+shape = SubResource("RectangleShape2D_6hg2r")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="collider" to="." method="_on_collider_area_entered"]
+[connection signal="area_exited" from="collider" to="." method="_on_collider_area_exited"]
+[connection signal="area_entered" from="Clip" to="." method="_on_clip_area_entered"]

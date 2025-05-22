@@ -1,10 +1,10 @@
 extends Area2D
 
-func get_nearest_collider():
-	var colliders = get_overlapping_areas()
-	if colliders.size() > 0:
-		%PickUP.nearest_collider= colliders[0]  # Prendi il primo collider trovato
-	return null
+#func get_nearest_collider():
+	#var colliders = get_overlapping_areas()
+	#if colliders.size() > 0:
+		#%PickUP.nearest_collider= colliders[0]  # Prendi il primo collider trovato
+	#return null
 
 func get_nearest_collider_center()->void:
 	var nearest_collide = null
@@ -16,4 +16,4 @@ func get_nearest_collider_center()->void:
 			min_distance = distance
 			nearest_collide = area
 	if nearest_collide:
-		%PickUP.nearest_collider=nearest_collide
+		$"..".nearest_collider=nearest_collide
