@@ -25,7 +25,7 @@ func act() -> void:
 	add_impulse_player()
 
 func add_impulse_player():
-	attack_sfx.play()
+	AudioManager.create_2d_audio_at_location(self.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_SLASHING_WEAPON_EQUIP)
 	$"../../../..".apply_impulse(Vector2(slash_strength, 0).rotated($"../..".global_rotation))
 
 func _on_body_entered(body) -> void:

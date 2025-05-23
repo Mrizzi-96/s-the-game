@@ -5,9 +5,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	quit.pressed.connect(Global.quit_game)
+	quit.pressed.connect(quit_game)
 
 func _start_game():
+	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.UI_BUTTON_PRESS)
 	# use a copy of player_start as ther player data, to avoid using the "prefab". each time we start again, we'll have a different player data resource
 	RunInfo.player_data = ResourceLoader.load("res://Resources/Player/player_start.tres").duplicate()
 	Global.goto_scene("res://ArenaChoice/arena_choice.tscn")
@@ -15,3 +16,7 @@ func _start_game():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+func quit_game():
+	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.UI_BUTTON_PRESS)
+	Global.quit_game()
