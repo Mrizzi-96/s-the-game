@@ -28,7 +28,6 @@ func act() -> void:
 func add_impulse_player():
 	AudioManager.create_2d_audio_at_location(self.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_SLASHING_WEAPON_EQUIP)
 	$"../../../..".apply_impulse(Vector2(slash_strength, 0).rotated($"../..".global_rotation))
-	print($"../../../..")
 
 func _on_body_entered(body) -> void:
 	if body.is_in_group("enemies"):
