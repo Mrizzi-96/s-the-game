@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://c7dkpcikh462g"]
+
+[ext_resource type="Script" uid="uid://b4yrtjh8l6b3v" path="res://Resources/SFX/sound_effect_settings.gd" id="1_ivvli"]
+[ext_resource type="AudioStream" uid="uid://b0pqfwvro4bud" path="res://Resources/SFX/SfxSources/155388__woodmoose__guncock.wav" id="2_a1w2y"]
+
+[resource]
+script = ExtResource("1_ivvli")
+limit = 5
+type = 6
+source = ExtResource("2_a1w2y")
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://b4yrtjh8l6b3v"

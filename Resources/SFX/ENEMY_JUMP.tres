@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=2 format=3 uid="uid://bef80my0htshi"]
+
+[ext_resource type="Script" uid="uid://b4yrtjh8l6b3v" path="res://Resources/SFX/sound_effect_settings.gd" id="1_vrtio"]
+
+[resource]
+script = ExtResource("1_vrtio")
+limit = 5
+type = 2
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://b4yrtjh8l6b3v"
