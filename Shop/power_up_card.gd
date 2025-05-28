@@ -75,7 +75,6 @@ func _on_buy_button_mouse_exited() -> void:
 
 func drag() -> void:
 	if bought==true:
-		
 		pass # Replace with function body.
 
 

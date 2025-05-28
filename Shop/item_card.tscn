@@ -1,67 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://sbi55htjegl2"]
+[gd_scene load_steps=7 format=3 uid="uid://sbi55htjegl2"]
 
 [ext_resource type="Script" uid="uid://cje4jsubt86dq" path="res://Shop/item_card.gd" id="1_fawm4"]
-[ext_resource type="Texture2D" uid="uid://ck44uxi0sfcn7" path="res://Shop/shop-invetory items/weapon card/weapon card coin.png" id="2_q1fec"]
-[ext_resource type="LabelSettings" uid="uid://cs47gw2eocgre" path="res://UI/Themes/card_label.tres" id="5_g70ch"]
+[ext_resource type="Texture2D" uid="uid://b8m63ivhihmu8" path="res://Shop/shop-invetory items/weapon card/weapon equipment empty.png" id="1_k5ww5"]
+[ext_resource type="Script" uid="uid://b2cbriqy40rjj" path="res://Shop/collider_powerUP.gd" id="4_g68jo"]
+[ext_resource type="Script" uid="uid://tcar2lgtw2p7" path="res://Shop/clip_powerUP.gd" id="5_5q82b"]
 [ext_resource type="Texture2D" uid="uid://btrfkaxfy6e3a" path="res://Weapons/Assets/gun.png" id="5_k5ww5"]
 
-[node name="ItemShopCard" type="Control"]
-custom_minimum_size = Vector2(210, 352)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 210.0
-offset_bottom = 352.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80v7e"]
+size = Vector2(135, 98.5)
+
+[node name="ItemShopCard" type="TextureRect"]
+offset_right = 257.0
+offset_bottom = 169.0
 size_flags_vertical = 4
+texture = ExtResource("1_k5ww5")
 script = ExtResource("1_fawm4")
-
-[node name="PanelContainer2" type="TextureRect" parent="."]
-layout_mode = 1
-offset_right = 210.0
-offset_bottom = 352.0
-texture = ExtResource("2_q1fec")
-
-[node name="Title" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-offset_top = 20.0
-offset_right = 210.0
-offset_bottom = 36.0
-text = "TITLE"
-label_settings = ExtResource("5_g70ch")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BuyButton" type="Button" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-offset_left = 20.0
-offset_top = 260.0
-offset_right = 190.0
-offset_bottom = 291.0
-text = "BUY"
-
-[node name="ItemPrice" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-offset_left = 20.0
-offset_top = 302.0
-offset_right = 210.0
-offset_bottom = 349.0
-size_flags_vertical = 1
-text = "200"
-label_settings = ExtResource("5_g70ch")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ImageTexture" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 27.0
-offset_top = 67.0
-offset_right = 183.0
-offset_bottom = 257.0
+offset_left = 44.0
+offset_top = 17.0
+offset_right = 206.0
+offset_bottom = 154.0
 texture = ExtResource("5_k5ww5")
-expand_mode = 5
+expand_mode = 2
 stretch_mode = 5
 
-[connection signal="pressed" from="BuyButton" to="." method="buy"]
+[node name="collider" type="Area2D" parent="."]
+script = ExtResource("4_g68jo")
+
+[node name="Clip" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(126, 74)
+script = ExtResource("5_5q82b")
+
+[node name="ClipCollision" type="CollisionShape2D" parent="Clip"]
+shape = SubResource("RectangleShape2D_80v7e")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="collider" to="." method="_on_collider_area_entered"]
+[connection signal="area_exited" from="collider" to="." method="_on_collider_area_exited"]
+[connection signal="area_entered" from="Clip" to="." method="_on_clip_area_entered"]
+[connection signal="mouse_entered" from="Clip" to="." method="_on_clip_mouse_entered"]

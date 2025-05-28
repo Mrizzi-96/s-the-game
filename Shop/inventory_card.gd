@@ -3,9 +3,10 @@ class_name InventoryCard extends Control
 var image_path : String
 var item_data : ItemData
 
-
+@onready var pickUP:PackedScene=preload("res://Shop/item_card.tscn")
 @onready var image_texture = %ImageTexture
 @onready var title: Label = %Title
+var deactive:bool=false
 
 signal left_weapon_equipped(prev_weapon : String, next_weapon : String)
 signal right_weapon_equipped(prev_weapon : String, next_weapon : String)
@@ -29,7 +30,11 @@ func init(item: ItemData):
 	if RunInfo.player_data.is_equipped("LeftLeg", item_data.name.to_lower()) or RunInfo.player_data.is_equipped("RightLeg", item_data.name.to_lower()):
 		disable_buttons()
 	# else do nothing
-	
+
+func _process(delta: float) -> void:
+	if deactive==true:
+		$".".modulate=Color(1.0, 1.0, 1.0, 0.450)
+
 func disable_button(button : Button):
 	button.disabled = true
 	button.visible = false
@@ -78,3 +83,11 @@ func _on_equip_button_right_pressed():
 	var next_weapon = item_data.name.to_lower()
 	RunInfo.player_data.add_to_equipment(leg, next_weapon)	
 	right_weapon_equipped.emit(prev_weapon, next_weapon)
+
+
+func _on_button_pressed() -> void:
+	deactive=true
+	print("pickup spawna")
+	var grab_pickUP=pickUP.instantiate() as ItemShopCard
+	grab_pickUP.init(item_data)
+	get_parent().get_parent().add_child(grab_pickUP)
