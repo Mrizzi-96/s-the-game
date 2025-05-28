@@ -42,6 +42,8 @@ func _ready():
 func add_inventory_card(item_data : ItemData):
 	# update player_gold
 	player_gold.text = str(player_data.gold)
+	# play sound
+	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.ITEM_BOUGHT)
 	# add a new inventory card
 	var invCard = inv_card_scene.instantiate() as InventoryCard
 	invCard.init(item_data)
