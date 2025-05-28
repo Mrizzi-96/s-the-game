@@ -29,7 +29,7 @@ func spawn_bullet() -> void:
 	bullet.position =$BulletSpawn.global_position
 	bullet.rotation =$BulletSpawn.global_rotation 
 	get_tree().root.add_child(bullet)
-	attack_sfx.play()
+	AudioManager.create_2d_audio_at_location(self.global_position,SoundEffectSettings.SOUND_EFFECT_TYPE.ON_WEAPON_SHOOT)
 	
 func add_impulse_player() -> void:
 	$"../../../..".apply_impulse(Vector2(-recoil_force, 0).rotated($"../..".global_rotation))
