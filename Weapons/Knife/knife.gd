@@ -4,5 +4,3 @@ func _ready():
 	item_data = ResourceLoader.load("res://Resources/Items/knife.tres")
 	super.init()
 	
-func add_impulse_player():
-	super.add_impulse_player()
