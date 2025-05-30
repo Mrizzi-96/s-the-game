@@ -18,7 +18,7 @@ func add_to_equipment(leg: String, item_name : String):
 	equipment[leg] = item_name.to_lower() # lowercase since Global.Weapons[key] is lowercase
 	
 func is_equipped(key: String, item_name: String):
-	return equipment[key] == item_name	
+	return equipment[key] == item_name
 	
 func get_equipped(key: String):
 	return equipment[key]

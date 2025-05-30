@@ -1,16 +1,25 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=5 format=3 uid="uid://jh7hai1y78hf"]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=7 format=3 uid="uid://jh7hai1y78hf"]
 
 [ext_resource type="Script" uid="uid://cf5if4viigef8" path="res://Resources/item_data.gd" id="1_ciwn4"]
 [ext_resource type="Resource" uid="uid://t6h8xeh2f1b8" path="res://Weapons/Assets/gun.tres" id="1_dnubm"]
 [ext_resource type="Script" uid="uid://c3phpkb22d8bc" path="res://Resources/Player/player_data.gd" id="1_nknpw"]
 [ext_resource type="Resource" uid="uid://benl0845mu8x2" path="res://Resources/Items/knife.tres" id="2_xem2t"]
+[ext_resource type="Resource" uid="uid://cahh0h2e3psrk" path="res://Resources/Items/propeller.tres" id="4_265w5"]
+[ext_resource type="Resource" uid="uid://ckovpwherkt3b" path="res://Resources/Items/shotgun.tres" id="5_h0vtp"]
 
 [resource]
 script = ExtResource("1_nknpw")
 gold = 10000
-inventory = Array[ExtResource("1_ciwn4")]([ExtResource("1_dnubm"), ExtResource("2_xem2t")])
+inventory = Array[ExtResource("1_ciwn4")]([ExtResource("1_dnubm"), ExtResource("2_xem2t"), ExtResource("4_265w5"), ExtResource("5_h0vtp")])
 equipment = {
 "LeftLeg": "knife",
 "RightLeg": "gun"
 }
 health = 100
+fire_rate = 0
+shooting_damage = 0
+luck = 0
+crit_chance = 0
+armor = 0
+thrust_speed = 0
+thrust_damage = 0

@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cokjj7u4dbdlj"]
+
+[ext_resource type="Texture2D" uid="uid://lxaoxnb4beac" path="res://Shop/shop-invetory items/other/buyback upgrade 2.png" id="1_74ca4"]
+[ext_resource type="Script" uid="uid://cf5if4viigef8" path="res://Resources/item_data.gd" id="2_11pem"]
+
+[resource]
+script = ExtResource("2_11pem")
+type = 4
+name = "Gold UP"
+description = "can upgrade Gold"
+price = 170
+pickable_texture = ExtResource("1_74ca4")
+slots = 1
+bought = false
+stats = {
+"armor": {
+"text": "armor",
+"value": 0
+},
+"crit_chance": {
+"text": "crit chance",
+"value": 0
+},
+"fire_rate": {
+"text": "fire rate",
+"value": 0
+},
+"health": {
+"text": "health",
+"value": 0
+},
+"luck": {
+"text": "luck",
+"value": 5
+},
+"shooting_damage": {
+"text": "shooting damage",
+"value": 0
+},
+"thrust_damage": {
+"text": "thrust damage",
+"value": 0
+},
+"thrust_speed": {
+"text": "thrust speed",
+"value": 0
+}
+}
+metadata/_custom_type_script = "uid://cf5if4viigef8"

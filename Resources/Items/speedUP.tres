@@ -12,12 +12,38 @@ price = 324
 pickable_texture = ExtResource("2_lslma")
 slots = 2
 bought = false
-shooting_damage = 0
-fire_rate = 2
-health = 0
-luck = 0
-crit_chance = 0
-armor = 0
-thrust_speed = 3
-thrust_damage = 0
+stats = {
+"armor": {
+"text": "armor",
+"value": 3
+},
+"crit_chance": {
+"text": "crit chance",
+"value": 0
+},
+"fire_rate": {
+"text": "fire rate",
+"value": 2
+},
+"health": {
+"text": "health",
+"value": 0
+},
+"luck": {
+"text": "luck",
+"value": 0
+},
+"shooting_damage": {
+"text": "shooting damage",
+"value": 0
+},
+"thrust_damage": {
+"text": "thrust damage",
+"value": 0
+},
+"thrust_speed": {
+"text": "thrust speed",
+"value": 0
+}
+}
 metadata/_custom_type_script = "uid://cf5if4viigef8"

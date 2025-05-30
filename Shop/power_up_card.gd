@@ -1,5 +1,5 @@
 class_name PowShopCard
-extends Control
+extends TextureRect
 
 var image_path : String
 var item_data : ItemData
@@ -13,11 +13,15 @@ var item_data : ItemData
 @onready var item_price = %ItemPrice
 @onready var buy_button : Button = %BuyButton
 @onready var title : Label = %Title
+@onready var title_stats : Label = %TitleStats
+@onready var container_stats:PackedScene=preload("res://Shop/container_single_stats.tscn")
+var non_zero_stats:Dictionary={}
 
 var start_position=position
 var following = false
 var center=size/2
 var deactive:bool=false
+var count:int=0
 
 signal item_bought(item_data: ItemData)
 
@@ -34,11 +38,20 @@ func init(item: ItemData):
 	item_price.text=(str(item_data.price))
 	# disable buy button if player has not enough money
 	#buy_button.disabled = item_data.price > RunInfo.player_data.gold
+	#set stats
+	title_stats.text = item_data.name
+	var count=item_data.get_non_zero_stats_count()
+	non_zero_stats=item_data.get_non_zero_stats()
+	#print("numero stats",count)
+	for i in non_zero_stats.keys():
+		var stats=container_stats.instantiate()
+		stats.init(item_data,i)
+		%ContainerAllStats.add_child(stats)
+	
 
 func _process(delta: float) -> void:
 	if deactive==true:
-		%PowerUPCard.modulate=Color(1.0, 1.0, 1.0, 0.450)
-		%PowerUP.modulate=Color(1.0, 1.0, 1.0, 0.450)
+		$".".modulate=Color(1.0, 1.0, 1.0, 0.450)
 
 func buy():
 	if !bought:
@@ -73,15 +86,21 @@ func _on_buy_button_mouse_exited() -> void:
 		%EmptyTooltip.visible=false
 		buy_button.icon = null
 
-func drag() -> void:
-	if bought==true:
-		pass # Replace with function body.
-
 
 func _on_buy_button_button_down() -> void:
 	if bought:
-		deactive=true
-		print("pickup spawna")
-		var grab_pickUP=pickUP.instantiate() as PickUP
-		grab_pickUP.init(item_data)
-		get_parent().get_parent().add_child(grab_pickUP)
+		count+=1
+		if count<=1:
+			deactive=true
+			var grab_pickUP=pickUP.instantiate() as PickUP
+			grab_pickUP.creator = self
+			grab_pickUP.init(item_data)
+			get_parent().get_parent().get_parent().add_child(grab_pickUP)
+
+func equip():
+	print("aggiungi parametri")
+
+func reset():
+	count=0
+	deactive=false
+	$".".modulate=Color(1.0, 1.0, 1.0, 1.0)

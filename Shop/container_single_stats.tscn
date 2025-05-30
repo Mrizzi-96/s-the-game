@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjeyhjy07vx3n"]
+
+[ext_resource type="Script" uid="uid://d1rlde226r038" path="res://Shop/container_single_stats.gd" id="1_345hq"]
+[ext_resource type="Texture2D" uid="uid://csf2yyxje2qi" path="res://Shop/shop-invetory items/upgrade card/M_icon.png" id="1_wekr1"]
+[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="2_345hq"]
+[ext_resource type="Script" uid="uid://ckklggcftoq3f" path="res://Shop/stats_text.gd" id="3_746e1"]
+[ext_resource type="Texture2D" uid="uid://ctthewpj1ix2" path="res://Shop/shop-inventory background/divider.png" id="4_i8vfi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cx8gg"]
+font = ExtResource("2_345hq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwavk"]
+font = ExtResource("2_345hq")
+font_size = 12
+
+[node name="ContainerSingleStats" type="VBoxContainer"]
+offset_right = 154.0
+offset_bottom = 48.0
+script = ExtResource("1_345hq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TagWeapon" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_wekr1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="StatsValue" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+30%"
+label_settings = SubResource("LabelSettings_cx8gg")
+
+[node name="StatsText" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "fire rate"
+label_settings = SubResource("LabelSettings_pwavk")
+script = ExtResource("3_746e1")
+
+[node name="Spacer" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("4_i8vfi")

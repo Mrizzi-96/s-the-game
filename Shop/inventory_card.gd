@@ -7,6 +7,7 @@ var item_data : ItemData
 @onready var image_texture = %ImageTexture
 @onready var title: Label = %Title
 var deactive:bool=false
+var count:int=0
 
 signal left_weapon_equipped(prev_weapon : String, next_weapon : String)
 signal right_weapon_equipped(prev_weapon : String, next_weapon : String)
@@ -24,8 +25,8 @@ func init(item: ItemData):
 	title.text = item_data.name.to_upper()
 	image_texture.texture = item.texture
 	# ignore size of image to have them all same size
-	image_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE	
-	image_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	#image_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	#image_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	# if equipment contains the itemdata, then disable button using key
 	if RunInfo.player_data.is_equipped("LeftLeg", item_data.name.to_lower()) or RunInfo.player_data.is_equipped("RightLeg", item_data.name.to_lower()):
 		disable_buttons()
@@ -63,7 +64,6 @@ func disable_buttons():
 	%EquipButtonLeft.visible = false
 	%EquipButtonRight.disabled = true
 	%EquipButtonRight.visible = false
-	
 
 func _on_equip_button_left_pressed():
 	var leg = "LeftLeg"
@@ -71,7 +71,7 @@ func _on_equip_button_left_pressed():
 	# signal to shopmanager to re-enable buttons on previous inventory card 
 	var prev_weapon = RunInfo.player_data.get_equipped(leg)
 	var next_weapon = item_data.name.to_lower()
-	RunInfo.player_data.add_to_equipment(leg, next_weapon)	
+	RunInfo.player_data.add_to_equipment(leg, next_weapon)
 	left_weapon_equipped.emit(prev_weapon, next_weapon)
 
 
@@ -81,13 +81,40 @@ func _on_equip_button_right_pressed():
 	# signal to shopmanager to re-enable buttons on previous inventory card 
 	var prev_weapon = RunInfo.player_data.get_equipped(leg)
 	var next_weapon = item_data.name.to_lower()
-	RunInfo.player_data.add_to_equipment(leg, next_weapon)	
+	RunInfo.player_data.add_to_equipment(leg, next_weapon)
 	right_weapon_equipped.emit(prev_weapon, next_weapon)
 
 
-func _on_button_pressed() -> void:
-	deactive=true
-	print("pickup spawna")
-	var grab_pickUP=pickUP.instantiate() as ItemShopCard
-	grab_pickUP.init(item_data)
-	get_parent().get_parent().add_child(grab_pickUP)
+func _on_button_button_down() -> void:
+	count+=1
+	#print("count ", count)
+	if count<=1:
+		#print("count1 ", count)
+		deactive=true
+		var grab_pickUP=pickUP.instantiate() as ItemShopCard
+		grab_pickUP.creator = self
+		grab_pickUP.init(item_data)
+		get_parent().get_parent().get_parent().add_child(grab_pickUP)
+
+func equip_right():
+	print("leg 2")
+	var leg = "RightLeg"
+	# signal to shopmanager to re-enable buttons on previous inventory card 
+	var prev_weapon = RunInfo.player_data.get_equipped(leg)
+	var next_weapon = item_data.name.to_lower()
+	RunInfo.player_data.add_to_equipment(leg, next_weapon)
+	right_weapon_equipped.emit(prev_weapon, next_weapon)
+
+func equip_left():
+	print("leg 1")
+	var leg = "LeftLeg"
+	# signal to shopmanager to re-enable buttons on previous inventory card 
+	var prev_weapon = RunInfo.player_data.get_equipped(leg)
+	var next_weapon = item_data.name.to_lower()
+	RunInfo.player_data.add_to_equipment(leg, next_weapon)
+	right_weapon_equipped.emit(prev_weapon, next_weapon)
+
+func reset():
+	count=0
+	deactive=false
+	$".".modulate=Color(1.0, 1.0, 1.0, 1.0)

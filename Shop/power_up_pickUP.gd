@@ -7,7 +7,7 @@ var item_data : ItemData
 var margin:float=5.0
 @export var start_position: Vector2
 var grab :bool= true
-@onready var center=size/2
+var center
 #@onready var my_node = $".."
 var slot:int=0
 var needed_slot=0
@@ -15,6 +15,7 @@ var can_place:bool=false
 var nearest_collider
 var has_dragged:bool=true
 var can_grab:bool=false
+var creator
 
 func init(item: ItemData):
 	if not is_node_ready():
@@ -27,6 +28,7 @@ func init(item: ItemData):
 	$collider.add_child(collider)
 
 func _ready():
+	center=size/2
 	#print(my_node.bought)  # Assicurati che 'bought' esista
 	start_position = position
 
@@ -60,6 +62,10 @@ func _input(event):
 				has_dragged = false  # Reset per la prossima interazione
 				#print("slot ",slot)
 				$collider.disable_colliders()
+				creator.equip()
+			else:
+				creator.reset()
+				queue_free()
 			#print("following ",grab)
 
 
@@ -103,4 +109,4 @@ func _on_mouse_exited() -> void:
 
 
 func _on_clip_area_entered(area: Area2D) -> void:
-	%Clip.get_nearest_collider_center()
+	%Clip.get_nearest_collider_powerUP()

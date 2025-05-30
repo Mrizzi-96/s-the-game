@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://wkplm0useil"]
+
+[ext_resource type="Texture2D" uid="uid://b8kx3myqekewy" path="res://Player/Assets/RightLegFIXED.png" id="1_yspdk"]
+
+[node name="TextureRect" type="TextureRect"]
+texture = ExtResource("1_yspdk")
+expand_mode = 2

@@ -1,19 +1,37 @@
-[gd_scene load_steps=17 format=3 uid="uid://domdmetpninmx"]
+[gd_scene load_steps=24 format=3 uid="uid://domdmetpninmx"]
 
 [ext_resource type="Script" uid="uid://bfjhylr5gunmy" path="res://Shop/shop_manager.gd" id="1_8dvge"]
 [ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_4gnlw"]
 [ext_resource type="Texture2D" uid="uid://yycdmfd8c4n5" path="res://Shop/shop-inventory background/shop (background).png" id="3_25km1"]
 [ext_resource type="Theme" uid="uid://5asui76h3ng0" path="res://UI/Themes/shop_theme.tres" id="4_icvdq"]
 [ext_resource type="Texture2D" uid="uid://h8xlu34vf17b" path="res://Shop/Assets/equipment bg.png" id="4_los8e"]
-[ext_resource type="Texture2D" uid="uid://m3scjjnqmvfx" path="res://Weapons/Gun/gun.png" id="5_15xmb"]
 [ext_resource type="Texture2D" uid="uid://dy6n21vwqpftv" path="res://Shop/Assets/currency.png" id="7_kfh3s"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="8_hh7ca"]
 [ext_resource type="Texture2D" uid="uid://b8m63ivhihmu8" path="res://Shop/shop-invetory items/weapon card/weapon equipment empty.png" id="9_25km1"]
 [ext_resource type="Script" uid="uid://dc3jwqghjadke" path="res://Shop/control_button.gd" id="11_8sid2"]
+[ext_resource type="Texture2D" uid="uid://btrfkaxfy6e3a" path="res://Weapons/Assets/gun.png" id="11_eu4ty"]
+[ext_resource type="Texture2D" uid="uid://bfmwawfl1ar5s" path="res://Weapons/Assets/knife.png" id="12_7nrtk"]
 [ext_resource type="Texture2D" uid="uid://cjuhxu7ygff3q" path="res://Shop/shop-invetory items/shop-inventory parts/shop when cursor is above it.png" id="12_jhfdn"]
 [ext_resource type="LabelSettings" uid="uid://uq5m7s0wfh64" path="res://Shop/shop_stats.tres" id="13_7nrtk"]
 [ext_resource type="Texture2D" uid="uid://cyet7fq00ijj7" path="res://Shop/shop-invetory items/shop-inventory parts/Inventory when cursor is above it.png" id="13_eu4ty"]
 [ext_resource type="Texture2D" uid="uid://ctthewpj1ix2" path="res://Shop/shop-inventory background/divider.png" id="14_b5trs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eu4ty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nrtk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b5trs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16e15"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6qmg5"]
+
+[sub_resource type="Theme" id="Theme_quj4d"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_eu4ty")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_7nrtk")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_b5trs")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_16e15")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_6qmg5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eu4ty"]
 size = Vector2(115, 119)
@@ -51,9 +69,11 @@ offset_top = 74.0
 offset_right = 1020.0
 offset_bottom = 802.0
 theme = ExtResource("4_icvdq")
+theme_override_constants/h_separation = 42
+theme_override_constants/v_separation = 11
 columns = 4
 
-[node name="InventoryGrid" type="GridContainer" parent="."]
+[node name="InventoryGrid 3" type="GridContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
@@ -62,6 +82,27 @@ offset_top = 74.0
 offset_right = 1020.0
 offset_bottom = 802.0
 theme = ExtResource("4_icvdq")
+columns = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 77.0
+offset_top = 74.0
+offset_right = 1283.0
+offset_bottom = 797.0
+theme = SubResource("Theme_quj4d")
+horizontal_scroll_mode = 0
+
+[node name="InventoryGrid" type="GridContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("4_icvdq")
+theme_override_constants/h_separation = 42
+theme_override_constants/v_separation = 11
 columns = 4
 
 [node name="ButtonShop" type="Control" parent="."]
@@ -113,7 +154,7 @@ texture = ExtResource("4_los8e")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="leftpreviewweapon" type="TextureRect" parent="ControlPlayer"]
+[node name="LeftLegWeapon" type="TextureRect" parent="ControlPlayer"]
 layout_mode = 0
 offset_left = 1120.0
 offset_top = 707.0
@@ -121,7 +162,7 @@ offset_right = 1379.0
 offset_bottom = 878.0
 texture = ExtResource("9_25km1")
 
-[node name="LeftLegWeaponPreview" type="TextureRect" parent="ControlPlayer/leftpreviewweapon"]
+[node name="WeaponPreviewLeft" type="TextureRect" parent="ControlPlayer/LeftLegWeapon"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -133,12 +174,12 @@ offset_left = 37.0
 offset_top = 22.0
 offset_right = 220.0
 offset_bottom = 118.0
-texture = ExtResource("5_15xmb")
+texture = ExtResource("11_eu4ty")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="leftpreviewweapon2" type="TextureRect" parent="ControlPlayer"]
+[node name="RightLegWeapon" type="TextureRect" parent="ControlPlayer"]
 layout_mode = 0
 offset_left = 1493.0
 offset_top = 707.0
@@ -146,7 +187,7 @@ offset_right = 1752.0
 offset_bottom = 878.0
 texture = ExtResource("9_25km1")
 
-[node name="RightLegWeaponPreview" type="TextureRect" parent="ControlPlayer/leftpreviewweapon2"]
+[node name="WeaponPreviewRight" type="TextureRect" parent="ControlPlayer/RightLegWeapon"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -158,7 +199,7 @@ offset_left = 37.0
 offset_top = 22.0
 offset_right = 220.0
 offset_bottom = 118.0
-texture = ExtResource("5_15xmb")
+texture = ExtResource("12_7nrtk")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -413,7 +454,7 @@ texture = ExtResource("14_b5trs")
 layout_mode = 2
 texture = ExtResource("14_b5trs")
 
-[node name="WeaponLeg1" type="Control" parent="ControlPlayer" groups=["grid"]]
+[node name="WeaponLegRight" type="Control" parent="ControlPlayer" groups=["RightLeg"]]
 layout_mode = 1
 anchor_top = 0.5
 anchor_right = 0.5
@@ -425,15 +466,15 @@ offset_bottom = 865.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Area2D" type="Area2D" parent="ControlPlayer/WeaponLeg1" groups=["grid"]]
+[node name="Area2D" type="Area2D" parent="ControlPlayer/WeaponLegRight" groups=["RightLeg"]]
 position = Vector2(116.5, 72.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/WeaponLeg1/Area2D" groups=["grid"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/WeaponLegRight/Area2D" groups=["RightLeg"]]
 position = Vector2(7.62939e-06, 1.52588e-05)
 scale = Vector2(0.809282, 0.809282)
 shape = SubResource("RectangleShape2D_eu4ty")
 
-[node name="WeaponLeg2" type="Control" parent="ControlPlayer" groups=["grid"]]
+[node name="WeaponLegLeft" type="Control" parent="ControlPlayer" groups=["LeftLeg"]]
 layout_mode = 1
 anchor_top = 0.5
 anchor_right = 0.5
@@ -445,15 +486,15 @@ offset_bottom = 865.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Area2D" type="Area2D" parent="ControlPlayer/WeaponLeg2" groups=["grid"]]
+[node name="Area2D" type="Area2D" parent="ControlPlayer/WeaponLegLeft" groups=["LeftLeg"]]
 position = Vector2(116.5, 72.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/WeaponLeg2/Area2D" groups=["grid"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/WeaponLegLeft/Area2D" groups=["LeftLeg"]]
 position = Vector2(7.62939e-06, 1.52588e-05)
 scale = Vector2(0.809282, 0.809282)
 shape = SubResource("RectangleShape2D_eu4ty")
 
-[node name="ButtGrid" type="GridContainer" parent="ControlPlayer"]
+[node name="ButtGrid" type="GridContainer" parent="ControlPlayer" groups=["grid"]]
 z_index = 2
 layout_mode = 0
 offset_left = 1340.0
@@ -530,7 +571,7 @@ layout_mode = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/ButtGrid/Control8/Area2D" groups=["grid"]]
 shape = SubResource("RectangleShape2D_jhfdn")
 
-[node name="Leg1" type="GridContainer" parent="ControlPlayer"]
+[node name="Leg1" type="GridContainer" parent="ControlPlayer" groups=["grid"]]
 z_index = 2
 layout_mode = 0
 offset_left = 1208.0
@@ -639,7 +680,7 @@ layout_mode = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ControlPlayer/Leg1/Control12/Area2D" groups=["grid"]]
 shape = SubResource("RectangleShape2D_jhfdn")
 
-[node name="Leg2" type="GridContainer" parent="ControlPlayer"]
+[node name="Leg2" type="GridContainer" parent="ControlPlayer" groups=["grid"]]
 z_index = 2
 layout_mode = 0
 offset_left = 1536.0

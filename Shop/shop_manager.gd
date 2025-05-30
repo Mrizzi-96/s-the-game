@@ -1,15 +1,16 @@
 extends Control
 
-const MAX_POWER_UPS_CARDS : int = 8
+const MAX_POWER_UPS_CARDS : int = 7
 
-var card_base_scene = preload("res://Shop/item_card.tscn")
+var weapon_scene = preload("res://Shop/item_card.tscn")
 var inv_card_scene = preload("res://Shop/inventory_card.tscn")
 var powerUP_card_scene = preload("res://Shop/power_up_card.tscn")
+var spacer = preload("res://Shop/scroll_spacer.tscn")
 
 @onready var item_resources_folder_path = "res://Resources/Items/"
 @onready var player_data = RunInfo.player_data
-@onready var ll_weapon_preview = %LeftLegWeaponPreview
-@onready var rl_weapon_preview = %RightLegWeaponPreview
+@onready var left_weapon = %WeaponPreviewLeft
+@onready var right_weapon = %WeaponPreviewRight
 # stats: gold, wave num, score
 @onready var score = %Score
 @onready var wave_num = %WaveNum
@@ -20,8 +21,8 @@ var powerUP_card_scene = preload("res://Shop/power_up_card.tscn")
 func _ready():
 	# populate shop ONLY with power ups
 	var power_ups = RunInfo.items.filter(func(element: ItemData): return element.type == ItemData.Type.POWER_UP)
-	for i in min(MAX_POWER_UPS_CARDS, power_ups.size()):
-		var current_item = power_ups[i] as ItemData
+	for i in MAX_POWER_UPS_CARDS:
+		var current_item = power_ups[randi_range(0,power_ups.size()-1)] as ItemData
 		if not player_data.is_in_inventory(current_item):
 			var powCardScn = powerUP_card_scene.instantiate() as PowShopCard
 			powCardScn.connect("item_bought", add_inventory_card)
@@ -32,14 +33,13 @@ func _ready():
 	for i in player_data.inventory.size():
 		var invCard = inv_card_scene.instantiate() as InventoryCard
 		invCard.init(player_data.inventory[i])
-		# connect to signals	
+		# connect to signals
 		invCard.left_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("LeftLeg"))
 		invCard.right_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("RightLeg"))
 		%InventoryGrid.add_child(invCard)
 	# load preview textures
-	ll_weapon_preview.texture = player_data.inventory.filter(func(element): return sort_name(element, player_data.get_equipped("LeftLeg")))[0].texture
-	rl_weapon_preview.texture = player_data.inventory.filter(func(element): return sort_name(element, player_data.get_equipped("RightLeg")))[0].texture
-	
+	left_weapon.texture = player_data.inventory.filter(func(element): return sort_name(element, player_data.get_equipped("LeftLeg")))[0].texture
+	right_weapon.texture = player_data.inventory.filter(func(element): return sort_name(element, player_data.get_equipped("RightLeg")))[0].texture
 	# set player gold
 	player_gold.text = str(player_data.gold)
 	# set wave num
@@ -58,6 +58,8 @@ func add_inventory_card(item_data : ItemData):
 
 
 func _on_resume_button_pressed():
+	#%WeaponPreviewRight.visible=true
+	#%WeaponPreviewLeft.visible=true
 	Global.goto_scene("res://ArenaChoice/arena_choice.tscn")
 
 func sort_name(element : ItemData, next_weapon : String) -> ItemData:
@@ -77,7 +79,7 @@ func _on_inventory_card_weapon_equipped(prev_weapon, next_weapon, leg : String):
 			# get next weapon item data
 		var next_item_data = data[0] as ItemData
 		if leg == "LeftLeg":
-			ll_weapon_preview.texture = next_item_data.texture
+			left_weapon.texture = next_item_data.texture
 		else:
-			rl_weapon_preview.texture = next_item_data.texture
+			right_weapon.texture = next_item_data.texture
 	pass

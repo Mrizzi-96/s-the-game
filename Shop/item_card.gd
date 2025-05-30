@@ -15,6 +15,7 @@ var can_place:bool=false
 var nearest_collider
 var has_dragged:bool=true
 var can_grab:bool=false
+var creator
 
 @onready var image_gun : TextureRect = %ImageTexture
 #@onready var item_price = %ItemPrice
@@ -86,11 +87,15 @@ func _input(event):
 		if not event.pressed and grab:
 			grab = false
 			if has_dragged and can_place:  # Check viene eseguito solo se è stato trascinato almeno una volta
-				global_position = nearest_collider.global_position-Vector2(129.5,85.5)
+				global_position = nearest_collider.global_position-center#Vector2(129.5,85.5)
 				#print("Nearest collider global position:", nearest_collider.global_position)
 				has_dragged = false  # Reset per la prossima interazione
 				#print("slot ",slot)
-				$collider.disable_colliders()
+				$collider.disable_colliders(creator)
+				print("collegato a ", creator)
+			else:
+				creator.reset()
+				queue_free()
 			#print("following ",grab)
 
 
@@ -105,7 +110,7 @@ func create_collision_polygon(texture: Texture, margin: float):
 
 
 func _on_collider_area_entered(area: Area2D) -> void:
-	if area.is_in_group("grid"):
+	if area.is_in_group("LeftLeg") or area.is_in_group("RightLeg"):
 		#print("slots+1")
 		#if slot<needed_slot:
 			slot+=1
@@ -113,7 +118,7 @@ func _on_collider_area_entered(area: Area2D) -> void:
 
 
 func _on_collider_area_exited(area: Area2D) -> void:
-	if area.is_in_group("grid"):
+	if area.is_in_group("LeftLeg") or area.is_in_group("RightLeg"):
 		#print("slots-1")
 		if slot>0:
 			slot-=1
@@ -128,4 +133,4 @@ func _on_mouse_exited() -> void:
 
 
 func _on_clip_area_entered(area: Area2D) -> void:
-	%Clip.get_nearest_collider_center()
+	%Clip.get_nearest_collider_weapon()

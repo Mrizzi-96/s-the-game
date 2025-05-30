@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cje4jsubt86dq" path="res://Shop/item_card.gd" id="1_fawm4"]
 [ext_resource type="Texture2D" uid="uid://b8m63ivhihmu8" path="res://Shop/shop-invetory items/weapon card/weapon equipment empty.png" id="1_k5ww5"]
-[ext_resource type="Script" uid="uid://b2cbriqy40rjj" path="res://Shop/collider_powerUP.gd" id="4_g68jo"]
+[ext_resource type="Script" uid="uid://do2n248c3o2sw" path="res://Shop/collider_weapon.gd" id="4_k5ww5"]
 [ext_resource type="Script" uid="uid://tcar2lgtw2p7" path="res://Shop/clip_powerUP.gd" id="5_5q82b"]
 [ext_resource type="Texture2D" uid="uid://btrfkaxfy6e3a" path="res://Weapons/Assets/gun.png" id="5_k5ww5"]
 
@@ -10,6 +10,7 @@
 size = Vector2(135, 98.5)
 
 [node name="ItemShopCard" type="TextureRect"]
+z_index = 5
 offset_right = 257.0
 offset_bottom = 169.0
 size_flags_vertical = 4
@@ -28,7 +29,7 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="collider" type="Area2D" parent="."]
-script = ExtResource("4_g68jo")
+script = ExtResource("4_k5ww5")
 
 [node name="Clip" type="Area2D" parent="."]
 unique_name_in_owner = true

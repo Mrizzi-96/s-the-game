@@ -18,8 +18,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _unhandled_input(_event) -> void:
-	if Input.is_action_just_pressed("act"):
-		act()
+	if Global.active_leg == $"../..":  # Ensures only active weapon processes input
+		if Input.is_action_just_pressed("act"):
+			act()
+		elif Input.is_action_just_pressed("switch"):
+			act()
 
 func act() -> void:
 	add_impulse_player()
