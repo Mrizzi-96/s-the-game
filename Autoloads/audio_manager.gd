@@ -20,7 +20,8 @@ func create_2d_audio_at_location(location, type: SoundEffectSettings.SOUND_EFFEC
 			new_audio.stream = sound_effect_setting.source
 			new_audio.volume_db = sound_effect_setting.volume
 			new_audio.pitch_scale = sound_effect_setting.pitch_scale
-			new_audio.pitch_scale = randf_range(-sound_effect_setting.pitch_randomness, sound_effect_setting.pitch_randomness)
+			#-sound_effect_setting.pitch_randomness
+			new_audio.pitch_scale = randf_range(0.0, 5.0)#sound_effect_setting.pitch_randomness)
 			new_audio.finished.connect(sound_effect_setting.on_audio_finished)
 			new_audio.finished.connect(new_audio.queue_free)
 			
@@ -39,7 +40,8 @@ func create_audio(type: SoundEffectSettings.SOUND_EFFECT_TYPE):
 			new_audio.stream = sound_effect_setting.source
 			new_audio.volume_db = sound_effect_setting.volume
 			new_audio.pitch_scale = sound_effect_setting.pitch_scale
-			new_audio.pitch_scale = randf_range(-sound_effect_setting.pitch_randomness, sound_effect_setting.pitch_randomness)
+			#-sound_effect_setting.pitch_randomness
+			new_audio.pitch_scale = randf_range(0.0, 5.0)#sound_effect_setting.pitch_randomness)
 			new_audio.finished.connect(sound_effect_setting.on_audio_finished)
 			new_audio.finished.connect(new_audio.queue_free)
 			

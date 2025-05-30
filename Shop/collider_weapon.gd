@@ -1,8 +1,8 @@
 extends Area2D
 
 var disabled_colliders = []  # Memorizza i collider disattivati
-@onready var leftleg=%WeaponPreviewLeft
-@onready var rightleg=%WeaponPreviewRight
+#@onready var leftleg=%WeaponPreviewLeft
+#@onready var rightleg=%WeaponPreviewRight
 
 func disable_colliders(creator):
 	disabled_colliders.clear()  # Puliamo la lista prima di aggiungere nuovi collider

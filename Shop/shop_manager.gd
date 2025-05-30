@@ -1,6 +1,6 @@
 extends Control
 
-const MAX_POWER_UPS_CARDS : int = 7
+const MAX_POWER_UPS_CARDS : int = 8
 
 var weapon_scene = preload("res://Shop/item_card.tscn")
 var inv_card_scene = preload("res://Shop/inventory_card.tscn")
@@ -22,7 +22,7 @@ func _ready():
 	# populate shop ONLY with power ups
 	var power_ups = RunInfo.items.filter(func(element: ItemData): return element.type == ItemData.Type.POWER_UP)
 	for i in MAX_POWER_UPS_CARDS:
-		var current_item = power_ups[randi_range(0,power_ups.size()-1)] as ItemData
+		var current_item = power_ups[randi_range(0,power_ups.size()-1)].duplicate() as ItemData
 		if not player_data.is_in_inventory(current_item):
 			var powCardScn = powerUP_card_scene.instantiate() as PowShopCard
 			powCardScn.connect("item_bought", add_inventory_card)
@@ -31,18 +31,31 @@ func _ready():
 
 	# do the same for player inventory
 	for i in player_data.inventory.size():
-		var invCard = inv_card_scene.instantiate() as InventoryCard
-		invCard.init(player_data.inventory[i])
+		var Card = create_card(player_data.inventory[i])
+		#var invCard = inv_card_scene.instantiate() as InventoryCard
+		#invCard.init(player_data.inventory[i])
 		# connect to signals
-		invCard.left_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("LeftLeg"))
-		invCard.right_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("RightLeg"))
-		%InventoryGrid.add_child(invCard)
+		
+		%InventoryGrid.add_child(Card)
 	# load preview textures
 	left_weapon.texture = player_data.inventory.filter(func(element): return sort_name(element, player_data.get_equipped("LeftLeg")))[0].texture
 	right_weapon.texture = player_data.inventory.filter(func(element): return sort_name(element, player_data.get_equipped("RightLeg")))[0].texture
 	# set player gold
 	player_gold.text = str(player_data.gold)
 	# set wave num
+
+func create_card(item: ItemData):
+	if item.type == ItemData.Type.POWER_UP:
+		var card = powerUP_card_scene.instantiate() as PowShopCard
+		card.init(item)
+		card.bought=true
+		return card
+	else:
+		var card = inv_card_scene.instantiate() as InventoryCard
+		card.init(item)
+		card.left_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("LeftLeg"))
+		card.right_weapon_equipped.connect(_on_inventory_card_weapon_equipped.bind("RightLeg"))
+		return card
 
 func add_inventory_card(item_data : ItemData):
 	# update player_gold
