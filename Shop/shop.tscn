@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dy6n21vwqpftv" path="res://Shop/Assets/currency.png" id="7_kfh3s"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="8_hh7ca"]
 [ext_resource type="Texture2D" uid="uid://b8m63ivhihmu8" path="res://Shop/shop-invetory items/weapon card/weapon equipment empty.png" id="9_25km1"]
-[ext_resource type="Script" uid="uid://dc3jwqghjadke" path="res://Shop/control_button.gd" id="11_8sid2"]
+[ext_resource type="Script" path="res://Shop/control_button.gd" id="11_8sid2"]
 [ext_resource type="Texture2D" uid="uid://btrfkaxfy6e3a" path="res://Weapons/Assets/gun.png" id="11_eu4ty"]
 [ext_resource type="Texture2D" uid="uid://bfmwawfl1ar5s" path="res://Weapons/Assets/knife.png" id="12_7nrtk"]
 [ext_resource type="Texture2D" uid="uid://cjuhxu7ygff3q" path="res://Shop/shop-invetory items/shop-inventory parts/shop when cursor is above it.png" id="12_jhfdn"]

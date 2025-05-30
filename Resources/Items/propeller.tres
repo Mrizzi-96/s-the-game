@@ -7,17 +7,45 @@
 [resource]
 script = ExtResource("1_p6y00")
 type = 3
-name = "Propeller"
+name = "propeller"
 description = "A small propeller, scavenged from a crusty old boat. 
 Works very well as a blender! "
 texture = ExtResource("2_vve1b")
 price = 200
 attack_sound = ExtResource("1_68x0o")
 slots = 0
-movement_speed_text = ""
-movement_speed = 0
-damage_text = ""
-damage = 0
-fire_rate_text = ""
-fire_rate = 0
 bought = false
+stats = {
+"armor": {
+"text": "armor",
+"value": 0
+},
+"crit_chance": {
+"text": "crit chance",
+"value": 0
+},
+"fire_rate": {
+"text": "fire rate",
+"value": 0
+},
+"health": {
+"text": "health",
+"value": 0
+},
+"luck": {
+"text": "luck",
+"value": 0
+},
+"shooting_damage": {
+"text": "shooting damage",
+"value": 0
+},
+"thrust_damage": {
+"text": "thrust damage",
+"value": 0
+},
+"thrust_speed": {
+"text": "thrust speed",
+"value": 0
+}
+}
