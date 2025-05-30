@@ -28,7 +28,6 @@ func init(item: ItemData):
 	$collider.add_child(collider)
 
 func _ready():
-	center=size/2
 	#print(my_node.bought)  # Assicurati che 'bought' esista
 	start_position = position
 
@@ -36,7 +35,7 @@ func _process(delta: float) -> void:
 	#if Input.is_action_just_pressed("rotate_powerUP"):  # Correct usage
 		#$".".rotation_degrees+=90
 	if grab:
-		global_position = get_global_mouse_position()-center
+		global_position = get_global_mouse_position()-Vector2(32,32)
 	if slot==needed_slot:
 		can_place=true
 		#%Clip.get_nearest_collider_center()
