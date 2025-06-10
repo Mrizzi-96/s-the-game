@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bq88ved7wpcvg" path="res://Player/player_spawner.tscn" id="7_ppd48"]
 [ext_resource type="PackedScene" uid="uid://fxwfnc2es8rl" path="res://Enemies/JumpingBurger/jumping_burger.tscn" id="7_xv7eh"]
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 script = ExtResource("1_ojro4")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
@@ -42,183 +42,150 @@ position = Vector2(4.01019, 6.99419)
 
 [node name="enemySpawner" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(-990.134, -91.5654)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 
 [node name="enemySpawner2" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(1236.84, -107.792)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 
 [node name="enemySpawner3" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(2042.38, -1117.96)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 
 [node name="enemySpawner33" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(2042.38, -1117.96)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 
 [node name="enemySpawner4" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(1376.88, -773.996)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 waveNumber = 2
 
 [node name="enemySpawner5" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(945.88, -773.371)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 
 [node name="enemySpawner6" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(494.881, -772.718)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 
 [node name="enemySpawner7" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(-131.119, -771.811)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 waveNumber = 2
 
 [node name="enemySpawner8" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(-615.128, -778.11)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 
 [node name="enemySpawner9" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(-1072.09, -750.447)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 waveNumber = 2
 
 [node name="enemySpawner10" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(-2031.84, 804.945)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 waveNumber = 2
 
 [node name="enemySpawner11" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(-1419.84, 804.058)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 
 [node name="enemySpawner12" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(-827.847, 796.2)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 waveNumber = 2
 
 [node name="enemySpawner13" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(840.102, 759.784)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 
 [node name="enemySpawner29" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(840.102, 759.784)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 waveNumber = 2
 
 [node name="enemySpawner14" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(1768.15, 792.439)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 
 [node name="enemySpawner30" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(1768.15, 792.439)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 waveNumber = 2
 
 [node name="enemySpawner15" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(2723.01, 697.055)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 
 [node name="enemySpawner31" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(2723.01, 697.055)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 waveNumber = 2
 
 [node name="enemySpawner16" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(3294.95, 656.226)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 
 [node name="enemySpawner32" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(3294.95, 656.226)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("7_xv7eh")
 waveNumber = 2
 
 [node name="enemySpawner17" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(3270.25, 173.262)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 waveNumber = 2
 
 [node name="enemySpawner18" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(2187.07, 46.831)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 waveNumber = 2
 
 [node name="enemySpawner19" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(2186.45, -381.169)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 waveNumber = 2
 
 [node name="enemySpawner20" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(3232.48, -358.684)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 waveNumber = 2
 
 [node name="enemySpawner21" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(3224.44, -1771.67)
-scale = Vector2(1, 1)
 
 [node name="enemySpawner22" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(2295, -1379.33)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 waveNumber = 2
 
 [node name="enemySpawner23" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(202.457, -1755.3)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 
 [node name="enemySpawner24" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(208.209, -1926.3)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 waveNumber = 2
 
 [node name="enemySpawner26" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(-1387.76, -1905.99)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 waveNumber = 2
 
 [node name="enemySpawner27" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(-1369.45, -1692.02)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 
 [node name="enemySpawner28" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(-1381.09, -1441)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 waveNumber = 2
 
 [node name="enemySpawner25" parent="Tilemap/EnemySpawners" instance=ExtResource("5_p0prn")]
 position = Vector2(214.706, -1583.31)
-scale = Vector2(1, 1)
 enemyToSpawn = ExtResource("6_ojro4")
 waveNumber = 2
 
