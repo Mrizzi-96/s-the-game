@@ -1,6 +1,7 @@
 extends Area2D
 @onready var scene = get_parent()
-@onready var player_scene = preload("res://Player/player.tscn")
+#@onready var player_scene = preload("res://Player/player.tscn")
+@onready var player_scene = preload("res://ControllerPlayer/controlled_player.tscn")
 
 func spawn_player():
 	var player = player_scene.instantiate()
