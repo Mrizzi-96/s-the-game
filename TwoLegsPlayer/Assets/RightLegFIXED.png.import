@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pa4cu4sb4moj"
-path="res://.godot/imported/Ass.png-f584b4b8ddd2c9a28b9b501486a04e1d.ctex"
+uid="uid://cja8byojonm0e"
+path="res://.godot/imported/RightLegFIXED.png-a6dfb0fb1c51aa0cae068fe084c62816.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ControllerPlayer/Assets/Ass.png"
-dest_files=["res://.godot/imported/Ass.png-f584b4b8ddd2c9a28b9b501486a04e1d.ctex"]
+source_file="res://TwoLegsPlayer/Assets/RightLegFIXED.png"
+dest_files=["res://.godot/imported/RightLegFIXED.png-a6dfb0fb1c51aa0cae068fe084c62816.ctex"]
 
 [params]
 

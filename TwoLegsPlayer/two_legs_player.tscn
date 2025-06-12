@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtn8w7stekqj3"]
+
+[ext_resource type="PackedScene" uid="uid://cn8mtnkswehm1" path="res://Player/player.tscn" id="1_ofvpi"]
+[ext_resource type="Script" uid="uid://dw6aljgxhhtav" path="res://TwoLegsPlayer/two_legs_player.gd" id="2_komdl"]
+
+[node name="Player" instance=ExtResource("1_ofvpi")]
+script = ExtResource("2_komdl")
+player_bullet = null
+
+[node name="LeftCrossair" type="Node2D" parent="." index="2"]
+
+[node name="RightCrossair" type="Node2D" parent="." index="3"]
