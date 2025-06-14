@@ -23,8 +23,8 @@ func _process(_delta): #do the active leg basin
 		last_right_vector=right_vector
 	left_crossair.position=hips.position+last_left_vector*500;
 	right_crossair.position=hips.position+last_right_vector*500;
-	left_leg.look_at(left_crossair.position)
-	right_leg.look_at(right_crossair.position)
+	left_leg.look_at(left_crossair.global_position)
+	right_leg.look_at(right_crossair.global_position)
 	
 func _compute_left_crossair_position(): #compute crossair position for leg movement basing on left thumbstick
 	var rotationX=-Input.get_axis("rotateX","negativeRotateX")
