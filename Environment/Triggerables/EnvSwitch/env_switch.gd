@@ -44,10 +44,11 @@ func on_switch_triggered_all_nodes(): #
 
 func _on_area_entered(area: Area2D) -> void:
 	on_timeout()
-	if(is_timed):
+	if(is_timed and timer.is_stopped()):
 		timer.start()
 
 func on_timeout():
-	state=not state
+	if(timer.is_stopped()):
+		state=not state
 	change_color()
 	switch_triggered.emit()
