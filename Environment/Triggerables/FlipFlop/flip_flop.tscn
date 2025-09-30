@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3e8wwixg2gkt"]
+
+[ext_resource type="Script" uid="uid://de2no1c42e3kh" path="res://Environment/Triggerables/FlipFlop/flip_flop.gd" id="1_rcd78"]
+
+[node name="FlipFlop" type="Node2D"]
+script = ExtResource("1_rcd78")
+
+[node name="Timer" type="Timer" parent="."]
