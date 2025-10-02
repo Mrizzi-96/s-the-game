@@ -6,8 +6,14 @@ var _smoothed_mouse_pos : Vector2 # use to have a smooth leg rotation movement
 var max_speed = 2000
 @onready var left_leg = $Hips/Ass/LeftLeg
 @onready var right_leg = $Hips/Ass/RightLeg
+@onready var _invicibility_timer=$InvincibilityTimer
+@onready var blinking=$BlinkTimer
+@onready var _blinking=$Blinking
+
 @export var health_bar : ProgressBar
 @export var hit_amount: int
+
+signal player_damaged
 
 # Equipped Weapons references:
 var left_leg_weapon
@@ -28,8 +34,19 @@ func _ready():
 	# each time we instantiate the player, we use the RunInfo's player data to build it
 	# this way, we always have a snapshot of the player at the time he leaves a shop scene (i.e. current gold, weapons, equipment etc.)
 	_setup(RunInfo.player_data)
+	_invicibility_timer.timeout.connect(on_invincibility_timer_timeout)
 	
 	is_game_over = false
+	player_damaged.connect(on_player_damaged)
+
+func on_player_damaged(cause):
+	if !is_game_over and _invicibility_timer.is_stopped():
+			player_hit(hit_amount)
+			_invicibility_timer.start()
+			_blinking.blink(true)
+	
+func on_invincibility_timer_timeout():
+	_blinking.blink(false)
 
 func _setup(player_data : PlayerData):
 	# setup health 
@@ -89,9 +106,10 @@ func equipWeapon(weapon: String, leg:String):
 
 
 func _on_hips_body_entered(body):
-	if body.is_in_group("enemies"):
-		if !is_game_over:
-			player_hit(hit_amount)
+	if body.is_in_group("enemies") or body.is_in_group("damage"):
+		player_damaged.emit(body)
+		#if !is_game_over:
+		#	player_hit(hit_amount)
 
 func _physics_process(delta):
 	if $Hips.linear_velocity.length() > max_speed:

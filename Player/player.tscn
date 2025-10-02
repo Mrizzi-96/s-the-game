@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cn8mtnkswehm1"]
+[gd_scene load_steps=15 format=3 uid="uid://cn8mtnkswehm1"]
 
 [ext_resource type="Script" uid="uid://ba4h4wqjs8jll" path="res://Player/player.gd" id="1_c6ce5"]
 [ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Bullet/player_bullet.tscn" id="2_ifgo3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://brgrvcct7gblq" path="res://Shop/Assets/weapon_equipment_empty.png" id="7_btkp6"]
 [ext_resource type="Texture2D" uid="uid://cnosnij6wc7w1" path="res://Shop/Assets/butt coin.png" id="7_ceo47"]
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="7_t4o1a"]
+[ext_resource type="Script" uid="uid://gd6kfunsstes" path="res://Player/blinking.gd" id="10_x3vf3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5w4i3"]
 radius = 20.0
@@ -136,5 +137,16 @@ text = "000000"
 horizontal_alignment = 2
 vertical_alignment = 1
 clip_text = true
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Blinking" type="Timer" parent="." node_paths=PackedStringArray("sprites_to_blink")]
+wait_time = 0.05
+one_shot = true
+script = ExtResource("10_x3vf3")
+step = 0.5
+sprites_to_blink = [NodePath("../Hips/Ass/RightLeg"), NodePath("../Hips/Ass/LeftLeg"), NodePath("../Hips/Ass/AssSprite")]
 
 [connection signal="body_entered" from="Hips" to="." method="_on_hips_body_entered"]
