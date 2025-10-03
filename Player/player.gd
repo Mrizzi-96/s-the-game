@@ -15,16 +15,10 @@ var right_leg_weapon
 
 var max_rotation_speed = 10
 var is_game_over: bool
-<<<<<<< Updated upstream
-=======
-
-@onready var _hips:=$Hips
-
-@onready var _ass=$Hips/Ass/AssSprite
-
->>>>>>> Stashed changes
 @onready var player_gold = %PlayerGold
 #@onready var sfx = %Sfx
+
+@onready var _ass=$Hips/Ass/AssSprite
 
 signal game_ended
 
@@ -58,38 +52,22 @@ func _unhandled_input(_event):
 		if Global.active_leg != left_leg:
 			# left click ==> left leg
 			toggle_active_leg()
-<<<<<<< Updated upstream
-	if Input.is_action_just_pressed("switch"):
-		if Global.active_leg != right_leg:
-			toggle_active_leg()
-	return 
-	
-=======
-		_change_crossair(left_leg_weapon)
+
+
 		squish(left_leg_weapon)
 	if Input.is_action_just_pressed("switch"):
 		if Global.active_leg != right_leg:
 			toggle_active_leg()
-		_change_crossair(right_leg_weapon)
+
 		squish(right_leg_weapon)
 	return 
-	
-func _change_crossair(weapon):
-	crossair.texture=weapon.item_data.crossair_texture
-	
-func _change_crossair_position(new_pos):
-	var min_length=125
-	if(_hips.global_position.distance_to(new_pos) >= min_length):
-		crossair.global_position=new_pos
-	else:
-		var direction=(new_pos - _hips.global_position).normalized()
-		crossair.global_position=_hips.global_position+direction*min_length
+
 	
 func squish(weapon):
 	if weapon is ShootingWeapon:
 		_ass.squish()
 	
->>>>>>> Stashed changes
+
 func toggle_active_leg():
 	# toggle selected leg
 	Global.active_leg = left_leg if Global.active_leg == right_leg else right_leg
