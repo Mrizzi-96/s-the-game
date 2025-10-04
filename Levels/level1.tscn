@@ -110,22 +110,6 @@ position = Vector2(2040, 1162)
 enemyToSpawn = ExtResource("7_nq5j5")
 waveNumber = 2
 
-[node name="enemySpawner9" parent="Tilemap/EnemySpawners" instance=ExtResource("5_aunfx")]
-position = Vector2(-19, -998)
-enemyToSpawn = ExtResource("6_j32wv")
-
-[node name="enemySpawner14" parent="Tilemap/EnemySpawners" instance=ExtResource("5_aunfx")]
-position = Vector2(-19, -998)
-enemyToSpawn = ExtResource("6_j32wv")
-waveNumber = 2
-
-[node name="enemySpawner10" parent="Tilemap/EnemySpawners" instance=ExtResource("5_aunfx")]
-position = Vector2(-39, -527)
-
-[node name="enemySpawner11" parent="Tilemap/EnemySpawners" instance=ExtResource("5_aunfx")]
-position = Vector2(-39, -527)
-enemyToSpawn = ExtResource("7_nq5j5")
-
 [node name="enemySpawner15" parent="Tilemap/EnemySpawners" instance=ExtResource("5_aunfx")]
 position = Vector2(-644, -507)
 enemyToSpawn = ExtResource("7_nq5j5")

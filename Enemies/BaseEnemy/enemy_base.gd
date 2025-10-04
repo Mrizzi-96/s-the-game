@@ -7,6 +7,9 @@ class_name Enemy
 
 var hp: int = 100
 
+func _ready():
+	MainUI.register_on_screen_enemy(self)
+
 func _getHealth() -> int:
 	return hp
 
@@ -18,5 +21,6 @@ func _hit(damage: int) -> void:
 	
 func _death() -> void:
 	if hp <= 0:
+		MainUI.unregister_on_screen_enemy(self)
 		queue_free()
 		Global.enemyNum -= 1
