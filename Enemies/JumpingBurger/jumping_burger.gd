@@ -5,10 +5,6 @@ var jump_direction = Vector2(0, -100)
 var player_position
 var distance
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 func _process(delta):
 	$RigidBody2D/Sprite2D.global_rotation = 0
 	player_position = get_node("../Player/Hips").global_position

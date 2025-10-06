@@ -23,6 +23,8 @@ var is_game_over: bool
 @onready var crossair =$"Crossair"
 #@onready var sfx = %Sfx
 
+@onready var _ass=$Hips/Ass/AssSprite
+
 signal game_ended
 
 # Called when the node enters the scene tree for the first time.
@@ -59,11 +61,18 @@ func _unhandled_input(_event):
 			# left click ==> left leg
 			toggle_active_leg()
 		_change_crossair(left_leg_weapon)
+    squish(left_leg_weapon)
 	if Input.is_action_just_pressed("switch"):
 		if Global.active_leg != right_leg:
 			toggle_active_leg()
 		_change_crossair(right_leg_weapon)
+    squish(right_leg_weapon)		
 	return 
+
+	
+func squish(weapon):
+	if weapon is ShootingWeapon:
+		_ass.squish()
 	
 func _change_crossair(weapon):
 	crossair.texture=weapon.item_data.crossair_texture
@@ -113,6 +122,7 @@ func _on_hips_body_entered(body):
 	if body.is_in_group("enemies"):
 		if !is_game_over:
 			player_hit(hit_amount)
+	_ass.squish()
 
 func _physics_process(delta):
 	if $Hips.linear_velocity.length() > max_speed:

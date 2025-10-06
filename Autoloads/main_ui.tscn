@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi6nofo7l2q2i"]
+
+[ext_resource type="Script" uid="uid://do66ayw0eedfb" path="res://Autoloads/indicator_manager.gd" id="1_hvcg1"]
+
+[node name="MainUI" type="CanvasLayer"]
+script = ExtResource("1_hvcg1")
