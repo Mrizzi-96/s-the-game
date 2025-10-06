@@ -8,11 +8,15 @@ enum Type {ASS, LEFT_LEG, RIGHT_LEG, WEAPON, POWER_UP}
 @export var texture : Texture2D
 @export var price: int
 @export var attack_sound : Resource
+@export var crossair_texture : Texture2D
+
 
 @export_group("PowerUP_Data")
 @export var pickable_texture : Texture2D
 @export var slots : int
 @export var bought:bool=false
+
+
 #var shooting_damage_text : String="shooting damage"
 #@export var shooting_damage : int
 #var fire_rate_text:String="fire rate"

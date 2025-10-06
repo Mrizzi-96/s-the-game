@@ -54,6 +54,10 @@ health_bar = NodePath("PlayerGUI/CanvasLayer/ProgressBar")
 hit_amount = 25
 metadata/_edit_horizontal_guides_ = [103.0]
 
+[node name="Crossair" type="Sprite2D" parent="."]
+scale = Vector2(1, 1)
+texture = ExtResource("3_v0y02")
+
 [node name="Hips" type="RigidBody2D" parent="."]
 mass = 5.0
 physics_material_override = ExtResource("4_lmmrb")
