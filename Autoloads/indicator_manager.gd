@@ -52,3 +52,10 @@ func unregister_on_screen_enemy(enemy_root: Node) -> void:
 	if offscreen_enemies.has(enemy_root):
 		offscreen_enemies[enemy_root].queue_free()
 		offscreen_enemies.erase(enemy_root)
+
+func clear_all() -> void:
+	for enemy_root in offscreen_enemies.keys():
+		# Check if the indicator instance is valid before trying to free it.
+		if is_instance_valid(offscreen_enemies[enemy_root]):
+			offscreen_enemies[enemy_root].queue_free()
+	offscreen_enemies.clear()

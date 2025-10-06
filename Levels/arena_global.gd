@@ -31,6 +31,7 @@ func _on_timer_timeout():
 	timer_started = false
 
 func _on_game_ended():
+	MainUI.clear_all()
 	_show_game_over_UI()
 
 func _show_game_over_UI():
