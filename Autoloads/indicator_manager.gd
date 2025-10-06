@@ -1,45 +1,54 @@
 extends CanvasLayer
 
-@onready var player = get_tree().get_first_node_in_group("player")
+const IndicatorScene = preload("res://Enemies/enemy_indicator.tscn")
 
-var IndicatorScene = preload("res://Enemies/enemy_indicator.tscn")
-var offscreen_enemies = {}
-var margin = 40.0 
+var offscreen_enemies: Dictionary = {}
+var margin: float = 40.0
 
-func _ready():
-	pass
+func _process(_delta: float) -> void:
+	var screen_rect: Rect2 = get_viewport().get_visible_rect()
+	var canvas_transform: Transform2D = get_viewport().get_canvas_transform()
+	var screen_center: Vector2 = screen_rect.size * 0.5
+	var bounds_half_size: Vector2 = screen_center - Vector2(margin, margin)
 
-func _process(delta):
-	# Get screen boundaries
-	var screen_rect = get_viewport().get_visible_rect()
-	var screen_center = screen_rect.size / 2
+	for enemy_root in offscreen_enemies.keys():
+		# Safety check
+		if not is_instance_valid(enemy_root):
+			unregister_on_screen_enemy(enemy_root)
+			continue
 
-	var canvas_transform = get_viewport().get_canvas_transform()
-	for enemy in offscreen_enemies:
-		var indicator = offscreen_enemies[enemy]
-		var enemy_screen_pos = canvas_transform * enemy.global_position
+		var indicator: Control = offscreen_enemies[enemy_root]
+		
+		#Get enemy moving node
+		var enemy: Node2D = enemy_root.get_node_or_null("RigidBody2D")
+		if enemy == null:
+			continue
 
-		# Check if enemy is on-screen
-		if screen_rect.has_point(enemy_screen_pos):
-			indicator.visible = false
-		else:
-			indicator.visible = true
+		var enemy_screen_pos: Vector2 = canvas_transform * enemy.global_position
+		
+		# Indicator visibility
+		var display_rect: Rect2 = screen_rect.grow(-margin)
+		indicator.visible = not display_rect.has_point(enemy_screen_pos)
 
-			# Calculate position and rotation
-			var direction = screen_center.direction_to(enemy_screen_pos)
-			indicator.rotation = direction.angle()
+		if indicator.visible:
+			var vec_to_enemy: Vector2 = enemy_screen_pos - screen_center
+			indicator.rotation = vec_to_enemy.angle()
 
-			# Block the indicator to the screen border
-			var clamped_pos_x = clamp(enemy_screen_pos.x, margin, screen_rect.size.x - margin)
-			var clamped_pos_y = clamp(enemy_screen_pos.y, margin, screen_rect.size.y - margin)
-			indicator.global_position = Vector2(clamped_pos_x, clamped_pos_y)
+			var scale_x: float = bounds_half_size.x / abs(vec_to_enemy.x) if vec_to_enemy.x != 0.0 else INF
+			var scale_y: float = bounds_half_size.y / abs(vec_to_enemy.y) if vec_to_enemy.y != 0.0 else INF
+			var scale: float = min(scale_x, scale_y)
 
-func register_on_screen_enemy(enemy):
-	var indicator_instance = IndicatorScene.instantiate()
+			indicator.position = screen_center + vec_to_enemy * scale
+
+func register_on_screen_enemy(enemy_root: Node) -> void:
+	if enemy_root in offscreen_enemies:
+		return
+	
+	var indicator_instance: Control = IndicatorScene.instantiate()
 	add_child(indicator_instance)
-	offscreen_enemies[enemy] = indicator_instance
+	offscreen_enemies[enemy_root] = indicator_instance
 
-func unregister_on_screen_enemy(enemy):
-	if offscreen_enemies.has(enemy):
-		offscreen_enemies[enemy].queue_free()
-		offscreen_enemies.erase(enemy)
+func unregister_on_screen_enemy(enemy_root: Node) -> void:
+	if offscreen_enemies.has(enemy_root):
+		offscreen_enemies[enemy_root].queue_free()
+		offscreen_enemies.erase(enemy_root)
