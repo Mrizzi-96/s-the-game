@@ -61,12 +61,12 @@ func _unhandled_input(_event):
 			# left click ==> left leg
 			toggle_active_leg()
 		_change_crossair(left_leg_weapon)
-    squish(left_leg_weapon)
+		squish(left_leg_weapon)
 	if Input.is_action_just_pressed("switch"):
 		if Global.active_leg != right_leg:
 			toggle_active_leg()
 		_change_crossair(right_leg_weapon)
-    squish(right_leg_weapon)		
+		squish(right_leg_weapon)		
 	return 
 
 	
