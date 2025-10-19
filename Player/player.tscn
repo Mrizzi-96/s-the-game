@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cn8mtnkswehm1"]
+[gd_scene load_steps=13 format=3 uid="uid://cn8mtnkswehm1"]
 
 [ext_resource type="Script" uid="uid://ba4h4wqjs8jll" path="res://Player/player.gd" id="1_c6ce5"]
 [ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Bullet/player_bullet.tscn" id="2_ifgo3"]
@@ -15,30 +15,6 @@
 radius = 20.0
 height = 76.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_747sp"]
-bg_color = Color(0.415279, 0.0663713, 0.0174634, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg0ff"]
-bg_color = Color(0.905882, 0.207843, 0.101961, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wukl8"]
 texture = ExtResource("7_btkp6")
 texture_margin_left = 30.0
@@ -46,16 +22,14 @@ texture_margin_top = 30.0
 texture_margin_right = 30.0
 texture_margin_bottom = 30.0
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("health_bar") groups=["player"]]
+[node name="Player" type="Node2D" groups=["player"]]
 rotation = 0.00144899
 script = ExtResource("1_c6ce5")
 player_bullet = ExtResource("2_ifgo3")
-health_bar = NodePath("PlayerGUI/CanvasLayer/ProgressBar")
 hit_amount = 25
 metadata/_edit_horizontal_guides_ = [103.0]
 
 [node name="Crossair" type="Sprite2D" parent="."]
-scale = Vector2(1, 1)
 texture = ExtResource("3_v0y02")
 
 [node name="Hips" type="RigidBody2D" parent="."]
@@ -103,18 +77,6 @@ offset_right = 74.1275
 offset_bottom = 87.9506
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PlayerGUI"]
-
-[node name="ProgressBar" type="ProgressBar" parent="PlayerGUI/CanvasLayer"]
-custom_minimum_size = Vector2(360, 60)
-offset_left = 34.058
-offset_top = 48.0
-offset_right = 394.058
-offset_bottom = 108.0
-pivot_offset = Vector2(1.97231, 13.4959)
-theme_override_styles/background = SubResource("StyleBoxFlat_747sp")
-theme_override_styles/fill = SubResource("StyleBoxFlat_jg0ff")
-value = 50.0
-show_percentage = false
 
 [node name="PanelContainer" type="PanelContainer" parent="PlayerGUI/CanvasLayer"]
 offset_left = 1638.0
