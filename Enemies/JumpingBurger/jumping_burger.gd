@@ -7,7 +7,8 @@ var distance
 
 func _process(delta):
 	$RigidBody2D/Sprite2D.global_rotation = 0
-	player_position = get_node("../Player/Hips").global_position
+	#player_position = get_node("../Player/Hips").global_position
+	player_position = get_tree().get_first_node_in_group("player").get_node("Hips").global_position
 	distance = $RigidBody2D.global_position - player_position
 	if distance.x < 0:
 		jump_direction.x = 100

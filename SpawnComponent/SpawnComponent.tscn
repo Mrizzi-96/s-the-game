@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhdceffc2tub2"]
+
+[ext_resource type="Script" uid="uid://birlysbu3db7v" path="res://SpawnComponent/spawn_component.gd" id="1_hp04u"]
+
+[node name="SpawnComponent" type="Node2D"]
+script = ExtResource("1_hp04u")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[node name="FirstSpawnTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="FirstSpawnTimer" to="." method="_on_first_spawn_timer_timeout"]

@@ -7,6 +7,8 @@ const ITEMDATA_DIR_PATH : String = "res://Resources/Items/"
 
 @export var player_data : PlayerData
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	populate_items()
