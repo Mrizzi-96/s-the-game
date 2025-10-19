@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="S-the-game"
-run/main_scene="res://MainMenu/main_menu.tscn"
+run/main_scene="uid://hp147ctfpi5o"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

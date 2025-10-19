@@ -1,3 +1,4 @@
+class_name arena_global
 extends Node2D
 
 var player_obj

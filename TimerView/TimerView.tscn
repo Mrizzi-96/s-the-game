@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqypee2bd7vwm"]
+
+[ext_resource type="Script" uid="uid://cnr0nwx73mibk" path="res://TimerView/timer_view.gd" id="1_7gd0h"]
+[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="2_2msr8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j8b60"]
+font = ExtResource("2_2msr8")
+font_size = 120
+
+[node name="TimerView" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_7gd0h")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.148
+anchor_top = -0.061
+anchor_right = 0.165
+anchor_bottom = 0.063
+offset_left = -256.0
+offset_top = 61.0
+offset_right = 344.0
+offset_bottom = 181.0
+text = "00:00"
+label_settings = SubResource("LabelSettings_j8b60")
+horizontal_alignment = 3
+vertical_alignment = 3
+justification_flags = 235
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
