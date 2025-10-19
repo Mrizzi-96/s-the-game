@@ -187,3 +187,6 @@ waveNumber = 2
 position = Vector2(214.706, -1583.31)
 enemyToSpawn = ExtResource("6_ojro4")
 waveNumber = 2
+
+[node name="TimerView" parent="UI/HBoxContainer" index="0"]
+time = 22.0

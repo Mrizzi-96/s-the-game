@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://grf7iob4hwn3"]
+[gd_scene load_steps=6 format=3 uid="uid://grf7iob4hwn3"]
 
 [ext_resource type="Script" uid="uid://dxf1epmiblaby" path="res://RewardMenu/reward_menu.gd" id="1_e4ohg"]
 [ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_50cio"]
@@ -8,8 +8,6 @@
 [sub_resource type="LabelSettings" id="LabelSettings_50cio"]
 font = ExtResource("2_j00ff")
 font_size = 60
-
-[sub_resource type="Theme" id="Theme_curk1"]
 
 [node name="RewardMenu" type="PanelContainer"]
 anchors_preset = 15
@@ -37,67 +35,18 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Choose a reward!"
+text = "Reward"
 label_settings = SubResource("LabelSettings_50cio")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Money" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
-
-[node name="Reward" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Money"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.25
-theme = SubResource("Theme_curk1")
-theme_override_fonts/font = ExtResource("2_j00ff")
-theme_override_font_sizes/font_size = 50
-text = "MONEY
-"
-
-[node name="Weapon" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
-
-[node name="Reward" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Weapon"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.25
-theme = SubResource("Theme_curk1")
-theme_override_fonts/font = ExtResource("2_j00ff")
-theme_override_font_sizes/font_size = 50
-text = "WEAPON
-"
-
-[node name="Skill" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
-
-[node name="Reward" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Skill"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.25
-theme = SubResource("Theme_curk1")
-theme_override_fonts/font = ExtResource("2_j00ff")
-theme_override_font_sizes/font_size = 50
-text = "SKILL"
+size_flags_vertical = 6
+text = "Congrats! You won a biscuit!"
+label_settings = SubResource("LabelSettings_50cio")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BoxContainer" type="BoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -106,16 +55,12 @@ size_flags_stretch_ratio = 0.25
 vertical = true
 
 [node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer/BoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("4_curk1")
 theme_override_fonts/font = ExtResource("2_j00ff")
 theme_override_font_sizes/font_size = 50
-text = "NEXT ARENA"
+text = "Go to Shop"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Money/Reward" to="." method="_on_reward_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Weapon/Reward" to="." method="_on_reward_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Skill/Reward" to="." method="_on_reward_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

@@ -5,7 +5,3 @@ extends PanelContainer
 
 func _on_continue_button_pressed() -> void:
 	Global.goto_scene("res://Shop/shop.tscn")
-
-
-func _on_reward_pressed() -> void:
-	_continue_button.show()

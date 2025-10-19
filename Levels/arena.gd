@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 
 func _on_timer_view_timeout() -> void:
 	var ranks=["A", "B","C","D","E"]
-	var rank=ranks[randi_range(0,len(ranks)-1)]
+	var rank=ranks[randi_range(0,len(ranks))]
 	MainUI.clear_all()
 	if rank != "E":
 		Global.goto_scene("res://RewardMenu/RewardMenu.tscn")
