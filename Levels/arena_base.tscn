@@ -35,7 +35,6 @@ size_flags_vertical = 4
 [node name="TimerView" parent="UI/HBoxContainer" instance=ExtResource("3_h7yv8")]
 layout_mode = 2
 size_flags_vertical = 0
-time = 10.0
 one_shot = true
 
 [connection signal="timeout" from="UI/HBoxContainer/TimerView" to="." method="_on_timer_view_timeout"]
