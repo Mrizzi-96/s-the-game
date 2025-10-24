@@ -7,7 +7,7 @@ const ITEMDATA_DIR_PATH : String = "res://Resources/Items/"
 
 @export var player_data : PlayerData
 
-
+@export var arenanumber: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

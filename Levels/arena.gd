@@ -11,10 +11,14 @@ extends Node2D
 
 @onready var _spawn_component=$Components/SpawnComponent
 
+#TODO: pass dynamic difficulty from selection
+var arena_difficulty: int = 1
+
 func _ready() -> void:
 	_timer_view.start()
-	_spawn_component.max_enemy_num=max_enemy_num
+	_spawn_component._configure(max_enemy_num, arena_difficulty)
 	_player_spawner.spawn_player()
+	RunInfo.arenanumber += 1
 	
 func _process(delta: float) -> void:
 	pass
