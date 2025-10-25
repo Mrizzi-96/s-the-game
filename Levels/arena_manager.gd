@@ -1,4 +1,4 @@
-class_name Arena
+class_name ArenaManager
 extends Node2D
 
 @onready var _player_spawner = $Environment/PlayerSpawner
