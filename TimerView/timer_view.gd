@@ -22,10 +22,10 @@ func _ready() -> void:
 	if autostart:
 		timer.start()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var current_time=timer.time_left
-	var minutes=int(current_time/60)
-	var seconds=int(current_time - minutes*60)
+	# var minutes=int(current_time/60)
+	# var seconds=int(current_time - minutes*60)
 	#var text= _to_time_string(minutes) + ":" + _to_time_string(seconds)
 	var text=_to_time_string(int(current_time))
 	label.text=text

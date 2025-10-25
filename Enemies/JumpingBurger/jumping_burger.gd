@@ -5,7 +5,7 @@ var jump_direction = Vector2(0, -100)
 var player_position
 var distance
 
-func _process(delta):
+func _process(_delta):
 	$RigidBody2D/Sprite2D.global_rotation = 0
 	#player_position = get_node("../Player/Hips").global_position
 	player_position = get_tree().get_first_node_in_group("player").get_node("Hips").global_position
