@@ -50,28 +50,25 @@ alignment = 1
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 theme = ExtResource("1_ujjqg")
-theme_override_font_sizes/font_size = 50
 text = "Arena 1
-Waves: 1
-Reward: $"
+Difficulty: 1
+Reward: Weapon"
 
 [node name="ArenaChoice2" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 theme = ExtResource("1_ujjqg")
-theme_override_font_sizes/font_size = 50
 text = "Arena 2
-Waves: 2
-Reward: $$"
+Difficulty: 2
+Reward: Gold"
 
 [node name="ArenaChoice3" type="Button" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 theme = ExtResource("1_ujjqg")
-theme_override_font_sizes/font_size = 50
 text = "Arena 3
-Waves: 3
-Reward: $$$"
+Difficulty: 3
+Reward: Skill"
 
 [node name="Back" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(350, 60)
@@ -79,7 +76,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("5_dgwrc")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 64
 text = "Main menu"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ArenaChoice1" to="." method="goto_arena_1"]
