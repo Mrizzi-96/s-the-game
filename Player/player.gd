@@ -107,9 +107,9 @@ func equipWeapon(weapon: String, leg:String):
 		return weaponInstance
 
 
-func _on_hips_body_entered(body):
+func _on_hips_body_entered(_body):
 	_ass.squish()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if $Hips.linear_velocity.length() > max_speed:
 		$Hips.linear_velocity = $Hips.linear_velocity.normalized() * max_speed

@@ -31,7 +31,7 @@ func _ready():
 	#print(my_node.bought)  # Assicurati che 'bought' esista
 	start_position = position
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#if Input.is_action_just_pressed("rotate_powerUP"):  # Correct usage
 		#$".".rotation_degrees+=90
 	if grab:
@@ -68,11 +68,11 @@ func _input(event):
 			#print("following ",grab)
 
 
-func create_collision_polygon(texture: Texture, margin: float):
+func create_collision_polygon(_texture: Texture, _margin: float):
 	var bitmap = BitMap.new()
-	bitmap.create_from_image_alpha(texture.get_image())  
-	var rect = Rect2(Vector2.ZERO, texture.get_size())
-	var polygons = bitmap.opaque_to_polygons(rect, margin) 
+	bitmap.create_from_image_alpha(_texture.get_image())  
+	var rect = Rect2(Vector2.ZERO, _texture.get_size())
+	var polygons = bitmap.opaque_to_polygons(rect, _margin) 
 	var collision_polygon = CollisionPolygon2D.new()
 	collision_polygon.polygon = polygons[0]  # Usa il primo poligono generato
 	return collision_polygon
@@ -107,5 +107,5 @@ func _on_mouse_exited() -> void:
 	can_grab=false
 
 
-func _on_clip_area_entered(area: Area2D) -> void:
+func _on_clip_area_entered(_area: Area2D) -> void:
 	%Clip.get_nearest_collider_powerUP()
