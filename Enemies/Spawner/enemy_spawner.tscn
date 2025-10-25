@@ -8,7 +8,6 @@
 [node name="enemySpawner" type="Area2D" groups=["spawners"]]
 script = ExtResource("1_rtbwg")
 enemyToSpawn = ExtResource("2_12n4v")
-waveNumber = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ou4nk")
