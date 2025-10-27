@@ -9,8 +9,7 @@ extends Node2D
 
 @onready var _spawn_component=$Components/SpawnComponent
 
-#TODO: pass dynamic difficulty from selection
-var arena_difficulty: int = 1
+var arena_difficulty: int = RunInfo.current_arena_params.difficulty
 
 func _ready() -> void:
 	_timer_view.start()

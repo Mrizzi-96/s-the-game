@@ -7,6 +7,7 @@ const ITEMDATA_DIR_PATH : String = "res://Resources/Items/"
 
 @export var player_data : PlayerData
 
+@export var arenanumber: int = 0
 # this will be populated on choosing the correct arena
 @export var current_arena_params: ArenaParams
 
