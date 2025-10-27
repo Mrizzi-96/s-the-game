@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfsjvjpqcgf3q"]
 
-[ext_resource type="Script" uid="uid://l14icl7wca0v" path="res://Levels/arena.gd" id="1_bh3wn"]
+[ext_resource type="Script" uid="uid://l14icl7wca0v" path="res://Levels/arena_manager.gd" id="1_bh3wn"]
 [ext_resource type="PackedScene" uid="uid://dhdceffc2tub2" path="res://SpawnComponent/SpawnComponent.tscn" id="2_h7yv8"]
 [ext_resource type="PackedScene" uid="uid://bq88ved7wpcvg" path="res://Player/player_spawner.tscn" id="2_v1x3k"]
 [ext_resource type="PackedScene" uid="uid://cqypee2bd7vwm" path="res://TimerView/TimerView.tscn" id="3_h7yv8"]
@@ -35,7 +35,6 @@ size_flags_vertical = 4
 [node name="TimerView" parent="UI/HBoxContainer" instance=ExtResource("3_h7yv8")]
 layout_mode = 2
 size_flags_vertical = 0
-time = 10.0
 one_shot = true
 
 [connection signal="timeout" from="UI/HBoxContainer/TimerView" to="." method="_on_timer_view_timeout"]

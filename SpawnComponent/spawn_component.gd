@@ -36,5 +36,6 @@ func _on_spawn_timer_timeout() -> void:
 func _spawn_enemy():
 	var enemy_spawners=get_tree().get_nodes_in_group(spawner_group)
 	var num=randi_range(0,len(enemy_spawners)-1)
-	var spawner=enemy_spawners[num]
-	spawner.call("_spawnEnemy")
+	if num >=0 and len(enemy_spawners)>num:
+		var spawner=enemy_spawners[num]
+		spawner.call("_spawnEnemy")
