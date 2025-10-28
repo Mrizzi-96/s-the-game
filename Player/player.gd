@@ -37,6 +37,7 @@ func _ready():
 	_setup(RunInfo.player_data)
 	
 	is_game_over = false
+	RunInfo.arenanumber = 0
 	_change_crossair(left_leg_weapon)
 
 func _setup(player_data : PlayerData):
