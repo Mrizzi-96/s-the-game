@@ -92,30 +92,27 @@ visible = false
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 theme = ExtResource("1_ujjqg")
-theme_override_font_sizes/font_size = 50
 text = "Arena 1
-Waves: 1
-Reward: $"
+Difficulty: 1
+Reward: Weapon"
 
 [node name="ArenaChoice2" type="Button" parent="ArenaSelector"]
 visible = false
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 theme = ExtResource("1_ujjqg")
-theme_override_font_sizes/font_size = 50
 text = "Arena 2
-Waves: 2
-Reward: $$"
+Difficulty: 2
+Reward: Gold"
 
 [node name="ArenaChoice3" type="Button" parent="ArenaSelector"]
 visible = false
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 theme = ExtResource("1_ujjqg")
-theme_override_font_sizes/font_size = 50
 text = "Arena 3
-Waves: 3
-Reward: $$$"
+Difficulty: 3
+Reward: Skill"
 
 [node name="BgArena1" type="TextureRect" parent="ArenaSelector"]
 layout_mode = 2

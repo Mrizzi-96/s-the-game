@@ -6,12 +6,22 @@ extends Node2D
 class_name Enemy
 
 var hp: int = 100
+var movement_speed: float = 1.0
 
 func _ready():
 	MainUI.register_on_screen_enemy(self)
 
 func _getHealth() -> int:
 	return hp
+	
+func _getSpeed() -> int:
+	return movement_speed
+
+func _setHealth(health: int) -> void:
+	hp = health
+	
+func _setSpeed(speed: float) -> void:
+	movement_speed = speed
 
 func _hit(damage: int) -> void:
 	hp -= damage

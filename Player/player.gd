@@ -6,7 +6,7 @@ var _smoothed_mouse_pos : Vector2 # use to have a smooth leg rotation movement
 var max_speed = 2000
 @onready var left_leg = $Hips/Ass/LeftLeg
 @onready var right_leg = $Hips/Ass/RightLeg
-@export var health_bar : ProgressBar
+
 @export var hit_amount: int
 
 # Equipped Weapons references:
@@ -37,11 +37,10 @@ func _ready():
 	_setup(RunInfo.player_data)
 	
 	is_game_over = false
+	RunInfo.arenanumber = 0
 	_change_crossair(left_leg_weapon)
 
 func _setup(player_data : PlayerData):
-	# setup health 
-	health_bar.value = player_data.health
 	# setup right weapon and left weapon to equipment
 	left_leg_weapon = equipWeapon(player_data.equipment["LeftLeg"], "LeftLeg")
 	right_leg_weapon = equipWeapon(player_data.equipment["RightLeg"], "RightLeg")
@@ -88,15 +87,6 @@ func _change_crossair_position(new_pos):
 func toggle_active_leg():
 	# toggle selected leg
 	Global.active_leg = left_leg if Global.active_leg == right_leg else right_leg
-
-func player_hit(amount):
-	health_bar.value -= amount
-	# when player is hit, update player_data health value
-	RunInfo.player_data.health = health_bar.value
-	if health_bar.value <= 0:
-		health_bar.value = 0
-		is_game_over = true
-		emit_signal("game_ended")
 		
 func equipWeapon(weapon: String, leg:String):
 	var weaponScene = load(Global.weapons[weapon])
@@ -118,12 +108,9 @@ func equipWeapon(weapon: String, leg:String):
 		return weaponInstance
 
 
-func _on_hips_body_entered(body):
-	if body.is_in_group("enemies"):
-		if !is_game_over:
-			player_hit(hit_amount)
+func _on_hips_body_entered(_body):
 	_ass.squish()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if $Hips.linear_velocity.length() > max_speed:
 		$Hips.linear_velocity = $Hips.linear_velocity.normalized() * max_speed

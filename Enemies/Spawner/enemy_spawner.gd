@@ -1,17 +1,19 @@
 extends Area2D
 
 @export var enemyToSpawn: PackedScene
-@export var waveNumber: int
 var enemySpawned = false
-	
+var speedMult: float = 1.0
+var healthMult: float = 1.0
+
 func _spawnEnemy():
-	if Global.wave == waveNumber && !enemySpawned:
-		var enemy = enemyToSpawn.instantiate()
-		get_tree().current_scene.add_child(enemy)
-		enemy.transform = $Marker2D.global_transform
-		if enemy:
-			enemySpawned =  true
-			Global.enemyNum+=1
+	var enemy = enemyToSpawn.instantiate()
+	enemy._setSpeed(enemy._getSpeed() * speedMult)
+	enemy._setHealth(round(enemy._getHealth() * healthMult))
+	get_tree().current_scene.add_child(enemy)
+	enemy.transform = $Marker2D.global_transform
+	if enemy:
+		enemySpawned =  true
+		Global.enemyNum+=1
 			
 	if enemySpawned:
 		queue_free()
