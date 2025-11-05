@@ -1,10 +1,10 @@
 class_name ArenaParams extends Resource
 
 enum RewardType {
-    NONE = 0,
-    WEAPON = 1,
-    GOLD = 2,
-    SKILL = 3
+	NONE = 0,
+	WEAPON = 1,
+	GOLD = 2,
+	SKILL = 3
 }
 
 @export var arena_preview: Image

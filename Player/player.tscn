@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ccw4jyyt226nj" path="res://Player/Assets/Ass.png" id="3_v0y02"]
 [ext_resource type="PhysicsMaterial" uid="uid://b51d82i67iuj6" path="res://Player/Assets/Materials/ass_physics_material.tres" id="4_lmmrb"]
 [ext_resource type="Texture2D" uid="uid://cfgc07hefqko2" path="res://Player/Assets/LeftLegFIXED.png" id="4_r4vhv"]
-[ext_resource type="Script" uid="uid://ch8gx15woy7t5" path="res://Player/squish_animation.gd" id="5_x3vf3"]
+[ext_resource type="Script" path="res://Player/squish_animation.gd" id="5_x3vf3"]
 [ext_resource type="Texture2D" uid="uid://brgrvcct7gblq" path="res://Shop/Assets/weapon_equipment_empty.png" id="7_btkp6"]
 [ext_resource type="Texture2D" uid="uid://cnosnij6wc7w1" path="res://Shop/Assets/butt coin.png" id="7_ceo47"]
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="7_t4o1a"]

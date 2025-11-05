@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4yvx7bjrrwf0"]
+[gd_scene load_steps=16 format=3 uid="uid://c4yvx7bjrrwf0"]
 
 [ext_resource type="Script" uid="uid://bsydvws8d1e1" path="res://ArenaChoice/arena_choice.gd" id="1_avw62"]
 [ext_resource type="Theme" uid="uid://dbmbbfa2dj733" path="res://UI/Themes/arena_choice.tres" id="1_ujjqg"]
@@ -11,7 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://clnyrolb8ihng" path="res://ArenaChoice/1.png" id="6_bqc6o"]
 [ext_resource type="Texture2D" uid="uid://dnpayt8olxr7g" path="res://Shop/shop-invetory items/other/butt coin.png" id="6_rpk7p"]
 [ext_resource type="Texture2D" uid="uid://bbuyb55d3knnk" path="res://ArenaChoice/(già in proporzione allo schermo può essere usato per inserire anteprima arena).png" id="7_0f3dx"]
+[ext_resource type="Script" uid="uid://0l1r72bng0r" path="res://ArenaChoice/bg_arena_1.gd" id="9_pro8p"]
 [ext_resource type="Texture2D" uid="uid://cfgc07hefqko2" path="res://Player/Assets/LeftLegFIXED.png" id="9_wo2q6"]
+[ext_resource type="Script" uid="uid://lrb35c65ncq8" path="res://ArenaChoice/bg_arena_2.gd" id="11_o143u"]
+[ext_resource type="Script" uid="uid://c38uyekmbbix1" path="res://ArenaChoice/bg_arena_3.gd" id="12_wva3r"]
 
 [node name="ArenaChoice" type="Control"]
 layout_mode = 3
@@ -118,6 +121,7 @@ Reward: Skill"
 layout_mode = 2
 texture = ExtResource("6_bqc6o")
 stretch_mode = 5
+script = ExtResource("9_pro8p")
 
 [node name="Weapon" type="Label" parent="ArenaSelector/BgArena1"]
 layout_mode = 2
@@ -142,8 +146,10 @@ stretch_mode = 5
 layout_mode = 2
 texture = ExtResource("6_bqc6o")
 stretch_mode = 5
+script = ExtResource("11_o143u")
 
 [node name="Gold" type="Label" parent="ArenaSelector/BgArena2"]
+layout_mode = 0
 offset_left = 193.0
 offset_top = 7.0
 offset_right = 449.0
@@ -153,6 +159,7 @@ text = "Gold"
 label_settings = ExtResource("3_xxlf5")
 
 [node name="ArenaPreview2" type="TextureRect" parent="ArenaSelector/BgArena2"]
+layout_mode = 0
 offset_left = -1.0
 offset_top = 1.5
 offset_right = 569.0
@@ -164,8 +171,10 @@ stretch_mode = 5
 layout_mode = 2
 texture = ExtResource("6_bqc6o")
 stretch_mode = 5
+script = ExtResource("12_wva3r")
 
 [node name="Ability" type="Label" parent="ArenaSelector/BgArena3"]
+layout_mode = 0
 offset_left = 138.0
 offset_top = 6.5
 offset_right = 586.0
@@ -175,6 +184,7 @@ text = "Ability"
 label_settings = ExtResource("3_xxlf5")
 
 [node name="ArenaPreview3" type="TextureRect" parent="ArenaSelector/BgArena3"]
+layout_mode = 0
 offset_left = -1.0
 offset_top = 1.5
 offset_right = 569.0
@@ -260,3 +270,9 @@ texture = ExtResource("5_7hkgn")
 [connection signal="pressed" from="ArenaSelector/ArenaChoice1" to="." method="goto_arena_1"]
 [connection signal="pressed" from="ArenaSelector/ArenaChoice2" to="." method="goto_arena_2"]
 [connection signal="pressed" from="ArenaSelector/ArenaChoice3" to="." method="goto_arena_3"]
+[connection signal="gui_input" from="ArenaSelector/BgArena1" to="." method="_on_bg_arena_1_gui_input"]
+[connection signal="mouse_exited" from="ArenaSelector/BgArena1" to="." method="_on_bg_arena_1_mouse_exited"]
+[connection signal="gui_input" from="ArenaSelector/BgArena2" to="." method="_on_bg_arena_2_gui_input"]
+[connection signal="mouse_exited" from="ArenaSelector/BgArena2" to="." method="_on_bg_arena_2_mouse_exited"]
+[connection signal="gui_input" from="ArenaSelector/BgArena3" to="." method="_on_bg_arena_3_gui_input"]
+[connection signal="mouse_exited" from="ArenaSelector/BgArena3" to="." method="_on_bg_arena_3_mouse_exited"]
