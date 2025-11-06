@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_3o8c1")
-difficulty = 0
+arena_scene = ""
+difficulty = 1
 reward_type = 0
 metadata/_custom_type_script = "uid://c1g5yx0ikr4jv"

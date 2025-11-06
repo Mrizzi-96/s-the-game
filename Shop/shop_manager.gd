@@ -75,7 +75,8 @@ func add_inventory_card(item_data : ItemData):
 func _on_resume_button_pressed():
 	#%WeaponPreviewRight.visible=true
 	#%WeaponPreviewLeft.visible=true
-	Global.goto_scene("res://ArenaChoice/arena_choice.tscn")
+	#Global.goto_scene("res://ArenaChoice/arena_choice.tscn")
+	Global.goto_scene(RunInfo.current_arena_params.arena_scene)
 
 func sort_name(element : ItemData, next_weapon : String) -> ItemData:
 	if element.name.to_lower() == next_weapon:

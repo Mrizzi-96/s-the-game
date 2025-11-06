@@ -43,7 +43,6 @@ enemyToSpawn = ExtResource("5_y11k1")
 [node name="enemySpawner24" parent="Environment/Ground/Tilemap/EnemySpawners" index="1" instance=ExtResource("3_0gbxs")]
 position = Vector2(-1245, 1325)
 enemyToSpawn = ExtResource("5_y11k1")
-waveNumber = 2
 
 [node name="enemySpawner2" parent="Environment/Ground/Tilemap/EnemySpawners" index="2" instance=ExtResource("3_0gbxs")]
 position = Vector2(-63, 1325)
@@ -52,7 +51,6 @@ enemyToSpawn = ExtResource("5_y11k1")
 [node name="enemySpawner25" parent="Environment/Ground/Tilemap/EnemySpawners" index="3" instance=ExtResource("3_0gbxs")]
 position = Vector2(-63, 1325)
 enemyToSpawn = ExtResource("5_y11k1")
-waveNumber = 2
 
 [node name="enemySpawner3" parent="Environment/Ground/Tilemap/EnemySpawners" index="4" instance=ExtResource("3_0gbxs")]
 position = Vector2(958, 1352)
@@ -61,7 +59,6 @@ enemyToSpawn = ExtResource("5_y11k1")
 [node name="enemySpawner26" parent="Environment/Ground/Tilemap/EnemySpawners" index="5" instance=ExtResource("3_0gbxs")]
 position = Vector2(958, 1352)
 enemyToSpawn = ExtResource("5_y11k1")
-waveNumber = 2
 
 [node name="enemySpawner4" parent="Environment/Ground/Tilemap/EnemySpawners" index="6" instance=ExtResource("3_0gbxs")]
 position = Vector2(2149, 1361)
@@ -70,7 +67,6 @@ enemyToSpawn = ExtResource("5_y11k1")
 [node name="enemySpawner27" parent="Environment/Ground/Tilemap/EnemySpawners" index="7" instance=ExtResource("3_0gbxs")]
 position = Vector2(2149, 1361)
 enemyToSpawn = ExtResource("5_y11k1")
-waveNumber = 2
 
 [node name="enemySpawner5" parent="Environment/Ground/Tilemap/EnemySpawners" index="8" instance=ExtResource("3_0gbxs")]
 position = Vector2(3662, -2319)
@@ -79,7 +75,6 @@ enemyToSpawn = ExtResource("6_skhhi")
 [node name="enemySpawner31" parent="Environment/Ground/Tilemap/EnemySpawners" index="9" instance=ExtResource("3_0gbxs")]
 position = Vector2(3662, -2319)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner6" parent="Environment/Ground/Tilemap/EnemySpawners" index="10" instance=ExtResource("3_0gbxs")]
 position = Vector2(-3027, -2238)
@@ -88,7 +83,6 @@ enemyToSpawn = ExtResource("6_skhhi")
 [node name="enemySpawner29" parent="Environment/Ground/Tilemap/EnemySpawners" index="11" instance=ExtResource("3_0gbxs")]
 position = Vector2(-3027, -2238)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner7" parent="Environment/Ground/Tilemap/EnemySpawners" index="12" instance=ExtResource("3_0gbxs")]
 position = Vector2(-3027, -1423)
@@ -97,7 +91,6 @@ enemyToSpawn = ExtResource("5_y11k1")
 [node name="enemySpawner28" parent="Environment/Ground/Tilemap/EnemySpawners" index="13" instance=ExtResource("3_0gbxs")]
 position = Vector2(-3027, -1423)
 enemyToSpawn = ExtResource("5_y11k1")
-waveNumber = 2
 
 [node name="enemySpawner8" parent="Environment/Ground/Tilemap/EnemySpawners" index="14" instance=ExtResource("3_0gbxs")]
 position = Vector2(3653, -1450)
@@ -106,7 +99,6 @@ enemyToSpawn = ExtResource("5_y11k1")
 [node name="enemySpawner30" parent="Environment/Ground/Tilemap/EnemySpawners" index="15" instance=ExtResource("3_0gbxs")]
 position = Vector2(3653, -1450)
 enemyToSpawn = ExtResource("5_y11k1")
-waveNumber = 2
 
 [node name="enemySpawner9" parent="Environment/Ground/Tilemap/EnemySpawners" index="16" instance=ExtResource("3_0gbxs")]
 position = Vector2(836, -3016)
@@ -131,7 +123,6 @@ enemyToSpawn = ExtResource("6_skhhi")
 [node name="enemySpawner34" parent="Environment/Ground/Tilemap/EnemySpawners" index="21" instance=ExtResource("3_0gbxs")]
 position = Vector2(364, -5538)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner14" parent="Environment/Ground/Tilemap/EnemySpawners" index="22" instance=ExtResource("3_0gbxs")]
 position = Vector2(-1261, -5548)
@@ -140,7 +131,6 @@ enemyToSpawn = ExtResource("6_skhhi")
 [node name="enemySpawner32" parent="Environment/Ground/Tilemap/EnemySpawners" index="23" instance=ExtResource("3_0gbxs")]
 position = Vector2(-1261, -5548)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner15" parent="Environment/Ground/Tilemap/EnemySpawners" index="24" instance=ExtResource("3_0gbxs")]
 position = Vector2(-434, -5075)
@@ -149,7 +139,6 @@ enemyToSpawn = ExtResource("6_skhhi")
 [node name="enemySpawner33" parent="Environment/Ground/Tilemap/EnemySpawners" index="25" instance=ExtResource("3_0gbxs")]
 position = Vector2(-434, -5075)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner16" parent="Environment/Ground/Tilemap/EnemySpawners" index="26" instance=ExtResource("3_0gbxs")]
 position = Vector2(1260, -5075)
@@ -158,7 +147,6 @@ enemyToSpawn = ExtResource("6_skhhi")
 [node name="enemySpawner35" parent="Environment/Ground/Tilemap/EnemySpawners" index="27" instance=ExtResource("3_0gbxs")]
 position = Vector2(1260, -5075)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner17" parent="Environment/Ground/Tilemap/EnemySpawners" index="28" instance=ExtResource("3_0gbxs")]
 position = Vector2(2038, -5528)
@@ -167,42 +155,34 @@ enemyToSpawn = ExtResource("6_skhhi")
 [node name="enemySpawner36" parent="Environment/Ground/Tilemap/EnemySpawners" index="29" instance=ExtResource("3_0gbxs")]
 position = Vector2(2038, -5528)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner18" parent="Environment/Ground/Tilemap/EnemySpawners" index="30" instance=ExtResource("3_0gbxs")]
 position = Vector2(659, -377)
 enemyToSpawn = ExtResource("5_y11k1")
-waveNumber = 2
 
 [node name="enemySpawner19" parent="Environment/Ground/Tilemap/EnemySpawners" index="31" instance=ExtResource("3_0gbxs")]
 position = Vector2(-11, -377)
 enemyToSpawn = ExtResource("5_y11k1")
-waveNumber = 2
 
 [node name="enemySpawner20" parent="Environment/Ground/Tilemap/EnemySpawners" index="32" instance=ExtResource("3_0gbxs")]
 position = Vector2(401, -2414)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner21" parent="Environment/Ground/Tilemap/EnemySpawners" index="33" instance=ExtResource("3_0gbxs")]
 position = Vector2(2074, -3447)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner39" parent="Environment/Ground/Tilemap/EnemySpawners" index="34" instance=ExtResource("3_0gbxs")]
 position = Vector2(-1212, -3429)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner40" parent="Environment/Ground/Tilemap/EnemySpawners" index="35" instance=ExtResource("3_0gbxs")]
 position = Vector2(454, -4718)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner41" parent="Environment/Ground/Tilemap/EnemySpawners" index="36" instance=ExtResource("3_0gbxs")]
 position = Vector2(427, -3500)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner22" parent="Environment/Ground/Tilemap/EnemySpawners" index="37" instance=ExtResource("3_0gbxs")]
 position = Vector2(-1227, 768)
@@ -211,7 +191,6 @@ enemyToSpawn = ExtResource("6_skhhi")
 [node name="enemySpawner37" parent="Environment/Ground/Tilemap/EnemySpawners" index="38" instance=ExtResource("3_0gbxs")]
 position = Vector2(-1227, 768)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
 
 [node name="enemySpawner23" parent="Environment/Ground/Tilemap/EnemySpawners" index="39" instance=ExtResource("3_0gbxs")]
 position = Vector2(1977, 761)
@@ -220,4 +199,8 @@ enemyToSpawn = ExtResource("6_skhhi")
 [node name="enemySpawner38" parent="Environment/Ground/Tilemap/EnemySpawners" index="40" instance=ExtResource("3_0gbxs")]
 position = Vector2(1977, 761)
 enemyToSpawn = ExtResource("6_skhhi")
-waveNumber = 2
+
+[node name="preview" type="Camera2D" parent="UI" index="1"]
+position = Vector2(647, -2141)
+scale = Vector2(5.6, 1)
+zoom = Vector2(0.03, 0.03)

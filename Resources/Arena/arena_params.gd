@@ -8,6 +8,6 @@ enum RewardType {
 }
 
 @export var arena_preview: Image
-@export var arena_scene: PackedScene
-@export var difficulty : int
+@export var arena_scene: String
+@export var difficulty : int=1
 @export var reward_type : RewardType

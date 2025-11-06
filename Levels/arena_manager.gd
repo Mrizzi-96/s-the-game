@@ -11,7 +11,13 @@ extends Node2D
 
 var arena_difficulty: int = RunInfo.current_arena_params.difficulty
 
+var is_preview := false
+
 func _ready() -> void:
+	if is_preview:
+		$UI/HBoxContainer.visible=false
+		return
+	$UI/preview.queue_free()
 	_timer_view.start()
 	_spawn_component._configure(max_enemy_num, arena_difficulty)
 	_player_spawner.spawn_player()

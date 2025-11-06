@@ -2,13 +2,17 @@ extends Control
 
 var phase:String=""
 var number_arena=5
-
+var selected_arena=false
+@export var color:Color
+@onready var arena1=$ArenaSelector/Arena1
+@onready var arena2=$ArenaSelector/Arena2
+@onready var arena3=$ArenaSelector/Arena3
+@onready var bg_arena1=$ArenaSelector/BgArena1
+@onready var bg_arena2=$ArenaSelector/BgArena2
+@onready var bg_arena3=$ArenaSelector/BgArena3
 @export var difficulty:Array[Texture2D] = []
 @onready var arena_params = ArenaParams.new()
-# WARNING:
-# For now, on button click the arena params will be added as hardcoded.
-# @jadedpear will then use the ones from his arena_preview scene
-# see #TG-110 on Taiga
+
 
 var difficulty_variant = {
 	"phase_1": {1: 70, 2: 25, 3: 5},
@@ -19,7 +23,20 @@ var difficulty_variant = {
 	"phase_6": {1: 0, 2: 0, 3: 100}
 }
 
+var phase_thresholds = [
+	{ "limit": 20, "phase": "phase_1" },
+	{ "limit": 50, "phase": "phase_2" },
+	{ "limit": 80, "phase": "phase_3" },
+	{ "limit": 120, "phase": "phase_4" },
+	{ "limit": 200, "phase": "phase_5" },
+]
+
 func _ready():
+	# stub data for preview visibility
+	arena_params.difficulty=1
+	RunInfo.current_arena_params = arena_params
+	################################################
+	$Money/TotalMoney.text=str(RunInfo.player_data.gold)
 	#start initialize arena number and decided phase for new choice difficulty 
 	$ArenaNumber.text="Arena "+str(RunInfo.arenanumber)+":"
 	phase=match_phase()
@@ -27,33 +44,39 @@ func _ready():
 		select_arena(i+1)
 
 func select_arena(i:int):
-	var arena = get_node("ArenaSelector/BgArena%d" % i) as TextureRect
+	var arena = get_node("ArenaSelector/Arena%d" % i)
+	var arenaBg = get_node("ArenaSelector/BgArena%d" % i)
 	var valore =choice_difficulty(phase)
 	arena.difficulty=valore
+	arena.select_path(str(randi_range(1,RunInfo.arena_playable)))
 	match valore:
 		1:
-			arena.texture=difficulty[0]
-			print("È uno")
+			arenaBg.texture=difficulty[0]
 		2:
-			arena.texture=difficulty[1]
-			print("È due")
+			arenaBg.texture=difficulty[1]
 		3:
-			arena.texture=difficulty[2]
-			print("È tre")
+			arenaBg.texture=difficulty[2]
 
 func match_phase()-> String:
-	if RunInfo.arenanumber<20:
-		return "phase_1"
-	elif RunInfo.arenanumber<50:
-		return "phase_2"
-	elif RunInfo.arenanumber<80:
-		return "phase_3"
-	elif RunInfo.arenanumber<120:
-		return "phase_4"
-	elif RunInfo.arenanumber<200:
-		return "phase_5"
-	else:
-		return "phase_6"
+	# new version make a cicle inside a list and check the first that match the number of arena
+	for entry in phase_thresholds:
+		if RunInfo.arenanumber < entry.limit:
+			print(entry.phase)
+			return entry.phase
+	return "phase_6"
+	# old version
+	#if RunInfo.arenanumber<20:
+		#return "phase_1"
+	#elif RunInfo.arenanumber<50:
+		#return "phase_2"
+	#elif RunInfo.arenanumber<80:
+		#return "phase_3"
+	#elif RunInfo.arenanumber<120:
+		#return "phase_4"
+	#elif RunInfo.arenanumber<200:
+		#return "phase_5"
+	#else:
+		#return "phase_6"
 
 func choice_difficulty(phase: String) -> int:
 	var chances = difficulty_variant.get(phase)
@@ -67,80 +90,48 @@ func choice_difficulty(phase: String) -> int:
 	pool.shuffle()
 	return pool[randi() % pool.size()]
 
-func back_to_menu():
-	Global.goto_scene("res://Shop/shop.tscn")
+func shop():
+	if selected_arena:
+		Global.goto_scene("res://Shop/shop.tscn")
 
-#func goto_arena_1():
-	#var arena_path = "res://Levels/arena1.tscn"
-	#arena_params.arena_scene = preload("res://Levels/arena1.tscn")
-	#arena_params.difficulty = 1
-	#arena_params.reward_type = ArenaParams.RewardType.WEAPON
-	#RunInfo.current_arena_params = arena_params
-	#
-	#Global.goto_scene(arena_path)
-#
-#func goto_arena_2():
-	#var arena_path = "res://Levels/arena2.tscn"
-	#arena_params.arena_scene = preload("res://Levels/arena2.tscn")
-	#arena_params.difficulty = 2
-	#arena_params.reward_type = ArenaParams.RewardType.GOLD	
-	#RunInfo.current_arena_params = arena_params
-	#
-	#Global.goto_scene(arena_path)
-#
-#func goto_arena_3():
-	#var arena_path = "res://Levels/arena3.tscn"
-	#arena_params.arena_scene = preload("res://Levels/arena3.tscn")
-	#arena_params.difficulty = 3
-	#arena_params.reward_type = ArenaParams.RewardType.SKILL
-	#RunInfo.current_arena_params = arena_params
-	#
-	#Global.goto_scene(arena_path)
+func set_arena_choice(bgbutton : TextureRect, button : Button, arena_path : String, color: Color,reward_type):
+	selected_arena=true
+	bgbutton.modulate=color
+	arena_params.arena_scene = arena_path
+	arena_params.difficulty = button.difficulty
+	arena_params.reward_type = reward_type
+	RunInfo.current_arena_params = arena_params
+	print(RunInfo.current_arena_params)
 
+func reset_arena_choice(bgbutton : TextureRect, bgbutton2 : TextureRect, button : Button, button2 : Button, color: Color):
+	bgbutton.modulate=color
+	bgbutton2.modulate=color
+	button.is_active=false
+	button2.is_active=false
 
-func _on_bg_arena_1_gui_input(event):
-	if event is InputEventMouseButton and event.pressed:
-		$ArenaSelector/BgArena1.modulate=Color(0.767, 0.767, 0.767)
-		var arena_path = "res://Levels/arena1.tscn"
-		arena_params.arena_scene = preload("res://Levels/arena1.tscn")
-		arena_params.difficulty = $ArenaSelector/BgArena1.difficulty
-		arena_params.reward_type = ArenaParams.RewardType.WEAPON
-		RunInfo.current_arena_params = arena_params
-		
-		#Global.goto_scene(arena_path)
+func _on_arena_1_pressed():
+	if arena1.is_active==false:
+		arena1.is_active=true
+		var arena_path = $ArenaSelector/Arena1.arena_path
+		var reward_type=ArenaParams.RewardType.WEAPON
+		print("ho selezionato da arena weapon: ", arena_path)
+		reset_arena_choice(bg_arena2,bg_arena3,arena2,arena3,Color(1, 1, 1))
+		set_arena_choice(bg_arena1, arena1, arena_path , color,reward_type)
 
+func _on_arena_2_pressed():
+	if arena2.is_active==false:
+		arena2.is_active=true
+		var arena_path = arena2.arena_path
+		var reward_type=ArenaParams.RewardType.GOLD
+		print("ho selezionato da arena gold : ", arena_path)
+		reset_arena_choice(bg_arena1,bg_arena3,arena1,arena3,Color(1, 1, 1))
+		set_arena_choice(bg_arena2,arena2, arena_path , color,reward_type)
 
-func _on_bg_arena_2_gui_input(event):
-	if event is InputEventMouseButton and event.pressed:
-		$ArenaSelector/BgArena2.modulate=Color(0.767, 0.767, 0.767)
-		var arena_path = "res://Levels/arena2.tscn"
-		arena_params.arena_scene = preload("res://Levels/arena2.tscn")
-		arena_params.difficulty = $ArenaSelector/BgArena2.difficulty
-		arena_params.reward_type = ArenaParams.RewardType.GOLD	
-		RunInfo.current_arena_params = arena_params
-		print(arena_params.difficulty)
-		#Global.goto_scene(arena_path)
-
-
-func _on_bg_arena_3_gui_input(event):
-	if event is InputEventMouseButton and event.pressed:
-		$ArenaSelector/BgArena3.modulate=Color(0.767, 0.767, 0.767)
-		var arena_path = "res://Levels/arena3.tscn"
-		arena_params.arena_scene = preload("res://Levels/arena3.tscn")
-		arena_params.difficulty = $ArenaSelector/BgArena3.difficulty
-		arena_params.reward_type = ArenaParams.RewardType.SKILL
-		RunInfo.current_arena_params = arena_params
-		
-		#Global.goto_scene(arena_path)
-
-
-func _on_bg_arena_1_mouse_exited():
-	$ArenaSelector/BgArena3.modulate=Color(1, 1, 1)
-
-
-func _on_bg_arena_2_mouse_exited():
-	$ArenaSelector/BgArena3.modulate=Color(1, 1, 1)
-
-
-func _on_bg_arena_3_mouse_exited():
-	$ArenaSelector/BgArena3.modulate=Color(1, 1, 1)
+func _on_arena_3_pressed():
+	if arena3.is_active==false:
+		arena3.is_active=true
+		var arena_path = arena3.arena_path
+		var reward_type=ArenaParams.RewardType.SKILL
+		print("ho selezionato da arena ability: ", arena_path)
+		reset_arena_choice(bg_arena2, bg_arena1, arena2, arena1, Color(1, 1, 1))
+		set_arena_choice(bg_arena3, arena3, arena_path , color,reward_type)

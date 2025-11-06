@@ -111,3 +111,7 @@ enemyToSpawn = ExtResource("4_gy616")
 [node name="enemySpawner17" parent="Environment/EnemySpawners/Tilemap/EnemySpawners" index="19" instance=ExtResource("2_1u3vl")]
 position = Vector2(647, -520)
 enemyToSpawn = ExtResource("4_gy616")
+
+[node name="preview" type="Camera2D" parent="UI" index="1"]
+scale = Vector2(5.6, 1)
+zoom = Vector2(0.06, 0.06)
