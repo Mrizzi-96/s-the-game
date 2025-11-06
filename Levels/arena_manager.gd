@@ -21,7 +21,7 @@ func _ready() -> void:
 	_timer_view.start()
 	_spawn_component._configure(max_enemy_num, arena_difficulty)
 	_player_spawner.spawn_player()
-	RunInfo.arenanumber += 1
+	RunInfo.arena_counter += 1
 	
 func _process(_delta: float) -> void:
 	pass

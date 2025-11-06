@@ -19,11 +19,16 @@ var enemiesHealth: int
 
 var enemiesSpeed: float
 
+const enemy_health_progression: float = 1.2
+
+const enemy_speed_progression: float = 0.3
+
 func _configure(current_max_enemy_num: int, current_arena_difficulty:int) -> void:
 	self.arena_difficulty = current_arena_difficulty
 	self.max_enemy_num = current_max_enemy_num
 	_match_arena_difficulty()
-	self.time = time / (1 + min(RunInfo.arenanumber * difficulty_multiplier, 300) / 100.0)
+	#Configure enemy inbetween spawn time based on difficulty
+	self.time = time / (1 + min(RunInfo.arena_counter * difficulty_multiplier, 300) / 100.0)
 	_spawn_timer.wait_time=self.time
 
 func _on_first_spawn_timer_timeout() -> void:
@@ -42,10 +47,7 @@ func _spawn_enemy():
 	var num=randi_range(0,len(enemy_spawners)-1)
 	if num >=0 and len(enemy_spawners)>num:
 		var spawner=enemy_spawners[num]
-		var newHealth = (1.0 + (max(0, RunInfo.arenanumber - 1) * 1.2) / 100.0) * difficulty_multiplier
-		var newSpeed = (1.0 + (max(0, RunInfo.arenanumber - 1) * 0.3) / 100.0) * difficulty_multiplier
-		spawner.healthMult = newHealth
-		spawner.speedMult = newSpeed
+		_set_enemies_stats_multipliers(spawner)
 		spawner.call("_spawnEnemy")
 
 # converts arena difficulty into its multiplier
@@ -59,3 +61,11 @@ func _match_arena_difficulty() -> void:
 			difficulty_multiplier = 2
 		_:
 			difficulty_multiplier = 1
+
+func _set_enemies_stats_multipliers(spawner) -> void:
+
+	var newHealthMult = (1.0 + (max(0, RunInfo.arena_counter - 1) * enemy_health_progression) / 100.0) * difficulty_multiplier
+	var newSpeedMult = (1.0 + (max(0, RunInfo.arena_counter - 1) * enemy_speed_progression) / 100.0) * difficulty_multiplier
+	spawner.healthMult = newHealthMult
+	spawner.speedMult = newSpeedMult
+	
