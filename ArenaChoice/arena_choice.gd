@@ -1,7 +1,6 @@
 extends Control
 
 var phase:String=""
-var number_arena=5
 var selected_arena=false
 @export var color:Color
 @onready var arena1=$ArenaSelector/Arena1
@@ -38,7 +37,7 @@ func _ready():
 	################################################
 	$Money/TotalMoney.text=str(RunInfo.player_data.gold)
 	#start initialize arena number and decided phase for new choice difficulty 
-	$ArenaNumber.text="Arena "+str(RunInfo.arenanumber)+":"
+	$ArenaNumber.text="Arena "+str(RunInfo.arena_counter)+":"
 	phase=match_phase()
 	for i in range(3):
 		select_arena(i+1)
@@ -60,7 +59,7 @@ func select_arena(i:int):
 func match_phase()-> String:
 	# new version make a cicle inside a list and check the first that match the number of arena
 	for entry in phase_thresholds:
-		if RunInfo.arenanumber < entry.limit:
+		if RunInfo.arena_counter < entry.limit:
 			print(entry.phase)
 			return entry.phase
 	return "phase_6"
