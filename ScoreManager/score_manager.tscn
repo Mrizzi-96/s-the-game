@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://o46at1avbwky"]
+
+[ext_resource type="Script" uid="uid://d1v0fd7dxkfe8" path="res://ScoreManager/score_manager.gd" id="1_5qmsf"]
+
+[node name="ScoreManager" type="Node2D" groups=["score"]]
+script = ExtResource("1_5qmsf")
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_timer_timeout"]
