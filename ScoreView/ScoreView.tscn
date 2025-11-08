@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2n4ww4aewygc"]
+
+[ext_resource type="Script" uid="uid://d2lgeps6dbwvs" path="res://ScoreView/score_view.gd" id="1_yv6g8"]
+[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="2_yv6g8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xbosy"]
+font = ExtResource("2_yv6g8")
+font_size = 50
+
+[node name="ScoreView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yv6g8")
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "00000000"
+label_settings = SubResource("LabelSettings_xbosy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ModifierLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 65.0
+offset_right = 400.0
+offset_bottom = 115.0
+text = "0"
+label_settings = SubResource("LabelSettings_xbosy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RankLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 137.0
+offset_right = 400.0
+offset_bottom = 187.0
+text = "E"
+label_settings = SubResource("LabelSettings_xbosy")
+horizontal_alignment = 1
+vertical_alignment = 1
