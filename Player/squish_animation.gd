@@ -7,8 +7,6 @@ extends Node2D
 
 @export var limitY:float
 
-var _can_squish=true
-
 @onready var _squish_state
 
 var _original_scale
