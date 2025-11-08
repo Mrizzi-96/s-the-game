@@ -8,6 +8,8 @@ class_name Enemy
 var hp: int = 100
 var movement_speed: float = 1.0
 
+@export var points:int=100
+
 func _ready():
 	MainUI.register_on_screen_enemy(self)
 
@@ -34,3 +36,6 @@ func _death() -> void:
 		MainUI.unregister_on_screen_enemy(self)
 		queue_free()
 		Global.enemyNum -= 1
+		var score_manager=get_tree().get_first_node_in_group("score")
+		score_manager.add_points(points)
+		print("died")

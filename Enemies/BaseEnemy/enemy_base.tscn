@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_3qsql"]
 radius = 32.0156
 
-[node name="enemyBase" type="Node2D"]
+[node name="enemyBase" type="Node2D" groups=["enemy"]]
 script = ExtResource("1_oqnef")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["enemies"]]
