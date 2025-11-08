@@ -9,6 +9,9 @@
 
 [node name="Arena2" instance=ExtResource("1_2pvdf")]
 
+[node name="PlayerSpawner" parent="Environment" index="0"]
+position = Vector2(-10, 108)
+
 [node name="Parallax2D" type="Parallax2D" parent="Environment/EnemySpawners" index="0"]
 repeat_size = Vector2(864, 768)
 repeat_times = 10

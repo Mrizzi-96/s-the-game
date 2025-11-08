@@ -9,11 +9,14 @@ extends Node2D
 
 @onready var _spawn_component=$Components/SpawnComponent
 
+@onready var _score_manager=$Components/ScoreManager
+
 var arena_difficulty: int = RunInfo.current_arena_params.difficulty
 
 var is_preview := false
 
 func _ready() -> void:
+	max_enemy_num=arena_difficulty * 10
 	if is_preview:
 		$UI/HBoxContainer.visible=false
 		return
@@ -22,13 +25,13 @@ func _ready() -> void:
 	_spawn_component._configure(max_enemy_num, arena_difficulty)
 	_player_spawner.spawn_player()
 	RunInfo.arena_counter += 1
+	_score_manager.init()
 	
 func _process(_delta: float) -> void:
 	pass
 
 func _on_timer_view_timeout() -> void:
-	var ranks=["A", "B","C","D","E"]
-	var rank=ranks[randi_range(0,len(ranks)-1)]
+	var rank=_score_manager.get_current_rank()
 	MainUI.clear_all()
 	if rank != "E":
 		Global.goto_scene("res://RewardMenu/RewardMenu.tscn")

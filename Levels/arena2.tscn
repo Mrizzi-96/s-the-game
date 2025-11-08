@@ -10,6 +10,9 @@
 
 [node name="Arena" instance=ExtResource("1_ojro4")]
 
+[node name="PlayerSpawner" parent="Environment" index="0"]
+position = Vector2(-965, 1050)
+
 [node name="Parallax2D" type="Parallax2D" parent="Environment/Ground" index="0"]
 repeat_size = Vector2(864, 768)
 repeat_times = 10
@@ -170,10 +173,10 @@ enemyToSpawn = ExtResource("6_ojro4")
 position = Vector2(214.706, -1583.31)
 enemyToSpawn = ExtResource("6_ojro4")
 
-[node name="TimerView" parent="UI/HBoxContainer" index="0"]
-time = 22.0
-
 [node name="preview" type="Camera2D" parent="UI" index="1"]
 position = Vector2(-463.41, 0)
 scale = Vector2(5.6, 1)
 zoom = Vector2(0.055, 0.055)
+
+[node name="TimerView" parent="UI/HBoxContainer" index="0"]
+time = 22.0
