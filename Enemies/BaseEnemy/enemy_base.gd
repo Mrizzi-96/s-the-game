@@ -38,4 +38,3 @@ func _death() -> void:
 		Global.enemyNum -= 1
 		var score_manager=get_tree().get_first_node_in_group("score")
 		score_manager.add_points(points)
-		print("died")
