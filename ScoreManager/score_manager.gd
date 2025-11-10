@@ -27,8 +27,6 @@ enum ScoreRank
 
 @onready var _last_enemy_time_elapsed:float=0
 
-func value_sort(a,b):
-	a[1] < b[1]
 
 func init():
 	_time_value_modifiers.sort()
