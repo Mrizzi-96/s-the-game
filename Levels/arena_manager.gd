@@ -31,9 +31,9 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_timer_view_timeout() -> void:
-	var rank=_score_manager.get_current_rank()
+	var rank=_score_manager.get_rank()
 	MainUI.clear_all()
-	if rank != "E":
+	if rank != ScoreManager.ScoreRank.E:
 		Global.goto_scene("res://RewardMenu/RewardMenu.tscn")
 	else:
 		Global.goto_scene("res://GameOverUI/game_over_ui.tscn")
