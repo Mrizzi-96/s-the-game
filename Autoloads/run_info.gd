@@ -13,6 +13,7 @@ const ITEMDATA_DIR_PATH : String = "res://Resources/Items/"
 # this will be populated on choosing the correct arena
 @export var current_arena_params: ArenaParams
 
+@export var total_score : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

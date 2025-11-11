@@ -19,7 +19,6 @@ enum ScoreRank
 
 @onready var _timer:Timer = $ScoreTimer
 
-@onready var _total_score: int = 0
 @onready var _arena_score: int = 0
 @onready var _enemy_count: int = 0
 @onready var _enemies_killed_score : int = 0
@@ -39,7 +38,7 @@ func _compute_points(modifier:float): #compute the combo points and refresh the 
 	var combo_points:int = floori(modifier*_point_accumulator)
 	_arena_score += combo_points
 	# add arena score to total score
-	_total_score += combo_points
+	RunInfo.total_score += combo_points
 	_refresh_values()
 
 func _refresh_values():
@@ -81,7 +80,7 @@ func get_enemies_killed_score():
 	return _enemies_killed_score
 
 func get_total_score():
-	return _total_score
+	return RunInfo.total_score
 
 func get_arena_score():
 	return _arena_score
