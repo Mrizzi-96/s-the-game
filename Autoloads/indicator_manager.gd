@@ -36,9 +36,9 @@ func _process(_delta: float) -> void:
 
 			var scale_x: float = bounds_half_size.x / abs(vec_to_enemy.x) if vec_to_enemy.x != 0.0 else INF
 			var scale_y: float = bounds_half_size.y / abs(vec_to_enemy.y) if vec_to_enemy.y != 0.0 else INF
-			var scale: float = min(scale_x, scale_y)
+			var s_scale: float = min(scale_x, scale_y)
 
-			indicator.position = screen_center + vec_to_enemy * scale
+			indicator.position = screen_center + vec_to_enemy * s_scale
 
 func register_on_screen_enemy(enemy_root: Node) -> void:
 	if enemy_root in offscreen_enemies:
