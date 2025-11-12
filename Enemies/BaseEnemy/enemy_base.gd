@@ -25,6 +25,7 @@ func _setSpeed(speed: float) -> void:
 
 func _hit(damage: int) -> void:
 	$HitFlashAnimationPlayer.play("hit_flash")
+	DamageNumbers.display_damage(damage, $RigidBody2D/ParticlePosition.global_position)
 	hp -= damage
 	if hp <= 0:
 		_death()
