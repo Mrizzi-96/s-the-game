@@ -24,6 +24,7 @@ func _setSpeed(speed: float) -> void:
 	movement_speed = speed
 
 func _hit(damage: int) -> void:
+	$HitFlashAnimationPlayer.play("hit_flash")
 	hp -= damage
 	if hp <= 0:
 		_death()

@@ -1,10 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1nqhlplo7v6l"]
+[gd_scene load_steps=9 format=3 uid="uid://b1nqhlplo7v6l"]
 
 [ext_resource type="Script" uid="uid://b6ywitnrebj7e" path="res://Enemies/BaseEnemy/enemy_base.gd" id="1_oqnef"]
 [ext_resource type="Texture2D" uid="uid://d3srwpqqw2rdq" path="res://Enemies/Assets/S_sprites_burger.png" id="2_eah4h"]
+[ext_resource type="Shader" uid="uid://bvqdlg5u152da" path="res://Enemies/BaseEnemy/flash_shader.tres" id="2_plk56"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m013l"]
+resource_local_to_scene = true
+shader = ExtResource("2_plk56")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3qsql"]
 radius = 32.0156
+
+[sub_resource type="Animation" id="Animation_vof0i"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RigidBody2D/Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_kykyw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RigidBody2D/Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_el77d"]
+_data = {
+&"RESET": SubResource("Animation_kykyw"),
+&"hit_flash": SubResource("Animation_vof0i")
+}
 
 [node name="enemyBase" type="Node2D"]
 script = ExtResource("1_oqnef")
@@ -15,7 +59,13 @@ gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_m013l")
 texture = ExtResource("2_eah4h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_3qsql")
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_el77d")
+}
