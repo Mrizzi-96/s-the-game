@@ -45,8 +45,7 @@ func _setup_ranking_thresholds():
 	for rank in _rank_threesholds.keys():
 		var threshold=_rank_threesholds[rank]
 		threshold= threshold*(1+RunInfo.arena_counter)*_get_threshold_modifier(rank)*_difficulty
-		_rank_threesholds[rank]=int(threshold)
-		print(RunInfo.arena_counter)			
+		_rank_threesholds[rank]=int(threshold)		
 		
 func _on_timer_timeout() -> void:
 	var modifier = get_current_multiplier()
