@@ -29,6 +29,8 @@ enum ScoreRank
 
 var _difficulty=1
 
+var _is_combo_active=false
+
 signal multiplier_changed # called when the multiplier changes
 signal multiplier_reset # called when the mult comes back at 1
 
@@ -65,6 +67,7 @@ func _refresh_values():
 	_point_accumulator = 0
 	_last_enemy_time_elapsed = 0
 	_timer.wait_time = _total_time
+	_is_combo_active=false
 
 func _compute_nearest_time(_time_elapsed): #given the time passed, it compute the nearest combo time
 	var times=_time_value_modifiers.keys()
@@ -88,9 +91,13 @@ func add_points(points):
 	# determine multiplier
 		multiplier_changed.emit()
 		_last_enemy_time_elapsed = _timer.wait_time - _timer.time_left
-		_timer.paused=true
-		_timer.wait_time = _compute_nearest_time(_last_enemy_time_elapsed)
-		_timer.paused=false
+		#_timer.paused=true
+		if not _is_combo_active:
+			_timer.stop()
+			_timer.wait_time = _compute_nearest_time(_last_enemy_time_elapsed)
+			_timer.start()
+			_is_combo_active=true
+		#_timer.paused=false
 
 func get_enemies_killed_score():
 	return _enemies_killed_score
