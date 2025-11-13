@@ -27,6 +27,9 @@ enum ScoreRank
 
 @onready var _last_enemy_time_elapsed: float = 0
 
+signal multiplier_changed # called when the multiplier changes
+signal multiplier_reset # called when the mult comes back at 1
+
 func init():
 	_time_value_modifiers.sort()
 	if not _time_value_modifiers.is_empty():
@@ -34,6 +37,11 @@ func init():
 		_total_time=keys[len(keys)-1] #because the dictionary is sorted, the last key has the greatest value
 	_timer.wait_time=_total_time				
 		
+func _on_timer_timeout() -> void:
+	var modifier = get_current_multiplier()
+	_compute_points(modifier)
+	# after points are computed, mult changes back to 1
+
 func _compute_points(modifier:float): #compute the combo points and refresh the variables
 	var combo_points:int = floori(modifier*_point_accumulator)
 	_arena_score += combo_points
@@ -47,10 +55,6 @@ func _refresh_values():
 	_point_accumulator = 0
 	_last_enemy_time_elapsed = 0
 	_timer.wait_time = _total_time
-
-func _on_timer_timeout() -> void:
-	var modifier = get_current_multiplier()
-	_compute_points(modifier)
 
 func _compute_nearest_time(_time_elapsed): #given the time passed, it compute the nearest combo time
 	var times=_time_value_modifiers.keys()
@@ -71,6 +75,8 @@ func add_points(points):
 	if _timer.is_stopped(): #case 1: I hit the first enemy, i start the combo
 		_timer.start()
 	if _enemy_count == 2: #case 2: I hit the second enemy, the combo is valid
+	# determine multiplier
+		multiplier_changed.emit()
 		_last_enemy_time_elapsed = _timer.wait_time - _timer.time_left
 		_timer.paused=true
 		_timer.wait_time = _compute_nearest_time(_last_enemy_time_elapsed)
@@ -87,6 +93,8 @@ func get_arena_score():
 
 func get_current_multiplier():
 	if _timer.is_stopped() or _enemy_count<=1:
+		# signal that mult has reset
+		multiplier_reset.emit()
 		return 1;
 	var time=_compute_nearest_time(_last_enemy_time_elapsed)
 	return _time_value_modifiers[time]

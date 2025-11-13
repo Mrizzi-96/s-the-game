@@ -21,16 +21,18 @@ func _ready():
 	_rotate_label(enemy_score_label, rot)
 	_rotate_label(arena_score_label, rot)
 	_reset_label_values()
+	score_manager.multiplier_changed.connect(_on_multiplier_changed)
+	score_manager.multiplier_reset.connect(_on_multiplier_reset)
 
 func _reset_label_values():
 	rank_label.text = ""
 	arena_score_label.text = "0"
 	mult_label.text = "x 1"
+	mult_label.hide()
 	enemy_score_label.text = ""
-	if score_manager.get_total_score() == 0:
-		total_score_label.text = "TS: 0"
-
-
+	if score_manager != null:
+		if score_manager.get_total_score() == 0:
+			total_score_label.text = "TS: 0"
 
 func _process(_delta: float) -> void:
 	# TODO: move to signals
@@ -54,3 +56,9 @@ func _update_rank_img():
 
 func _rotate_label(label : Label, rot : float):
 	label.rotation_degrees = rad_to_deg(rot)
+
+func _on_multiplier_reset():
+	mult_label.hide()
+
+func _on_multiplier_changed():
+	mult_label.show()
