@@ -24,8 +24,8 @@ func _ready() -> void:
 	_timer_view.start()
 	_spawn_component._configure(max_enemy_num, arena_difficulty)
 	_player_spawner.spawn_player()
-	RunInfo.arena_counter += 1
-	_score_manager.init()
+	RunInfo.arena_counter = RunInfo.arena_counter + 1
+	_score_manager.init(arena_difficulty)
 	
 func _process(_delta: float) -> void:
 	pass

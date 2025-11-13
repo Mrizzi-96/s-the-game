@@ -30,6 +30,7 @@ func _configure(current_max_enemy_num: int, current_arena_difficulty:int) -> voi
 	#Configure enemy inbetween spawn time based on difficulty
 	self.time = time / (1 + min(RunInfo.arena_counter * difficulty_multiplier, 300) / 100.0)
 	_spawn_timer.wait_time=self.time
+	print(max_enemy_num)
 
 func _on_first_spawn_timer_timeout() -> void:
 	for i in max_enemy_num:
@@ -40,15 +41,15 @@ func _on_spawn_timer_timeout() -> void:
 	var enemies=get_tree().get_nodes_in_group(enemy_group)
 	if len(enemies) < max_enemy_num:
 		_spawn_enemy()
-	_spawn_timer.start()
 
 func _spawn_enemy():
 	var enemy_spawners=get_tree().get_nodes_in_group(spawner_group)
 	var num=randi_range(0,len(enemy_spawners)-1)
-	if num >=0 and len(enemy_spawners)>num:
+	if num >=0 and len(enemy_spawners)>0:
 		var spawner=enemy_spawners[num]
 		_set_enemies_stats_multipliers(spawner)
 		spawner.call("_spawnEnemy")
+	
 
 # converts arena difficulty into its multiplier
 func _match_arena_difficulty() -> void:

@@ -23,11 +23,7 @@ texture = ExtResource("2_ijnin")
 [node name="PlayerSpawner" parent="Environment/Ground" index="1" instance=ExtResource("7_ppd48")]
 position = Vector2(-993, 770)
 
-[node name="Timer" type="Timer" parent="Environment/Ground" index="2"]
-wait_time = 2.0
-autostart = true
-
-[node name="Tilemap" type="Node2D" parent="Environment/Ground" index="3"]
+[node name="Tilemap" type="Node2D" parent="Environment/Ground" index="2"]
 position = Vector2(-997, 624)
 rotation = 0.00144899
 
@@ -177,6 +173,3 @@ enemyToSpawn = ExtResource("6_ojro4")
 position = Vector2(-463.41, 0)
 scale = Vector2(5.6, 1)
 zoom = Vector2(0.055, 0.055)
-
-[node name="TimerView" parent="UI/HBoxContainer" index="0"]
-time = 22.0

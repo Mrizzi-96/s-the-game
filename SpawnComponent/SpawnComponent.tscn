@@ -7,7 +7,6 @@ script = ExtResource("1_hp04u")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.5
-one_shot = true
 
 [node name="FirstSpawnTimer" type="Timer" parent="."]
 wait_time = 2.5

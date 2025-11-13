@@ -27,15 +27,26 @@ enum ScoreRank
 
 @onready var _last_enemy_time_elapsed: float = 0
 
+var _difficulty=1
+
 signal multiplier_changed # called when the multiplier changes
 signal multiplier_reset # called when the mult comes back at 1
 
-func init():
+func init(difficulty=1):
 	_time_value_modifiers.sort()
 	if not _time_value_modifiers.is_empty():
 		var keys=_time_value_modifiers.keys();
 		_total_time=keys[len(keys)-1] #because the dictionary is sorted, the last key has the greatest value
-	_timer.wait_time=_total_time				
+	_timer.wait_time=_total_time
+	_difficulty=difficulty
+	_setup_ranking_thresholds()
+	
+func _setup_ranking_thresholds():
+	for rank in _rank_threesholds.keys():
+		var threshold=_rank_threesholds[rank]
+		threshold= threshold*(1+RunInfo.arena_counter)*_get_threshold_modifier(rank)*_difficulty
+		_rank_threesholds[rank]=int(threshold)
+		print(RunInfo.arena_counter)			
 		
 func _on_timer_timeout() -> void:
 	var modifier = get_current_multiplier()
@@ -143,3 +154,19 @@ func _get_rank_image(rank : ScoreRank):
 			return "A.png"
 		ScoreRank.S:
 			return "S.png"
+
+func _get_threshold_modifier(rank: ScoreRank):
+	match rank:
+		ScoreRank.E:
+			return 0
+		ScoreRank.D:
+			return 1
+		ScoreRank.C:
+			return 1.25
+		ScoreRank.B:
+			return 1.5
+		ScoreRank.A:
+			return 1.75
+		ScoreRank.S:
+			return 2
+			
