@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://61x4ftp6up7t"]
+
+[ext_resource type="Texture2D" uid="uid://bdarvnyuf4e42" path="res://Enemies/Assets/hit_particle.png" id="1_0t64y"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nn2kp"]
+particle_flag_disable_z = true
+angle_min = -250.0
+angle_max = 250.0
+spread = 180.0
+initial_velocity_min = 218.38
+initial_velocity_max = 270.11
+gravity = Vector3(0, 98, 0)
+
+[node name="HitParticle" type="GPUParticles2D"]
+emitting = false
+amount = 30
+texture = ExtResource("1_0t64y")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_nn2kp")
