@@ -43,7 +43,15 @@ vertical_alignment = 1
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-text = "Congrats! You won a biscuit!"
+text = "You win!"
+label_settings = SubResource("LabelSettings_50cio")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "You win!"
 label_settings = SubResource("LabelSettings_50cio")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -61,6 +69,12 @@ size_flags_vertical = 4
 theme = ExtResource("4_curk1")
 theme_override_fonts/font = ExtResource("2_j00ff")
 theme_override_font_sizes/font_size = 50
-text = "Go to Shop"
+text = "Next Arena"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BoxContainer2" type="BoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

@@ -10,6 +10,9 @@
 
 [node name="Arena" instance=ExtResource("1_rjjf6")]
 
+[node name="PlayerSpawner" parent="Environment" index="0"]
+position = Vector2(412, -1907)
+
 [node name="Parallax2D" type="Parallax2D" parent="Environment/Ground" index="0"]
 repeat_size = Vector2(864, 768)
 repeat_times = 27

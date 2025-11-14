@@ -10,6 +10,9 @@
 
 [node name="Arena" instance=ExtResource("1_ojro4")]
 
+[node name="PlayerSpawner" parent="Environment" index="0"]
+position = Vector2(-965, 1050)
+
 [node name="Parallax2D" type="Parallax2D" parent="Environment/Ground" index="0"]
 repeat_size = Vector2(864, 768)
 repeat_times = 10
@@ -20,11 +23,7 @@ texture = ExtResource("2_ijnin")
 [node name="PlayerSpawner" parent="Environment/Ground" index="1" instance=ExtResource("7_ppd48")]
 position = Vector2(-993, 770)
 
-[node name="Timer" type="Timer" parent="Environment/Ground" index="2"]
-wait_time = 2.0
-autostart = true
-
-[node name="Tilemap" type="Node2D" parent="Environment/Ground" index="3"]
+[node name="Tilemap" type="Node2D" parent="Environment/Ground" index="2"]
 position = Vector2(-997, 624)
 rotation = 0.00144899
 
@@ -169,9 +168,6 @@ enemyToSpawn = ExtResource("6_ojro4")
 [node name="enemySpawner25" parent="Environment/Ground/Tilemap/EnemySpawners" index="32" instance=ExtResource("5_p0prn")]
 position = Vector2(214.706, -1583.31)
 enemyToSpawn = ExtResource("6_ojro4")
-
-[node name="TimerView" parent="UI/HBoxContainer" index="0"]
-time = 22.0
 
 [node name="preview" type="Camera2D" parent="UI" index="1"]
 position = Vector2(-463.41, 0)

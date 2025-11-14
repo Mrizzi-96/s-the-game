@@ -21,6 +21,7 @@ Global="*res://Autoloads/global.gd"
 RunInfo="*res://Autoloads/run_info.gd"
 AudioManager="*res://Autoloads/audio_manager.tscn"
 MainUI="*res://Autoloads/main_ui.tscn"
+DamageNumbers="*res://Autoloads/damage_numbers.gd"
 
 [display]
 

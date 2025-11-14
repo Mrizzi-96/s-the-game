@@ -15,5 +15,5 @@ func _spawnEnemy():
 		enemySpawned =  true
 		Global.enemyNum+=1
 			
-	if enemySpawned:
-		queue_free()
+	#if enemySpawned:
+	#	queue_free()
