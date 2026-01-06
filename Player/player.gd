@@ -11,7 +11,7 @@ var max_speed = 2000
 
 # Equipped Weapons references:
 var left_leg_weapon
-var right_leg_weapon 
+var right_leg_weapon
 
 var max_rotation_speed = 10
 var is_game_over: bool
@@ -25,6 +25,9 @@ var is_game_over: bool
 
 @onready var _ass=$Hips/Ass/AssSprite
 
+# dust particles
+@onready var dust_particles : GPUParticles2D = %DustParticles
+
 signal game_ended
 
 # Called when the node enters the scene tree for the first time.
@@ -35,7 +38,7 @@ func _ready():
 	# each time we instantiate the player, we use the RunInfo's player data to build it
 	# this way, we always have a snapshot of the player at the time he leaves a shop scene (i.e. current gold, weapons, equipment etc.)
 	_setup(RunInfo.player_data)
-	
+
 	is_game_over = false
 	#RunInfo.arena_counter = 0
 	_change_crossair(left_leg_weapon)
@@ -45,7 +48,7 @@ func _setup(player_data : PlayerData):
 	left_leg_weapon = equipWeapon(player_data.equipment["LeftLeg"], "LeftLeg")
 	right_leg_weapon = equipWeapon(player_data.equipment["RightLeg"], "RightLeg")
 	player_gold.text = str(RunInfo.player_data.gold)
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#_smoothed_mouse_pos = lerp(_smoothed_mouse_pos, get_global_mouse_position(), 0.25)
@@ -53,7 +56,7 @@ func _process(_delta):
 	_change_crossair_position(_smoothed_mouse_pos)
 	# make selected leg look at mouse pos
 	Global.active_leg.look_at(crossair.global_position)
-	
+
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("act"):
 		if Global.active_leg != left_leg:
@@ -65,17 +68,17 @@ func _unhandled_input(_event):
 		if Global.active_leg != right_leg:
 			toggle_active_leg()
 		_change_crossair(right_leg_weapon)
-		squish(right_leg_weapon)		
-	return 
+		squish(right_leg_weapon)
+	return
 
-	
+
 func squish(weapon):
 	if weapon is ShootingWeapon:
 		_ass.squish()
-	
+
 func _change_crossair(weapon):
 	crossair.texture=weapon.item_data.crossair_texture
-	
+
 func _change_crossair_position(new_pos):
 	var min_length=125
 	if(_hips.global_position.distance_to(new_pos) >= min_length):
@@ -83,11 +86,11 @@ func _change_crossair_position(new_pos):
 	else:
 		var direction=(new_pos - _hips.global_position).normalized()
 		crossair.global_position=_hips.global_position+direction*min_length
-	
+
 func toggle_active_leg():
 	# toggle selected leg
 	Global.active_leg = left_leg if Global.active_leg == right_leg else right_leg
-		
+
 func equipWeapon(weapon: String, leg:String):
 	var weaponScene = load(Global.weapons[weapon])
 	if weaponScene:
@@ -96,7 +99,7 @@ func equipWeapon(weapon: String, leg:String):
 		for child in legNode.get_children():
 			child.queue_free()
 		legNode.add_child(weaponInstance)
-		
+
 		# get weaponInstance's ItemData and add it to the player inventory (if not already in)
 		# WARNING: may not allow duplicate types!
 		var weapon_item_data = weaponInstance.item_data
@@ -110,6 +113,8 @@ func equipWeapon(weapon: String, leg:String):
 
 func _on_hips_body_entered(_body):
 	_ass.squish()
+	if not dust_particles.emitting:
+		dust_particles.restart()
 
 func _physics_process(_delta):
 	if $Hips.linear_velocity.length() > max_speed:
