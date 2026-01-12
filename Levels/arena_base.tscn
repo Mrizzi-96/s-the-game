@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfsjvjpqcgf3q"]
+[gd_scene load_steps=11 format=3 uid="uid://cfsjvjpqcgf3q"]
 
 [ext_resource type="Script" uid="uid://l14icl7wca0v" path="res://Levels/arena_manager.gd" id="1_bh3wn"]
 [ext_resource type="PackedScene" uid="uid://dhdceffc2tub2" path="res://SpawnComponent/SpawnComponent.tscn" id="2_h7yv8"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://dgo2oa6vy60l" path="res://Levels/pause_component.gd" id="4_03ds6"]
 [ext_resource type="PackedScene" uid="uid://c2n4ww4aewygc" path="res://ScoreView/ScoreView.tscn" id="5_1fafr"]
 [ext_resource type="LabelSettings" uid="uid://cmgl7sm2k83h3" path="res://UI/Themes/TitleLabelSettings.tres" id="5_47utf"]
+[ext_resource type="Texture2D" uid="uid://kt3jyqiixbsp" path="res://UI/Assets/Backgrounds/[AI]pause_menu_bg.jpeg" id="8_3v4i1"]
+[ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="8_r6jt2"]
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_bh3wn")
@@ -31,43 +33,6 @@ _rank_threesholds = Dictionary[int, int]({
 4: 400,
 5: 500
 })
-
-[node name="PauseComponent" type="CanvasLayer" parent="Components"]
-script = ExtResource("4_03ds6")
-
-[node name="ColorRect" type="ColorRect" parent="Components/PauseComponent"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.165656, 0.165656, 0.165656, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="Components/PauseComponent/ColorRect"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -396.0
-offset_right = 396.0
-offset_bottom = 72.0
-grow_horizontal = 2
-theme_override_constants/margin_top = 50
-
-[node name="Label" type="Label" parent="Components/PauseComponent/ColorRect/MarginContainer"]
-layout_mode = 2
-text = "GAME PAUSED"
-label_settings = ExtResource("5_47utf")
-
-[node name="MarginContainer2" type="MarginContainer" parent="Components/PauseComponent/ColorRect"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -115,4 +80,61 @@ layout_mode = 2
 size_flags_horizontal = 6
 one_shot = true
 
+[node name="PauseComponent" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("4_03ds6")
+
+[node name="TextureRect" type="TextureRect" parent="PauseComponent"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_r6jt2")
+texture = ExtResource("8_3v4i1")
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseComponent/TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -396.0
+offset_right = 396.0
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="Label" type="Label" parent="PauseComponent/TextureRect/MarginContainer"]
+layout_mode = 2
+text = "GAME PAUSED"
+label_settings = ExtResource("5_47utf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseComponent"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -316.0
+offset_top = 10.0
+offset_right = 316.0
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_r6jt2")
+theme_override_constants/separation = 48
+
+[node name="Resume" type="Button" parent="PauseComponent/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_r6jt2")
+theme_override_font_sizes/font_size = 48
+text = "Resume"
+
+[node name="MainMenu" type="Button" parent="PauseComponent/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Main menu"
+
 [connection signal="timeout" from="UI/HBoxContainer/TimerView" to="." method="_on_timer_view_timeout"]
+[connection signal="button_up" from="PauseComponent/VBoxContainer/Resume" to="PauseComponent" method="_on_resume_button_up"]
+[connection signal="button_up" from="PauseComponent/VBoxContainer/MainMenu" to="PauseComponent" method="_on_main_menu_button_up"]

@@ -34,3 +34,6 @@ Button/styles/normal = ExtResource("1_t6ceb")
 Button/styles/pressed = ExtResource("4_j1dle")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_jqti6")
+MarginContainer/constants/margin_top = 0
+TitleMarginContainer/base_type = &"MarginContainer"
+TitleMarginContainer/constants/margin_top = 72
