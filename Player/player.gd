@@ -57,19 +57,21 @@ func _process(_delta):
 	# make selected leg look at mouse pos
 	Global.active_leg.look_at(crossair.global_position)
 
-func _unhandled_input(_event):
-	if Input.is_action_just_pressed("act"):
-		if Global.active_leg != left_leg:
-			# left click ==> left leg
-			toggle_active_leg()
+func _input(event: InputEvent) -> void:
+	# Optional but recommended: only react to mouse press (not release)
+	#if event is InputEventMouseButton and not event.pressed:
+		#return
+
+	if event.is_action_pressed("act"):
+		Global.active_leg = left_leg
 		_change_crossair(left_leg_weapon)
 		squish(left_leg_weapon)
-	if Input.is_action_just_pressed("switch"):
-		if Global.active_leg != right_leg:
-			toggle_active_leg()
+
+	elif event.is_action_pressed("switch"):
+		Global.active_leg = right_leg
 		_change_crossair(right_leg_weapon)
 		squish(right_leg_weapon)
-	return
+
 
 
 func squish(weapon):
