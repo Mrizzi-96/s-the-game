@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://banjow1tlw1ys"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://banjow1tlw1ys"]
 
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_jqti6"]
 [ext_resource type="StyleBox" uid="uid://cbmupyhd0c621" path="res://UI/Themes/basic_btn_panel.tres" id="1_t6ceb"]
@@ -7,6 +7,29 @@
 [ext_resource type="StyleBox" uid="uid://cqdhmu383ashn" path="res://UI/Themes/basic_btn_panel__pressed.tres" id="4_j1dle"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_slqvw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odic3"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a0fh"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -35,5 +58,7 @@ Button/styles/pressed = ExtResource("4_j1dle")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_jqti6")
 MarginContainer/constants/margin_top = 0
+ProgressBar/styles/background = SubResource("StyleBoxFlat_odic3")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_1a0fh")
 TitleMarginContainer/base_type = &"MarginContainer"
 TitleMarginContainer/constants/margin_top = 72

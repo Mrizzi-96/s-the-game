@@ -14,7 +14,7 @@ func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() -1)
 	level_path = "res://Levels/arena"
-	
+
 	var weapon_dir = "res://Weapons/"
 	scan_directory(weapon_dir)
 	#print(weapons)  # Debug: Check the generated dictionary
@@ -29,15 +29,15 @@ func _process(_delta):
 	pass
 
 func goto_scene(path):
-	get_tree().change_scene_to_file(path)
+	SceneManager.load_new_scene(path)
 	#call_deferred("_deferred_goto_scene", path)
 
-#func _deferred_goto_scene(path):
-	#current_scene.free()
-	#var s = ResourceLoader.load(path)
-	#current_scene = s.instantiate()
-	#get_tree().root.add_child(current_scene)
-	#get_tree().current_scene = current_scene
+func _deferred_goto_scene(path):
+	current_scene.free()
+	var s = ResourceLoader.load(path)
+	current_scene = s.instantiate()
+	get_tree().root.add_child(current_scene)
+	get_tree().current_scene = current_scene
 
 func load_random_arena_scene():
 	var rand = RandomNumberGenerator.new().randi_range(1,3)
@@ -62,10 +62,10 @@ func scan_directory(path: String):
 					if file_name != "Assets" and file_name != "Bullet":
 						scan_directory(entry_path + "/")
 				else:
-					if file_name.ends_with(".tscn"): 
+					if file_name.ends_with(".tscn"):
 						var weapon_name = file_name.get_basename()
 						weapons[weapon_name] = entry_path
-			file_name = dir.get_next()  
+			file_name = dir.get_next()
 		dir.list_dir_end()  # Close the directory listing
 	else:
 		print("An error occurred when trying to access the path: " + path)
