@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://dnfrlqxkiau5k"]
 
 [ext_resource type="Script" uid="uid://b4yrtjh8l6b3v" path="res://Resources/SFX/sound_effect_settings.gd" id="1_ua6g6"]
-[ext_resource type="AudioStream" uid="uid://djfmeob5px6hq" path="res://Player/Assets/SFX/button_pressed.wav" id="2_yyqcd"]
+[ext_resource type="AudioStream" uid="uid://bryngkfrf115v" path="res://Resources/SFX/SfxSources/fart_base.mp3" id="2_0tm3b"]
 
 [resource]
 script = ExtResource("1_ua6g6")
 limit = 5
 type = 4
-source = ExtResource("2_yyqcd")
+source = ExtResource("2_0tm3b")
 volume = 0
 pitch_scale = 1.0
 pitch_randomness = 0.0
