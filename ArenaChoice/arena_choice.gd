@@ -39,16 +39,21 @@ func _ready():
 	#start initialize arena number and decided phase for new choice difficulty 
 	$ArenaNumber.text="Arena "+str(RunInfo.arena_counter)+":"
 	phase=match_phase()
+	# initialise arenas
+	_init_arena_selectors()
+
+func _init_arena_selectors():
 	for i in range(3):
 		select_arena(i+1)
 
 func select_arena(i:int):
 	var arena = get_node("ArenaSelector/Arena%d" % i)
 	var arenaBg = get_node("ArenaSelector/BgArena%d" % i)
-	var valore =choice_difficulty(phase)
-	arena.difficulty=valore
+	var difficulty_value = _set_arena_difficulty(phase)
+	arena.difficulty=difficulty_value
 	arena.select_path(str(randi_range(1,RunInfo.arena_playable)))
-	match valore:
+	# TODO: pass difficulty to ArenaSelector.initialise()
+	match difficulty_value:
 		1:
 			arenaBg.texture=difficulty[0]
 		2:
@@ -57,6 +62,7 @@ func select_arena(i:int):
 			arenaBg.texture=difficulty[2]
 
 func match_phase()-> String:
+	# TODO: use LINQ - style 
 	# new version make a cicle inside a list and check the first that match the number of arena
 	for entry in phase_thresholds:
 		if RunInfo.arena_counter < entry.limit:
@@ -77,7 +83,8 @@ func match_phase()-> String:
 	#else:
 		#return "phase_6"
 
-func choice_difficulty(phase: String) -> int:
+# TODO: move to difficulty calculator component && return single number
+func _set_arena_difficulty(phase: String) -> int:
 	var chances = difficulty_variant.get(phase)
 	var pool = []
 	for i in range(int(chances[1])):

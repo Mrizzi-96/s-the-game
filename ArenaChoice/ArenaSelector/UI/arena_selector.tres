@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://lq66crfla486"]
+
+[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_5lvgp"]
+[ext_resource type="Texture2D" uid="uid://bvf0b0bv13nsq" path="res://ArenaChoice/ArenaSelector/Sprites/arena_selector_bg.png" id="1_wkxcv"]
+[ext_resource type="Texture2D" uid="uid://dp6myisthtqdi" path="res://ArenaChoice/ArenaSelector/Sprites/arena_selector_selected.png" id="3_haynt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wkxcv"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_syke4"]
+load_path = "res://.godot/imported/arena_selector_pressed.png-be0d9d1117c5119ed85c58d6d58df611.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_de8px"]
+texture = SubResource("CompressedTexture2D_syke4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_syke4"]
+texture = ExtResource("1_wkxcv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_haynt"]
+texture = ExtResource("3_haynt")
+region_rect = Rect2(0, 0, 596, 464)
+
+[resource]
+default_font = ExtResource("1_5lvgp")
+default_font_size = 16
+Button/styles/focus = SubResource("StyleBoxEmpty_wkxcv")
+Button/styles/hover = SubResource("StyleBoxTexture_de8px")
+Button/styles/normal = SubResource("StyleBoxTexture_syke4")
+Button/styles/pressed = SubResource("StyleBoxTexture_haynt")
