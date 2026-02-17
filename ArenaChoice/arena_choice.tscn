@@ -29,8 +29,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_avw62")
-color = Color(0.84, 0.3612, 0.3612, 1)
 difficulty = Array[Texture2D]([ExtResource("6_bqc6o"), ExtResource("3_r42k3"), ExtResource("4_pro8p")])
+color = Color(0.84, 0.3612, 0.3612, 1)
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -80,7 +80,24 @@ text = "Arena 1:"
 label_settings = ExtResource("3_xxlf5")
 horizontal_alignment = 1
 
+[node name="SelectorContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -529.0
+offset_top = -150.0
+offset_right = 529.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
 [node name="ArenaSelector" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -133,7 +150,7 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(480, 276)
 size_2d_override = Vector2i(480, 276)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="ArenaPreview1" type="TextureRect" parent="ArenaSelector/BgArena1"]
 visible = false
@@ -206,7 +223,7 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(480, 276)
 size_2d_override = Vector2i(480, 276)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Arena2" type="Button" parent="ArenaSelector"]
 layout_mode = 2
@@ -271,7 +288,7 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(480, 276)
 size_2d_override = Vector2i(480, 276)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Arena3" type="Button" parent="ArenaSelector"]
 layout_mode = 2

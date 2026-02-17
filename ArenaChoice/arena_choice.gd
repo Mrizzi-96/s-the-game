@@ -3,6 +3,7 @@ extends Control
 var phase:String=""
 var selected_arena=false
 
+@export var difficulty:Array[Texture2D] = []
 @export var color:Color
 @onready var arena1=$ArenaSelector/Arena1
 @onready var arena2=$ArenaSelector/Arena2
@@ -10,8 +11,8 @@ var selected_arena=false
 @onready var bg_arena1=$ArenaSelector/BgArena1
 @onready var bg_arena2=$ArenaSelector/BgArena2
 @onready var bg_arena3=$ArenaSelector/BgArena3
-@export var difficulty:Array[Texture2D] = []
 @onready var arena_params = ArenaParams.new()
+@onready var selector_container: HBoxContainer = $SelectorContainer
 
 const CHOICES_NUM : int = 3
 
@@ -31,23 +32,15 @@ var phase_thresholds = [
 	{ "limit": 120, "phase": "phase_4" },
 	{ "limit": 200, "phase": "phase_5" },
 ]
+	
 
-func start():
+func _ready():
 	# initialize arena params
 	arena_params.difficulty = 1
 	RunInfo.current_arena_params = arena_params
 	# setup money
 	$Money/TotalMoney.text=str(RunInfo.player_data.gold)
-	# initialize arena counter
-	
-
-func _ready():
-	# stub data for preview visibility
-	arena_params.difficulty=1
-	RunInfo.current_arena_params = arena_params
-	################################################
-	$Money/TotalMoney.text=str(RunInfo.player_data.gold)
-	#start initialize arena number and decided phase for new choice difficulty 
+	# initialize arena counter 
 	$ArenaCounter.text="Arena %s:" % str(RunInfo.arena_counter)
 	# set arena phase
 	phase = match_phase()
@@ -59,10 +52,13 @@ func _init_arena_selectors():
 		# set difficulty
 		var difficulty_value = _set_arena_difficulty(phase)
 		# initialize arena selector
-		var arena_selector = ArenaSelector.new()
+		var arena_selector = load("res://ArenaChoice/ArenaSelector/arena_selector.tscn")
+		var selector_instance : ArenaSelector = arena_selector.instantiate()
+		selector_container.add_child(selector_instance)
+		# finally initialise
 		var arena_path : String = "res://Levels/arena%d" % i +".tscn"
-		arena_selector.initialise(difficulty_value, "", i)
-		select_arena(i)
+		selector_instance.initialise(difficulty_value, arena_path, i)
+		
 
 func select_arena(i:int):
 	var arena = get_node("ArenaSelector/Arena%d" % i)
