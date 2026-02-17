@@ -17,8 +17,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_qc20x")
 toggle_mode = true
-button_pressed = true
-text = "testooo"
 script = ExtResource("2_ny3e5")
 difficulty_texture = ExtResource("3_ctbpm")
 metadata/_edit_use_anchors_ = true
@@ -34,7 +32,6 @@ offset_bottom = 40.0
 grow_horizontal = 2
 
 [node name="RewardLabel" type="Label" parent="RewardContainer"]
-visible = false
 layout_mode = 2
 text = "REWARD"
 label_settings = ExtResource("2_rfgfp")
@@ -73,4 +70,6 @@ grow_vertical = 0
 alignment = 2
 metadata/_edit_use_anchors_ = true
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="toggled" from="." to="." method="_on_toggled"]

@@ -9,6 +9,8 @@ class_name ArenaSelector extends Button
 @onready var reward_label: Label = $RewardContainer/RewardLabel
 @onready var arena_params = ArenaParams.new()
 
+const REWARD_LABEL_OFFSET_Y : float = 7
+var is_toggled : bool
 
 # TODO: initialise arena params
 func initialise(difficulty : int, arena_path : String,reward_type) -> void:
@@ -44,8 +46,15 @@ func load_arena_preview():
 	var preview_instance = preview_scene.instantiate()
 	preview.add_child(preview_instance)
 	
-
-
 func _on_toggled(toggled_on: bool) -> void:
+	is_toggled = toggled_on
 	# if toggled on, pass current arena params to the RunInfo
 	RunInfo.current_arena_params = arena_params
+
+func _on_mouse_entered():
+	if not is_toggled:
+		reward_label.position.y += REWARD_LABEL_OFFSET_Y
+
+func _on_mouse_exited() -> void:
+	if not is_toggled:
+		reward_label.position.y -= REWARD_LABEL_OFFSET_Y
