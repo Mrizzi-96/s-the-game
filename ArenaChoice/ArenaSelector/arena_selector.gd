@@ -13,7 +13,7 @@ const REWARD_LABEL_OFFSET_Y : float = 7
 var is_toggled : bool
 
 # TODO: initialise arena params
-func initialise(difficulty : int, arena_path : String,reward_type) -> void:
+func initialise(difficulty : int, arena_path : String, reward_type) -> void:
 	load_difficulty(difficulty)
 	load_reward(reward_type)
 	load_arena_preview()

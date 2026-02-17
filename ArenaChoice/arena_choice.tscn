@@ -62,7 +62,7 @@ theme = ExtResource("5_dgwrc")
 theme_override_font_sizes/font_size = 50
 text = "Shop"
 
-[node name="ArenaNumber" type="Label" parent="."]
+[node name="ArenaCounter" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

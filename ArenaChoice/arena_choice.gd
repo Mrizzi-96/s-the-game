@@ -2,6 +2,7 @@ extends Control
 
 var phase:String=""
 var selected_arena=false
+
 @export var color:Color
 @onready var arena1=$ArenaSelector/Arena1
 @onready var arena2=$ArenaSelector/Arena2
@@ -12,6 +13,7 @@ var selected_arena=false
 @export var difficulty:Array[Texture2D] = []
 @onready var arena_params = ArenaParams.new()
 
+const CHOICES_NUM : int = 3
 
 var difficulty_variant = {
 	"phase_1": {1: 70, 2: 25, 3: 5},
@@ -30,6 +32,15 @@ var phase_thresholds = [
 	{ "limit": 200, "phase": "phase_5" },
 ]
 
+func start():
+	# initialize arena params
+	arena_params.difficulty = 1
+	RunInfo.current_arena_params = arena_params
+	# setup money
+	$Money/TotalMoney.text=str(RunInfo.player_data.gold)
+	# initialize arena counter
+	
+
 func _ready():
 	# stub data for preview visibility
 	arena_params.difficulty=1
@@ -37,14 +48,21 @@ func _ready():
 	################################################
 	$Money/TotalMoney.text=str(RunInfo.player_data.gold)
 	#start initialize arena number and decided phase for new choice difficulty 
-	$ArenaNumber.text="Arena "+str(RunInfo.arena_counter)+":"
-	phase=match_phase()
-	# initialise arenas
+	$ArenaCounter.text="Arena %s:" % str(RunInfo.arena_counter)
+	# set arena phase
+	phase = match_phase()
+	# initialise arena selectors
 	_init_arena_selectors()
 
 func _init_arena_selectors():
-	for i in range(3):
-		select_arena(i+1)
+	for i in range(1, CHOICES_NUM + 1):
+		# set difficulty
+		var difficulty_value = _set_arena_difficulty(phase)
+		# initialize arena selector
+		var arena_selector = ArenaSelector.new()
+		var arena_path : String = "res://Levels/arena%d" % i +".tscn"
+		arena_selector.initialise(difficulty_value, "", i)
+		select_arena(i)
 
 func select_arena(i:int):
 	var arena = get_node("ArenaSelector/Arena%d" % i)
