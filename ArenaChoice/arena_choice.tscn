@@ -30,7 +30,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_avw62")
 difficulty = Array[Texture2D]([ExtResource("6_bqc6o"), ExtResource("3_r42k3"), ExtResource("4_pro8p")])
-color = Color(0.84, 0.3612, 0.3612, 1)
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1

@@ -4,13 +4,6 @@ var phase:String=""
 var selected_arena=false
 
 @export var difficulty:Array[Texture2D] = []
-@export var color:Color
-@onready var arena1=$ArenaSelector/Arena1
-@onready var arena2=$ArenaSelector/Arena2
-@onready var arena3=$ArenaSelector/Arena3
-@onready var bg_arena1=$ArenaSelector/BgArena1
-@onready var bg_arena2=$ArenaSelector/BgArena2
-@onready var bg_arena3=$ArenaSelector/BgArena3
 @onready var arena_params = ArenaParams.new()
 @onready var selector_container: HBoxContainer = $SelectorContainer
 @onready var shop_button: Button = $Shop
@@ -34,7 +27,6 @@ var phase_thresholds = [
 	{ "limit": 200, "phase": "phase_5" },
 ]
 	
-
 func _ready():
 	# initialize arena params
 	arena_params.difficulty = 1
@@ -64,26 +56,13 @@ func _init_arena_selectors():
 		selector_instance.arena_selected.connect(_on_arena_selected)
 
 func match_phase()-> String:
-	# TODO: use LINQ - style 
+	# TODO: use filter() to avoid cycling through all phases ?
 	# new version make a cicle inside a list and check the first that match the number of arena
 	for entry in phase_thresholds:
 		if RunInfo.arena_counter < entry.limit:
 			print(entry.phase)
 			return entry.phase
 	return "phase_6"
-	# old version
-	#if RunInfo.arenanumber<20:
-		#return "phase_1"
-	#elif RunInfo.arenanumber<50:
-		#return "phase_2"
-	#elif RunInfo.arenanumber<80:
-		#return "phase_3"
-	#elif RunInfo.arenanumber<120:
-		#return "phase_4"
-	#elif RunInfo.arenanumber<200:
-		#return "phase_5"
-	#else:
-		#return "phase_6"
 
 # TODO: move to difficulty calculator component && return single number
 func _set_arena_difficulty(phase: String) -> int:
@@ -102,7 +81,6 @@ func shop():
 	if selected_arena:
 		Global.goto_scene("res://Shop/shop.tscn")
 
-# TODO: receive clicked button as parameter and call a version of set_arena_choice 
 func _on_arena_selected(arena_selector : ArenaSelector) -> void:
 	selected_arena = true
 	RunInfo.current_arena_params = arena_selector.arena_params
