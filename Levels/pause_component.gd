@@ -1,14 +1,14 @@
 extends CanvasLayer
 
 @onready var _is_paused: bool = false
-
+@onready var is_preview : bool = false
 func _ready() -> void:
 	get_tree().root.process_mode = Node.PROCESS_MODE_PAUSABLE
 	# hide canvas layer
 	self.visible = false
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_released("pause"):
+	if Input.is_action_just_released("pause") and not is_preview:
 		_is_paused = !_is_paused
 		get_tree().paused = _is_paused
 		# show/hide canvas layer

@@ -10,6 +10,7 @@ extends Node2D
 @onready var _spawn_component=$Components/SpawnComponent
 
 @onready var _score_manager=$Components/ScoreManager
+@onready var _pause_component: CanvasLayer = $PauseComponent
 
 var arena_difficulty: int = RunInfo.current_arena_params.difficulty
 
@@ -19,6 +20,7 @@ func _ready() -> void:
 	max_enemy_num=arena_difficulty * 10
 	if is_preview:
 		$UI/HBoxContainer.visible=false
+		_pause_component.is_preview = true
 		return
 	$UI/preview.queue_free()
 	_timer_view.start()

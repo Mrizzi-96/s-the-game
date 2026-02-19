@@ -13,6 +13,7 @@ var selected_arena=false
 @onready var bg_arena3=$ArenaSelector/BgArena3
 @onready var arena_params = ArenaParams.new()
 @onready var selector_container: HBoxContainer = $SelectorContainer
+@onready var shop_button: Button = $Shop
 
 const CHOICES_NUM : int = 3
 
@@ -52,28 +53,15 @@ func _init_arena_selectors():
 		# set difficulty
 		var difficulty_value = _set_arena_difficulty(phase)
 		# initialize arena selector
-		var arena_selector = load("res://ArenaChoice/ArenaSelector/arena_selector.tscn")
+		var arena_selector = load("uid://cqi2f1edijnvs") # "res://ArenaChoice/ArenaSelector/arena_selector.tscn"
 		var selector_instance : ArenaSelector = arena_selector.instantiate()
 		selector_container.add_child(selector_instance)
-		# finally initialise
-		var arena_path : String = "res://Levels/arena%d" % i +".tscn"
+		# finally initialise arena path (random from 0 to 3)
+		# TODO: choose path using pools and levels based on current player progression
+		var arena_path : String = "res://Levels/arena%d" % randi_range(1,3) +".tscn"
 		selector_instance.initialise(difficulty_value, arena_path, i)
-		
-
-func select_arena(i:int):
-	var arena = get_node("ArenaSelector/Arena%d" % i)
-	var arenaBg = get_node("ArenaSelector/BgArena%d" % i)
-	var difficulty_value = _set_arena_difficulty(phase)
-	arena.difficulty=difficulty_value
-	arena.select_path(str(randi_range(1,RunInfo.arena_playable)))
-	# TODO: pass difficulty to ArenaSelector.initialise()
-	match difficulty_value:
-		1:
-			arenaBg.texture=difficulty[0]
-		2:
-			arenaBg.texture=difficulty[1]
-		3:
-			arenaBg.texture=difficulty[2]
+		# connect to signal to handle continue button
+		selector_instance.arena_selected.connect(_on_arena_selected)
 
 func match_phase()-> String:
 	# TODO: use LINQ - style 
@@ -114,44 +102,10 @@ func shop():
 	if selected_arena:
 		Global.goto_scene("res://Shop/shop.tscn")
 
-func set_arena_choice(bgbutton : TextureRect, button : Button, arena_path : String, color: Color,reward_type):
-	selected_arena=true
-	bgbutton.modulate=color
-	arena_params.arena_scene = arena_path
-	arena_params.difficulty = button.difficulty
-	arena_params.reward_type = reward_type
-	RunInfo.current_arena_params = arena_params
-	print(RunInfo.current_arena_params)
-
-func reset_arena_choice(bgbutton : TextureRect, bgbutton2 : TextureRect, button : Button, button2 : Button, color: Color):
-	bgbutton.modulate=color
-	bgbutton2.modulate=color
-	button.is_active=false
-	button2.is_active=false
-
-func _on_arena_1_pressed():
-	if arena1.is_active==false:
-		arena1.is_active=true
-		var arena_path = $ArenaSelector/Arena1.arena_path
-		var reward_type=ArenaParams.RewardType.WEAPON
-		print("ho selezionato da arena weapon: ", arena_path)
-		reset_arena_choice(bg_arena2,bg_arena3,arena2,arena3,Color(1, 1, 1))
-		set_arena_choice(bg_arena1, arena1, arena_path , color,reward_type)
-
-func _on_arena_2_pressed():
-	if arena2.is_active==false:
-		arena2.is_active=true
-		var arena_path = arena2.arena_path
-		var reward_type=ArenaParams.RewardType.GOLD
-		print("ho selezionato da arena gold : ", arena_path)
-		reset_arena_choice(bg_arena1,bg_arena3,arena1,arena3,Color(1, 1, 1))
-		set_arena_choice(bg_arena2,arena2, arena_path , color,reward_type)
-
-func _on_arena_3_pressed():
-	if arena3.is_active==false:
-		arena3.is_active=true
-		var arena_path = arena3.arena_path
-		var reward_type=ArenaParams.RewardType.SKILL
-		print("ho selezionato da arena ability: ", arena_path)
-		reset_arena_choice(bg_arena2, bg_arena1, arena2, arena1, Color(1, 1, 1))
-		set_arena_choice(bg_arena3, arena3, arena_path , color,reward_type)
+# TODO: receive clicked button as parameter and call a version of set_arena_choice 
+func _on_arena_selected(arena_selector : ArenaSelector) -> void:
+	selected_arena = true
+	RunInfo.current_arena_params = arena_selector.arena_params
+	# activate continue button
+	shop_button.visible = true
+	shop_button.disabled = false
