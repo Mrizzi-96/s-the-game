@@ -17,7 +17,7 @@ func create_2d_audio_at_location(location, type: SoundEffectSettings.SOUND_EFFEC
 			var new_audio = AudioStreamPlayer2D.new()
 			self.add_child(new_audio)
 			new_audio.position = location
-			new_audio.stream = sound_effect_setting.source
+			new_audio.stream = sound_effect_setting.get_random_source()
 			new_audio.volume_db = sound_effect_setting.volume
 			new_audio.pitch_scale = sound_effect_setting.pitch_scale
 			#-sound_effect_setting.pitch_randomness
@@ -36,7 +36,7 @@ func create_audio(type: SoundEffectSettings.SOUND_EFFECT_TYPE):
 			sound_effect_setting.set_audio_count(1)
 			var new_audio = AudioStreamPlayer.new()
 			self.add_child(new_audio)
-			new_audio.stream = sound_effect_setting.source
+			new_audio.stream = sound_effect_setting.get_random_source()
 			new_audio.volume_db = sound_effect_setting.volume
 			new_audio.pitch_scale = sound_effect_setting.pitch_scale
 			#-sound_effect_setting.pitch_randomness

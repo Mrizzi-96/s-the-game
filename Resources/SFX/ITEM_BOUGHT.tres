@@ -7,7 +7,7 @@
 script = ExtResource("1_fedip")
 limit = 5
 type = 3
-source = ExtResource("2_tykwc")
+sources = Array[AudioStream]([ExtResource("2_tykwc")])
 volume = 0
 pitch_scale = 1.0
 pitch_randomness = 0.0

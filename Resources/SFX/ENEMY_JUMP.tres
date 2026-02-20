@@ -6,6 +6,7 @@
 script = ExtResource("1_vrtio")
 limit = 5
 type = 2
+sources = Array[AudioStream]([null])
 volume = 0
 pitch_scale = 1.0
 pitch_randomness = 0.0
