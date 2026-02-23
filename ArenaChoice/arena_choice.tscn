@@ -40,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_nsak1")
 
-[node name="Shop" type="Button" parent="."]
+[node name="Shop" type="Button" parent="." groups=["Buttons"]]
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 1
 anchors_preset = 3

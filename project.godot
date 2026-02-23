@@ -48,6 +48,7 @@ pickup=""
 grid=""
 LeftLeg=""
 RightLeg=""
+Buttons=""
 
 [input]
 

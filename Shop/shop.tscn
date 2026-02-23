@@ -130,7 +130,7 @@ scale = Vector2(1.00072, 1.03848)
 icon = ExtResource("13_eu4ty")
 flat = true
 
-[node name="ResumeButton" type="Button" parent="ButtonShop"]
+[node name="ResumeButton" type="Button" parent="ButtonShop" groups=["Buttons"]]
 layout_mode = 2
 offset_left = 1554.0
 offset_top = 952.0

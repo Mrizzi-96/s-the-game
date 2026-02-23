@@ -53,7 +53,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 60
 
-[node name="Play" type="Button" parent="VBoxContainer2/VBoxContainer"]
+[node name="Play" type="Button" parent="VBoxContainer2/VBoxContainer" groups=["Buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
@@ -62,7 +62,7 @@ theme = ExtResource("4_p4kex")
 theme_override_font_sizes/font_size = 50
 text = "Play"
 
-[node name="Quit" type="Button" parent="VBoxContainer2/VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer2/VBoxContainer" groups=["Buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2

@@ -62,7 +62,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
 vertical = true
 
-[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer/BoxContainer"]
+[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer/BoxContainer" groups=["Buttons"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

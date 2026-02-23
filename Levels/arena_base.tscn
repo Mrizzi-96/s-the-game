@@ -124,13 +124,13 @@ grow_vertical = 2
 theme = ExtResource("8_r6jt2")
 theme_override_constants/separation = 48
 
-[node name="Resume" type="Button" parent="PauseComponent/VBoxContainer"]
+[node name="Resume" type="Button" parent="PauseComponent/VBoxContainer" groups=["Buttons"]]
 layout_mode = 2
 theme = ExtResource("8_r6jt2")
 theme_override_font_sizes/font_size = 48
 text = "Resume"
 
-[node name="MainMenu" type="Button" parent="PauseComponent/VBoxContainer"]
+[node name="MainMenu" type="Button" parent="PauseComponent/VBoxContainer" groups=["Buttons"]]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Main menu"

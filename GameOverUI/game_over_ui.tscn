@@ -44,7 +44,7 @@ layout_mode = 2
 theme_override_constants/separation = 45
 alignment = 1
 
-[node name="BackToMenu" type="Button" parent="VBoxContainer"]
+[node name="BackToMenu" type="Button" parent="VBoxContainer" groups=["Buttons"]]
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 size_flags_horizontal = 4

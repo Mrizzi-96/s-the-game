@@ -6,6 +6,18 @@ var sound_effect_dict = {}
 func _ready() -> void:
 	for sound_effect_setting : SoundEffectSettings in sound_effect_settings:
 		sound_effect_dict[sound_effect_setting.type] = sound_effect_setting
+	register_audio_button_triggers()
+		
+func register_audio_button_triggers() -> void:
+	# called once each loading screen
+	# ALL buttons in group must do the fart sound
+	var buttons: Array = get_tree().get_nodes_in_group("Buttons")
+	for inst : Button in buttons:
+		if not inst.is_connected("button_up", _on_button_down):
+			inst.button_up.connect(_on_button_down)
+
+func _on_button_down() -> void:
+	self.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.UI_BUTTON_PRESS)
 
 func create_2d_audio_at_location(location, type: SoundEffectSettings.SOUND_EFFECT_TYPE):
 	if !sound_effect_dict.has(type):
