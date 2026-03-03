@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://um46d3dw75wv"]
+[gd_scene load_steps=8 format=4 uid="uid://cl1nw3yxyepuc"]
 
 [ext_resource type="Script" uid="uid://bmptw7objvigu" path="res://Levels/arena_global.gd" id="1_ltsrt"]
 [ext_resource type="Texture2D" uid="uid://cgcfbkwqi3cvc" path="res://Levels/Assets/BackgroundPALLET3.png" id="2_2cw1i"]
