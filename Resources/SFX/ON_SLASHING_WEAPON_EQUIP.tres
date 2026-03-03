@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://cvx4njhw76gyh"]
 
 [ext_resource type="Script" uid="uid://b4yrtjh8l6b3v" path="res://Resources/SFX/sound_effect_settings.gd" id="1_uf30x"]
-[ext_resource type="AudioStream" uid="uid://cso53le5141jx" path="res://Resources/SFX/SfxSources/118792__lmbubec__1_knife_slash_a.wav" id="2_edwy5"]
+[ext_resource type="AudioStream" uid="uid://bknf7x1ym5fgr" path="res://Player/Assets/SFX/swoosh_placeholder.wav" id="2_nnb2c"]
 
 [resource]
 script = ExtResource("1_uf30x")
 limit = 5
 type = 5
-source = ExtResource("2_edwy5")
-volume = 0
-pitch_scale = 1.0
+source = ExtResource("2_nnb2c")
+volume = -20
+pitch_scale = 1.5
 pitch_randomness = 0.0
 metadata/_custom_type_script = "uid://b4yrtjh8l6b3v"

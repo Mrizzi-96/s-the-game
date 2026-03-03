@@ -7,6 +7,14 @@ const ITEMDATA_DIR_PATH : String = "res://Resources/Items/"
 
 @export var player_data : PlayerData
 
+@export var arena_counter: int = 0
+# this are the number of arena currently playable
+@export var arena_playable: int = 3
+# this will be populated on choosing the correct arena
+@export var current_arena_params: ArenaParams
+
+@export var total_score : int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	populate_items()

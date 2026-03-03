@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="S-the-game"
-run/main_scene="res://MainMenu/main_menu.tscn"
+run/main_scene="uid://hp147ctfpi5o"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,12 +20,13 @@ config/icon="res://icon.svg"
 Global="*res://Autoloads/global.gd"
 RunInfo="*res://Autoloads/run_info.gd"
 AudioManager="*res://Autoloads/audio_manager.tscn"
+MainUI="*res://Autoloads/main_ui.tscn"
+DamageNumbers="*res://Autoloads/damage_numbers.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=4
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

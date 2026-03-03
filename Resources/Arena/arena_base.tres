@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ArenaParams" load_steps=2 format=3 uid="uid://dm0yunbtoie7c"]
+
+[ext_resource type="Script" uid="uid://c1g5yx0ikr4jv" path="res://Resources/Arena/arena_params.gd" id="1_3o8c1"]
+
+[resource]
+script = ExtResource("1_3o8c1")
+arena_scene = ""
+difficulty = 1
+reward_type = 0
+metadata/_custom_type_script = "uid://c1g5yx0ikr4jv"

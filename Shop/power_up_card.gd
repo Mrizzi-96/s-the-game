@@ -40,7 +40,7 @@ func init(item: ItemData):
 	#buy_button.disabled = item_data.price > RunInfo.player_data.gold
 	#set stats
 	title_stats.text = item_data.name
-	var count=item_data.get_non_zero_stats_count()
+	var _count=item_data.get_non_zero_stats_count()
 	non_zero_stats=item_data.get_non_zero_stats()
 	#print("numero stats",count)
 	for i in non_zero_stats.keys():
@@ -49,7 +49,7 @@ func init(item: ItemData):
 		%ContainerAllStats.add_child(stats)
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if deactive==true:
 		$".".modulate=Color(1.0, 1.0, 1.0, 0.450)
 

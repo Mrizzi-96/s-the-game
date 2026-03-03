@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://benl0845mu8x2"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://benl0845mu8x2"]
 
 [ext_resource type="Script" uid="uid://cf5if4viigef8" path="res://Resources/item_data.gd" id="1_4n7uk"]
 [ext_resource type="AudioStream" uid="uid://bknf7x1ym5fgr" path="res://Player/Assets/SFX/swoosh_placeholder.wav" id="1_cijxa"]
+[ext_resource type="Texture2D" uid="uid://bjt5vd18h3mtb" path="res://Weapons/Crossairs/S_sprites_ui_cursor_sword.png" id="2_dfda4"]
 [ext_resource type="Texture2D" uid="uid://bfmwawfl1ar5s" path="res://Weapons/Assets/knife.png" id="2_x02a4"]
 
 [resource]
@@ -13,11 +14,40 @@ It propels you forward for a small distance. "
 texture = ExtResource("2_x02a4")
 price = 100
 attack_sound = ExtResource("1_cijxa")
+crossair_texture = ExtResource("2_dfda4")
 slots = 0
-movement_speed_text = ""
-movement_speed = 0
-damage_text = ""
-damage = 0
-fire_rate_text = ""
-fire_rate = 0
 bought = false
+stats = {
+"armor": {
+"text": "armor",
+"value": 0
+},
+"crit_chance": {
+"text": "crit chance",
+"value": 0
+},
+"fire_rate": {
+"text": "fire rate",
+"value": 0
+},
+"health": {
+"text": "health",
+"value": 0
+},
+"luck": {
+"text": "luck",
+"value": 0
+},
+"shooting_damage": {
+"text": "shooting damage",
+"value": 0
+},
+"thrust_damage": {
+"text": "thrust damage",
+"value": 0
+},
+"thrust_speed": {
+"text": "thrust speed",
+"value": 0
+}
+}

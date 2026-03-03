@@ -12,8 +12,8 @@ can_sleep = false
 lock_rotation = true
 freeze = true
 freeze_mode = 1
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_8ds5h")
 item_data = ExtResource("2_tr6vg")
 

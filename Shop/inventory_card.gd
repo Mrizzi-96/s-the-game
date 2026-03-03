@@ -32,7 +32,7 @@ func init(item: ItemData):
 		disable_buttons()
 	# else do nothing
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if deactive==true:
 		$".".modulate=Color(1.0, 1.0, 1.0, 0.450)
 
