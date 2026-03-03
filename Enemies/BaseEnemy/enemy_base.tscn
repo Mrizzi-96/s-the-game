@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6ywitnrebj7e" path="res://Enemies/BaseEnemy/enemy_base.gd" id="1_oqnef"]
 [ext_resource type="Texture2D" uid="uid://d3srwpqqw2rdq" path="res://Enemies/Assets/S_sprites_burger.png" id="2_eah4h"]
-[ext_resource type="Shader" uid="uid://bvqdlg5u152da" path="res://Enemies/BaseEnemy/flash_shader.tres" id="2_plk56"]
+[ext_resource type="Shader" uid="uid://bsurr6rux772g" path="res://Enemies/BaseEnemy/flash_shader.tres" id="2_plk56"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m013l"]
 resource_local_to_scene = true
