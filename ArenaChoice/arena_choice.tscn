@@ -122,6 +122,7 @@ text = "Weapon"
 label_settings = ExtResource("3_xxlf5")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="ArenaSelector/BgArena1"]
+layout_mode = 0
 offset_left = 47.0
 offset_top = 81.0
 offset_right = 527.0
@@ -194,6 +195,7 @@ texture = ExtResource("7_0f3dx")
 stretch_mode = 5
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="ArenaSelector/BgArena2"]
+layout_mode = 0
 offset_left = 44.0
 offset_top = 79.5
 offset_right = 524.0
@@ -258,6 +260,7 @@ texture = ExtResource("7_0f3dx")
 stretch_mode = 5
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="ArenaSelector/BgArena3"]
+layout_mode = 0
 offset_left = 43.5
 offset_top = 77.5
 offset_right = 523.5

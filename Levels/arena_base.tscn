@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfsjvjpqcgf3q"]
+[gd_scene load_steps=8 format=3 uid="uid://cfsjvjpqcgf3q"]
 
 [ext_resource type="Script" uid="uid://l14icl7wca0v" path="res://Levels/arena_manager.gd" id="1_bh3wn"]
 [ext_resource type="PackedScene" uid="uid://dhdceffc2tub2" path="res://SpawnComponent/SpawnComponent.tscn" id="2_h7yv8"]
@@ -6,9 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://o46at1avbwky" path="res://ScoreManager/score_manager.tscn" id="3_1fafr"]
 [ext_resource type="PackedScene" uid="uid://cqypee2bd7vwm" path="res://TimerView/TimerView.tscn" id="3_h7yv8"]
 [ext_resource type="PackedScene" uid="uid://c2n4ww4aewygc" path="res://ScoreView/ScoreView.tscn" id="5_1fafr"]
+[ext_resource type="Texture2D" uid="uid://bcfmoleirnisc" path="res://Levels/Assets/BackgroundPALLET2.png" id="7_03ds6"]
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_bh3wn")
+
+[node name="Background" type="Parallax2D" parent="."]
+repeat_size = Vector2(864, 768)
+repeat_times = 10
+
+[node name="BackgroundSprite" type="Sprite2D" parent="Background"]
+texture = ExtResource("7_03ds6")
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -58,6 +66,10 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 4
 score_manager = NodePath("../../../Components/ScoreManager")
+
+[node name="preview" type="Camera2D" parent="UI"]
+scale = Vector2(5.6, 1)
+zoom = Vector2(0.06, 0.06)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
 anchors_preset = 14
