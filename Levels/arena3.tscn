@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://um46d3dw75wv"]
+[gd_scene load_steps=8 format=4 uid="uid://um46d3dw75wv"]
 
 [ext_resource type="PackedScene" uid="uid://cfsjvjpqcgf3q" path="res://Levels/arena_base.tscn" id="1_rjjf6"]
+[ext_resource type="Texture2D" uid="uid://5aibx2u3v6tp" path="res://Levels/Assets/Background.png" id="2_662eg"]
 [ext_resource type="PackedScene" uid="uid://digawdek3m2tg" path="res://Enemies/Spawner/enemy_spawner.tscn" id="3_0gbxs"]
 [ext_resource type="PackedScene" uid="uid://bq88ved7wpcvg" path="res://Player/player_spawner.tscn" id="4_a0m8i"]
 [ext_resource type="TileSet" uid="uid://bxhs763pdt7nd" path="res://Resources/Tilesets/base_tileset.tres" id="4_ch0ek"]
@@ -12,6 +13,9 @@
 [node name="Background" parent="." index="0"]
 scroll_scale = Vector2(0, 0)
 repeat_times = 25
+
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_662eg")
 
 [node name="PlayerSpawner" parent="Environment" index="0"]
 position = Vector2(412, -1907)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://cubyvkv5q7hts"]
+[gd_scene load_steps=7 format=4 uid="uid://cubyvkv5q7hts"]
 
 [ext_resource type="PackedScene" uid="uid://cfsjvjpqcgf3q" path="res://Levels/arena_base.tscn" id="1_jagse"]
 [ext_resource type="PackedScene" uid="uid://digawdek3m2tg" path="res://Enemies/Spawner/enemy_spawner.tscn" id="2_8n3qa"]
+[ext_resource type="Texture2D" uid="uid://cgcfbkwqi3cvc" path="res://Levels/Assets/BackgroundPALLET3.png" id="2_a8tdi"]
 [ext_resource type="TileSet" uid="uid://bxhs763pdt7nd" path="res://Resources/Tilesets/base_tileset.tres" id="2_htd5c"]
 [ext_resource type="PackedScene" uid="uid://b10oqhb1x1fnm" path="res://Enemies/FlyingFry/flying_fry.tscn" id="3_a8tdi"]
 [ext_resource type="PackedScene" uid="uid://fxwfnc2es8rl" path="res://Enemies/JumpingBurger/jumping_burger.tscn" id="4_4lb3n"]
@@ -10,6 +11,9 @@
 
 [node name="Background" parent="." index="0"]
 repeat_times = 20
+
+[node name="BackgroundSprite" parent="Background" index="0"]
+texture = ExtResource("2_a8tdi")
 
 [node name="Environment" parent="." index="2"]
 position = Vector2(-2428, 443)
