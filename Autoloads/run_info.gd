@@ -9,7 +9,7 @@ const ITEMDATA_DIR_PATH : String = "res://Resources/Items/"
 
 @export var arena_counter: int = 0
 # this are the number of arena currently playable
-@export var arena_playable: int = 6
+@export var arena_playable: int = 7
 # this will be populated on choosing the correct arena
 @export var current_arena_params: ArenaParams
 
