@@ -37,3 +37,7 @@ func _on_timer_view_timeout() -> void:
 		Global.goto_scene("res://RewardMenu/RewardMenu.tscn")
 	else:
 		Global.goto_scene("res://GameOverUI/game_over_ui.tscn")
+
+
+func _on_resume_button_up() -> void:
+	pass # Replace with function body.

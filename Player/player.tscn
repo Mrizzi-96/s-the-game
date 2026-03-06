@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cn8mtnkswehm1"]
+[gd_scene load_steps=15 format=3 uid="uid://cn8mtnkswehm1"]
 
 [ext_resource type="Script" uid="uid://ba4h4wqjs8jll" path="res://Player/player.gd" id="1_c6ce5"]
 [ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Bullet/player_bullet.tscn" id="2_ifgo3"]
@@ -10,10 +10,19 @@
 [ext_resource type="Texture2D" uid="uid://brgrvcct7gblq" path="res://Shop/Assets/weapon_equipment_empty.png" id="7_btkp6"]
 [ext_resource type="Texture2D" uid="uid://cnosnij6wc7w1" path="res://Shop/Assets/butt coin.png" id="7_ceo47"]
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="7_t4o1a"]
+[ext_resource type="Texture2D" uid="uid://imiydcc5efv" path="res://Player/Assets/Particles/dust_particle.png" id="8_apopc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5w4i3"]
 radius = 20.0
 height = 76.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5htga"]
+particle_flag_disable_z = true
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.25
+scale_max = 1.2
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wukl8"]
 texture = ExtResource("7_btkp6")
@@ -64,6 +73,16 @@ script = ExtResource("5_x3vf3")
 step = 10
 limitX = 1.2
 limitY = 0.8
+
+[node name="DustParticles" type="GPUParticles2D" parent="Hips/Ass/AssSprite"]
+unique_name_in_owner = true
+emitting = false
+amount = 50
+texture = ExtResource("8_apopc")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5htga")
 
 [node name="Camera2D" type="Camera2D" parent="Hips"]
 process_callback = 0
