@@ -27,7 +27,7 @@ func update_reward_preview() -> void:
 				pass
 			else:
 				# set rewardImage
-				var candidate = reward_candidates[0]
+				var candidate = reward_candidates[randi_range(0, reward_candidates.size() -1)]
 				reward_image.texture = candidate.texture
 				reward_name.text = candidate.name.capitalize()
 				# NOTE: add reward to player's inventory
@@ -42,7 +42,7 @@ func update_reward_preview() -> void:
 			var difficulty_modifier = get_gold_difficulty_modifier(difficulty)
 			var gold_reward_amount : int = round(BASE_GOLD_AMOUNT + (BASE_GOLD_AMOUNT * arena_counter_rate)) * difficulty_modifier
 			# label
-			reward_name.text = "+ %s Gold" % str(gold_reward_amount)
+			reward_name.text = "+%s G." % str(gold_reward_amount)
 			# NOTE: add gold to player's reserve
 			RunInfo.player_data.gold += gold_reward_amount
 		ArenaParams.RewardType.SKILL:
