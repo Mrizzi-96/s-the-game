@@ -10,4 +10,4 @@ func _ready() -> void:
 		# instantiate new selector
 		var s : ArenaSelector = arena_selector_scene.instantiate()
 		# setup
-		s.initialise()
+		#s.initialise()
