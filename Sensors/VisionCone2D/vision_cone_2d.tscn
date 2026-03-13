@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy4y5tknnmrst"]
+
+[ext_resource type="PackedScene" uid="uid://xnv10f1og6hg" path="res://Sensors/Sensor2D/sensor_2d.tscn" id="1_ev3kn"]
+[ext_resource type="Script" uid="uid://wet5ng2xsv5a" path="res://Sensors/VisionCone2D/vision_cone_2d.gd" id="2_ewivx"]
+
+[node name="Sensor2D" instance=ExtResource("1_ev3kn")]
+script = ExtResource("2_ewivx")
+max_length = 300.0
+max_angle = 90.0
+
+[node name="Area2D" parent="." index="0"]
+collision_layer = 0
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+visibility_layer = 0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://xnv10f1og6hg"]
+
+[ext_resource type="Script" uid="uid://dk3qn8wq2gs1p" path="res://Sensors/Sensor2D/sensor_2d.gd" id="2_hwdsd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bboh"]
+
+[node name="Sensor2D" type="Node2D"]
+script = ExtResource("2_hwdsd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3bboh")

@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://bvqdlg5u152da"]
+[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://bsurr6rux772g"]
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_2hthc"]
 parameter_name = "tint"
