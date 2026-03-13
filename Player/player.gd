@@ -66,11 +66,15 @@ func _input(event: InputEvent) -> void:
 		Global.active_leg = left_leg
 		_change_crossair(left_leg_weapon)
 		squish(left_leg_weapon)
+		var aim_dir = $Hips.global_position.direction_to(crossair.global_position)
+		$Hips/Camera2D.shake(1)
 
 	elif event.is_action_pressed("switch"):
 		Global.active_leg = right_leg
 		_change_crossair(right_leg_weapon)
 		squish(right_leg_weapon)
+		var aim_dir = $Hips.global_position.direction_to(crossair.global_position)
+		$Hips/Camera2D.shake(1)
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cn8mtnkswehm1"]
+[gd_scene load_steps=16 format=3 uid="uid://cn8mtnkswehm1"]
 
 [ext_resource type="Script" uid="uid://ba4h4wqjs8jll" path="res://Player/player.gd" id="1_c6ce5"]
 [ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Bullet/player_bullet.tscn" id="2_ifgo3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cnosnij6wc7w1" path="res://Shop/Assets/butt coin.png" id="7_ceo47"]
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="7_t4o1a"]
 [ext_resource type="Texture2D" uid="uid://imiydcc5efv" path="res://Player/Assets/Particles/dust_particle.png" id="8_apopc"]
+[ext_resource type="Script" uid="uid://dv46s6yf287b1" path="res://Player/screen_shake.gd" id="9_5htga"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5w4i3"]
 radius = 20.0
@@ -86,6 +87,8 @@ process_material = SubResource("ParticleProcessMaterial_5htga")
 
 [node name="Camera2D" type="Camera2D" parent="Hips"]
 process_callback = 0
+script = ExtResource("9_5htga")
+directional_bias = 1.0
 
 [node name="PlayerGUI" type="Control" parent="."]
 layout_mode = 3
