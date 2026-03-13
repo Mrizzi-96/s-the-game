@@ -23,6 +23,11 @@ func is_equipped(key: String, item_name: String):
 func get_equipped(key: String):
 	return equipment[key]
 
+## returns the current player's inventory.
+func get_inventory() -> Array[ItemData]:
+	return inventory
+
+## checks if a item is in the player's inventory
 func is_in_inventory(item_data:ItemData):
 	return inventory.has(item_data)
 

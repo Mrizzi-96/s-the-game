@@ -33,7 +33,11 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_timer_view_timeout() -> void:
-	var rank=_score_manager.get_rank()
+	var rank : RankItem.ScoreRank =_score_manager.get_rank()
+	# save rank & arena score on current arena params
+	RunInfo.current_arena_params.score_rank = rank
+	RunInfo.current_arena_params.arena_score = _score_manager.get_arena_score()
+	# clear main UI
 	MainUI.clear_all()
 	if rank != ScoreManager.ScoreRank.E:
 		Global.goto_scene("res://RewardMenu/RewardMenu.tscn")

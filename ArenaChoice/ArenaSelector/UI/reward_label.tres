@@ -1,5 +1,8 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://bf0cq7otvnva3"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bf0cq7otvnva3"]
+
+[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_ww3sk"]
 
 [resource]
+font = ExtResource("1_ww3sk")
 font_size = 32
 outline_color = Color(0, 0, 0, 1)

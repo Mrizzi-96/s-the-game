@@ -45,6 +45,8 @@ enum Type {ASS, LEFT_LEG, RIGHT_LEG, WEAPON, POWER_UP}
 	"thrust_damage": {"text": "thrust damage", "value": 0}
 }
 
+func get_item_type() -> Type:
+	return type
 
 func get_non_zero_stats():
 	var filtered_stats = {}

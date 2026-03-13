@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://grf7iob4hwn3"]
+[gd_scene load_steps=9 format=3 uid="uid://grf7iob4hwn3"]
 
 [ext_resource type="Script" uid="uid://dxf1epmiblaby" path="res://RewardMenu/reward_menu.gd" id="1_e4ohg"]
 [ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_50cio"]
-[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="2_j00ff"]
+[ext_resource type="LabelSettings" uid="uid://wvo6n6icc52h" path="res://RewardMenu/reward_title.tres" id="3_curk1"]
+[ext_resource type="LabelSettings" uid="uid://b7c4f0qsrsjp0" path="res://RewardMenu/reward_subtitle.tres" id="4_76b2l"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="4_curk1"]
+[ext_resource type="Texture2D" uid="uid://bp2ehjavfk66h" path="res://UI/Assets/Score/D.png" id="4_tx7ov"]
+[ext_resource type="LabelSettings" uid="uid://4u4thywfyrqj" path="res://RewardMenu/reward_text.tres" id="6_tapw6"]
+[ext_resource type="PackedScene" uid="uid://bekpq5l0dei5u" path="res://RewardMenu/RewardCard/reward_card.tscn" id="7_tapw6"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_50cio"]
-font = ExtResource("2_j00ff")
-font_size = 60
-
-[node name="RewardMenu" type="PanelContainer"]
+[node name="RewardMenu" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,61 +21,143 @@ size_flags_vertical = 3
 script = ExtResource("1_e4ohg")
 
 [node name="Background" type="TextureRect" parent="."]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_50cio")
+expand_mode = 3
+stretch_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
+layout_mode = 1
+offset_right = 1938.0
+offset_bottom = 1068.0
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="ResultsContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Reward"
-label_settings = SubResource("LabelSettings_50cio")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "You win!"
-label_settings = SubResource("LabelSettings_50cio")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "You win!"
-label_settings = SubResource("LabelSettings_50cio")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BoxContainer" type="BoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.25
-vertical = true
-
-[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer/BoxContainer" groups=["Buttons"]]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/ResultsContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Results"
+label_settings = ExtResource("3_curk1")
+
+[node name="RankContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="RankLabel" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer/RankContainer"]
+layout_mode = 2
+text = "Your rank"
+label_settings = ExtResource("4_76b2l")
+
+[node name="RankTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer/RankContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_tx7ov")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="ArenaScore" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ArenaScoreTitle" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer/ArenaScore"]
+layout_mode = 2
+text = "Arena score"
+label_settings = ExtResource("4_76b2l")
+
+[node name="ArenaScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer/ArenaScore"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000000"
+label_settings = ExtResource("6_tapw6")
+horizontal_alignment = 2
+
+[node name="Total score" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TotalScoreTitle" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer/Total score"]
+layout_mode = 2
+text = "Total score"
+label_settings = ExtResource("4_76b2l")
+
+[node name="TotalScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer/Total score"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000000"
+label_settings = ExtResource("6_tapw6")
+horizontal_alignment = 2
+
+[node name="RewardsContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/RewardsContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 100
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/RewardsContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 676
+text = "Rewards"
+label_settings = ExtResource("3_curk1")
+
+[node name="RewardCardContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/RewardsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RewardCard" parent="MarginContainer/HBoxContainer/RewardsContainer/RewardCardContainer" instance=ExtResource("7_tapw6")]
+layout_mode = 2
+
+[node name="Footer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/RewardsContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 10
+alignment = 2
+
+[node name="ShopButton" type="Button" parent="MarginContainer/HBoxContainer/RewardsContainer/Footer"]
+visible = false
+layout_mode = 2
 theme = ExtResource("4_curk1")
-theme_override_fonts/font = ExtResource("2_j00ff")
-theme_override_font_sizes/font_size = 50
-text = "Next Arena"
+theme_type_variation = &"FooterButton"
+text = "Shop"
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+[node name="InventoryButton" type="Button" parent="MarginContainer/HBoxContainer/RewardsContainer/Footer" groups=["Buttons"]]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
+theme = ExtResource("4_curk1")
+theme_type_variation = &"FooterButton"
+text = "Shop/Inventory"
 
-[node name="BoxContainer2" type="BoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="NextArenaButton" type="Button" parent="MarginContainer/HBoxContainer/RewardsContainer/Footer" groups=["Buttons"]]
+unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("4_curk1")
+theme_type_variation = &"FooterButton"
+text = "Next arena"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/RewardsContainer/Footer/InventoryButton" to="." method="_on_inventory_button_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/RewardsContainer/Footer/NextArenaButton" to="." method="_on_next_arena_button_button_up"]

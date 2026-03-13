@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://banjow1tlw1ys"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://banjow1tlw1ys"]
 
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_jqti6"]
 [ext_resource type="StyleBox" uid="uid://cbmupyhd0c621" path="res://UI/Themes/basic_btn_panel.tres" id="1_t6ceb"]
@@ -7,6 +7,8 @@
 [ext_resource type="StyleBox" uid="uid://cqdhmu383ashn" path="res://UI/Themes/basic_btn_panel__pressed.tres" id="4_j1dle"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_slqvw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_odic3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odic3"]
 bg_color = Color(1, 1, 1, 1)
@@ -45,6 +47,7 @@ Button/colors/icon_hover_color = Color(0, 0, 0, 1)
 Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 Button/colors/icon_normal_color = Color(0, 0, 0, 1)
 Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/align_to_largest_stylebox = 0
 Button/constants/h_separation = 0
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
@@ -55,6 +58,13 @@ Button/styles/focus = SubResource("StyleBoxEmpty_slqvw")
 Button/styles/hover = ExtResource("3_dhj74")
 Button/styles/normal = ExtResource("1_t6ceb")
 Button/styles/pressed = ExtResource("4_j1dle")
+FooterButton/base_type = &"Button"
+FooterButton/font_sizes/font_size = 24
+FooterButton/styles/disabled = ExtResource("2_4ndf1")
+FooterButton/styles/focus = SubResource("StyleBoxEmpty_odic3")
+FooterButton/styles/hover = ExtResource("3_dhj74")
+FooterButton/styles/normal = ExtResource("1_t6ceb")
+FooterButton/styles/pressed = ExtResource("4_j1dle")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_jqti6")
 MarginContainer/constants/margin_top = 0

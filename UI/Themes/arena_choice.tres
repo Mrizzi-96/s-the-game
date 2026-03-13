@@ -1,9 +1,19 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dbmbbfa2dj733"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dbmbbfa2dj733"]
 
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_ldmqw"]
 [ext_resource type="StyleBox" uid="uid://c1yc6quufg5xg" path="res://UI/Themes/arena_choice_panel.tres" id="2_4sshk"]
 [ext_resource type="StyleBox" uid="uid://csf2dl2y2ocqr" path="res://UI/Themes/arena_choice_panel__hover.tres" id="2_wapbl"]
 [ext_resource type="StyleBox" uid="uid://c4nif31x3b6vj" path="res://UI/Themes/arena_choice_panel__pressed.tres" id="3_shyc4"]
+[ext_resource type="Texture2D" uid="uid://brgrvcct7gblq" path="res://Shop/Assets/weapon_equipment_empty.png" id="5_ui03c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2i26n"]
+texture = ExtResource("5_ui03c")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -28,3 +38,4 @@ Button/styles/focus = ExtResource("2_wapbl")
 Button/styles/hover = ExtResource("2_wapbl")
 Button/styles/normal = ExtResource("2_4sshk")
 Button/styles/pressed = ExtResource("3_shyc4")
+Label/styles/normal = SubResource("StyleBoxTexture_2i26n")
