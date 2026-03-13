@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("1_nknpw")
-gold = 10000
+gold = 0
 inventory = Array[ExtResource("1_ciwn4")]([ExtResource("1_dnubm"), ExtResource("2_xem2t")])
 equipment = {
 "LeftLeg": "knife",

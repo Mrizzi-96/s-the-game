@@ -41,6 +41,7 @@ grow_vertical = 2
 texture = ExtResource("2_nsak1")
 
 [node name="Shop" type="Button" parent="." groups=["Buttons"]]
+visible = false
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 1
 anchors_preset = 3
@@ -60,7 +61,7 @@ size_flags_vertical = 4
 theme = ExtResource("5_dgwrc")
 theme_override_font_sizes/font_size = 50
 disabled = true
-text = "Shop"
+text = "NEXT"
 
 [node name="ArenaCounter" type="Label" parent="."]
 layout_mode = 1

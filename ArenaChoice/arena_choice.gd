@@ -77,13 +77,10 @@ func _set_arena_difficulty(phase: String) -> int:
 	pool.shuffle()
 	return pool[randi() % pool.size()]
 
-func shop():
-	if selected_arena:
-		Global.goto_scene("res://Shop/shop.tscn")
-
 func _on_arena_selected(arena_selector : ArenaSelector) -> void:
 	selected_arena = true
 	RunInfo.current_arena_params = arena_selector.arena_params
 	# activate continue button
-	shop_button.visible = true
-	shop_button.disabled = false
+	#shop_button.visible = true
+	#shop_button.disabled = false
+	Global.goto_scene(RunInfo.current_arena_params.arena_scene)

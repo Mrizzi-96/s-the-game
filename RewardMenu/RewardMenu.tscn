@@ -149,7 +149,6 @@ text = "Shop"
 
 [node name="InventoryButton" type="Button" parent="MarginContainer/HBoxContainer/RewardsContainer/Footer" groups=["Buttons"]]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme = ExtResource("4_curk1")
 theme_type_variation = &"FooterButton"
