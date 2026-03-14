@@ -21,6 +21,12 @@ func _ready():
 	player_data = ResourceLoader.load("res://Resources/Player/player_start.tres")
 	
 
+func reset() -> void:
+	arena_counter = 0
+	total_score = 0
+	player_data = ResourceLoader.load("res://Resources/Player/player_start.tres")
+	populate_items()
+
 func populate_items() -> void:
 	for i in DirAccess.get_files_at(ITEMDATA_DIR_PATH):
 		if i.ends_with(".remap"):
