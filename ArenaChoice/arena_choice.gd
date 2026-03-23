@@ -50,7 +50,7 @@ func _init_arena_selectors():
 		selector_container.add_child(selector_instance)
 		# finally initialise arena path (random from 0 to 3)
 		# TODO: choose path using pools and levels based on current player progression
-		var arena_path : String = "res://Levels/arena%d" % randi_range(1,3) +".tscn"
+		var arena_path : String = "res://Levels/arena%d" % randi_range(1,RunInfo.arena_playable) +".tscn"
 		selector_instance.initialise(difficulty_value, arena_path, i)
 		# connect to signal to handle continue button
 		selector_instance.arena_selected.connect(_on_arena_selected)
