@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://b3bsfcpqqewps"]
 
 [ext_resource type="Script" uid="uid://c2f36tmppbp8g" path="res://Weapons/Bullet/player_bullet.gd" id="1_fwscs"]
-[ext_resource type="Texture2D" uid="uid://cy688hm50jcda" path="res://Weapons/Assets/bullet.png" id="2_7toek"]
+[ext_resource type="Texture2D" uid="uid://2yx243ycqwey" path="res://Weapons/Assets/scrap.png" id="2_ck0p7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yi0tt"]
-size = Vector2(20, 4)
+[sub_resource type="CircleShape2D" id="CircleShape2D_biae2"]
+radius = 15.0
 
 [node name="Area2D" type="Area2D"]
 collision_layer = 2
@@ -12,10 +12,10 @@ script = ExtResource("1_fwscs")
 despawn_after_seconds = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_yi0tt")
+shape = SubResource("CircleShape2D_biae2")
 
 [node name="Bullet" type="Sprite2D" parent="."]
-scale = Vector2(0.346154, 0.346154)
-texture = ExtResource("2_7toek")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ck0p7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
