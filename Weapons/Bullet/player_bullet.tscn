@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3bsfcpqqewps"]
+[gd_scene load_steps=7 format=3 uid="uid://b3bsfcpqqewps"]
 
 [ext_resource type="Script" uid="uid://c2f36tmppbp8g" path="res://Weapons/Bullet/player_bullet.gd" id="1_fwscs"]
 [ext_resource type="Texture2D" uid="uid://2yx243ycqwey" path="res://Weapons/Assets/scrap.png" id="2_ck0p7"]
+[ext_resource type="PackedScene" uid="uid://due8r88pj3xe1" path="res://Weapons/impact_particles.tscn" id="2_tostj"]
 [ext_resource type="Script" uid="uid://o3tyss6jagcl" path="res://Weapons/Bullet/trail.gd" id="3_biae2"]
 [ext_resource type="Script" uid="uid://bsm31xkmknx2n" path="res://Weapons/Bullet/glow.gd" id="4_hcbux"]
 
@@ -12,6 +13,7 @@ radius = 15.0
 collision_layer = 2
 script = ExtResource("1_fwscs")
 despawn_after_seconds = 5.0
+wall_impact_particle = ExtResource("2_tostj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_biae2")

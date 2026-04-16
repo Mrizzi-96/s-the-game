@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cup4pu23tk3ca"]
+
+[ext_resource type="Script" path="res://Weapons/muzzle_flash.gd" id="1_ceq8d"]
+[ext_resource type="Texture2D" uid="uid://bjq33x671y3jk" path="res://Weapons/Assets/white_particle.png" id="2_jhgxh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jhgxh"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_ceq8d"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jhgxh"]
+curve = SubResource("Curve_ceq8d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e441e"]
+particle_flag_disable_z = true
+spread = 30.0
+initial_velocity_min = 80.0
+initial_velocity_max = 160.0
+gravity = Vector3(0, 98, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_jhgxh")
+color = Color(1, 0.901961, 0.4, 1)
+
+[node name="MuzzleFlash" type="Node2D"]
+script = ExtResource("1_ceq8d")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_jhgxh")
+emitting = false
+amount = 10
+texture = ExtResource("2_jhgxh")
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_e441e")
