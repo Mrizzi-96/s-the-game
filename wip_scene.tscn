@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://xgwpv7t6h6ok"]
+
+[ext_resource type="LabelSettings" uid="uid://cmgl7sm2k83h3" path="res://UI/Themes/TitleLabelSettings.tres" id="1_8e56h"]
+[ext_resource type="Script" uid="uid://cdbbgl27l302t" path="res://wip_scene.gd" id="1_hqq0r"]
+[ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="2_mbm3o"]
+
+[node name="WipScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hqq0r")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+text = "COMING SOON!"
+label_settings = ExtResource("1_8e56h")
+horizontal_alignment = 1
+
+[node name="MainMenu" type="Button" parent="PanelContainer" groups=["Buttons"]]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("2_mbm3o")
+text = "Main menu"
+
+[connection signal="button_up" from="PanelContainer/MainMenu" to="." method="_on_main_menu_button_up"]

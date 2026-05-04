@@ -1,9 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://hp147ctfpi5o"]
+[gd_scene load_steps=11 format=3 uid="uid://hp147ctfpi5o"]
 
 [ext_resource type="Script" uid="uid://dwfa1pew85w1h" path="res://MainMenu/main_menu.gd" id="1_s46ob"]
 [ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_eqkuv"]
 [ext_resource type="Texture2D" uid="uid://2fvrehdvckub" path="res://UI/Assets/S_sprites_title.png" id="3_bolh1"]
+[ext_resource type="Texture2D" uid="uid://kt3jyqiixbsp" path="res://UI/Assets/Backgrounds/[AI]pause_menu_bg.jpeg" id="3_kbpwf"]
+[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="3_po2gx"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="4_p4kex"]
+[ext_resource type="Texture2D" uid="uid://brgrvcct7gblq" path="res://Shop/Assets/weapon_equipment_empty.png" id="5_jdgnk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jdgnk"]
+texture = ExtResource("3_kbpwf")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbpwf"]
+font = ExtResource("3_po2gx")
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r0x8f"]
+texture = ExtResource("5_jdgnk")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+region_rect = Rect2(0, 0, 259, 171)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,9 +38,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s46ob")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_vertical_guides_ = [958.0]
 
-[node name="ColorRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,50 +49,107 @@ grow_vertical = 2
 texture = ExtResource("2_eqkuv")
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.498148
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="SplashArt(WIP)" type="Panel" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_jdgnk")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/SplashArt(WIP)"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -36.0
+offset_right = 256.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SPLASH ART (WIP)"
+label_settings = SubResource("LabelSettings_kbpwf")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_r0x8f")
+
+[node name="Sidebar" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar"]
+layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.66
 texture = ExtResource("3_bolh1")
 expand_mode = 1
 stretch_mode = 5
-metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer2" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.472222
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+[node name="VBoxContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar"]
 layout_mode = 2
-size_flags_horizontal = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2"]
+layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = 60
+theme_override_constants/separation = 12
 
-[node name="Play" type="Button" parent="VBoxContainer2/VBoxContainer" groups=["Buttons"]]
+[node name="Play" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer" groups=["Buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("4_p4kex")
-theme_override_font_sizes/font_size = 50
-text = "Play"
+theme_override_font_sizes/font_size = 32
+text = "Start"
 
-[node name="Quit" type="Button" parent="VBoxContainer2/VBoxContainer" groups=["Buttons"]]
+[node name="HowToPlay" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer" groups=["Buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 60)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("4_p4kex")
+theme_override_font_sizes/font_size = 32
+text = "How to 
+play"
+
+[node name="Settings" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer" groups=["Buttons"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 60)
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("4_p4kex")
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer" groups=["Buttons"]]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme = ExtResource("4_p4kex")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 32
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Play" to="." method="_start_game"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Play" to="." method="_start_game"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Settings" to="." method="_on_settings_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Quit" to="." method="_on_quit_button_up"]
