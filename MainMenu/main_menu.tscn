@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://hp147ctfpi5o"]
+[gd_scene load_steps=12 format=3 uid="uid://hp147ctfpi5o"]
 
 [ext_resource type="Script" uid="uid://dwfa1pew85w1h" path="res://MainMenu/main_menu.gd" id="1_s46ob"]
 [ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_eqkuv"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="3_po2gx"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="4_p4kex"]
 [ext_resource type="Texture2D" uid="uid://brgrvcct7gblq" path="res://Shop/Assets/weapon_equipment_empty.png" id="5_jdgnk"]
+[ext_resource type="PackedScene" uid="uid://c0xj1wfdikf6e" path="res://UI/Scenes/ConfirmationOverlay.tscn" id="8_r0x8f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jdgnk"]
 texture = ExtResource("3_kbpwf")
@@ -149,7 +150,15 @@ theme = ExtResource("4_p4kex")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
 
+[node name="ConfirmationOverlay" parent="." instance=ExtResource("8_r0x8f")]
+unique_name_in_owner = true
+visible = false
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Play" to="." method="_start_game"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Settings" to="." method="_on_settings_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/YesButton" to="." method="_on_yes_button_button_up"]
+[connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NoButton" to="." method="_on_no_button_button_up"]
+
+[editable path="ConfirmationOverlay"]
