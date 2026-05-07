@@ -158,7 +158,7 @@ visible = false
 [connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Settings" to="." method="_on_settings_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Quit" to="." method="_on_quit_button_up"]
-[connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/YesButton" to="." method="_on_yes_button_button_up"]
-[connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/NoButton" to="." method="_on_no_button_button_up"]
+[connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/YesButton" to="." method="_on_yes_button_button_up"]
+[connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/NoButton" to="." method="_on_no_button_button_up"]
 
 [editable path="ConfirmationOverlay"]
