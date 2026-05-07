@@ -1,5 +1,7 @@
 extends Node
 
+const MAIN_MENU_SCENE : String = "uid://hp147ctfpi5o"
+ 
 ## returns the reward name as a string.
 func get_reward_name(value: int) -> String:
 	return ArenaParams.RewardType.keys()[value]
