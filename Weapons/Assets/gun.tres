@@ -3,7 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://i210kkvwm8qr" path="res://Resources/SFX/SfxSources/gunshot_placeholder.wav" id="1_ocdwx"]
 [ext_resource type="Script" uid="uid://cf5if4viigef8" path="res://Resources/item_data.gd" id="2_gkus2"]
 [ext_resource type="Texture2D" uid="uid://5v8b40shc52f" path="res://Weapons/Crossairs/S_sprites_ui_cursor_gun.png" id="2_vxais"]
-[ext_resource type="Texture2D" uid="uid://btrfkaxfy6e3a" path="res://Weapons/Assets/gun.png" id="3_vxais"]
+[ext_resource type="Texture2D" uid="uid://dxj3g7jcwic4b" path="res://Weapons/Assets/Gun_Placeholder.png" id="4_gkus2"]
 
 [resource]
 script = ExtResource("2_gkus2")
@@ -11,7 +11,7 @@ type = 3
 name = "Gun"
 description = "A small gun. Fires a single bullet.
 Propels you slightly backwards. "
-texture = ExtResource("3_vxais")
+texture = ExtResource("4_gkus2")
 price = 100
 attack_sound = ExtResource("1_ocdwx")
 crossair_texture = ExtResource("2_vxais")
