@@ -11,6 +11,11 @@ var hp: int = 100
 var movement_speed: float = 1.0
 
 @export var points:int=100
+@onready var hit_flash_animation_player: AnimationPlayer = %HitFlashAnimationPlayer
+@onready var hit_impact_animation: AnimatedSprite2D = %HitImpactAnimation
+@onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
+@onready var sprite_2d: Sprite2D = %Sprite2D
+
 
 func _ready():
 	MainUI.register_on_screen_enemy(self)
@@ -27,24 +32,28 @@ func _setHealth(health: int) -> void:
 func _setSpeed(speed: float) -> void:
 	movement_speed = speed
 
+func animate_hit_particle():
+		hit_flash_animation_player.stop()
+		hit_impact_animation.stop()
+		hit_flash_animation_player.play("hit_flash")
+		hit_impact_animation.play("hit_impact")
+
 func _hit(damage: int) -> void:
-	$HitFlashAnimationPlayer.play("hit_flash")
 	DamageNumbers.display_damage(damage, $RigidBody2D/ParticlePosition.global_position)
-	var splat = hit_particles.instantiate()
-	splat.global_position = $RigidBody2D.global_position
-	splat.emitting = true
-	get_tree().current_scene.add_child(splat)
 	hp -= damage
 	if hp <= 0:
-		_death()
-	await get_tree().create_timer(splat.lifetime).timeout
-	splat.queue_free()
+		_death.call_deferred()
+	else:
+		animate_hit_particle()
 	
 	
 func _death() -> void:
-	if hp <= 0:
-		MainUI.unregister_on_screen_enemy(self)
-		queue_free()
-		Global.enemyNum -= 1
-		var score_manager=get_tree().get_first_node_in_group("score")
-		score_manager.add_points(points)
+	animate_hit_particle()
+	sprite_2d.visible = false
+	collision_shape_2d.disabled = true
+	await hit_impact_animation.animation_finished
+	MainUI.unregister_on_screen_enemy(self)
+	queue_free()
+	Global.enemyNum -= 1
+	var score_manager=get_tree().get_first_node_in_group("score")
+	score_manager.add_points(points)
