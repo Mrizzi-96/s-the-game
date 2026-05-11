@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c2n4ww4aewygc" path="res://ScoreView/ScoreView.tscn" id="5_1fafr"]
 [ext_resource type="LabelSettings" uid="uid://cmgl7sm2k83h3" path="res://UI/Themes/TitleLabelSettings.tres" id="5_47utf"]
 [ext_resource type="Texture2D" uid="uid://bcfmoleirnisc" path="res://Levels/Assets/BackgroundPALLET2.png" id="7_03ds6"]
-[ext_resource type="Texture2D" uid="uid://kt3jyqiixbsp" path="res://UI/Assets/Backgrounds/[AI]pause_menu_bg.jpeg" id="8_3v4i1"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="8_r6jt2"]
+[ext_resource type="Texture2D" uid="uid://ttegfhbvges7" path="res://UI/Assets/Backgrounds/splash_art_placeholder.png" id="10_xrk8r"]
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_bh3wn")
@@ -103,7 +103,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("8_r6jt2")
-texture = ExtResource("8_3v4i1")
+texture = ExtResource("10_xrk8r")
 
 [node name="MarginContainer" type="MarginContainer" parent="PauseComponent/TextureRect"]
 layout_mode = 1
