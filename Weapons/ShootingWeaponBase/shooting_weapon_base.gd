@@ -6,7 +6,7 @@ class_name ShootingWeapon
 @export var recoil_force = 2000
 @export var item_data : ItemData
 @onready var attack_sfx = %AttackSfx
-@onready var muzzle_flash = $BulletSpawn/MuzzleFlash
+@onready var muzzle_animation: AnimatedSprite2D = %MuzzleAnimation
 
 func _ready():
 	# set this item's sprite to item_data.texture
@@ -26,12 +26,14 @@ func act() -> void:
 	add_impulse_player()
 
 func spawn_bullet() -> void:
+	# start animation
+	muzzle_animation.stop()
+	muzzle_animation.play("default")
 	var bullet = player_bullet.instantiate()
 	bullet.position =$BulletSpawn.global_position
 	bullet.rotation =$BulletSpawn.global_rotation 
 	get_tree().root.add_child(bullet)
 	AudioManager.create_2d_audio_at_location(self.global_position,SoundEffectSettings.SOUND_EFFECT_TYPE.ON_WEAPON_SHOOT)
-	muzzle_flash.fire(bullet.direction)
 	
 func add_impulse_player() -> void:
 	$"../../../..".apply_impulse(Vector2(-recoil_force, 0).rotated($"../..".global_rotation))

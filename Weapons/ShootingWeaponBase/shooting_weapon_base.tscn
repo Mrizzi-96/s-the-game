@@ -1,16 +1,72 @@
-[gd_scene load_steps=8 format=3 uid="uid://j0sro5m3nwys"]
+[gd_scene load_steps=15 format=3 uid="uid://j0sro5m3nwys"]
 
 [ext_resource type="Script" uid="uid://bpfcd2356y80c" path="res://Weapons/ShootingWeaponBase/shooting_weapon_base.gd" id="1_6a70b"]
 [ext_resource type="Texture2D" uid="uid://c7vgqocop427e" path="res://Weapons/Assets/pistol.png" id="1_k6s1r"]
 [ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Bullet/player_bullet.tscn" id="2_7pahs"]
 [ext_resource type="Resource" uid="uid://t6h8xeh2f1b8" path="res://Weapons/Assets/gun.tres" id="3_yyc1e"]
-[ext_resource type="PackedScene" uid="uid://cup4pu23tk3ca" path="res://Weapons/muzzle_flash.tscn" id="5_q5xeo"]
+[ext_resource type="Texture2D" uid="uid://dabwpaksis6r4" path="res://Weapons/Assets/AnimationSheets/shoot_animation_sprite.png" id="5_q5xeo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yau6o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_158hg"]
 radius = 11.0
 height = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlvyr"]
+atlas = ExtResource("5_q5xeo")
+region = Rect2(0, 0, 405, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wk8h"]
+atlas = ExtResource("5_q5xeo")
+region = Rect2(505, 0, 405, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppwji"]
+atlas = ExtResource("5_q5xeo")
+region = Rect2(1010, 0, 405, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yi3d"]
+atlas = ExtResource("5_q5xeo")
+region = Rect2(1515, 0, 405, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tqml"]
+atlas = ExtResource("5_q5xeo")
+region = Rect2(2020, 0, 405, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nank"]
+atlas = ExtResource("5_q5xeo")
+region = Rect2(2525, 0, 405, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pog4i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlvyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wk8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppwji")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_5yi3d")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_4tqml")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_8nank")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
 
 [node name="RigidBody2D" type="RigidBody2D"]
 collision_layer = 2
@@ -37,7 +93,13 @@ texture = ExtResource("1_k6s1r")
 [node name="BulletSpawn" type="Marker2D" parent="."]
 position = Vector2(16, -6)
 
-[node name="MuzzleFlash" parent="BulletSpawn" instance=ExtResource("5_q5xeo")]
-
 [node name="AttackSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+
+[node name="MuzzleAnimation" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(44, -7)
+scale = Vector2(0.195679, 0.195679)
+sprite_frames = SubResource("SpriteFrames_pog4i")
+frame = 7
+frame_progress = 1.0
