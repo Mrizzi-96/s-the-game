@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0xj1wfdikf6e"]
+
+[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_yfmuq"]
+[ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="2_yfmuq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfmuq"]
+bg_color = Color(0, 0, 0, 0.67451)
+
+[sub_resource type="LabelSettings" id="LabelSettings_87vm3"]
+font = ExtResource("1_yfmuq")
+font_size = 64
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ConfirmationOverlay" type="CanvasLayer"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yfmuq")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_vertical = 6
+text = "Are you sure?"
+label_settings = SubResource("LabelSettings_87vm3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_yfmuq")
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="YesButton" type="Button" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer" groups=["Buttons"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "YES"
+
+[node name="NoButton" type="Button" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer" groups=["Buttons"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "NO"

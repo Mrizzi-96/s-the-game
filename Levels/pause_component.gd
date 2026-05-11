@@ -23,4 +23,4 @@ func _on_resume_button_up() -> void:
 
 func _on_main_menu_button_up() -> void:
 	get_tree().paused = false
-	Global.goto_scene("uid://hp147ctfpi5o")
+	Global.goto_scene(Utils.MAIN_MENU_SCENE)

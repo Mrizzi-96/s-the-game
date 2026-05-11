@@ -2,6 +2,7 @@ extends Control
 
 const WIP_SCENE : String = "uid://xgwpv7t6h6ok"
 const ARENA_CHOICE_SCENE: String = "uid://c4yvx7bjrrwf0"
+@onready var confirmation_overlay: CanvasLayer = %ConfirmationOverlay
 
 @onready var play : Button = %Play
 @onready var quit : Button = %Quit
@@ -16,10 +17,16 @@ func _start_game():
 	Global.goto_scene(ARENA_CHOICE_SCENE)
 
 func _on_quit_button_up() -> void:
-	Global.quit_game()
+	confirmation_overlay.visible = true
 
 func _on_how_to_play_button_up() -> void:
 	Global.goto_scene(WIP_SCENE)
 
 func _on_settings_button_up() -> void:
 	Global.goto_scene(WIP_SCENE)
+
+func _on_yes_button_button_up() -> void:
+	Global.quit_game()
+
+func _on_no_button_button_up() -> void:
+	confirmation_overlay.visible = false
