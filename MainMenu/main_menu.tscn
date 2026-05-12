@@ -60,7 +60,7 @@ theme_override_constants/margin_bottom = 50
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 25
 
 [node name="SplashArt(WIP)" type="Panel" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(1300, 0)
@@ -92,7 +92,15 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_r0x8f")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Logo" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.66
@@ -102,6 +110,8 @@ stretch_mode = 5
 
 [node name="VBoxContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar"]
 layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2"]
@@ -115,7 +125,6 @@ custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("4_p4kex")
-theme_override_font_sizes/font_size = 32
 text = "Start"
 
 [node name="HowToPlay" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer" groups=["Buttons"]]
@@ -124,9 +133,7 @@ custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("4_p4kex")
-theme_override_font_sizes/font_size = 32
-text = "How to 
-play"
+text = "How to play"
 
 [node name="Settings" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer" groups=["Buttons"]]
 unique_name_in_owner = true
@@ -134,16 +141,14 @@ custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("4_p4kex")
-theme_override_font_sizes/font_size = 32
 text = "Settings"
 
 [node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer" groups=["Buttons"]]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 6
 theme = ExtResource("4_p4kex")
-theme_override_font_sizes/font_size = 32
 text = "Quit"
 
 [node name="ConfirmationOverlay" parent="." instance=ExtResource("8_r0x8f")]
