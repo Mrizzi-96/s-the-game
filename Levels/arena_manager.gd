@@ -20,7 +20,7 @@ func _ready() -> void:
 	max_enemy_num=arena_difficulty * 10
 	if is_preview:
 		$UI/HBoxContainer.visible=false
-		_pause_component.is_preview = true
+		_pause_component.lock_input()
 		return
 	$UI/preview.queue_free()
 	_timer_view.start()
