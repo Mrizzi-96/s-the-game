@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ba4h4wqjs8jll" path="res://Player/player.gd" id="1_c6ce5"]
 [ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Bullet/player_bullet.tscn" id="2_ifgo3"]
-[ext_resource type="Texture2D" uid="uid://b8kx3myqekewy" path="res://Player/Assets/RightLegFIXED.png" id="3_kfhbd"]
-[ext_resource type="Texture2D" uid="uid://ccw4jyyt226nj" path="res://Player/Assets/Ass.png" id="3_v0y02"]
+[ext_resource type="Texture2D" uid="uid://e14u0wsilv6j" path="res://Player/Assets/spr_left_leg.PNG" id="4_5htga"]
 [ext_resource type="PhysicsMaterial" uid="uid://b51d82i67iuj6" path="res://Player/Assets/Materials/ass_physics_material.tres" id="4_lmmrb"]
-[ext_resource type="Texture2D" uid="uid://cfgc07hefqko2" path="res://Player/Assets/LeftLegFIXED.png" id="4_r4vhv"]
+[ext_resource type="Texture2D" uid="uid://bmpoikqib2f6n" path="res://Player/Assets/spr_right_leg.PNG" id="5_p5o4e"]
 [ext_resource type="Script" uid="uid://ch8gx15woy7t5" path="res://Player/squish_animation.gd" id="5_x3vf3"]
+[ext_resource type="Texture2D" uid="uid://csxyamv7uryce" path="res://Player/Assets/spr_player.PNG" id="6_5htga"]
 [ext_resource type="Texture2D" uid="uid://brgrvcct7gblq" path="res://Shop/Assets/weapon_equipment_empty.png" id="7_btkp6"]
 [ext_resource type="Texture2D" uid="uid://cnosnij6wc7w1" path="res://Shop/Assets/butt coin.png" id="7_ceo47"]
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="7_t4o1a"]
@@ -40,7 +40,6 @@ hit_amount = 25
 metadata/_edit_horizontal_guides_ = [103.0]
 
 [node name="Crossair" type="Sprite2D" parent="."]
-texture = ExtResource("3_v0y02")
 
 [node name="Hips" type="RigidBody2D" parent="."]
 mass = 5.0
@@ -52,32 +51,40 @@ max_contacts_reported = 1
 shape = SubResource("CapsuleShape2D_5w4i3")
 
 [node name="LeftLeg" type="Node2D" parent="Hips/Ass"]
-scale = Vector2(1, 1)
+position = Vector2(9.02028, 13.9869)
 
 [node name="LeftLegSprite" type="Sprite2D" parent="Hips/Ass/LeftLeg"]
-position = Vector2(3.67789, 16.3653)
-scale = Vector2(1, 1)
-texture = ExtResource("4_r4vhv")
-offset = Vector2(73.3466, 0.523102)
+texture_filter = 4
+position = Vector2(2.39583e-07, 5.96046e-07)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_5htga")
+offset = Vector2(358.82, 4.83691)
 
-[node name="Marker2D" type="Marker2D" parent="Hips/Ass/LeftLeg/LeftLegSprite"]
-position = Vector2(118.348, 1.45791)
+[node name="Marker2D" type="Marker2D" parent="Hips/Ass/LeftLeg"]
+position = Vector2(113.996, -3.16518)
 
-[node name="RightLeg" type="Sprite2D" parent="Hips/Ass"]
-position = Vector2(2.56879, -17.8891)
-texture = ExtResource("3_kfhbd")
-offset = Vector2(75.4079, 1.77608)
+[node name="RightLeg" type="Node2D" parent="Hips/Ass"]
+position = Vector2(8.97826, -15.013)
+
+[node name="RightLegSprite" type="Sprite2D" parent="Hips/Ass/RightLeg"]
+texture_filter = 4
+position = Vector2(-2.38419e-07, -4.74975e-07)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_p5o4e")
+offset = Vector2(367.583, -5.03802)
 
 [node name="Marker2D" type="Marker2D" parent="Hips/Ass/RightLeg"]
-position = Vector2(123.404, -1.29345)
+position = Vector2(114.004, 2.83481)
 
 [node name="AssSprite" type="Sprite2D" parent="Hips/Ass"]
+texture_filter = 4
 rotation = -1.5821
-texture = ExtResource("3_v0y02")
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("6_5htga")
 script = ExtResource("5_x3vf3")
 step = 10
-limitX = 1.2
-limitY = 0.8
+limitX = 0.2
+limitY = 0.2
 
 [node name="DustParticles" type="GPUParticles2D" parent="Hips/Ass/AssSprite"]
 unique_name_in_owner = true
