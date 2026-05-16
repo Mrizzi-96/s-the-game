@@ -34,6 +34,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s46ob")
+DEBUG_MODE = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="TextureRect" parent="."]
@@ -163,3 +164,13 @@ visible = false
 [connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/NoButton" to="." method="_on_no_button_button_up"]
 
 [editable path="ConfirmationOverlay"]
+[node name="Test" type="Button" parent="VBoxContainer2/VBoxContainer" groups=["Buttons"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("4_p4kex")
+theme_override_font_sizes/font_size = 50
+text = "Test"
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Test" to="." method="_on_test_pressed"]
