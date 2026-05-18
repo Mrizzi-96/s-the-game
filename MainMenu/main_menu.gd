@@ -3,8 +3,12 @@ extends Control
 @onready var play = %Play
 @onready var quit = %Quit
 
+@export var DEBUG_MODE:bool=false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if(not DEBUG_MODE):
+		%Test.queue_free()
 	quit.pressed.connect(quit_game)
 	# reset arena count, player and run info
 	RunInfo.reset()
@@ -20,3 +24,10 @@ func _process(_delta):
 
 func quit_game():
 	Global.quit_game()
+
+
+
+func _on_test_pressed() -> void:
+	RunInfo.player_data = ResourceLoader.load("res://Resources/Player/player_start.tres").duplicate()
+	RunInfo.current_arena_params=ArenaParams.new()
+	Global.goto_scene("res://Levels/arena_test.tscn")

@@ -38,6 +38,9 @@ func _to_time_string(num):
 
 func start():
 	timer.start()
+	
+func stop():
+	timer.stop()
 
 func _on_timer_timeout() -> void:
 	timeout.emit()
