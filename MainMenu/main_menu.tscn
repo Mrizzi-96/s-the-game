@@ -156,15 +156,7 @@ text = "Quit"
 unique_name_in_owner = true
 visible = false
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Play" to="." method="_start_game"]
-[connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_button_up"]
-[connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Settings" to="." method="_on_settings_button_up"]
-[connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Quit" to="." method="_on_quit_button_up"]
-[connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/YesButton" to="." method="_on_yes_button_button_up"]
-[connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/NoButton" to="." method="_on_no_button_button_up"]
-
-[editable path="ConfirmationOverlay"]
-[node name="Test" type="Button" parent="VBoxContainer2/VBoxContainer" groups=["Buttons"]]
+[node name="Test" type="Button" parent="." groups=["Buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
@@ -173,4 +165,13 @@ size_flags_vertical = 6
 theme = ExtResource("4_p4kex")
 theme_override_font_sizes/font_size = 50
 text = "Test"
-[connection signal="pressed" from="VBoxContainer2/VBoxContainer/Test" to="." method="_on_test_pressed"]
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Play" to="." method="_start_game"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Settings" to="." method="_on_settings_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/PanelContainer/Sidebar/VBoxContainer2/VBoxContainer/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/YesButton" to="." method="_on_yes_button_button_up"]
+[connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/NoButton" to="." method="_on_no_button_button_up"]
+[connection signal="button_up" from="Test" to="." method="_on_test_pressed"]
+
+[editable path="ConfirmationOverlay"]
