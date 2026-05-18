@@ -23,7 +23,7 @@ var is_game_over: bool
 @onready var crossair =$"Crossair"
 #@onready var sfx = %Sfx
 
-@onready var _ass=$Hips/Ass/AssSprite
+@onready var _ass= %Cheeks
 
 # dust particles
 @onready var dust_particles : GPUParticles2D = %DustParticles
