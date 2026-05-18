@@ -10,6 +10,8 @@ const ARENA_CHOICE_SCENE: String = "uid://c4yvx7bjrrwf0"
 func _ready():
 @export var DEBUG_MODE:bool=false
 
+@export var DEBUG_MODE:bool=false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if(not DEBUG_MODE):
