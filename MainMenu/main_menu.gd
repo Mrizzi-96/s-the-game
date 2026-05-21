@@ -14,15 +14,21 @@ func _ready():
 	RunInfo.reset()
 
 func _start_game():
-	# use a copy of player_start as ther player data, to avoid using the "prefab". each time we start again, we'll have a different player data resource
+	# use a copy of player_start as ther player data, to avoid using the "prefab". 
+	# each time we start again, we'll have a different player data resource
 	RunInfo.player_data = ResourceLoader.load("res://Resources/Player/player_start.tres").duplicate()
-	Global.goto_scene(Utils.ARENA_CHOICE_SCENE)
+	# update origin to start game to go to arena choice 
+	# TODO: if tutorial is enabled, set origin as MAIN_MENU_TUTORIAL
+	SceneManager.scene_origin = SceneManager.Origin.MAIN_MENU_START_GAME
+	Global.goto_scene(Utils.CONTROLS_SCENE)
 
 func _on_quit_button_up() -> void:
 	confirmation_overlay.visible = true
 
 func _on_how_to_play_button_up() -> void:
-	Global.goto_scene(Utils.WIP_SCENE)
+	# set scene origin to set dynamic button
+	SceneManager.scene_origin = SceneManager.Origin.MAIN_MENU_HOW_TO_PLAY
+	Global.goto_scene(Utils.CONTROLS_SCENE)
 
 func _on_settings_button_up() -> void:
 	Global.goto_scene(Utils.WIP_SCENE)

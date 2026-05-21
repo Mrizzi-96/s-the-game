@@ -93,12 +93,6 @@ one_shot = true
 
 [node name="PauseComponent" parent="." instance=ExtResource("8_47utf")]
 
-[node name="HowToPlay" parent="PauseComponent/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" index="1"]
-disabled = true
-
-[node name="Settings" parent="PauseComponent/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" index="2"]
-disabled = true
-
 [node name="Quit" parent="PauseComponent/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" index="3"]
 text = "Main menu"
 

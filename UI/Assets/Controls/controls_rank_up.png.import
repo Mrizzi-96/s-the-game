@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ttegfhbvges7"
-path="res://.godot/imported/splash_art_placeholder.png-d264d132df6b533a9ab9c74060c826a2.ctex"
+uid="uid://d07is00t5n5ip"
+path="res://.godot/imported/controls_rank_up.png-72f318656c1e29c73d4e08b96d2a7619.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Assets/Backgrounds/splash_art_placeholder.png"
-dest_files=["res://.godot/imported/splash_art_placeholder.png-d264d132df6b533a9ab9c74060c826a2.ctex"]
+source_file="res://UI/Assets/Controls/controls_rank_up.png"
+dest_files=["res://.godot/imported/controls_rank_up.png-72f318656c1e29c73d4e08b96d2a7619.ctex"]
 
 [params]
 

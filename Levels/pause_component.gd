@@ -3,11 +3,14 @@ extends CanvasLayer
 @onready var _is_paused: bool = false
 @onready var input_blocked : bool = false
 @onready var confirmation_overlay: CanvasLayer = %ConfirmationOverlay
+@onready var controls_scene: Control = %Controls
 
 func _ready() -> void:
 	get_tree().root.process_mode = Node.PROCESS_MODE_PAUSABLE
-	# hide canvas layer
+	SceneManager.scene_origin = SceneManager.Origin.PAUSE_COMPONENT
+	# hide canvas layer and controls scene
 	self.visible = false
+	controls_scene.visible = false
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_released("pause") and not input_blocked:
@@ -31,3 +34,9 @@ func _on_play_button_up() -> void:
 func _on_quit_button_up() -> void:
 	confirmation_overlay.visible = true
 	lock_input()
+
+
+func _on_how_to_play_button_up() -> void:
+	# set origin to pause
+	SceneManager.scene_origin = SceneManager.Origin.PAUSE_COMPONENT
+	controls_scene.visible = true

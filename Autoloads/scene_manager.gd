@@ -13,6 +13,16 @@ var _transition : String
 var _content_path : String
 var _load_progress_timer : Timer
 
+## defines the origin point of the scene
+enum Origin {
+	NONE,
+	MAIN_MENU_HOW_TO_PLAY,
+	MAIN_MENU_START_GAME,
+	PAUSE_COMPONENT
+}
+## this variable determines the origin point of the scene
+var scene_origin: Origin = Origin.NONE
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	content_invalid.connect(_on_content_invalid)

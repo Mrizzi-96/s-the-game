@@ -1,0 +1,267 @@
+[gd_scene load_steps=15 format=3 uid="uid://k7wtatejwabu"]
+
+[ext_resource type="Texture2D" uid="uid://ttegfhbvges7" path="res://UI/Assets/Backgrounds/splash_art_placeholder.png" id="1_ikpkb"]
+[ext_resource type="Script" uid="uid://twh87dwjjvjp" path="res://Controls/controls_manager.gd" id="1_pi7un"]
+[ext_resource type="LabelSettings" uid="uid://cmgl7sm2k83h3" path="res://UI/Themes/TitleLabelSettings.tres" id="2_6acpm"]
+[ext_resource type="Texture2D" uid="uid://yocadkvnqkrp" path="res://UI/Assets/Icons/Keyboard & Mouse/Double/mouse_move.png" id="4_l55j4"]
+[ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="5_6acpm"]
+[ext_resource type="Texture2D" uid="uid://b76rtslaa12se" path="res://UI/Assets/Icons/Keyboard & Mouse/Double/mouse_left.png" id="6_fla36"]
+[ext_resource type="Texture2D" uid="uid://efbkvrxk8j5o" path="res://UI/Assets/Icons/Keyboard & Mouse/Double/mouse_right.png" id="7_twgdm"]
+[ext_resource type="Texture2D" uid="uid://bw84gkm06yi3b" path="res://UI/Assets/Icons/Keyboard & Mouse/Double/keyboard_escape.png" id="7_w7b7g"]
+[ext_resource type="Texture2D" uid="uid://dxj3g7jcwic4b" path="res://Weapons/Assets/Gun_Placeholder.png" id="8_w7b7g"]
+[ext_resource type="Texture2D" uid="uid://d07is00t5n5ip" path="res://UI/Assets/Controls/controls_rank_up.png" id="9_w7b7g"]
+[ext_resource type="Texture2D" uid="uid://bmtv2rt1noolm" path="res://UI/Assets/Score/S.png" id="10_tlx7q"]
+[ext_resource type="Texture2D" uid="uid://bp2ehjavfk66h" path="res://UI/Assets/Score/D.png" id="10_xah8g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_apvvi"]
+texture = ExtResource("1_ikpkb")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twgdm"]
+bg_color = Color(0.00784314, 0.00784314, 0.00784314, 0.227451)
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pi7un")
+
+[node name="Background" type="PanelContainer" parent="."]
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_apvvi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="TitleContainer" type="MarginContainer" parent="Background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"TitleMarginContainer"
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+
+[node name="Label" type="Label" parent="Background/VBoxContainer/HBoxContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "HOW TO PLAY"
+label_settings = ExtResource("2_6acpm")
+
+[node name="TitleContainer2" type="MarginContainer" parent="Background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"TitleMarginContainer"
+theme_override_constants/margin_top = 50
+
+[node name="Label" type="Label" parent="Background/VBoxContainer/HBoxContainer/TitleContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "HOW TO WIN"
+label_settings = ExtResource("2_6acpm")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 200
+
+[node name="ControlsContainer" type="PanelContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_twgdm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("4_l55j4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_6acpm")
+text = "Move mouse around to aim"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("6_fla36")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_6acpm")
+text = "Use left leg"
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("7_twgdm")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_6acpm")
+text = "Use right leg"
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("7_w7b7g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_6acpm")
+text = "(In-game) pause game"
+vertical_alignment = 1
+
+[node name="WinConditionContainer" type="PanelContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_twgdm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/HBoxContainer4"]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("8_w7b7g")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_6acpm")
+theme_override_constants/line_separation = 16
+text = "Defeat enemies to score points!"
+vertical_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/HBoxContainer5"]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("9_w7b7g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_6acpm")
+theme_override_constants/line_separation = 16
+bbcode_enabled = true
+text = "More points ➜ better rank!"
+vertical_alignment = 1
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/HBoxContainer6"]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("10_xah8g")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_6acpm")
+theme_override_constants/line_separation = 16
+text = "Reach a D rank or higher to continue!"
+vertical_alignment = 1
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/HBoxContainer7"]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("10_tlx7q")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_6acpm")
+theme_override_constants/line_separation = 16
+text = "Better rank ➜ better rewards!"
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="ProceedButton" type="Button" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("5_6acpm")
+text = "Main menu"
+
+[connection signal="button_up" from="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/MarginContainer/ProceedButton" to="." method="_on_proceed_button_up"]
