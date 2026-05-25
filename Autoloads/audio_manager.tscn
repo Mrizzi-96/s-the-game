@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://chv86biyprwq6"]
+[gd_scene load_steps=11 format=3 uid="uid://chv86biyprwq6"]
 
 [ext_resource type="Script" uid="uid://wn8vsgqgskvr" path="res://Autoloads/audio_manager.gd" id="1_ue73k"]
 [ext_resource type="Script" uid="uid://b4yrtjh8l6b3v" path="res://Resources/SFX/sound_effect_settings.gd" id="2_apnpw"]
@@ -9,7 +9,8 @@
 [ext_resource type="Resource" uid="uid://dnfrlqxkiau5k" path="res://Resources/SFX/UI_BUTTON_PRESSED.tres" id="7_filgv"]
 [ext_resource type="Resource" uid="uid://cvx4njhw76gyh" path="res://Resources/SFX/ON_SLASHING_WEAPON_EQUIP.tres" id="8_2rby5"]
 [ext_resource type="Resource" uid="uid://c7dkpcikh462g" path="res://Resources/SFX/ON_SHOOTING_WEAPON_EQUIP.tres" id="9_qlp8h"]
+[ext_resource type="Resource" uid="uid://dfi1k8olgp37q" path="res://Resources/SFX/ON_ENEMY_DEATH.tres" id="10_qlp8h"]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_ue73k")
-sound_effect_settings = Array[ExtResource("2_apnpw")]([ExtResource("3_h43j6"), ExtResource("4_h43j6"), ExtResource("5_amsdr"), ExtResource("6_jpqn3"), ExtResource("7_filgv"), ExtResource("8_2rby5"), ExtResource("9_qlp8h")])
+sound_effect_settings = Array[ExtResource("2_apnpw")]([ExtResource("3_h43j6"), ExtResource("4_h43j6"), ExtResource("5_amsdr"), ExtResource("6_jpqn3"), ExtResource("7_filgv"), ExtResource("8_2rby5"), ExtResource("9_qlp8h"), ExtResource("10_qlp8h")])

@@ -48,6 +48,7 @@ func _hit(damage: int) -> void:
 	
 	
 func _death() -> void:
+	AudioManager.create_2d_audio_at_location(self.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_ENEMY_DEATH)
 	animate_hit_particle()
 	sprite_2d.visible = false
 	collision_shape_2d.disabled = true

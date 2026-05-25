@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://dfi1k8olgp37q"]
+
+[ext_resource type="Script" uid="uid://b4yrtjh8l6b3v" path="res://Resources/SFX/sound_effect_settings.gd" id="1_bwtof"]
+[ext_resource type="AudioStream" uid="uid://bbpfqtenjs6qc" path="res://Resources/SFX/SfxSources/on_enemy_death.wav" id="2_t4y67"]
+
+[resource]
+script = ExtResource("1_bwtof")
+limit = 5
+type = 7
+sources = Array[AudioStream]([ExtResource("2_t4y67")])
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://b4yrtjh8l6b3v"
