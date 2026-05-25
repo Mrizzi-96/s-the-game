@@ -44,6 +44,8 @@ func _hit(damage: int) -> void:
 	if hp <= 0:
 		_death.call_deferred()
 	else:
+		# activate hit sound and animation
+		AudioManager.create_2d_audio_at_location(self.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_ENEMY_HIT)
 		animate_hit_particle()
 	
 	

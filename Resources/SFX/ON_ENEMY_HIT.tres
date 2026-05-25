@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=2 format=3 uid="uid://bil8i1lqhq1k7"]
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=4 format=3 uid="uid://bil8i1lqhq1k7"]
 
 [ext_resource type="Script" uid="uid://b4yrtjh8l6b3v" path="res://Resources/SFX/sound_effect_settings.gd" id="1_h3c55"]
+[ext_resource type="AudioStream" uid="uid://bokbw61nvwlaw" path="res://Resources/SFX/SfxSources/on_enemy_hit_1.wav" id="2_68qss"]
+[ext_resource type="AudioStream" uid="uid://dfu48q3b0ugod" path="res://Resources/SFX/SfxSources/on_enemy_hit_2.wav" id="3_fowpa"]
 
 [resource]
 script = ExtResource("1_h3c55")
 limit = 5
 type = 1
+sources = Array[AudioStream]([ExtResource("2_68qss"), ExtResource("3_fowpa")])
 volume = 0
 pitch_scale = 1.0
 pitch_randomness = 0.0
