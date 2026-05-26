@@ -41,6 +41,11 @@ func _process(delta) -> void:
 		if Input.is_action_just_pressed("act") or Input.is_action_just_pressed("switch"):
 			_is_charging = true
 			_charge_timer = 0.0
+			if _charge_tween:
+				_charge_tween.kill()
+			_charge_sprite.visible = false
+			_charge_sprite.modulate.a = 1.0
+			_wind_lines.emitting = false
 
 		if _is_charging:
 			var real_delta = delta / Engine.time_scale
@@ -112,6 +117,12 @@ func _release_attack() -> void:
 func _on_body_entered(body) -> void:
 	if body.is_in_group("enemies"):
 		body.get_parent()._hit(_current_damage)
+	elif body.is_in_group("ground"):
+		if _charge_tween:
+			_charge_tween.kill()
+		_charge_sprite.visible = false
+		_charge_sprite.modulate.a = 1.0
+		_wind_lines.emitting = false
 
 func _cancel_charge() -> void:
 	Engine.time_scale = 1.0
