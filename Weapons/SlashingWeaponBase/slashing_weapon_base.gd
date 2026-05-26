@@ -7,9 +7,10 @@ class_name SlashingWeapon
 @export var base_damage : int = 50
 @export var max_damage : int = 150
 @export var base_thrust : int = 5000
-@export var max_thrust_impulse : int = 10000
+@export var max_thrust_impulse : int = 15000
 @export var tap_threshold : float = 0.2  # secondi
 @export_range(0.1, 1.0) var slow_mo_scale : float = 0.2  # quanto rallenta
+@export_range(0.0, 1.0) var velocity_override : float = 0.9 # quanto il charge attack ignora la velocità corrente
 
 @onready var attack_sfx = %AttackSfx
 
@@ -31,11 +32,9 @@ func _process(delta) -> void:
 			_charge_timer = 0.0
 
 		if _is_charging:
-			# delta è già scalato da Engine.time_scale, lo "descoliamo"
 			var real_delta = delta / Engine.time_scale
 			_charge_timer = min(_charge_timer + real_delta, max_charge_time)
 
-			# attiva slow-mo solo dopo il tap threshold, così un tap veloce non rallenta nulla
 			if _charge_timer > tap_threshold and Engine.time_scale == 1.0:
 				Engine.time_scale = slow_mo_scale
 
@@ -47,7 +46,7 @@ func _process(delta) -> void:
 			_cancel_charge()
 
 func _release_attack() -> void:
-	Engine.time_scale = 1.0  # ripristina PRIMA di tutto
+	Engine.time_scale = 1.0
 
 	var charge_ratio : float
 	if _charge_timer <= tap_threshold:
@@ -58,8 +57,11 @@ func _release_attack() -> void:
 	_current_damage = base_damage + int((max_damage - base_damage) * charge_ratio)
 	var thrust = base_thrust + int((max_thrust_impulse - base_thrust) * charge_ratio)
 
+	var hips = $"../../../.."
+	hips.linear_velocity = hips.linear_velocity * (1.0 - charge_ratio * velocity_override)
+
 	AudioManager.create_2d_audio_at_location(self.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_SLASHING_WEAPON_EQUIP)
-	$"../../../..".apply_impulse(Vector2(thrust, 0).rotated($"../..".global_rotation))
+	hips.apply_impulse(Vector2(thrust, 0).rotated($"../..".global_rotation))
 
 	_is_charging = false
 	_charge_timer = 0.0
