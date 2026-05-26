@@ -16,16 +16,18 @@ class_name SlashingWeapon
 @export var slow_charge_threshold : float = 0.66
 @export var charge_sprite_fadeout : float = 0.7
 @export var wind_lines_duration : float = 0.7
-
+@export var charge_zoom_amount : float = 1.5
 
 @onready var attack_sfx = %AttackSfx
 @onready var _charge_sprite = $ChargeSprite
 @onready var _wind_lines = $WindLines
+@onready var _vignette = $VignetteLayer/Vignette
 
 var _charge_timer : float = 0.0
 var _is_charging : bool = false
 var _current_damage : int = 50
 var _charge_tween : Tween
+var _original_zoom : Vector2
 
 func init():
 	%WeaponSprite.texture = item_data.texture
@@ -45,8 +47,18 @@ func _process(delta) -> void:
 			_charge_timer = min(_charge_timer + real_delta, max_charge_time)
 			var charge_ratio = _charge_timer / max_charge_time
 
-			if _charge_timer > tap_threshold and Engine.time_scale == 1.0:
-				Engine.time_scale = slow_mo_scale
+			if _charge_timer > tap_threshold:
+				if Engine.time_scale == 1.0:
+					Engine.time_scale = slow_mo_scale
+				
+				var camera = get_viewport().get_camera_2d()
+				if camera and _original_zoom == Vector2.ZERO:
+					_original_zoom = camera.zoom
+				if camera:
+					var zoom_ratio = (_charge_timer - tap_threshold) / (max_charge_time - tap_threshold)
+					_vignette.material.set_shader_parameter("intensity", zoom_ratio)
+					zoom_ratio = pow(zoom_ratio, 3.0)
+					camera.zoom = _original_zoom.lerp(_original_zoom * charge_zoom_amount, zoom_ratio)
 
 		if Input.is_action_just_released("act") or Input.is_action_just_released("switch"):
 			if _is_charging:
@@ -72,11 +84,18 @@ func _release_attack() -> void:
 
 	AudioManager.create_2d_audio_at_location(self.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_SLASHING_WEAPON_EQUIP)
 	hips.apply_impulse(Vector2(thrust, 0).rotated($"../..".global_rotation))
-
+	
+	var camera = get_viewport().get_camera_2d()
+	if camera and _original_zoom != Vector2.ZERO:
+		camera.zoom = _original_zoom
+		_original_zoom = Vector2.ZERO
 
 	if charge_ratio > tap_threshold / max_charge_time:
 		_wind_lines.emitting = true
 		get_tree().create_timer(wind_lines_duration).timeout.connect(func(): _wind_lines.emitting = false)
+		if _charge_tween:
+			_charge_tween.kill()
+		_charge_sprite.modulate.a = 1.0
 		_charge_sprite.visible = true
 		if charge_ratio < quick_charge_threshold:
 			_charge_sprite.texture = charge_textures[0]
@@ -88,6 +107,7 @@ func _release_attack() -> void:
 
 	_is_charging = false
 	_charge_timer = 0.0
+	_vignette.material.set_shader_parameter("intensity", 0.0)
 
 func _on_body_entered(body) -> void:
 	if body.is_in_group("enemies"):
@@ -97,6 +117,11 @@ func _cancel_charge() -> void:
 	Engine.time_scale = 1.0
 	_is_charging = false
 	_charge_timer = 0.0
+	var camera = get_viewport().get_camera_2d()
+	if camera and _original_zoom != Vector2.ZERO:
+		camera.zoom = _original_zoom
+		_original_zoom = Vector2.ZERO
+	_vignette.material.set_shader_parameter("intensity", 0.0)
 
 func _fade_out_indicator(linger_time : float = 0.7) -> void:
 	if _charge_tween:

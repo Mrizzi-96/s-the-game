@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf6ymy1cigvxm"]
+[gd_scene load_steps=13 format=3 uid="uid://cf6ymy1cigvxm"]
 
 [ext_resource type="Script" uid="uid://gkvanoce7cxw" path="res://Weapons/SlashingWeaponBase/slashing_weapon_base.gd" id="1_8ds5h"]
 [ext_resource type="Texture2D" uid="uid://bfmwawfl1ar5s" path="res://Weapons/Assets/knife.png" id="2_b3wkg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dkh5cfqutrjyp" path="res://Weapons/Assets/charged_slash1.png" id="4_dh27p"]
 [ext_resource type="Texture2D" uid="uid://bluh42ecx01bj" path="res://Weapons/Assets/charged_slash2.png" id="4_xedxc"]
 [ext_resource type="Texture2D" uid="uid://c4io7vjotfjq5" path="res://Weapons/Assets/charged_slash3.png" id="5_tg3s5"]
+[ext_resource type="Shader" uid="uid://bj6v6ai52s537" path="res://Weapons/SlashingWeaponBase/vignette.gdshader" id="7_tg3s5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bl7iy"]
 height = 90.0
@@ -30,6 +31,10 @@ initial_velocity_min = 300.0
 initial_velocity_max = 600.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_03t4o"]
+shader = ExtResource("7_tg3s5")
+shader_parameter/intensity = 0.0
 
 [node name="RigidBody2D" type="RigidBody2D"]
 can_sleep = false
@@ -70,5 +75,17 @@ texture = SubResource("GradientTexture2D_tg3s5")
 lifetime = 0.4
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_03t4o")
+
+[node name="VignetteLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Vignette" type="ColorRect" parent="VignetteLayer"]
+material = SubResource("ShaderMaterial_03t4o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
