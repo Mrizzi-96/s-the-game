@@ -1,11 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf6ymy1cigvxm"]
+[gd_scene load_steps=13 format=3 uid="uid://cf6ymy1cigvxm"]
 
 [ext_resource type="Script" uid="uid://gkvanoce7cxw" path="res://Weapons/SlashingWeaponBase/slashing_weapon_base.gd" id="1_8ds5h"]
 [ext_resource type="Texture2D" uid="uid://bfmwawfl1ar5s" path="res://Weapons/Assets/knife.png" id="2_b3wkg"]
 [ext_resource type="Resource" uid="uid://benl0845mu8x2" path="res://Resources/Items/knife.tres" id="2_tr6vg"]
+[ext_resource type="Texture2D" uid="uid://dkh5cfqutrjyp" path="res://Weapons/Assets/charged_slash1.png" id="4_dh27p"]
+[ext_resource type="Texture2D" uid="uid://bluh42ecx01bj" path="res://Weapons/Assets/charged_slash2.png" id="4_xedxc"]
+[ext_resource type="Texture2D" uid="uid://c4io7vjotfjq5" path="res://Weapons/Assets/charged_slash3.png" id="5_tg3s5"]
+[ext_resource type="Shader" uid="uid://bj6v6ai52s537" path="res://Weapons/SlashingWeaponBase/vignette.gdshader" id="7_tg3s5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bl7iy"]
 height = 90.0
+
+[sub_resource type="Gradient" id="Gradient_xedxc"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tg3s5"]
+gradient = SubResource("Gradient_xedxc")
+width = 4
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_03t4o"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(20, 0, 0)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(-1, 0, 0)
+spread = 15.0
+initial_velocity_min = 300.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_03t4o"]
+shader = ExtResource("7_tg3s5")
+shader_parameter/intensity = 0.0
 
 [node name="RigidBody2D" type="RigidBody2D"]
 can_sleep = false
@@ -16,6 +45,7 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_8ds5h")
 item_data = ExtResource("2_tr6vg")
+charge_textures = Array[Texture2D]([ExtResource("4_dh27p"), ExtResource("4_xedxc"), ExtResource("5_tg3s5")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -26,10 +56,36 @@ shape = SubResource("CapsuleShape2D_bl7iy")
 unique_name_in_owner = true
 texture = ExtResource("2_b3wkg")
 
+[node name="ChargeSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(23, 2)
+scale = Vector2(0.0576389, 0.0576389)
+texture = ExtResource("4_dh27p")
+
 [node name="Direction" type="Marker2D" parent="."]
 position = Vector2(42, 0)
 
 [node name="AttackSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+
+[node name="WindLines" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 20
+texture = SubResource("GradientTexture2D_tg3s5")
+lifetime = 0.4
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_03t4o")
+
+[node name="VignetteLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Vignette" type="ColorRect" parent="VignetteLayer"]
+material = SubResource("ShaderMaterial_03t4o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
