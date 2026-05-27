@@ -7,7 +7,7 @@
 
 [node name="RigidBody2D" instance=ExtResource("1_ov2kn")]
 script = ExtResource("2_cr344")
-acceleration_rate = 30000.0
+acceleration_rate = 20000.0
 max_propeller_speed = 20000.0
 base_tick_damage = 50
 tick_interval = 0.3

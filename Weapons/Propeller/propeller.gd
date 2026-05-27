@@ -1,6 +1,6 @@
 extends SlashingWeapon
 
-@export var acceleration_rate : float = 30000.0
+@export var acceleration_rate : float = 20000.0
 @export var max_propeller_speed : float = 20000.0
 @export var base_tick_damage : int = 50
 @export var tick_interval : float = 0.3
