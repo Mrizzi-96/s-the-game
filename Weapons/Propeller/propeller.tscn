@@ -7,9 +7,15 @@
 
 [node name="RigidBody2D" instance=ExtResource("1_ov2kn")]
 script = ExtResource("2_cr344")
+acceleration_rate = 30000.0
+max_propeller_speed = 20000.0
+base_tick_damage = 50
+tick_interval = 0.3
 slash_strength = 2500
 item_data = ExtResource("3_o3fwg")
 
 [node name="WeaponSprite" parent="." index="1"]
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("3_f06oe")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

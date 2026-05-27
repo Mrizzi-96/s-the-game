@@ -46,7 +46,7 @@ func _ready():
 func _setup(player_data : PlayerData):
 	# setup right weapon and left weapon to equipment
 	left_leg_weapon = equipWeapon(player_data.equipment["LeftLeg"], "LeftLeg")
-	right_leg_weapon = equipWeapon(player_data.equipment["RightLeg"], "RightLeg")
+	right_leg_weapon = equipWeapon("propeller", "RightLeg")
 	player_gold.text = str(RunInfo.player_data.gold)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
