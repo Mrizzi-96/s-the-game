@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_h3c55")
-limit = 5
+limit = 10
 type = 1
 sources = Array[AudioStream]([ExtResource("2_68qss"), ExtResource("3_fowpa")])
 volume = 0

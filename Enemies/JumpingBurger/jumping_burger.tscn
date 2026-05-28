@@ -1,7 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://fxwfnc2es8rl"]
+[gd_scene load_steps=9 format=3 uid="uid://fxwfnc2es8rl"]
 
 [ext_resource type="PackedScene" uid="uid://b1nqhlplo7v6l" path="res://Enemies/BaseEnemy/enemy_base.tscn" id="1_v26io"]
 [ext_resource type="Script" uid="uid://ectrfmbnpfh0" path="res://Enemies/JumpingBurger/jumping_burger.gd" id="2_m5iqq"]
+[ext_resource type="Shader" uid="uid://bsurr6rux772g" path="res://Enemies/BaseEnemy/flash_shader.tres" id="3_hxi62"]
+[ext_resource type="Texture2D" uid="uid://c044qf18jxgyt" path="res://Enemies/Assets/Burger/NormalOutline/burger_dead.png" id="4_t4qel"]
+[ext_resource type="Texture2D" uid="uid://ch0pofub4kxum" path="res://Enemies/Assets/Burger/NormalOutline/burger_grounded.png" id="5_seg2b"]
+[ext_resource type="Texture2D" uid="uid://jfyibkx1gd7q" path="res://Enemies/Assets/Burger/NormalOutline/burger_jumping.png" id="6_r5vpw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4qel"]
+resource_local_to_scene = true
+shader = ExtResource("3_hxi62")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_seg2b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_t4qel")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_seg2b")
+}],
+"loop": true,
+"name": &"grounded",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_r5vpw")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}]
 
 [node name="enemyBase" instance=ExtResource("1_v26io")]
 script = ExtResource("2_m5iqq")
@@ -9,7 +46,20 @@ script = ExtResource("2_m5iqq")
 [node name="RigidBody2D" parent="." index="0"]
 mass = 0.4
 gravity_scale = 0.5
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
+
+[node name="BurgerSprite" type="AnimatedSprite2D" parent="RigidBody2D" index="0"]
+unique_name_in_owner = true
+texture_filter = 4
+material = SubResource("ShaderMaterial_t4qel")
+scale = Vector2(0.075, 0.075)
+sprite_frames = SubResource("SpriteFrames_seg2b")
+animation = &"death"
+autoplay = "jumping"
+
+[node name="Sprite2D" parent="RigidBody2D" index="1"]
+visible = false
+material = SubResource("ShaderMaterial_t4qel")
 
 [connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]
