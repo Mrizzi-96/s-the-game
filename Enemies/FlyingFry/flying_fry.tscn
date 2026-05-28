@@ -1,11 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://b10oqhb1x1fnm"]
+[gd_scene load_steps=10 format=3 uid="uid://b10oqhb1x1fnm"]
 
 [ext_resource type="PackedScene" uid="uid://b1nqhlplo7v6l" path="res://Enemies/BaseEnemy/enemy_base.tscn" id="1_mf8ta"]
 [ext_resource type="Script" uid="uid://bq65uheeqpfvd" path="res://Enemies/FlyingFry/flying_fry.gd" id="2_xrusm"]
+[ext_resource type="Texture2D" uid="uid://cp2yr8mgkihxj" path="res://Enemies/Assets/Fly/mosquito_0.png" id="3_8od8s"]
+[ext_resource type="Texture2D" uid="uid://c1gqddf31ikfr" path="res://Enemies/Assets/Fly/mosquito_dead.png" id="3_457pc"]
 [ext_resource type="Texture2D" uid="uid://b6dhb33nikwd1" path="res://Enemies/Assets/S_sprites_fly.png" id="3_fpl17"]
+[ext_resource type="Texture2D" uid="uid://cj6sep4ca1bth" path="res://Enemies/Assets/Fly/mosquito_1.png" id="4_457pc"]
+[ext_resource type="Shader" uid="uid://bsurr6rux772g" path="res://Enemies/BaseEnemy/flash_shader.tres" id="5_c0xbw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yk0mj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_457pc")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8od8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_457pc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4cw4"]
+resource_local_to_scene = true
+shader = ExtResource("5_c0xbw")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [node name="enemyBase" instance=ExtResource("1_mf8ta")]
 script = ExtResource("2_xrusm")
 
-[node name="Sprite2D" parent="RigidBody2D" index="0"]
+[node name="mosquito_sprite" type="AnimatedSprite2D" parent="RigidBody2D" index="0"]
+unique_name_in_owner = true
+texture_filter = 4
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_yk0mj")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Sprite2D" parent="RigidBody2D" index="1"]
+visible = false
+material = SubResource("ShaderMaterial_j4cw4")
 texture = ExtResource("3_fpl17")
