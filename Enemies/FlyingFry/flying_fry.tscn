@@ -37,6 +37,7 @@ shader_parameter/enabled = false
 shader_parameter/tint = Color(1, 1, 1, 1)
 
 [node name="enemyBase" instance=ExtResource("1_mf8ta")]
+scale = Vector2(1.605, 1.605)
 script = ExtResource("2_xrusm")
 
 [node name="mosquito_sprite" type="AnimatedSprite2D" parent="RigidBody2D" index="0"]
