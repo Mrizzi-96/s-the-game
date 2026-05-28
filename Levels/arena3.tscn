@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://um46d3dw75wv"]
 
 [ext_resource type="PackedScene" uid="uid://cfsjvjpqcgf3q" path="res://Levels/arena_base.tscn" id="1_rjjf6"]
-[ext_resource type="Texture2D" uid="uid://5aibx2u3v6tp" path="res://Levels/Assets/Background.png" id="2_662eg"]
+[ext_resource type="Texture2D" uid="uid://cgcfbkwqi3cvc" path="res://Levels/Assets/BackgroundPALLET3.png" id="2_662eg"]
 [ext_resource type="PackedScene" uid="uid://digawdek3m2tg" path="res://Enemies/Spawner/enemy_spawner.tscn" id="3_0gbxs"]
 [ext_resource type="PackedScene" uid="uid://bq88ved7wpcvg" path="res://Player/player_spawner.tscn" id="4_a0m8i"]
 [ext_resource type="TileSet" uid="uid://bxhs763pdt7nd" path="res://Resources/Tilesets/base_tileset.tres" id="4_ch0ek"]
