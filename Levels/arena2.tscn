@@ -179,8 +179,5 @@ enemyToSpawn = ExtResource("6_ojro4")
 position = Vector2(214.706, -1583.31)
 enemyToSpawn = ExtResource("6_ojro4")
 
-[node name="ConfirmationOverlay" parent="." index="5"]
-visible = true
-
 [editable path="PauseComponent"]
 [editable path="ConfirmationOverlay"]

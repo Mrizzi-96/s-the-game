@@ -111,8 +111,5 @@ tile_set = ExtResource("3_jocd3")
 [node name="preview" parent="UI" index="1"]
 position = Vector2(111, 611)
 
-[node name="ConfirmationOverlay" parent="." index="5"]
-visible = true
-
 [editable path="PauseComponent"]
 [editable path="ConfirmationOverlay"]
