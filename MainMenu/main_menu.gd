@@ -6,8 +6,6 @@ extends Control
 @onready var quit : Button = %Quit
 @export var DEBUG_MODE : bool = Utils.DEBUG_MODE # modify it from Utils
 
-@export var DEBUG_MODE:bool=false
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if(not DEBUG_MODE):
