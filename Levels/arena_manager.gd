@@ -39,11 +39,25 @@ func _on_timer_view_timeout() -> void:
 	RunInfo.current_arena_params.arena_score = _score_manager.get_arena_score()
 	# clear main UI
 	MainUI.clear_all()
+	# clear all enemies and bullets
+	await clear_all_enemies()
+	await clear_all_bullets()
 	if rank != ScoreManager.ScoreRank.E:
 		Global.goto_scene("res://RewardMenu/RewardMenu.tscn")
 	else:
 		Global.goto_scene("res://GameOverUI/game_over_ui.tscn")
 
+func clear_all_enemies():
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		if is_instance_valid(enemy):
+			enemy.free()
+
+func clear_all_bullets():
+	var bullets = get_tree().get_nodes_in_group("bullets")
+	for b in bullets:
+		if is_instance_valid(b):
+			b.free()
 
 func _on_resume_button_up() -> void:
 	pass # Replace with function body.

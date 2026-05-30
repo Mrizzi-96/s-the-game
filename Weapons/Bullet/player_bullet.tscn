@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_biae2"]
 radius = 15.0
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=["bullets"]]
 collision_layer = 2
 script = ExtResource("1_fwscs")
 despawn_after_seconds = 5.0
