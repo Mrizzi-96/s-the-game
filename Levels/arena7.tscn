@@ -128,8 +128,5 @@ tile_set = ExtResource("3_2ck6t")
 [node name="UI" parent="." index="3"]
 visible = false
 
-[node name="PauseComponent" parent="." index="4"]
-visible = false
-
 [editable path="PauseComponent"]
 [editable path="ConfirmationOverlay"]
