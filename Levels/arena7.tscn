@@ -125,11 +125,5 @@ tile_set = ExtResource("3_2ck6t")
 tile_map_data = PackedByteArray("AADn/xAAAQAAAAwAAADm/y8AAQABAAoAAADm/y4AAQABAAkAAADm/y0AAQABAAgAAADn/y4AAQACAAkAAADn/y8AAQACAAoAAADp/y8AAQAEAAkAAADp/y4AAQAEAAgAAADo/y0AAQADAAcAAADp/y0AAQAEAAcAAADq/y0AAQAFAAcAAADp/ywAAQAEAAYAAADq/ywAAQAFAAYAAAAZAC8AAQAHAAgAAAAZAC4AAQAHAAcAAAAZAC0AAQAHAAYAAAAYAC0AAQAGAAYAAAAaAC0AAQAIAAYAAAAXAC8AAQACAAoAAAAXAC4AAQACAAkAAAAWAC4AAQABAAkAAAAWAC8AAQABAAoAAAAWAC0AAQABAAgAAAA=")
 tile_set = ExtResource("3_2ck6t")
 
-[node name="UI" parent="." index="3"]
-visible = false
-
-[node name="PauseComponent" parent="." index="4"]
-visible = false
-
 [editable path="PauseComponent"]
 [editable path="ConfirmationOverlay"]
