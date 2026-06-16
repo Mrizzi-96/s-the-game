@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0xj1wfdikf6e"]
+[gd_scene load_steps=6 format=3 uid="uid://c0xj1wfdikf6e"]
 
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_yfmuq"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="2_yfmuq"]
+[ext_resource type="PackedScene" uid="uid://dr6pq4er8rgqk" path="res://UI/Components/basic_button.tscn" id="3_87vm3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfmuq"]
 bg_color = Color(0, 0, 0, 0.67451)
@@ -49,16 +50,18 @@ theme = ExtResource("2_yfmuq")
 theme_override_constants/separation = 64
 alignment = 1
 
-[node name="YesButton" type="Button" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer" groups=["Buttons"]]
+[node name="YesButton" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_87vm3")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 48
 text = "YES"
 
-[node name="NoButton" type="Button" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer" groups=["Buttons"]]
+[node name="NoButton" parent="PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_87vm3")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 48
 text = "NO"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://domdmetpninmx"]
+[gd_scene load_steps=25 format=3 uid="uid://domdmetpninmx"]
 
 [ext_resource type="Script" uid="uid://bfjhylr5gunmy" path="res://Shop/shop_manager.gd" id="1_8dvge"]
 [ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_4gnlw"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://h8xlu34vf17b" path="res://Shop/Assets/equipment bg.png" id="4_los8e"]
 [ext_resource type="Texture2D" uid="uid://dy6n21vwqpftv" path="res://Shop/Assets/currency.png" id="7_kfh3s"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="8_hh7ca"]
+[ext_resource type="PackedScene" uid="uid://dr6pq4er8rgqk" path="res://UI/Components/basic_button.tscn" id="9_7nrtk"]
 [ext_resource type="Texture2D" uid="uid://b8m63ivhihmu8" path="res://Shop/shop-invetory items/weapon card/weapon equipment empty.png" id="9_25km1"]
 [ext_resource type="Script" uid="uid://dc3jwqghjadke" path="res://Shop/control_button.gd" id="11_8sid2"]
 [ext_resource type="Texture2D" uid="uid://btrfkaxfy6e3a" path="res://Weapons/Assets/gun.png" id="11_eu4ty"]
@@ -130,13 +131,13 @@ scale = Vector2(1.00072, 1.03848)
 icon = ExtResource("13_eu4ty")
 flat = true
 
-[node name="ResumeButton" type="Button" parent="ButtonShop" groups=["Buttons"]]
-layout_mode = 2
-offset_left = 1554.0
+[node name="ResumeButton" parent="ButtonShop" instance=ExtResource("9_7nrtk")]
+custom_minimum_size = Vector2(200, 110)
+layout_mode = 0
+offset_left = 1557.0
 offset_top = 952.0
-offset_right = 1898.0
-offset_bottom = 1054.0
-theme = ExtResource("8_hh7ca")
+offset_right = 1901.0
+offset_bottom = 1052.0
 text = "CONTINUE"
 
 [node name="ControlPlayer" type="Control" parent="."]
@@ -794,4 +795,4 @@ position = Vector2(1299, 224)
 
 [connection signal="pressed" from="ButtonShop/Shop" to="ButtonShop" method="_on_shop_pressed"]
 [connection signal="pressed" from="ButtonShop/Inventory" to="ButtonShop" method="_on_inventory_pressed"]
-[connection signal="pressed" from="ButtonShop/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="button_up" from="ButtonShop/ResumeButton" to="." method="_on_resume_button_pressed"]

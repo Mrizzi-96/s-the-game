@@ -1,9 +1,6 @@
 extends Control
 
 @onready var confirmation_overlay: CanvasLayer = %ConfirmationOverlay
-
-@onready var play : Button = %Play
-@onready var quit : Button = %Quit
 @export var DEBUG_MODE : bool = Utils.DEBUG_MODE # modify it from Utils
 
 # Called when the node enters the scene tree for the first time.

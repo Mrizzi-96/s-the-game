@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://fiitpvumfffo" path="res://GameOverUI/game_over_ui.gd" id="1_xqch0"]
 [ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_7nace"]
 [ext_resource type="LabelSettings" uid="uid://cmgl7sm2k83h3" path="res://UI/Themes/TitleLabelSettings.tres" id="3_hfciw"]
-[ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="4_mypow"]
+[ext_resource type="PackedScene" uid="uid://dr6pq4er8rgqk" path="res://UI/Components/basic_button.tscn" id="5_4m5tv"]
 
 [node name="GameOverUi" type="Control"]
 layout_mode = 3
@@ -44,13 +44,12 @@ layout_mode = 2
 theme_override_constants/separation = 45
 alignment = 1
 
-[node name="BackToMenu" type="Button" parent="VBoxContainer" groups=["Buttons"]]
-custom_minimum_size = Vector2(350, 60)
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("4_mypow")
-theme_override_font_sizes/font_size = 50
+
+[node name="MainMenuButton" parent="VBoxContainer/CenterContainer" instance=ExtResource("5_4m5tv")]
+layout_mode = 2
 text = "Main menu"
 
-[connection signal="pressed" from="VBoxContainer/BackToMenu" to="." method="back_to_menu"]
+[connection signal="button_up" from="VBoxContainer/CenterContainer/MainMenuButton" to="." method="back_to_menu"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://36g4h2w75pv"]
+[gd_scene load_steps=3 format=3 uid="uid://36g4h2w75pv"]
 
+[ext_resource type="Script" uid="uid://dgno1qybb5xr2" path="res://Autoloads/music_manager.gd" id="1_2xcax"]
 [ext_resource type="AudioStream" uid="uid://e747pfkf5bts" path="res://Music/S_OST_FULL.wav" id="1_i5uhw"]
 
 [node name="MusicManager" type="Node"]
+script = ExtResource("1_2xcax")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_i5uhw")
 volume_db = -5.0
-autoplay = true

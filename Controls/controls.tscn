@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://k7wtatejwabu"]
+[gd_scene load_steps=16 format=3 uid="uid://k7wtatejwabu"]
 
 [ext_resource type="Texture2D" uid="uid://ttegfhbvges7" path="res://UI/Assets/Backgrounds/splash_art_placeholder.png" id="1_ikpkb"]
 [ext_resource type="Script" uid="uid://twh87dwjjvjp" path="res://Controls/controls_manager.gd" id="1_pi7un"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d07is00t5n5ip" path="res://UI/Assets/Controls/controls_rank_up.png" id="9_w7b7g"]
 [ext_resource type="Texture2D" uid="uid://bmtv2rt1noolm" path="res://UI/Assets/Score/S.png" id="10_tlx7q"]
 [ext_resource type="Texture2D" uid="uid://bp2ehjavfk66h" path="res://UI/Assets/Score/D.png" id="10_xah8g"]
+[ext_resource type="PackedScene" uid="uid://dr6pq4er8rgqk" path="res://UI/Components/basic_button.tscn" id="13_emqnb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_apvvi"]
 texture = ExtResource("1_ikpkb")
@@ -258,10 +259,9 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="ProceedButton" type="Button" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/MarginContainer"]
+[node name="ProceedButton" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/MarginContainer" instance=ExtResource("13_emqnb")]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("5_6acpm")
 text = "Main menu"
 
 [connection signal="button_up" from="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/MarginContainer/ProceedButton" to="." method="_on_proceed_button_up"]

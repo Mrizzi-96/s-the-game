@@ -25,4 +25,3 @@ func _on_proceed_button_up() -> void:
 		# for pause component, we simply hide this menu 
 		SceneManager.Origin.PAUSE_COMPONENT:
 			self.visible = false
-			

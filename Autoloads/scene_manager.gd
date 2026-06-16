@@ -36,9 +36,7 @@ func load_new_scene(content_path: String, transition_type: String="fade_to_black
 	get_tree().root.add_child(loading_screen)
 	loading_screen.start_transition(transition_type)
 	_load_content(content_path)
-	# each scene change, register audio triggers
-	if AudioManager != null:
-		AudioManager.register_audio_button_triggers()
+
 func _load_content(content_path:String):
 	# NOTE: Zelda transitions do not use loaders, so skip loading bar
 	if loading_screen != null:
