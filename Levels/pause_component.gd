@@ -29,12 +29,10 @@ func _on_play_button_up() -> void:
 	_is_paused = false
 	self.visible = _is_paused
 	get_tree().paused = _is_paused
-
-
+	
 func _on_quit_button_up() -> void:
 	confirmation_overlay.visible = true
 	lock_input()
-
 
 func _on_how_to_play_button_up() -> void:
 	# set origin to pause

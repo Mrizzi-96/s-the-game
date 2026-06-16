@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bstpa04rwetgr"]
+[gd_scene load_steps=10 format=3 uid="uid://bstpa04rwetgr"]
 
 [ext_resource type="Script" uid="uid://dgo2oa6vy60l" path="res://Levels/pause_component.gd" id="1_lrkqw"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="2_thagw"]
@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://cmgl7sm2k83h3" path="res://UI/Themes/TitleLabelSettings.tres" id="4_rbcsd"]
 [ext_resource type="StyleBox" uid="uid://c1yc6quufg5xg" path="res://UI/Themes/arena_choice_panel.tres" id="5_rbcsd"]
 [ext_resource type="LabelSettings" uid="uid://bf0cq7otvnva3" path="res://ArenaChoice/ArenaSelector/UI/reward_label.tres" id="6_rbcsd"]
+[ext_resource type="PackedScene" uid="uid://dr6pq4er8rgqk" path="res://UI/Components/basic_button.tscn" id="7_nu8xy"]
 [ext_resource type="PackedScene" uid="uid://k7wtatejwabu" path="res://Controls/controls.tscn" id="7_rbcsd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35rst"]
@@ -85,42 +86,28 @@ size_flags_vertical = 4
 theme_override_constants/separation = 47
 alignment = 1
 
-[node name="Play" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" groups=["Buttons"]]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(350, 60)
+[node name="Resume" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_nu8xy")]
 layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("2_thagw")
-text = "Resume
-"
+text = "Resume"
 
-[node name="HowToPlay" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" groups=["Buttons"]]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(350, 60)
+[node name="HowToPlay" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_nu8xy")]
 layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("2_thagw")
 text = "How to play"
 
-[node name="Settings" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" groups=["Buttons"]]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(350, 60)
+[node name="Settings" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_nu8xy")]
 layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("2_thagw")
 disabled = true
 text = "Settings"
 
-[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" groups=["Buttons"]]
+[node name="Quit" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_nu8xy")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
-size_flags_vertical = 6
-theme = ExtResource("2_thagw")
 text = "Quit"
 
 [node name="Controls" parent="." instance=ExtResource("7_rbcsd")]
 unique_name_in_owner = true
 visible = false
 
+[connection signal="button_up" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_button_up"]
+[connection signal="button_up" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_button_up"]
