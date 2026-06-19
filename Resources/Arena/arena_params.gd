@@ -12,6 +12,6 @@ enum RewardType {
 @export var difficulty : int=1
 @export var reward_type : RewardType
 
-## defines the just-completed arena score
+"""Defines the just-completed arena score.""" 
 @export var arena_score: int
 @export var score_rank : RankItem.ScoreRank

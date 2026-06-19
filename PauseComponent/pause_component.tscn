@@ -110,4 +110,3 @@ visible = false
 
 [connection signal="button_up" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_button_up"]
-[connection signal="button_up" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_button_up"]

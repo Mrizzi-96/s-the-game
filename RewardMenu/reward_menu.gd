@@ -36,8 +36,8 @@ func update_rank_img() -> void:
 
 
 func _on_next_arena_button_button_up() -> void:
-	Global.goto_scene("res://ArenaChoice/arena_choice.tscn")
-
+	RunInfo.calculate_next_arena_params()
+	Global.goto_scene(RunInfo.current_arena_params.arena_scene)
 
 func _on_inventory_button_button_up() -> void:
 	Global.goto_scene("res://Shop/shop.tscn")

@@ -20,8 +20,9 @@ func _on_proceed_button_up() -> void:
 			SceneManager.load_new_scene(Utils.MAIN_MENU_SCENE)
 		SceneManager.Origin.MAIN_MENU_START_GAME:
 			SceneManager.scene_origin = SceneManager.Origin.NONE
-			# TODO: if tutorial, go to Arena0!
-			SceneManager.load_new_scene(Utils.ARENA_CHOICE_SCENE)
+			# reset and go to first arena
+			RunInfo.reset()
+			SceneManager.load_new_scene(RunInfo.current_arena_params.arena_scene)
 		# for pause component, we simply hide this menu 
 		SceneManager.Origin.PAUSE_COMPONENT:
 			self.visible = false

@@ -22,11 +22,39 @@ func _ready():
 	
 
 func reset() -> void:
-	arena_counter = 0
+	arena_counter = 1
 	total_score = 0
 	player_data = ResourceLoader.load("res://Resources/Player/player_start.tres")
+	_reset_arena_params()
 	populate_items()
 
+func _reset_arena_params():
+	RunInfo.current_arena_params = ArenaParams.new()
+	var arena_path : String = "res://Levels/arena%d" % randi_range(1,RunInfo.arena_playable) +".tscn"
+	RunInfo.current_arena_params.arena_scene = arena_path
+	RunInfo.current_arena_params.difficulty = 1
+	RunInfo.current_arena_params.reward_type = ArenaParams.RewardType.WEAPON
+
+func calculate_next_arena_params():
+	RunInfo.arena_counter = RunInfo.arena_counter + 1
+	var ap = RunInfo.current_arena_params
+	# choose random arena
+	var arena_path : String = "res://Levels/arena%d" % randi_range(1,RunInfo.arena_playable) +".tscn"
+	ap.arena_scene = arena_path
+	ap.difficulty = _calculate_difficulty()
+	ap.reward_type = ArenaParams.RewardType.WEAPON
+
+func _calculate_difficulty() -> int:
+	if arena_counter > 0 and arena_counter <= 3:
+		return 1
+	elif arena_counter > 3 and arena_counter < 7:
+		return 2
+	elif arena_counter >= 7:
+		return 3
+	else:
+		return 1
+
+	
 func populate_items() -> void:
 	for i in DirAccess.get_files_at(ITEMDATA_DIR_PATH):
 		if i.ends_with(".remap"):
