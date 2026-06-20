@@ -29,7 +29,7 @@ func _on_body_entered(body):
 	_spawn_wall_impact(body, _get_wall_normal(body))
 	queue_free()
 
-func _spawn_wall_impact(wall: Node, normal: Vector2):
+func _spawn_wall_impact(_wall: Node, normal: Vector2):
 	if wall_impact_particle == null:
 		return
 	
@@ -43,7 +43,7 @@ func _despawn_silent():
 	if is_inside_tree():
 		queue_free()
 
-func _get_wall_normal(wall: Node2D) -> Vector2:
+func _get_wall_normal(_wall: Node2D) -> Vector2:
 	var space_state = get_world_2d().direct_space_state
 	var dirs = [Vector2.RIGHT, Vector2.LEFT, Vector2.DOWN, Vector2.UP]
 	var normals = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]

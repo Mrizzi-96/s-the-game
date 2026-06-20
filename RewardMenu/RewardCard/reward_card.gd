@@ -2,6 +2,9 @@ class_name RewardCard extends Control
 
 @export var item_data : ItemData
 
+@onready var equip_left: BasicButton = %EquipLeft
+@onready var equip_right: BasicButton = %EquipRight
+
 @onready var reward_image: TextureRect = %RewardImage
 @onready var reward_name: Label = %RewardName
 const BASE_GOLD_AMOUNT : int = 300
@@ -24,14 +27,17 @@ func update_reward_preview() -> void:
 				# use placeholder
 				reward_image.texture = load("res://Weapons/Assets/gun_locked.png")
 				reward_name.text = "Coming soon!"
+				equip_right.disabled = true
+				equip_left.disabled = true
 				pass
 			else:
 				# set rewardImage
-				var candidate = reward_candidates[randi_range(0, reward_candidates.size() -1)]
+				var candidate : ItemData = reward_candidates[randi_range(0, reward_candidates.size() -1)]
 				reward_image.texture = candidate.texture
 				reward_name.text = candidate.name.capitalize()
-				# NOTE: add reward to player's inventory
-				p_data.add_to_inventory(candidate)
+				item_data = candidate
+				# NOTE: add reward to player's inventory WHEN UPGRADED TO MAIN GAME AND NOT DEMO
+				# p_data.add_to_inventory(candidate)
 		ArenaParams.RewardType.GOLD:
 			# set gold image
 			reward_image.texture = load("res://Shop/Assets/butt coin.png")
@@ -95,3 +101,18 @@ func get_gold_difficulty_modifier(difficulty : int)-> float:
 				# diff = 3
 				return 4
 	return 1
+
+func _on_equip_left_button_up() -> void:
+	# get equipped weapon on left leg
+	RunInfo.player_data.add_to_equipment(PlayerData.LEFT_LEG, self.item_data.name)
+	_disable_equip_buttons(equip_left)
+
+func _on_equip_right_button_up() -> void:
+	# get equipped weapon on left leg
+	RunInfo.player_data.add_to_equipment(PlayerData.RIGHT_LEG, self.item_data.name)
+	_disable_equip_buttons(equip_right)
+
+func _disable_equip_buttons(active_button : BasicButton) -> void:
+	equip_right.disabled = true
+	equip_left.disabled = true
+	active_button.text ="EQUIPPED!"

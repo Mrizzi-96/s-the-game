@@ -23,7 +23,7 @@ func _ready():
 func _getHealth() -> int:
 	return hp
 	
-func _getSpeed() -> int:
+func _getSpeed() -> float:
 	return movement_speed
 
 func _setHealth(health: int) -> void:

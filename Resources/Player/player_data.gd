@@ -13,6 +13,8 @@ class_name PlayerData extends Resource
 @export var thrust_speed : int
 @export var thrust_damage : int
 
+const LEFT_LEG = "LeftLeg"
+const RIGHT_LEG = "RightLeg"
 
 func add_to_equipment(leg: String, item_name : String):
 	equipment[leg] = item_name.to_lower() # lowercase since Global.Weapons[key] is lowercase

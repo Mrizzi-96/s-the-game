@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ca0l1kdm7q5yf"]
+
+[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_gsix3"]
+[ext_resource type="StyleBox" uid="uid://c1yc6quufg5xg" path="res://UI/Themes/arena_choice_panel.tres" id="2_5hnn6"]
+[ext_resource type="StyleBox" uid="uid://csf2dl2y2ocqr" path="res://UI/Themes/arena_choice_panel__hover.tres" id="2_7on7y"]
+[ext_resource type="StyleBox" uid="uid://xwi1r760dfgb" path="res://UI/Themes/reward_btn_panel__disabled.tres" id="2_jojcl"]
+[ext_resource type="StyleBox" uid="uid://c4nif31x3b6vj" path="res://UI/Themes/arena_choice_panel__pressed.tres" id="3_7on7y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7on7y"]
+
+[resource]
+Button/fonts/font = ExtResource("1_gsix3")
+Button/styles/disabled = ExtResource("2_jojcl")
+Button/styles/focus = SubResource("StyleBoxEmpty_7on7y")
+Button/styles/hover = ExtResource("2_7on7y")
+Button/styles/normal = ExtResource("2_5hnn6")
+Button/styles/pressed = ExtResource("3_7on7y")

@@ -50,7 +50,7 @@ func _process(delta) -> void:
 		if _is_charging:
 			var real_delta = delta / Engine.time_scale
 			_charge_timer = min(_charge_timer + real_delta, max_charge_time)
-			var charge_ratio = _charge_timer / max_charge_time
+			var _charge_ratio = _charge_timer / max_charge_time
 
 			if _charge_timer > tap_threshold:
 				if Engine.time_scale == 1.0:

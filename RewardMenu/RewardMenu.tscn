@@ -45,7 +45,7 @@ theme_override_constants/margin_bottom = 80
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 90
+theme_override_constants/separation = 280
 
 [node name="ResultsContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -129,7 +129,8 @@ label_settings = ExtResource("3_curk1")
 
 [node name="RewardCardContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/RewardsContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="RewardCard" parent="MarginContainer/HBoxContainer/RewardsContainer/RewardCardContainer" instance=ExtResource("7_tapw6")]
 layout_mode = 2
@@ -149,6 +150,7 @@ text = "Shop"
 
 [node name="InventoryButton" type="Button" parent="MarginContainer/HBoxContainer/RewardsContainer/Footer" groups=["Buttons"]]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme = ExtResource("4_curk1")
 theme_type_variation = &"FooterButton"

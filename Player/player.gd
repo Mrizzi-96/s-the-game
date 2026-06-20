@@ -20,15 +20,13 @@ var is_game_over: bool
 
 @onready var player_gold = %PlayerGold
 
-@onready var crossair =$"Crossair"
+@onready var crossair = $"Crossair"
 #@onready var sfx = %Sfx
 
-@onready var _ass= %Cheeks
+@onready var _ass = %Cheeks
 
 # dust particles
 @onready var dust_particles : GPUParticles2D = %DustParticles
-
-signal game_ended
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -66,14 +64,14 @@ func _input(event: InputEvent) -> void:
 		Global.active_leg = left_leg
 		_change_crossair(left_leg_weapon)
 		squish(left_leg_weapon)
-		var aim_dir = $Hips.global_position.direction_to(crossair.global_position)
+		var _aim_dir = $Hips.global_position.direction_to(crossair.global_position)
 		$Hips/Camera2D.shake(1)
 
 	elif event.is_action_pressed("switch"):
 		Global.active_leg = right_leg
 		_change_crossair(right_leg_weapon)
 		squish(right_leg_weapon)
-		var aim_dir = $Hips.global_position.direction_to(crossair.global_position)
+		var _aim_dir = $Hips.global_position.direction_to(crossair.global_position)
 		$Hips/Camera2D.shake(1)
 
 

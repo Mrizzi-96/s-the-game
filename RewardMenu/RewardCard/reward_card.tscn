@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bekpq5l0dei5u"]
+[gd_scene load_steps=10 format=3 uid="uid://bekpq5l0dei5u"]
 
 [ext_resource type="Texture2D" uid="uid://b8m63ivhihmu8" path="res://Shop/shop-invetory items/weapon card/weapon equipment empty.png" id="1_5li5w"]
 [ext_resource type="Script" uid="uid://b462tdjecwirp" path="res://RewardMenu/RewardCard/reward_card.gd" id="1_da7ib"]
 [ext_resource type="Resource" uid="uid://t6h8xeh2f1b8" path="res://Weapons/Assets/gun.tres" id="2_40bmf"]
 [ext_resource type="Texture2D" uid="uid://cjfy0v568snaa" path="res://Weapons/Assets/gun_locked.png" id="4_72chl"]
 [ext_resource type="Theme" uid="uid://dbmbbfa2dj733" path="res://UI/Themes/arena_choice.tres" id="5_1q2vh"]
+[ext_resource type="Theme" uid="uid://ca0l1kdm7q5yf" path="res://reward_card_theme.tres" id="6_5v0jm"]
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="6_72chl"]
+[ext_resource type="PackedScene" uid="uid://dr6pq4er8rgqk" path="res://UI/Components/basic_button.tscn" id="7_l2bic"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_72chl"]
 font = ExtResource("6_72chl")
@@ -26,12 +28,22 @@ item_data = ExtResource("2_40bmf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_right = 1.282
+anchor_bottom = 1.28222
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="RewardName" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("5_1q2vh")
+text = "REWARD"
+label_settings = SubResource("LabelSettings_72chl")
+horizontal_alignment = 1
+vertical_alignment = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="NinePatchRect" parent="VBoxContainer"]
@@ -63,12 +75,41 @@ texture = ExtResource("4_72chl")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="RewardName" type="Label" parent="VBoxContainer"]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Background"]
+custom_minimum_size = Vector2(0.23, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -262.0
+offset_top = -76.0
+offset_right = 262.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Background/MarginContainer"]
 layout_mode = 2
-theme = ExtResource("5_1q2vh")
-text = "REWARD"
-label_settings = SubResource("LabelSettings_72chl")
-horizontal_alignment = 1
-vertical_alignment = 3
-metadata/_edit_use_anchors_ = true
+theme_override_constants/separation = 30
+
+[node name="EquipLeft" parent="VBoxContainer/Background/MarginContainer/HBoxContainer" instance=ExtResource("7_l2bic")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme = ExtResource("6_5v0jm")
+text = "EQUIP (LEFT)"
+
+[node name="EquipRight" parent="VBoxContainer/Background/MarginContainer/HBoxContainer" instance=ExtResource("7_l2bic")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_5v0jm")
+text = "EQUIP (RIGHT)"
+
+[connection signal="button_up" from="VBoxContainer/Background/MarginContainer/HBoxContainer/EquipLeft" to="." method="_on_equip_left_button_up"]
+[connection signal="button_up" from="VBoxContainer/Background/MarginContainer/HBoxContainer/EquipRight" to="." method="_on_equip_right_button_up"]

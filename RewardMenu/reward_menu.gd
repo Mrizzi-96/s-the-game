@@ -16,7 +16,7 @@ var reward_type : ArenaParams.RewardType
 var total_score : int
 
 func _ready() -> void:
-	RunInfo.current_arena_params.reward_type
+	# RunInfo.current_arena_params.reward_type
 	# TODO: calculate reward based on type and difficulty.
 	update_score_labels()
 	update_rank_img()
