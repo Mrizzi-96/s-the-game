@@ -91,16 +91,15 @@ func _on_content_finished_loading(content) -> void:
 	var outgoing_scene = get_tree().current_scene
 	# remove old scene
 	outgoing_scene.queue_free()
-	
-	# add and set the new scene as the current scene
-	get_tree().root.call_deferred("add_child", content)
-	get_tree().set_deferred("current_scene", content)
-	
-	# probably not necessary, since we split our content_finished_loading but it won't hurt to have an extra check
+
 	if loading_screen != null:
 		loading_screen.finish_transition()
-	# wait for loading screen transition to finish playing
-	await loading_screen.animation_player.animation_finished
-	loading_screen = null
+		# wait for loading screen transition to finish playing
+		await loading_screen.animation_player.animation_finished
+		loading_screen = null
+
+	# add and set the new scene as the current scene only after screen is visible
+	get_tree().root.add_child(content)
+	get_tree().current_scene = content
 
 # TODO: add Zelda on content finished loading!
