@@ -158,10 +158,20 @@ text = "Shop/Inventory"
 
 [node name="NextArenaButton" type="Button" parent="MarginContainer/HBoxContainer/RewardsContainer/Footer" groups=["Buttons"]]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme = ExtResource("4_curk1")
 theme_type_variation = &"FooterButton"
 text = "Next arena"
 
+[node name="FinalArenaButton" type="Button" parent="MarginContainer/HBoxContainer/RewardsContainer/Footer" groups=["Buttons"]]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("4_curk1")
+theme_type_variation = &"FooterButton"
+text = "Final arena"
+
 [connection signal="button_up" from="MarginContainer/HBoxContainer/RewardsContainer/Footer/InventoryButton" to="." method="_on_inventory_button_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/RewardsContainer/Footer/NextArenaButton" to="." method="_on_next_arena_button_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/RewardsContainer/Footer/FinalArenaButton" to="." method="_on_final_arena_button_2_button_up"]

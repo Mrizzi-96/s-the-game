@@ -12,18 +12,23 @@ extends Node2D
 @onready var _score_manager=$Components/ScoreManager
 @onready var _pause_component: CanvasLayer = $PauseComponent
 
+@export var final_multiplier:float=10
+
 var arena_difficulty: int = RunInfo.current_arena_params.difficulty
 
 var is_preview := false
 
 func _ready() -> void:
 	max_enemy_num=arena_difficulty * 10
+	if RunInfo.current_arena_params.is_final:
+		max_enemy_num=max_enemy_num*arena_difficulty
 	if is_preview:
 		$UI/HBoxContainer.visible=false
 		_pause_component.lock_input()
 		return
 	$UI/preview.queue_free()
 	_timer_view.start()
+	_spawn_component.final_multiplier=final_multiplier
 	_spawn_component._configure(max_enemy_num, arena_difficulty)
 	_player_spawner.spawn_player()
 	_score_manager.init(arena_difficulty)
@@ -42,7 +47,10 @@ func _on_timer_view_timeout() -> void:
 	await clear_all_enemies()
 	await clear_all_bullets()
 	if rank != ScoreManager.ScoreRank.E:
-		Global.goto_scene("res://RewardMenu/RewardMenu.tscn")
+		if RunInfo.arena_counter>11:
+			Global.goto_scene("res://EndGameUI/end_game_ui.tscn")
+		else:
+			Global.goto_scene("res://RewardMenu/RewardMenu.tscn")
 	else:
 		Global.goto_scene("res://GameOverUI/game_over_ui.tscn")
 
