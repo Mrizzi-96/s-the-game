@@ -15,10 +15,14 @@ const ITEMDATA_DIR_PATH : String = "res://Resources/Items/"
 
 @export var total_score : int = 0
 
+var is_final:bool=false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	populate_items()
 	player_data = ResourceLoader.load("res://Resources/Player/player_start.tres")
+	if RunInfo.arena_counter==10:
+		%NextArenaButton.text="Final Arena"
 	
 
 func reset() -> void:
@@ -42,6 +46,17 @@ func calculate_next_arena_params():
 	var arena_path : String = "res://Levels/arena%d" % randi_range(1,RunInfo.arena_playable) +".tscn"
 	ap.arena_scene = arena_path
 	ap.difficulty = _calculate_difficulty()
+	ap.is_final=false
+	ap.reward_type = ArenaParams.RewardType.WEAPON
+	
+func calculate_final_arena_params():
+	RunInfo.arena_counter = RunInfo.arena_counter + 1
+	var ap = RunInfo.current_arena_params
+	# choose random arena
+	var arena_path : String = "res://Levels/arena%d" % randi_range(1,RunInfo.arena_playable) +".tscn"
+	ap.arena_scene = arena_path
+	ap.difficulty = 3
+	ap.is_final=true
 	ap.reward_type = ArenaParams.RewardType.WEAPON
 
 func _calculate_difficulty() -> int:

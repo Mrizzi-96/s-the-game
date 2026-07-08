@@ -19,6 +19,8 @@ var enemiesHealth: int
 
 var enemiesSpeed: float
 
+var final_multiplier:float=1
+
 const enemy_health_progression: float = 1.2
 
 const enemy_speed_progression: float = 0.3
@@ -28,7 +30,7 @@ func _configure(current_max_enemy_num: int, current_arena_difficulty:int) -> voi
 	self.max_enemy_num = current_max_enemy_num
 	_match_arena_difficulty()
 	#Configure enemy inbetween spawn time based on difficulty
-	self.time = time / (1 + min(RunInfo.arena_counter * difficulty_multiplier, 300) / 100.0)
+	self.time = time / (1 + min(RunInfo.arena_counter * difficulty_multiplier, 300) / 100.0/final_multiplier)
 	_spawn_timer.wait_time=self.time
 	print("Final spawn time = ", self.time)
 
