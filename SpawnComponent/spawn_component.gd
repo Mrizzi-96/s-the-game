@@ -75,3 +75,6 @@ func _set_enemies_stats_multipliers(spawner) -> void:
 
 func _exit_tree() -> void:
 	_spawn_timer.stop()
+
+func start_spawn():
+	$FirstSpawnTimer.start()

@@ -16,6 +16,8 @@ func _ready():
 	super.init()
 
 func _process(delta) -> void:
+	if _block_input:
+		return;
 	if Global.active_leg == $"../..":
 		if Input.is_action_just_pressed("act") or Input.is_action_just_pressed("switch"):
 			_is_spinning = true

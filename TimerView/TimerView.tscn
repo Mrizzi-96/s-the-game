@@ -18,7 +18,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_7gd0h")
-ignore_time_scale = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

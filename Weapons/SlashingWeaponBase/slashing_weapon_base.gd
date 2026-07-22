@@ -29,6 +29,11 @@ var _current_damage : int = 50
 var _charge_tween : Tween
 var _original_zoom : Vector2
 
+var _block_input:bool=true
+
+func enable_input(value:bool):
+	_block_input=not value
+
 func init():
 	%WeaponSprite.texture = item_data.texture
 	attack_sfx.stream = item_data.attack_sound
@@ -37,6 +42,8 @@ func _ready():
 	init()
 
 func _process(delta) -> void:
+	if _block_input:
+		return
 	if Global.active_leg == $"../..":
 		if Input.is_action_just_pressed("act") or Input.is_action_just_pressed("switch"):
 			_is_charging = true

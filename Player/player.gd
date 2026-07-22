@@ -16,6 +16,8 @@ var right_leg_weapon
 var max_rotation_speed = 10
 var is_game_over: bool
 
+var _block_input:bool=true
+
 @onready var _hips:=$Hips
 
 @onready var player_gold = %PlayerGold
@@ -56,6 +58,8 @@ func _process(_delta):
 	Global.active_leg.look_at(crossair.global_position)
 
 func _input(event: InputEvent) -> void:
+	if(_block_input):
+		return;
 	# Optional but recommended: only react to mouse press (not release)
 	#if event is InputEventMouseButton and not event.pressed:
 		#return
@@ -74,7 +78,8 @@ func _input(event: InputEvent) -> void:
 		var _aim_dir = $Hips.global_position.direction_to(crossair.global_position)
 		$Hips/Camera2D.shake(1)
 
-
+func enable_input(value:bool):
+	_block_input=not value
 
 func squish(weapon):
 	if weapon is ShootingWeapon:

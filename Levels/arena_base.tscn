@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfsjvjpqcgf3q"]
+[gd_scene load_steps=12 format=3 uid="uid://cfsjvjpqcgf3q"]
 
 [ext_resource type="Script" uid="uid://l14icl7wca0v" path="res://Levels/arena_manager.gd" id="1_bh3wn"]
 [ext_resource type="PackedScene" uid="uid://dhdceffc2tub2" path="res://SpawnComponent/SpawnComponent.tscn" id="2_h7yv8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://o46at1avbwky" path="res://ScoreManager/score_manager.tscn" id="3_1fafr"]
 [ext_resource type="PackedScene" uid="uid://cqypee2bd7vwm" path="res://TimerView/TimerView.tscn" id="3_h7yv8"]
 [ext_resource type="PackedScene" uid="uid://c2n4ww4aewygc" path="res://ScoreView/ScoreView.tscn" id="5_1fafr"]
+[ext_resource type="PackedScene" uid="uid://ddegkjecufxxk" path="res://ArenaNumberView/ArenaNumberView.tscn" id="6_xrk8r"]
 [ext_resource type="Texture2D" uid="uid://bcfmoleirnisc" path="res://Levels/Assets/BackgroundPALLET2.png" id="7_03ds6"]
 [ext_resource type="PackedScene" uid="uid://bstpa04rwetgr" path="res://PauseComponent/pause_component.tscn" id="8_47utf"]
 [ext_resource type="PackedScene" uid="uid://c0xj1wfdikf6e" path="res://UI/Scenes/ConfirmationOverlay.tscn" id="9_3v4i1"]
@@ -90,6 +91,7 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 6
 one_shot = true
+ignore_time_scale = true
 
 [node name="PauseComponent" parent="." instance=ExtResource("8_47utf")]
 
@@ -101,11 +103,19 @@ unique_name_in_owner = true
 visible = false
 script = ExtResource("10_r6jt2")
 
+[node name="ArenaNumberUi" type="CanvasLayer" parent="."]
+
+[node name="ArenaNumberView" parent="ArenaNumberUi" instance=ExtResource("6_xrk8r")]
+interval = 2.0
+hide_interval = 1.0
+one_shot = true
+ignore_time_scale = true
+
 [connection signal="timeout" from="UI/HBoxContainer/TimerView" to="." method="_on_timer_view_timeout"]
-[connection signal="button_up" from="PauseComponent/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Play" to="PauseComponent" method="_on_play_button_up"]
 [connection signal="button_up" from="PauseComponent/PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Quit" to="PauseComponent" method="_on_quit_button_up"]
 [connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/YesButton" to="ConfirmationOverlay" method="_on_yes_button_button_up"]
 [connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/NoButton" to="ConfirmationOverlay" method="_on_no_button_button_up"]
+[connection signal="start" from="ArenaNumberUi/ArenaNumberView" to="." method="_on_arena_number_view_start"]
 
 [editable path="PauseComponent"]
 [editable path="ConfirmationOverlay"]
