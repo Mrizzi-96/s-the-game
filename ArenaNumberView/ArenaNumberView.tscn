@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddegkjecufxxk"]
+
+[ext_resource type="Script" uid="uid://dprqv14oesjoi" path="res://ArenaNumberView/arena_number_view.gd" id="1_jf1jn"]
+[ext_resource type="LabelSettings" uid="uid://wvo6n6icc52h" path="res://RewardMenu/reward_title.tres" id="2_jf1jn"]
+
+[node name="ArenaNumberView" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.831
+offset_bottom = 0.519958
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_jf1jn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003
+anchor_right = 1.007
+anchor_bottom = 0.662
+offset_left = -0.76
+offset_top = 5.0
+offset_right = 0.559814
+offset_bottom = 131.04
+text = "Arena"
+label_settings = ExtResource("2_jf1jn")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

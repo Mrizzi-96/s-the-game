@@ -3,6 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cf6ymy1cigvxm" path="res://Weapons/SlashingWeaponBase/slashing_weapon_base.tscn" id="1_js1pr"]
 [ext_resource type="Script" uid="uid://ctt8j44canpk6" path="res://Weapons/Knife/knife.gd" id="2_bjeq1"]
 
-[node name="RigidBody2D" instance=ExtResource("1_js1pr")]
+[node name="RigidBody2D" groups=["weapon"] instance=ExtResource("1_js1pr")]
 script = ExtResource("2_bjeq1")
 item_data = null

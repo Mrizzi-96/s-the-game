@@ -18,6 +18,9 @@ var arena_difficulty: int = RunInfo.current_arena_params.difficulty
 
 var is_preview := false
 
+func _enter_tree() -> void:
+	$ArenaNumberUi/ArenaNumberView.number=RunInfo.arena_counter
+
 func _ready() -> void:
 	max_enemy_num=arena_difficulty * 10
 	if RunInfo.current_arena_params.is_final:
@@ -27,7 +30,7 @@ func _ready() -> void:
 		_pause_component.lock_input()
 		return
 	$UI/preview.queue_free()
-	_timer_view.start()
+	#_timer_view.start()
 	_spawn_component.final_multiplier=final_multiplier
 	_spawn_component._configure(max_enemy_num, arena_difficulty)
 	_player_spawner.spawn_player()
@@ -65,3 +68,13 @@ func clear_all_bullets():
 	for b in bullets:
 		if is_instance_valid(b):
 			b.free()
+
+
+func _on_arena_number_view_start() -> void:
+	var player = get_tree().get_first_node_in_group("player")
+	if player and player.has_method("enable_input"):
+		player.enable_input(true)
+	for node in get_tree().get_nodes_in_group("weapon"):
+		node.enable_input(true)
+	_spawn_component.start_spawn()
+	_timer_view.start()

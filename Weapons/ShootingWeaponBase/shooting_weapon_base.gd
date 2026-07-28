@@ -8,6 +8,11 @@ class_name ShootingWeapon
 @onready var attack_sfx = %AttackSfx
 @onready var muzzle_animation: AnimatedSprite2D = %MuzzleAnimation
 
+var _block_input:bool=true
+
+func enable_input(value:bool):
+	_block_input=not value
+
 func _ready():
 	# set this item's sprite to item_data.texture
 	%WeaponSprite.texture  = item_data.texture
@@ -15,6 +20,8 @@ func _ready():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
+	if _block_input:
+		return
 	if Global.active_leg == $"../..":  # Ensures only active weapon processes input
 		if Input.is_action_just_pressed("act"):
 			act()

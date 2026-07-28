@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://2ivcm15e41oy" path="res://Weapons/Shotgun/shotgun.gd" id="2_bnyxn"]
 [ext_resource type="Resource" uid="uid://ckovpwherkt3b" path="res://Resources/Items/shotgun.tres" id="3_vhnrf"]
 
-[node name="RigidBody2D" instance=ExtResource("1_lgopi")]
+[node name="RigidBody2D" groups=["weapon"] instance=ExtResource("1_lgopi")]
 script = ExtResource("2_bnyxn")
 shooting_angle = 30
 bullet_number = 8

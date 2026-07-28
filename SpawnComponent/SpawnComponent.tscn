@@ -9,9 +9,8 @@ script = ExtResource("1_hp04u")
 wait_time = 2.5
 
 [node name="FirstSpawnTimer" type="Timer" parent="."]
-wait_time = 2.5
+wait_time = 0.5
 one_shot = true
-autostart = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="FirstSpawnTimer" to="." method="_on_first_spawn_timer_timeout"]

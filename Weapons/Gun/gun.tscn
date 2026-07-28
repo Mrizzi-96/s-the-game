@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://j0sro5m3nwys" path="res://Weapons/ShootingWeaponBase/shooting_weapon_base.tscn" id="1_7roiq"]
 [ext_resource type="Texture2D" uid="uid://dxj3g7jcwic4b" path="res://Weapons/Assets/Gun_Placeholder.png" id="2_nhp2e"]
 
-[node name="RigidBody2D" instance=ExtResource("1_7roiq")]
+[node name="RigidBody2D" groups=["weapon"] instance=ExtResource("1_7roiq")]
 
 [node name="WeaponSprite" parent="." index="1"]
 texture_filter = 1

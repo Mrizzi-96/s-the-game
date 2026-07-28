@@ -36,7 +36,7 @@ scale_min = 0.5
 shader = ExtResource("7_tg3s5")
 shader_parameter/intensity = 0.0
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RigidBody2D" type="RigidBody2D" groups=["weapon"]]
 can_sleep = false
 lock_rotation = true
 freeze = true
