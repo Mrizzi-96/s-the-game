@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bluh42ecx01bj" path="res://Weapons/Assets/charged_slash2.png" id="4_xedxc"]
 [ext_resource type="Texture2D" uid="uid://c4io7vjotfjq5" path="res://Weapons/Assets/charged_slash3.png" id="5_tg3s5"]
 [ext_resource type="Shader" uid="uid://bj6v6ai52s537" path="res://Weapons/SlashingWeaponBase/vignette.gdshader" id="7_tg3s5"]
+[ext_resource type="PackedScene" path="res://Weapons/SlashEffect/slash_effect.tscn" id="8_slashvfx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bl7iy"]
 height = 90.0
@@ -64,6 +65,9 @@ texture = ExtResource("4_dh27p")
 
 [node name="Direction" type="Marker2D" parent="."]
 position = Vector2(42, 0)
+
+[node name="SlashVfx" parent="." instance=ExtResource("8_slashvfx")]
+position = Vector2(-114, 0)
 
 [node name="AttackSfx" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

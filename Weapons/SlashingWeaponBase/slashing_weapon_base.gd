@@ -17,17 +17,23 @@ class_name SlashingWeapon
 @export var charge_sprite_fadeout : float = 0.7
 @export var wind_lines_duration : float = 0.7
 @export var charge_zoom_amount : float = 1.5
+@export var swing_speed_threshold : float = 8.0  # rad/s, come "veloce" deve girare la gamba per contare come slash
+@export var swing_cooldown : float = 0.35
 
 @onready var attack_sfx = %AttackSfx
 @onready var _charge_sprite = $ChargeSprite
 @onready var _wind_lines = $WindLines
 @onready var _vignette = $VignetteLayer/Vignette
+@onready var _slash_vfx = $SlashVfx
 
 var _charge_timer : float = 0.0
 var _is_charging : bool = false
 var _current_damage : int = 50
 var _charge_tween : Tween
 var _original_zoom : Vector2
+var _prev_leg_rotation : float = 0.0
+var _swing_cooldown_timer : float = 0.0
+var _last_swing_clockwise : bool = true
 
 var _block_input:bool=true
 
@@ -40,11 +46,14 @@ func init():
 
 func _ready():
 	init()
+	_prev_leg_rotation = $"../..".rotation
 
 func _process(delta) -> void:
 	if _block_input:
 		return
 	if Global.active_leg == $"../..":
+		_update_swing_slash(delta)
+
 		if Input.is_action_just_pressed("act") or Input.is_action_just_pressed("switch"):
 			_is_charging = true
 			_charge_timer = 0.0
@@ -152,3 +161,20 @@ func _fade_out_indicator(linger_time : float = 0.7) -> void:
 		_charge_sprite.visible = false
 		_charge_sprite.modulate.a = 1.0
 	)
+
+func _update_swing_slash(delta : float) -> void:
+	var leg := $"../.." as Node2D
+	var real_delta := delta / Engine.time_scale
+	var signed_delta := angle_difference(_prev_leg_rotation, leg.rotation)
+	var angular_speed := absf(signed_delta) / real_delta
+
+	_swing_cooldown_timer = max(_swing_cooldown_timer - real_delta, 0.0)
+
+	if angular_speed > swing_speed_threshold:
+		var clockwise := signed_delta > 0.0
+		if _swing_cooldown_timer <= 0.0 or clockwise != _last_swing_clockwise:
+			_slash_vfx.play(clockwise)
+			_last_swing_clockwise = clockwise
+			_swing_cooldown_timer = swing_cooldown
+
+	_prev_leg_rotation = leg.rotation
