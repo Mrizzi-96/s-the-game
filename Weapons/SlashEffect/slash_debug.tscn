@@ -1,0 +1,157 @@
+[gd_scene load_steps=17 format=3 uid="uid://bxj13fpqa40nr"]
+
+[ext_resource type="Script" uid="uid://dkd0so3g1g42n" path="res://Weapons/SlashEffect/debug_slash.gd" id="1_fbvlh"]
+[ext_resource type="Shader" uid="uid://owlgbtf1t4oe" path="res://Weapons/SlashEffect/slash_v1.tres" id="1_n6hhm"]
+[ext_resource type="Texture2D" uid="uid://c2356vdaq1ook" path="res://Weapons/SlashEffect/slash_hl.png" id="2_tj0t8"]
+[ext_resource type="Texture2D" uid="uid://bxuts4fl7ptbv" path="res://Weapons/SlashEffect/slash.png" id="3_fjoos"]
+[ext_resource type="ArrayMesh" uid="uid://dmjc0gm5n2lx5" path="res://Weapons/SlashEffect/slash.obj" id="4_fbvlh"]
+[ext_resource type="Shader" uid="uid://xbinp2sfesi" path="res://Weapons/SlashEffect/slash_v2.tres" id="4_fjoos"]
+[ext_resource type="Shader" uid="uid://b4gptuafow0dd" path="res://Weapons/SlashEffect/slash_v3.tres" id="6_fbvlh"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n6hhm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ujrpt"]
+shader = ExtResource("1_n6hhm")
+shader_parameter/ColorParameter = Color(0.2, 0.183, 0.17, 1)
+shader_parameter/Progress = -1.0
+shader_parameter/BaseTexture = ExtResource("2_tj0t8")
+shader_parameter/HighlightColor = Color(0.959717, 0.96323, 0.941714, 1)
+shader_parameter/HighlightTexture = ExtResource("3_fjoos")
+shader_parameter/DissolveTexture = SubResource("NoiseTexture2D_n6hhm")
+shader_parameter/DissolveParameter = 0.0
+
+[sub_resource type="Animation" id="Animation_fjoos"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/Progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/DissolveParameter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tj0t8"]
+resource_name = "Slash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/Progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.8, -0.6, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/DissolveParameter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fbvlh"]
+_data = {
+&"RESET": SubResource("Animation_fjoos"),
+&"Slash": SubResource("Animation_tj0t8")
+}
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ujrpt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_otnbe"]
+shader = ExtResource("4_fjoos")
+shader_parameter/ColorParameter = Color(0.3483, 0.357832, 0.43, 1)
+shader_parameter/Progress = -1.0
+shader_parameter/BaseTexture = ExtResource("2_tj0t8")
+shader_parameter/HighlightColor = Color(0.6, 0.5688, 0.564, 0.631373)
+shader_parameter/HighlightTexture = ExtResource("2_tj0t8")
+shader_parameter/DissolveTexture = SubResource("NoiseTexture2D_ujrpt")
+shader_parameter/DissolveParameter = 0.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sgthm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjfeu"]
+shader = ExtResource("6_fbvlh")
+shader_parameter/ColorParameter = Color(0.38, 0.3306, 0.371767, 0.603922)
+shader_parameter/Progress = -1.0
+shader_parameter/BaseTexture = ExtResource("3_fjoos")
+shader_parameter/HighlightColor = Color(0.3192, 0.369867, 0.38, 0.258824)
+shader_parameter/HighlightTexture = ExtResource("2_tj0t8")
+shader_parameter/DissolveTexture = SubResource("NoiseTexture2D_sgthm")
+shader_parameter/DissolveParameter = 0.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_fbvlh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(5.79, -0.33)
+zoom = Vector2(58.145, 58.145)
+
+[node name="Slash1" type="Node2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Slash1"]
+material = SubResource("ShaderMaterial_ujrpt")
+position = Vector2(0.0432455, -0.0512716)
+rotation = 3.11018
+scale = Vector2(1.02971, 0.974487)
+mesh = ExtResource("4_fbvlh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slash1"]
+root_node = NodePath("../MeshInstance2D")
+libraries = {
+&"": SubResource("AnimationLibrary_fbvlh")
+}
+
+[node name="Slash2" type="Node2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Slash2"]
+material = SubResource("ShaderMaterial_otnbe")
+position = Vector2(6, -0.0512716)
+rotation = 3.11018
+scale = Vector2(1.02971, 0.974487)
+mesh = ExtResource("4_fbvlh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slash2"]
+root_node = NodePath("../MeshInstance2D")
+libraries = {
+&"": SubResource("AnimationLibrary_fbvlh")
+}
+
+[node name="Slash3" type="Node2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Slash3"]
+material = SubResource("ShaderMaterial_hjfeu")
+position = Vector2(12, -0.0512716)
+rotation = 3.11018
+scale = Vector2(1.02971, 0.974487)
+mesh = ExtResource("4_fbvlh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Slash3"]
+root_node = NodePath("../MeshInstance2D")
+libraries = {
+&"": SubResource("AnimationLibrary_fbvlh")
+}

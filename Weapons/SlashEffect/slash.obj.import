@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dmjc0gm5n2lx5"
+path="res://.godot/imported/slash.obj-51eddffbc43bf4b8f884006d16206669.mesh"
+
+[deps]
+
+files=["res://.godot/imported/slash.obj-51eddffbc43bf4b8f884006d16206669.mesh"]
+
+source_file="res://Weapons/SlashEffect/slash.obj"
+dest_files=["res://.godot/imported/slash.obj-51eddffbc43bf4b8f884006d16206669.mesh", "res://.godot/imported/slash.obj-51eddffbc43bf4b8f884006d16206669.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
