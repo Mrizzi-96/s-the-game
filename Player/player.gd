@@ -65,6 +65,10 @@ func _process(_delta):
 	Global.active_leg.look_at(crossair.global_position)
 
 func _input(event: InputEvent) -> void:
+	if OS.has_feature("editor") and event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_P and event.ctrl_pressed:
+			_debug_equip_propeller()
+
 	if(_block_input):
 		return;
 	# Optional but recommended: only react to mouse press (not release)
@@ -87,6 +91,16 @@ func _input(event: InputEvent) -> void:
 
 func enable_input(value:bool):
 	_block_input=not value
+
+func _debug_equip_propeller() -> void:
+	var leg_name = "LeftLeg" if Global.active_leg == left_leg else "RightLeg"
+	var weapon = equipWeapon("propeller", leg_name)
+	if leg_name == "LeftLeg":
+		left_leg_weapon = weapon
+	else:
+		right_leg_weapon = weapon
+	_change_crossair(weapon)
+	weapon.enable_input(not _block_input)
 
 func squish(weapon):
 	if weapon is ShootingWeapon:
