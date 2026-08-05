@@ -165,7 +165,7 @@ func get_rank_progress() -> float:
 func _get_rank_image(rank : ScoreRank):
 	match rank:
 		ScoreRank.E:
-			return ""
+			return "E.png"
 		ScoreRank.D:
 			return "D.png"
 		ScoreRank.C:
