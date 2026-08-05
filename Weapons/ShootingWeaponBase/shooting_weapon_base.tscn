@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://j0sro5m3nwys"]
 
 [ext_resource type="Script" uid="uid://bpfcd2356y80c" path="res://Weapons/ShootingWeaponBase/shooting_weapon_base.gd" id="1_6a70b"]
-[ext_resource type="Texture2D" uid="uid://c7vgqocop427e" path="res://Weapons/Assets/pistol.png" id="1_k6s1r"]
 [ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Bullet/player_bullet.tscn" id="2_7pahs"]
 [ext_resource type="Resource" uid="uid://t6h8xeh2f1b8" path="res://Weapons/Assets/gun.tres" id="3_yyc1e"]
+[ext_resource type="Texture2D" uid="uid://dqmkle1m8xehn" path="res://Weapons/Gun/Gun.png" id="4_q5xeo"]
 [ext_resource type="Texture2D" uid="uid://dabwpaksis6r4" path="res://Weapons/Assets/AnimationSheets/shoot_animation_sprite.png" id="5_q5xeo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yau6o"]
@@ -86,9 +86,10 @@ shape = SubResource("CapsuleShape2D_158hg")
 
 [node name="WeaponSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-1.19209e-07, 0)
-scale = Vector2(0.113571, 0.113571)
-texture = ExtResource("1_k6s1r")
+texture_filter = 4
+position = Vector2(15, -1)
+scale = Vector2(0.159047, 0.150838)
+texture = ExtResource("4_q5xeo")
 
 [node name="BulletSpawn" type="Marker2D" parent="."]
 position = Vector2(16, -6)
@@ -98,8 +99,6 @@ unique_name_in_owner = true
 
 [node name="MuzzleAnimation" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(44, -7)
+position = Vector2(66, -9)
 scale = Vector2(0.195679, 0.195679)
 sprite_frames = SubResource("SpriteFrames_pog4i")
-frame = 7
-frame_progress = 1.0
