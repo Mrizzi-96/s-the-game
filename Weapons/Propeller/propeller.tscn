@@ -61,7 +61,7 @@ slash_strength = 2500
 item_data = ExtResource("3_o3fwg")
 
 [node name="WeaponSprite" parent="." index="1"]
-scale = Vector2(0.375, 0.375)
+scale = Vector2(0.233477, 0.233477)
 texture = ExtResource("3_f06oe")
 
 [node name="PropellerAnimator" type="AnimationPlayer" parent="." index="8"]
