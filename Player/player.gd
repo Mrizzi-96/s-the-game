@@ -43,6 +43,13 @@ func _ready():
 	#RunInfo.arena_counter = 0
 	_change_crossair(left_leg_weapon)
 
+	# when running this scene standalone (not spawned inside an ArenaManager), there's no
+	# "Ready, Go" countdown to call enable_input(), so unblock input here instead
+	if get_tree().current_scene == self:
+		enable_input(true)
+		for weapon in get_tree().get_nodes_in_group("weapon"):
+			weapon.enable_input(true)
+
 func _setup(player_data : PlayerData):
 	# setup right weapon and left weapon to equipment
 	left_leg_weapon = equipWeapon(player_data.equipment["LeftLeg"], "LeftLeg")
