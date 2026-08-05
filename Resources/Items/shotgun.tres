@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cf5if4viigef8" path="res://Resources/item_data.gd" id="1_5gx2x"]
 [ext_resource type="AudioStream" uid="uid://i210kkvwm8qr" path="res://Resources/SFX/SfxSources/gunshot_placeholder.wav" id="1_g5tob"]
-[ext_resource type="Texture2D" uid="uid://dawghkj06ihjk" path="res://Weapons/Assets/shotgun.png" id="2_wkhk3"]
+[ext_resource type="Texture2D" uid="uid://cvpnmf3sox6x7" path="res://Weapons/Shotgun/Shotgun.png" id="3_wi3oa"]
 
 [resource]
 script = ExtResource("1_5gx2x")
@@ -11,7 +11,7 @@ name = "Shotgun"
 description = "A basic shotgun.
 High power, fires in a small area in front of you.
 High recoil."
-texture = ExtResource("2_wkhk3")
+texture = ExtResource("3_wi3oa")
 price = 500
 attack_sound = ExtResource("1_g5tob")
 slots = 0
