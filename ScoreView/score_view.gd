@@ -34,6 +34,14 @@ var _prev_enemy_score : int = 0
 @onready var rank_label = %RankLabel
 
 func _ready():
+	# centra il pivot PRIMA di ruotare, altrimenti il primo pop/flash che lo centra
+	# (a rotazione già applicata) fa "saltare" la label sullo schermo
+	_center_pivot(mult_label)
+	_center_pivot(enemy_score_label)
+	_center_pivot(arena_score_label)
+	_center_pivot(rank_label)
+	_center_pivot(total_score_label)
+
 	var rng = RandomNumberGenerator.new()
 	var rot = rng.randf_range(MIN_LABEL_ROTATION, MAX_LABEL_ROTATION)
 	_rotate_label(mult_label, rot)
@@ -79,10 +87,10 @@ func _update_score_labels():
 	rank_label.text = "%s" % str(score_manager.get_current_rank_label())
 	total_score_label.text = "TS: %s" % str(score_manager.get_total_score())
 
-func _pop_label(label: Control) -> void:
+func _pop_label(label: Label) -> void:
 	if _score_pop_tween:
 		_score_pop_tween.kill()
-	label.pivot_offset = label.size / 2.0
+	_center_pivot(label)
 	label.scale = Vector2.ONE
 	_score_pop_tween = create_tween()
 	_score_pop_tween.set_trans(Tween.TRANS_BACK)
@@ -90,9 +98,9 @@ func _pop_label(label: Control) -> void:
 	_score_pop_tween.tween_property(label, "scale", Vector2.ONE * pop_scale, pop_duration * 0.35)
 	_score_pop_tween.tween_property(label, "scale", Vector2.ONE, pop_duration * 0.65)
 
-func _flash_pop(label: Control) -> Tween:
+func _flash_pop(label: Label) -> Tween:
 	# come _pop_label, ma parte da scala 0, resta a schermo, poi ci ritorna: per elementi transitori
-	label.pivot_offset = label.size / 2.0
+	_center_pivot(label)
 	label.scale = Vector2.ZERO
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
@@ -172,6 +180,27 @@ func _start_breathing() -> void:
 
 func _rotate_label(label : Label, rot : float):
 	label.rotation_degrees = rad_to_deg(rot)
+
+func _center_pivot(label: Label) -> void:
+	# il pivot deve centrarsi sul testo effettivamente disegnato, non sul box del Control:
+	# se il box è più grande del testo (con allineamento left/top) i due centri non coincidono
+	var content_size : Vector2 = label.get_minimum_size()
+	var pos := Vector2.ZERO
+	match label.horizontal_alignment:
+		HORIZONTAL_ALIGNMENT_CENTER:
+			pos.x = (label.size.x - content_size.x) / 2.0
+		HORIZONTAL_ALIGNMENT_RIGHT:
+			pos.x = label.size.x - content_size.x
+		_:
+			pos.x = 0.0
+	match label.vertical_alignment:
+		VERTICAL_ALIGNMENT_CENTER:
+			pos.y = (label.size.y - content_size.y) / 2.0
+		VERTICAL_ALIGNMENT_BOTTOM:
+			pos.y = label.size.y - content_size.y
+		_:
+			pos.y = 0.0
+	label.pivot_offset = pos + content_size / 2.0
 
 func _on_multiplier_reset():
 	mult_label.hide()
