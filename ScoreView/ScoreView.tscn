@@ -15,8 +15,11 @@ font_size = 48
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rankfill"]
 shader = ExtResource("3_rankfill")
 shader_parameter/progress = 0.0
+shader_parameter/use_fill = true
 shader_parameter/fill_color = Color(0.262745, 0.039216, 0.015686, 1)
 shader_parameter/base_color = Color(0, 0, 0, 1)
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 3.0
 
 [node name="ScoreView" type="Control"]
 layout_mode = 3
