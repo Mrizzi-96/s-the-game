@@ -87,7 +87,6 @@ visible = false
 
 [node name="Test" type="Button" parent="." groups=["Buttons"]]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(350, 60)
 layout_mode = 2
 size_flags_horizontal = 4
