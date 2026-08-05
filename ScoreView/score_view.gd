@@ -10,6 +10,7 @@ const BASE_RANK_IMG_PATH: String = "res://UI/Assets/Score/"
 @export var fill_tween_duration : float = 0.4
 @export var pop_scale : float = 1.2
 @export var pop_duration : float = 0.25
+@export var pop_hold_duration : float = 1.0
 @export var breathe_scale : float = 1.033
 @export var breathe_duration : float = 1.5
 
@@ -19,8 +20,13 @@ const BASE_RANK_IMG_PATH: String = "res://UI/Assets/Score/"
 var _fill_tween : Tween
 var _pop_tween : Tween
 var _breathe_tween : Tween
+var _score_pop_tween : Tween
+var _enemy_pop_tween : Tween
+var _mult_pop_tween : Tween
 var _current_rank : ScoreManager.ScoreRank = ScoreManager.ScoreRank.E
 var _fill_target : float = -1.0  # sentinel: nessun target ancora impostato
+var _prev_arena_score : int = -1  # sentinel: non ancora inizializzato
+var _prev_enemy_score : int = 0
 @onready var total_score_label = %TotalScoreLabel
 @onready var enemy_score_label = %EnemyScoreLabel
 @onready var mult_label = %MultiplierLabel
@@ -56,11 +62,46 @@ func _process(_delta: float) -> void:
 
 func _update_score_labels():
 	var enemies_killed_score = score_manager.get_enemies_killed_score()
-	enemy_score_label.text = "+ %s" % str(enemies_killed_score) if enemies_killed_score != 0 else "" 
-	arena_score_label.text = "%s" % str(score_manager.get_arena_score())
+	enemy_score_label.text = "+ %s" % str(enemies_killed_score) if enemies_killed_score != 0 else ""
+	if enemies_killed_score != 0 and enemies_killed_score != _prev_enemy_score:
+		if _enemy_pop_tween:
+			_enemy_pop_tween.kill()
+		_enemy_pop_tween = _flash_pop(enemy_score_label)
+	_prev_enemy_score = enemies_killed_score
+
+	var arena_score = score_manager.get_arena_score()
+	arena_score_label.text = "%s" % str(arena_score)
+	if _prev_arena_score >= 0 and arena_score > _prev_arena_score:
+		_pop_label(arena_score_label)
+	_prev_arena_score = arena_score
+
 	mult_label.text = "x %s" % str(score_manager.get_current_multiplier())
 	rank_label.text = "%s" % str(score_manager.get_current_rank_label())
 	total_score_label.text = "TS: %s" % str(score_manager.get_total_score())
+
+func _pop_label(label: Control) -> void:
+	if _score_pop_tween:
+		_score_pop_tween.kill()
+	label.pivot_offset = label.size / 2.0
+	label.scale = Vector2.ONE
+	_score_pop_tween = create_tween()
+	_score_pop_tween.set_trans(Tween.TRANS_BACK)
+	_score_pop_tween.set_ease(Tween.EASE_OUT)
+	_score_pop_tween.tween_property(label, "scale", Vector2.ONE * pop_scale, pop_duration * 0.35)
+	_score_pop_tween.tween_property(label, "scale", Vector2.ONE, pop_duration * 0.65)
+
+func _flash_pop(label: Control) -> Tween:
+	# come _pop_label, ma parte da scala 0, resta a schermo, poi ci ritorna: per elementi transitori
+	label.pivot_offset = label.size / 2.0
+	label.scale = Vector2.ZERO
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_BACK)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(label, "scale", Vector2.ONE * pop_scale, pop_duration * 0.35)
+	tween.tween_property(label, "scale", Vector2.ONE, pop_duration * 0.65)
+	tween.tween_interval(pop_hold_duration)
+	tween.tween_property(label, "scale", Vector2.ZERO, pop_duration * 0.5)
+	return tween
 
 func _update_rank_img():
 	var img_path = score_manager.get_current_rank_image()
@@ -137,3 +178,6 @@ func _on_multiplier_reset():
 
 func _on_multiplier_changed():
 	mult_label.show()
+	if _mult_pop_tween:
+		_mult_pop_tween.kill()
+	_mult_pop_tween = _flash_pop(mult_label)
