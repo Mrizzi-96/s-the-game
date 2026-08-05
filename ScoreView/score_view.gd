@@ -10,8 +10,8 @@ const BASE_RANK_IMG_PATH: String = "res://UI/Assets/Score/"
 @export var fill_tween_duration : float = 0.4
 @export var pop_scale : float = 1.2
 @export var pop_duration : float = 0.25
-@export var breathe_scale : float = 1.05
-@export var breathe_duration : float = 1.2
+@export var breathe_scale : float = 1.033
+@export var breathe_duration : float = 1.5
 
 @onready var rank_image: TextureRect  = %RankImage
 @onready var _rank_fill_material : ShaderMaterial = rank_image.material
@@ -76,12 +76,15 @@ func _update_rank_fill():
 		_current_rank = rank
 		_pop_rank_image()
 
+	rank_image.material = _rank_fill_material
+
 	if rank == ScoreManager.ScoreRank.E or rank == ScoreManager.ScoreRank.S:
-		rank_image.material = null
+		# niente riempimento per E (nessuna immagine) e S (rank massimo), ma il contorno resta
+		_rank_fill_material.set_shader_parameter("use_fill", false)
 		_fill_target = -1.0
 		return
 
-	rank_image.material = _rank_fill_material
+	_rank_fill_material.set_shader_parameter("use_fill", true)
 
 	if rank_changed:
 		# nuova lettera: azzera subito il riempimento, senza tween
