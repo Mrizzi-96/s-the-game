@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://cf6ymy1cigvxm"]
+[gd_scene load_steps=15 format=3 uid="uid://cf6ymy1cigvxm"]
 
 [ext_resource type="Script" uid="uid://gkvanoce7cxw" path="res://Weapons/SlashingWeaponBase/slashing_weapon_base.gd" id="1_8ds5h"]
 [ext_resource type="Texture2D" uid="uid://bfmwawfl1ar5s" path="res://Weapons/Assets/knife.png" id="2_b3wkg"]
 [ext_resource type="Resource" uid="uid://benl0845mu8x2" path="res://Resources/Items/knife.tres" id="2_tr6vg"]
+[ext_resource type="Texture2D" uid="uid://dlnktf0ow834" path="res://Weapons/SlashEffect/V.png" id="3_i3lgs"]
+[ext_resource type="Texture2D" uid="uid://db22qf3exser6" path="res://Weapons/SlashEffect/V2.png" id="4_04seh"]
 [ext_resource type="Texture2D" uid="uid://dkh5cfqutrjyp" path="res://Weapons/Assets/charged_slash1.png" id="4_dh27p"]
-[ext_resource type="Texture2D" uid="uid://bluh42ecx01bj" path="res://Weapons/Assets/charged_slash2.png" id="4_xedxc"]
-[ext_resource type="Texture2D" uid="uid://c4io7vjotfjq5" path="res://Weapons/Assets/charged_slash3.png" id="5_tg3s5"]
+[ext_resource type="Texture2D" uid="uid://cny8eb4x16t27" path="res://Weapons/SlashEffect/V3.png" id="5_qpxoy"]
 [ext_resource type="Shader" uid="uid://bj6v6ai52s537" path="res://Weapons/SlashingWeaponBase/vignette.gdshader" id="7_tg3s5"]
-[ext_resource type="PackedScene" path="res://Weapons/SlashEffect/slash_effect.tscn" id="8_slashvfx"]
+[ext_resource type="PackedScene" uid="uid://dr5iknlrj315d" path="res://Weapons/SlashEffect/slash_effect.tscn" id="8_slashvfx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bl7iy"]
 height = 90.0
@@ -46,7 +47,7 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_8ds5h")
 item_data = ExtResource("2_tr6vg")
-charge_textures = Array[Texture2D]([ExtResource("4_dh27p"), ExtResource("4_xedxc"), ExtResource("5_tg3s5")])
+charge_textures = Array[Texture2D]([ExtResource("3_i3lgs"), ExtResource("4_04seh"), ExtResource("5_qpxoy")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

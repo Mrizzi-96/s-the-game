@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://due8r88pj3xe1"]
 
-[ext_resource type="Script" path="res://Weapons/impact_particles.gd" id="1_li4nj"]
+[ext_resource type="Script" uid="uid://y0kcjh0qsj2i" path="res://Weapons/impact_particles.gd" id="1_li4nj"]
 [ext_resource type="Texture2D" uid="uid://bjq33x671y3jk" path="res://Weapons/Assets/white_particle.png" id="2_2oeg6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2oeg6"]
