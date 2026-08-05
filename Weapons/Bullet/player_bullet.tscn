@@ -1,33 +1,37 @@
 [gd_scene load_steps=7 format=3 uid="uid://b3bsfcpqqewps"]
 
 [ext_resource type="Script" uid="uid://c2f36tmppbp8g" path="res://Weapons/Bullet/player_bullet.gd" id="1_fwscs"]
-[ext_resource type="Texture2D" uid="uid://2yx243ycqwey" path="res://Weapons/Assets/scrap.png" id="2_ck0p7"]
 [ext_resource type="PackedScene" uid="uid://due8r88pj3xe1" path="res://Weapons/impact_particles.tscn" id="2_tostj"]
 [ext_resource type="Script" uid="uid://o3tyss6jagcl" path="res://Weapons/Bullet/trail.gd" id="3_biae2"]
-[ext_resource type="Script" uid="uid://bsm31xkmknx2n" path="res://Weapons/Bullet/glow.gd" id="4_hcbux"]
+[ext_resource type="Texture2D" uid="uid://bxolleblc27rl" path="res://Weapons/Bullet/Bullet.png" id="4_tostj"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_biae2"]
-radius = 15.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tostj"]
+radius = 8.0
+height = 44.0
+
+[sub_resource type="Gradient" id="Gradient_tostj"]
+offsets = PackedFloat32Array(0, 0.728291, 1)
+colors = PackedColorArray(0.658824, 0, 0, 0.435294, 1, 0.552941, 0.352941, 1, 1, 1, 0.635294, 1)
 
 [node name="Area2D" type="Area2D" groups=["bullets"]]
 collision_layer = 2
 script = ExtResource("1_fwscs")
 despawn_after_seconds = 5.0
+speed = 1400.0
 wall_impact_particle = ExtResource("2_tostj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_biae2")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tostj")
 
 [node name="Trail" type="Line2D" parent="."]
+gradient = SubResource("Gradient_tostj")
 script = ExtResource("3_biae2")
+trail_color = Color(0.901961, 0.92549, 1, 0.47451)
 
 [node name="Bullet" type="Sprite2D" parent="."]
 z_index = 1
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_ck0p7")
-
-[node name="Glow" type="Sprite2D" parent="."]
-script = ExtResource("4_hcbux")
-glow_color = Color(0.913306, 0.418894, 0.115764, 1)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_tostj")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -18,10 +18,10 @@ func _ready() -> void:
 	curve.add_point(Vector2(1.0, 1.0))
 	width_curve = curve
 	
-	var grad := Gradient.new()
-	grad.set_color(0, Color(trail_color.r, trail_color.g, trail_color.b, 0.0))
-	grad.set_color(1, trail_color)
-	gradient = grad
+	#var grad := Gradient.new()
+	#grad.set_color(0, Color(trail_color.r, trail_color.g, trail_color.b, 0.0))
+	#grad.set_color(1, trail_color)
+	#gradient = grad
 	
 	var mat := CanvasItemMaterial.new()
 	mat.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
