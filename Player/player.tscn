@@ -116,6 +116,7 @@ offset_right = 74.1275
 offset_bottom = 87.9506
 
 [node name="CanvasLayer" type="CanvasLayer" parent="PlayerGUI"]
+visible = false
 
 [node name="PanelContainer" type="PanelContainer" parent="PlayerGUI/CanvasLayer"]
 offset_left = 1638.0
