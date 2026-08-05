@@ -17,8 +17,8 @@ class_name SlashingWeapon
 @export var charge_sprite_fadeout : float = 0.7
 @export var wind_lines_duration : float = 0.7
 @export var charge_zoom_amount : float = 1.5
-@export var swing_speed_threshold : float = 8.0  # rad/s, come "veloce" deve girare la gamba per contare come slash
-@export var swing_cooldown : float = 0.35
+@export var swing_speed_threshold : float = 16.0  # rad/s minima per far partire lo slash
+@export var swing_sustain_threshold : float = 40.0  # rad/s oltre la quale lo slash resta "in carica" a inizio animazione
 
 @onready var attack_sfx = %AttackSfx
 @onready var _charge_sprite = $ChargeSprite
@@ -32,8 +32,6 @@ var _current_damage : int = 50
 var _charge_tween : Tween
 var _original_zoom : Vector2
 var _prev_leg_rotation : float = 0.0
-var _swing_cooldown_timer : float = 0.0
-var _last_swing_clockwise : bool = true
 
 var _block_input:bool=true
 
@@ -168,13 +166,6 @@ func _update_swing_slash(delta : float) -> void:
 	var signed_delta := angle_difference(_prev_leg_rotation, leg.rotation)
 	var angular_speed := absf(signed_delta) / real_delta
 
-	_swing_cooldown_timer = max(_swing_cooldown_timer - real_delta, 0.0)
-
-	if angular_speed > swing_speed_threshold:
-		var clockwise := signed_delta > 0.0
-		if _swing_cooldown_timer <= 0.0 or clockwise != _last_swing_clockwise:
-			_slash_vfx.play(clockwise)
-			_last_swing_clockwise = clockwise
-			_swing_cooldown_timer = swing_cooldown
+	_slash_vfx.update_swing(angular_speed, signed_delta > 0.0, swing_speed_threshold, swing_sustain_threshold)
 
 	_prev_leg_rotation = leg.rotation
