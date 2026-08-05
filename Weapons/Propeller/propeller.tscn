@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwddr5r2lv0u2"]
+[gd_scene load_steps=12 format=3 uid="uid://bwddr5r2lv0u2"]
 
 [ext_resource type="PackedScene" uid="uid://cf6ymy1cigvxm" path="res://Weapons/SlashingWeaponBase/slashing_weapon_base.tscn" id="1_ov2kn"]
 [ext_resource type="Script" uid="uid://bdij76ot56rl1" path="res://Weapons/Propeller/propeller.gd" id="2_cr344"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://cahh0h2e3psrk" path="res://Resources/Items/propeller.tres" id="3_o3fwg"]
 [ext_resource type="Texture2D" uid="uid://bjhfrqfpt1oxj" path="res://Weapons/Propeller/Sprites/Propeller_Animaz1.png" id="4_jeswy"]
 [ext_resource type="Texture2D" uid="uid://c6m4tkjlk3mro" path="res://Weapons/Propeller/Sprites/Propeller_Animaz2.png" id="5_s21rh"]
+[ext_resource type="PackedScene" uid="uid://busc8fd1djpev" path="res://Weapons/Propeller/VFX/propeller_vfx.tscn" id="7_b1vma"]
 
 [sub_resource type="Animation" id="Animation_s21rh"]
 resource_name = "IDLE"
@@ -60,11 +61,13 @@ tick_interval = 0.3
 slash_strength = 2500
 item_data = ExtResource("3_o3fwg")
 
-[node name="WeaponSprite" parent="." index="1"]
+[node name="PropellerVfx" parent="." index="0" instance=ExtResource("7_b1vma")]
+
+[node name="WeaponSprite" parent="." index="2"]
 scale = Vector2(0.233477, 0.233477)
 texture = ExtResource("3_f06oe")
 
-[node name="PropellerAnimator" type="AnimationPlayer" parent="." index="8"]
+[node name="PropellerAnimator" type="AnimationPlayer" parent="." index="9"]
 libraries = {
 &"": SubResource("AnimationLibrary_q3cac")
 }
