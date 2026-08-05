@@ -96,15 +96,6 @@ offset_bottom = 187.0
 text = "000000000"
 label_settings = SubResource("LabelSettings_f1vam")
 
-[node name="TotalScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 0
-text = "TS: 00000000"
-label_settings = SubResource("LabelSettings_xbosy")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
@@ -114,4 +105,21 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Lorem ipsum"
 label_settings = SubResource("LabelSettings_xbosy")
+vertical_alignment = 1
+
+[node name="TopRightUI" type="CanvasLayer" parent="."]
+
+[node name="TotalScoreLabel" type="Label" parent="TopRightUI"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -540.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = 100.0
+grow_horizontal = 0
+text = "TS: 00000000"
+label_settings = SubResource("LabelSettings_xbosy")
+horizontal_alignment = 2
 vertical_alignment = 1
