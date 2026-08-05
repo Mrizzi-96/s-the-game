@@ -3,12 +3,15 @@ extends ShootingWeapon
 @export var shooting_angle = 30
 @export var bullet_number = 8
 @onready var shooting_cooldown = %ShootingCooldown
+@onready var shotgun_vfx: ShotgunVFX = $ShotgunVfx
 var can_shoot: bool = true
+
 
 func spawn_bullet() -> void:
 	if can_shoot:
 		can_shoot = false
 		shooting_cooldown.start()
+		shotgun_vfx.start_vfx()
 		for i in range(bullet_number): # Spawn bullets
 			var bullet = player_bullet.instantiate()
 			bullet.position =$BulletSpawn.global_position

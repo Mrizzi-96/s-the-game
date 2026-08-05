@@ -67,7 +67,9 @@ func _process(_delta):
 func _input(event: InputEvent) -> void:
 	if OS.has_feature("editor") and event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_P and event.ctrl_pressed:
-			_debug_equip_propeller()
+			_debug_equip("propeller")
+		elif event.keycode == KEY_S and event.ctrl_pressed:
+			_debug_equip("shotgun")
 
 	if(_block_input):
 		return;
@@ -92,9 +94,9 @@ func _input(event: InputEvent) -> void:
 func enable_input(value:bool):
 	_block_input=not value
 
-func _debug_equip_propeller() -> void:
+func _debug_equip(weapon_name: String) -> void:
 	var leg_name = "LeftLeg" if Global.active_leg == left_leg else "RightLeg"
-	var weapon = equipWeapon("propeller", leg_name)
+	var weapon = equipWeapon(weapon_name, leg_name)
 	if leg_name == "LeftLeg":
 		left_leg_weapon = weapon
 	else:

@@ -3,7 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://i210kkvwm8qr" path="res://Resources/SFX/SfxSources/gunshot_placeholder.wav" id="1_ocdwx"]
 [ext_resource type="Script" uid="uid://cf5if4viigef8" path="res://Resources/item_data.gd" id="2_gkus2"]
 [ext_resource type="Texture2D" uid="uid://5v8b40shc52f" path="res://Weapons/Crossairs/S_sprites_ui_cursor_gun.png" id="2_vxais"]
-[ext_resource type="Texture2D" uid="uid://dxj3g7jcwic4b" path="res://Weapons/Assets/Gun_Placeholder.png" id="4_gkus2"]
+[ext_resource type="Texture2D" uid="uid://dqmkle1m8xehn" path="res://Weapons/Gun/Gun.png" id="4_gkus2"]
 
 [resource]
 script = ExtResource("2_gkus2")

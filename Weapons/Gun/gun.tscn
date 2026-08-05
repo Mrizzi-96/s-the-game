@@ -1,12 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp3tpm4t2y07g"]
+[gd_scene load_steps=2 format=3 uid="uid://cp3tpm4t2y07g"]
 
 [ext_resource type="PackedScene" uid="uid://j0sro5m3nwys" path="res://Weapons/ShootingWeaponBase/shooting_weapon_base.tscn" id="1_7roiq"]
-[ext_resource type="Texture2D" uid="uid://dxj3g7jcwic4b" path="res://Weapons/Assets/Gun_Placeholder.png" id="2_nhp2e"]
 
-[node name="RigidBody2D" groups=["weapon"] instance=ExtResource("1_7roiq")]
-
-[node name="WeaponSprite" parent="." index="1"]
-texture_filter = 1
-position = Vector2(9.53674e-07, -9.53674e-07)
-scale = Vector2(0.0462646, 0.0438768)
-texture = ExtResource("2_nhp2e")
+[node name="RigidBody2D" instance=ExtResource("1_7roiq")]

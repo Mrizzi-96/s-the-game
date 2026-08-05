@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://xj1eas68cs52"]
+
+[ext_resource type="Texture2D" uid="uid://dap5dknede5qj" path="res://Weapons/Shotgun/VFX/Shotgun Shell.png" id="1_grc24"]
+[ext_resource type="Script" uid="uid://b7ydj30nyay8f" path="res://Weapons/Shotgun/VFX/shotgun_vfx.gd" id="1_p0hee"]
+
+[sub_resource type="Gradient" id="Gradient_p0hee"]
+offsets = PackedFloat32Array(0, 0.637168, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="ShotgunVfx" type="Node2D"]
+script = ExtResource("1_p0hee")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 1
+texture = ExtResource("1_grc24")
+lifetime = 1.2
+one_shot = true
+direction = Vector2(0, -1)
+initial_velocity_min = 200.0
+initial_velocity_max = 500.0
+angular_velocity_max = 300.0
+scale_amount_min = 0.2
+scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_p0hee")

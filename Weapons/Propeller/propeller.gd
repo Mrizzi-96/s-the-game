@@ -5,6 +5,7 @@ extends SlashingWeapon
 @export var base_tick_damage : int = 50
 @export var tick_interval : float = 0.3
 @onready var _propeller_animator: AnimationPlayer = $PropellerAnimator
+@onready var _propeller_vfx: PropellerVFX = $PropellerVfx
 
 var _current_speed : float = 0.0
 var _is_spinning : bool = false
@@ -22,6 +23,7 @@ func _process(delta) -> void:
 	if Global.active_leg == $"../..":
 		if Input.is_action_just_pressed("act") or Input.is_action_just_pressed("switch"):
 			_propeller_animator.play("MOVING")
+			_propeller_vfx.start_bubbles()
 			_is_spinning = true
 			_current_speed = 0.0
 			_tick_timer = 0.0
@@ -40,6 +42,7 @@ func _process(delta) -> void:
 
 		if Input.is_action_just_released("act") or Input.is_action_just_released("switch"):
 			_propeller_animator.play("IDLE")
+			_propeller_vfx.stop_bubbles()
 			_is_spinning = false
 			_current_speed = 0.0
 			_enemies_in_contact.clear()
