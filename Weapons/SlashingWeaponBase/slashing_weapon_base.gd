@@ -19,6 +19,7 @@ class_name SlashingWeapon
 @export var charge_zoom_amount : float = 1.5
 @export var swing_speed_threshold : float = 16.0  # rad/s minima per far partire lo slash
 @export var swing_sustain_threshold : float = 40.0  # rad/s oltre la quale lo slash resta "in carica" a inizio animazione
+@export var min_mouse_speed_for_swing : float = 50.0  # px/s, sotto questa soglia il mouse è considerato fermo
 
 @onready var attack_sfx = %AttackSfx
 @onready var _charge_sprite = $ChargeSprite
@@ -32,11 +33,17 @@ var _current_damage : int = 50
 var _charge_tween : Tween
 var _original_zoom : Vector2
 var _prev_leg_rotation : float = 0.0
+var _prev_mouse_pos : Vector2 = Vector2.ZERO
 
 var _block_input:bool=true
 
 func enable_input(value:bool):
 	_block_input=not value
+	if not _block_input:
+		# la gamba continua a ruotare (look_at) anche a input bloccato: risincronizza le
+		# baseline qui, altrimenti il primo frame sbloccato legge un salto enorme e finto
+		_prev_leg_rotation = $"../..".rotation
+		_prev_mouse_pos = get_global_mouse_position()
 
 func init():
 	%WeaponSprite.texture = item_data.texture
@@ -45,6 +52,7 @@ func init():
 func _ready():
 	init()
 	_prev_leg_rotation = $"../..".rotation
+	_prev_mouse_pos = get_global_mouse_position()
 
 func _process(delta) -> void:
 	if _block_input:
@@ -165,6 +173,15 @@ func _update_swing_slash(delta : float) -> void:
 	var real_delta := delta / Engine.time_scale
 	var signed_delta := angle_difference(_prev_leg_rotation, leg.rotation)
 	var angular_speed := absf(signed_delta) / real_delta
+
+	# la gamba può ruotare anche senza input del mouse (es. il corpo viene spinto da un
+	# impulso d'attacco mentre punta a un bersaglio fermo): conta solo se il mouse si è
+	# davvero mosso, altrimenti è il corpo che si muove sotto la mira, non uno slash
+	var mouse_pos := get_global_mouse_position()
+	var mouse_speed := mouse_pos.distance_to(_prev_mouse_pos) / real_delta
+	_prev_mouse_pos = mouse_pos
+	if mouse_speed < min_mouse_speed_for_swing:
+		angular_speed = 0.0
 
 	_slash_vfx.update_swing(angular_speed, signed_delta > 0.0, swing_speed_threshold, swing_sustain_threshold)
 
