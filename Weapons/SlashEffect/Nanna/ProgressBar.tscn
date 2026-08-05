@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b48ukqosp5x86"]
+
+[ext_resource type="Texture2D" uid="uid://cg3lfdopk30so" path="res://Weapons/SlashEffect/Nanna/Areas.png" id="1_edxn1"]
+[ext_resource type="Texture2D" uid="uid://c774m35fo8d2s" path="res://Weapons/SlashEffect/Nanna/A.png" id="2_tstf8"]
+
+[node name="ProgressBar" type="Node2D"]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_right = 1994.0
+offset_bottom = 2061.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="ProgressBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+fill_mode = 3
+texture_under = ExtResource("1_edxn1")
+texture_progress = ExtResource("2_tstf8")
