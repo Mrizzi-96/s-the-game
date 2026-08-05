@@ -106,7 +106,9 @@ func get_total_score():
 	return RunInfo.total_score
 
 func get_arena_score():
-	return _arena_score
+	# include i punti già accumulati in questo combo (non ancora "bancati" dal timer),
+	# così il punteggio mostrato si aggiorna subito all'uccisione, non al termine del combo
+	return _arena_score + floori(get_current_multiplier() * _point_accumulator)
 
 func get_current_multiplier():
 	if _timer.is_stopped() or _enemy_count<=1:
@@ -120,7 +122,7 @@ func get_rank() -> ScoreRank:
 	var rank = ScoreRank.E
 	if _rank_threesholds.size() > 0:
 		for key in _rank_threesholds.keys():
-			if _arena_score >= _rank_threesholds[key]:
+			if get_arena_score() >= _rank_threesholds[key]:
 				rank = key
 	return rank
 
@@ -157,7 +159,7 @@ func get_rank_progress() -> float:
 	var next_threshold = _rank_threesholds[next_rank]
 	if next_threshold <= current_threshold:
 		return 0.0
-	var progress = float(_arena_score - current_threshold) / float(next_threshold - current_threshold)
+	var progress = float(get_arena_score() - current_threshold) / float(next_threshold - current_threshold)
 	return clampf(progress, 0.0, 1.0)
 
 func _get_rank_image(rank : ScoreRank):
