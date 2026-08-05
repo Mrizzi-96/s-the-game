@@ -1,25 +1,33 @@
-[gd_scene load_steps=15 format=3 uid="uid://cf6ymy1cigvxm"]
+[gd_scene load_steps=17 format=3 uid="uid://cf6ymy1cigvxm"]
 
 [ext_resource type="Script" uid="uid://gkvanoce7cxw" path="res://Weapons/SlashingWeaponBase/slashing_weapon_base.gd" id="1_8ds5h"]
 [ext_resource type="Texture2D" uid="uid://bfmwawfl1ar5s" path="res://Weapons/Assets/knife.png" id="2_b3wkg"]
 [ext_resource type="Resource" uid="uid://benl0845mu8x2" path="res://Resources/Items/knife.tres" id="2_tr6vg"]
-[ext_resource type="Texture2D" uid="uid://dlnktf0ow834" path="res://Weapons/SlashEffect/V.png" id="3_i3lgs"]
-[ext_resource type="Texture2D" uid="uid://db22qf3exser6" path="res://Weapons/SlashEffect/V2.png" id="4_04seh"]
-[ext_resource type="Texture2D" uid="uid://dkh5cfqutrjyp" path="res://Weapons/Assets/charged_slash1.png" id="4_dh27p"]
-[ext_resource type="Texture2D" uid="uid://cny8eb4x16t27" path="res://Weapons/SlashEffect/V3.png" id="5_qpxoy"]
+[ext_resource type="Texture2D" uid="uid://7jjwal5yp7l5" path="res://Weapons/SlashEffect/V2c.png" id="4_i3lgs"]
+[ext_resource type="Texture2D" uid="uid://fnqe2x2njy75" path="res://Weapons/SlashEffect/V3c.png" id="5_04seh"]
+[ext_resource type="Texture2D" uid="uid://ca43jcw5tc2pj" path="res://Weapons/Knife/VFX/Assets/wind_lines.png" id="7_03t4o"]
 [ext_resource type="Shader" uid="uid://bj6v6ai52s537" path="res://Weapons/SlashingWeaponBase/vignette.gdshader" id="7_tg3s5"]
 [ext_resource type="PackedScene" uid="uid://dr5iknlrj315d" path="res://Weapons/SlashEffect/slash_effect.tscn" id="8_slashvfx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tg3s5"]
+load_path = "res://.godot/imported/Vc.png-e48c3ea39ce5d5d8d916da637b1c3d47.ctex"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bl7iy"]
 height = 90.0
 
-[sub_resource type="Gradient" id="Gradient_xedxc"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_i3lgs"]
+offsets = PackedFloat32Array(0, 0.802867, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.494118, 1, 1, 1, 0.333333)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tg3s5"]
-gradient = SubResource("Gradient_xedxc")
-width = 4
-fill_to = Vector2(0, 1)
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_04seh"]
+gradient = SubResource("Gradient_i3lgs")
+
+[sub_resource type="Curve" id="Curve_qpxoy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.62925, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x5qqq"]
+curve = SubResource("Curve_qpxoy")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_03t4o"]
 particle_flag_align_y = true
@@ -33,6 +41,9 @@ initial_velocity_min = 300.0
 initial_velocity_max = 600.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
+scale_curve = SubResource("CurveTexture_x5qqq")
+color = Color(0.894118, 1, 1, 0.643137)
+color_ramp = SubResource("GradientTexture1D_04seh")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03t4o"]
 shader = ExtResource("7_tg3s5")
@@ -47,7 +58,7 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_8ds5h")
 item_data = ExtResource("2_tr6vg")
-charge_textures = Array[Texture2D]([ExtResource("3_i3lgs"), ExtResource("4_04seh"), ExtResource("5_qpxoy")])
+charge_textures = Array[Texture2D]([SubResource("CompressedTexture2D_tg3s5"), ExtResource("4_i3lgs"), ExtResource("5_04seh")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -62,7 +73,7 @@ texture = ExtResource("2_b3wkg")
 visible = false
 position = Vector2(23, 2)
 scale = Vector2(0.0576389, 0.0576389)
-texture = ExtResource("4_dh27p")
+texture = SubResource("CompressedTexture2D_tg3s5")
 
 [node name="Direction" type="Marker2D" parent="."]
 position = Vector2(42, 0)
@@ -74,10 +85,11 @@ position = Vector2(-114, 0)
 unique_name_in_owner = true
 
 [node name="WindLines" type="GPUParticles2D" parent="."]
+scale = Vector2(3, 3)
 emitting = false
-amount = 20
-texture = SubResource("GradientTexture2D_tg3s5")
-lifetime = 0.4
+amount = 6
+texture = ExtResource("7_03t4o")
+lifetime = 0.2
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_03t4o")
 

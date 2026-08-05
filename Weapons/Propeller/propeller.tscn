@@ -5,14 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://deqd50oy7501" path="res://Weapons/Assets/propeller.png" id="3_f06oe"]
 [ext_resource type="Resource" uid="uid://cahh0h2e3psrk" path="res://Resources/Items/propeller.tres" id="3_o3fwg"]
 
-[node name="RigidBody2D" groups=["weapon"] instance=ExtResource("1_ov2kn")]
+[node name="RigidBody2D" instance=ExtResource("1_ov2kn")]
 script = ExtResource("2_cr344")
-slash_strength = 2500
-item_data = ExtResource("3_o3fwg")
 acceleration_rate = 20000.0
 max_propeller_speed = 20000.0
 base_tick_damage = 50
 tick_interval = 0.3
+slash_strength = 2500
+item_data = ExtResource("3_o3fwg")
 
 [node name="WeaponSprite" parent="." index="1"]
 scale = Vector2(0.375, 0.375)
