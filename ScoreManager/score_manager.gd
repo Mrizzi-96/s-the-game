@@ -146,6 +146,20 @@ func _get_rank_label(rank):
 func get_current_rank_image():
 	return _get_rank_image(get_rank())
 
+func get_rank_progress() -> float:
+	var rank = get_rank()
+	if rank == ScoreRank.E or rank == ScoreRank.S:
+		return 0.0
+	var next_rank = rank + 1
+	if not _rank_threesholds.has(rank) or not _rank_threesholds.has(next_rank):
+		return 0.0
+	var current_threshold = _rank_threesholds[rank]
+	var next_threshold = _rank_threesholds[next_rank]
+	if next_threshold <= current_threshold:
+		return 0.0
+	var progress = float(_arena_score - current_threshold) / float(next_threshold - current_threshold)
+	return clampf(progress, 0.0, 1.0)
+
 func _get_rank_image(rank : ScoreRank):
 	match rank:
 		ScoreRank.E:

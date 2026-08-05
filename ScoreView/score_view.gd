@@ -7,7 +7,14 @@ const BASE_RANK_IMG_PATH: String = "res://UI/Assets/Score/"
 
 @export var score_manager: ScoreManager
 
+@export var fill_tween_duration : float = 0.4
+
 @onready var rank_image: TextureRect  = %RankImage
+@onready var _rank_fill_material : ShaderMaterial = rank_image.material
+
+var _fill_tween : Tween
+var _current_rank : ScoreManager.ScoreRank = ScoreManager.ScoreRank.E
+var _fill_target : float = -1.0  # sentinel: nessun target ancora impostato
 @onready var total_score_label = %TotalScoreLabel
 @onready var enemy_score_label = %EnemyScoreLabel
 @onready var mult_label = %MultiplierLabel
@@ -53,6 +60,35 @@ func _update_rank_img():
 	if img_path != "":
 		var texture : Texture2D = load(BASE_RANK_IMG_PATH.path_join(img_path))
 		rank_image.set_texture(texture)
+	_update_rank_fill()
+
+func _update_rank_fill():
+	var rank = score_manager.get_rank()
+	if rank == ScoreManager.ScoreRank.E or rank == ScoreManager.ScoreRank.S:
+		rank_image.material = null
+		_current_rank = rank
+		_fill_target = -1.0
+		return
+
+	rank_image.material = _rank_fill_material
+
+	if rank != _current_rank:
+		# nuova lettera: azzera subito il riempimento, senza tween
+		_current_rank = rank
+		if _fill_tween:
+			_fill_tween.kill()
+		_rank_fill_material.set_shader_parameter("progress", 0.0)
+		_fill_target = -1.0
+
+	var progress = score_manager.get_rank_progress()
+	if not is_equal_approx(progress, _fill_target):
+		_fill_target = progress
+		if _fill_tween:
+			_fill_tween.kill()
+		_fill_tween = create_tween()
+		_fill_tween.set_ease(Tween.EASE_OUT)
+		_fill_tween.set_trans(Tween.TRANS_CUBIC)
+		_fill_tween.tween_property(_rank_fill_material, "shader_parameter/progress", progress, fill_tween_duration)
 
 func _rotate_label(label : Label, rot : float):
 	label.rotation_degrees = rad_to_deg(rot)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2n4ww4aewygc"]
+[gd_scene load_steps=7 format=3 uid="uid://c2n4ww4aewygc"]
 
 [ext_resource type="Script" uid="uid://d2lgeps6dbwvs" path="res://ScoreView/score_view.gd" id="1_yv6g8"]
 [ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="2_yv6g8"]
+[ext_resource type="Shader" path="res://ScoreView/rank_fill.gdshader" id="3_rankfill"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xbosy"]
 font = ExtResource("2_yv6g8")
@@ -10,6 +11,12 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_f1vam"]
 font = ExtResource("2_yv6g8")
 font_size = 48
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rankfill"]
+shader = ExtResource("3_rankfill")
+shader_parameter/progress = 0.0
+shader_parameter/fill_color = Color(0.262745, 0.039216, 0.015686, 1)
+shader_parameter/base_color = Color(0, 0, 0, 1)
 
 [node name="ScoreView" type="Control"]
 layout_mode = 3
@@ -27,6 +34,7 @@ layout_mode = 2
 
 [node name="RankImage" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_rankfill")
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
 
