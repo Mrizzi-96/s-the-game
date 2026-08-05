@@ -107,6 +107,7 @@ _data = {
 }
 
 [node name="SlashEffect" type="Node2D"]
+visible = false
 script = ExtResource("1_script")
 materials = Array[ShaderMaterial]([SubResource("ShaderMaterial_v1"), SubResource("ShaderMaterial_v2"), SubResource("ShaderMaterial_v3")])
 

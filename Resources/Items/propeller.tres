@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://bknf7x1ym5fgr" path="res://Resources/SFX/SfxSources/swoosh_placeholder.wav" id="1_68x0o"]
 [ext_resource type="Script" uid="uid://cf5if4viigef8" path="res://Resources/item_data.gd" id="1_p6y00"]
-[ext_resource type="Texture2D" uid="uid://deqd50oy7501" path="res://Weapons/Assets/propeller.png" id="2_vve1b"]
+[ext_resource type="Texture2D" uid="uid://bw2ub67c1du2t" path="res://Weapons/Propeller/Sprites/Propeller_Idle.png" id="3_icqs2"]
 
 [resource]
 script = ExtResource("1_p6y00")
@@ -10,7 +10,7 @@ type = 3
 name = "propeller"
 description = "A small propeller, scavenged from a crusty old boat. 
 Works very well as a blender! "
-texture = ExtResource("2_vve1b")
+texture = ExtResource("3_icqs2")
 price = 200
 attack_sound = ExtResource("1_68x0o")
 slots = 0

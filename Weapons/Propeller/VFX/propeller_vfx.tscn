@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://busc8fd1djpev"]
+
+[ext_resource type="Texture2D" uid="uid://7tm0fpyx7wbh" path="res://Weapons/Propeller/VFX/Bollicina.png" id="1_rg4n1"]
+[ext_resource type="Texture2D" uid="uid://g0p3wj2xep5v" path="res://Weapons/Propeller/VFX/BollicinaInt.png" id="2_ro4si"]
+[ext_resource type="Texture2D" uid="uid://deqd50oy7501" path="res://Weapons/Assets/propeller.png" id="3_7lefe"]
+
+[sub_resource type="Gradient" id="Gradient_086dp"]
+offsets = PackedFloat32Array(0.0058997, 0.483776, 0.99705)
+colors = PackedColorArray(0.345098, 0.996078, 1, 1, 0.454902, 0.8, 1, 1, 0, 0.65098, 0.964706, 0.482353)
+
+[sub_resource type="Gradient" id="Gradient_225c7"]
+colors = PackedColorArray(0, 0.780392, 0.658824, 1, 1, 1, 1, 1)
+
+[node name="PropellerVfx" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 30
+texture = ExtResource("1_rg4n1")
+spread = 10.0
+gravity = Vector2(10, 0)
+initial_velocity_min = 180.0
+initial_velocity_max = 200.0
+radial_accel_max = 100.0
+scale_amount_min = 0.0
+scale_amount_max = 0.3
+color_ramp = SubResource("Gradient_086dp")
+hue_variation_min = 0.04
+hue_variation_max = 0.65
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+amount = 30
+texture = ExtResource("2_ro4si")
+lifetime = 0.8
+spread = 10.0
+gravity = Vector2(10, 0)
+initial_velocity_min = 180.0
+initial_velocity_max = 200.0
+radial_accel_max = 100.0
+scale_amount_min = 0.0
+scale_amount_max = 0.3
+color = Color(1, 1, 1, 0.121569)
+color_ramp = SubResource("Gradient_086dp")
+hue_variation_min = 0.04
+hue_variation_max = 0.65
+
+[node name="BubblesSprouts" type="CPUParticles2D" parent="."]
+amount = 100
+texture = ExtResource("1_rg4n1")
+lifetime = 0.8
+spread = 62.68
+gravity = Vector2(10, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+radial_accel_max = 100.0
+scale_amount_min = 0.01
+scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_225c7")
+hue_variation_min = 0.04
+hue_variation_max = 0.65
+
+[node name="Propeller" type="Sprite2D" parent="."]
+position = Vector2(-134, -21)
+texture = ExtResource("3_7lefe")

@@ -1,21 +1,72 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwddr5r2lv0u2"]
+[gd_scene load_steps=11 format=3 uid="uid://bwddr5r2lv0u2"]
 
 [ext_resource type="PackedScene" uid="uid://cf6ymy1cigvxm" path="res://Weapons/SlashingWeaponBase/slashing_weapon_base.tscn" id="1_ov2kn"]
 [ext_resource type="Script" uid="uid://bdij76ot56rl1" path="res://Weapons/Propeller/propeller.gd" id="2_cr344"]
 [ext_resource type="Texture2D" uid="uid://deqd50oy7501" path="res://Weapons/Assets/propeller.png" id="3_f06oe"]
 [ext_resource type="Resource" uid="uid://cahh0h2e3psrk" path="res://Resources/Items/propeller.tres" id="3_o3fwg"]
+[ext_resource type="Texture2D" uid="uid://bjhfrqfpt1oxj" path="res://Weapons/Propeller/Sprites/Propeller_Animaz1.png" id="4_jeswy"]
+[ext_resource type="Texture2D" uid="uid://c6m4tkjlk3mro" path="res://Weapons/Propeller/Sprites/Propeller_Animaz2.png" id="5_s21rh"]
 
-[node name="RigidBody2D" groups=["weapon"] instance=ExtResource("1_ov2kn")]
+[sub_resource type="Animation" id="Animation_s21rh"]
+resource_name = "IDLE"
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_b1vma"]
+resource_name = "MOVING"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_jeswy"), ExtResource("5_s21rh"), ExtResource("4_jeswy")]
+}
+
+[sub_resource type="Animation" id="Animation_rgb1r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_f06oe")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q3cac"]
+_data = {
+&"IDLE": SubResource("Animation_s21rh"),
+&"MOVING": SubResource("Animation_b1vma"),
+&"RESET": SubResource("Animation_rgb1r")
+}
+
+[node name="RigidBody2D" instance=ExtResource("1_ov2kn")]
 script = ExtResource("2_cr344")
-slash_strength = 2500
-item_data = ExtResource("3_o3fwg")
 acceleration_rate = 20000.0
 max_propeller_speed = 20000.0
 base_tick_damage = 50
 tick_interval = 0.3
+slash_strength = 2500
+item_data = ExtResource("3_o3fwg")
 
 [node name="WeaponSprite" parent="." index="1"]
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("3_f06oe")
+
+[node name="PropellerAnimator" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+&"": SubResource("AnimationLibrary_q3cac")
+}
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
