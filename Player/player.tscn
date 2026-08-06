@@ -46,6 +46,7 @@ metadata/_edit_horizontal_guides_ = [103.0]
 [node name="Hips" type="RigidBody2D" parent="."]
 mass = 5.0
 physics_material_override = ExtResource("4_lmmrb")
+continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 1
 
