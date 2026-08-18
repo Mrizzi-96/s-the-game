@@ -49,64 +49,64 @@ theme_override_constants/separation = 280
 
 [node name="ResultsContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/ResultsContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/ResultsContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Results"
 label_settings = ExtResource("3_curk1")
 
-[node name="RankContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer"]
+[node name="RankContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="RankLabel" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer/RankContainer"]
+[node name="RankLabel" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer/RankContainer"]
 layout_mode = 2
 text = "Your rank"
 label_settings = ExtResource("4_76b2l")
 
-[node name="RankTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer/RankContainer"]
+[node name="RankTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer/RankContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("4_tx7ov")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="ArenaScore" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer"]
+[node name="ArenaScore" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="ArenaScoreTitle" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer/ArenaScore"]
+[node name="ArenaScoreTitle" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer/ArenaScore"]
 layout_mode = 2
 text = "Arena score"
 label_settings = ExtResource("4_76b2l")
 
-[node name="ArenaScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer/ArenaScore"]
+[node name="ArenaScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer/ArenaScore"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "000000"
 label_settings = ExtResource("6_tapw6")
 horizontal_alignment = 2
 
-[node name="Total score" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer"]
+[node name="Total score" type="VBoxContainer" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TotalScoreTitle" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer/Total score"]
+[node name="TotalScoreTitle" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer/Total score"]
 layout_mode = 2
 text = "Total score"
 label_settings = ExtResource("4_76b2l")
 
-[node name="TotalScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/CenterContainer/VBoxContainer/Total score"]
+[node name="TotalScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer/Total score"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "000000"
@@ -116,29 +116,27 @@ horizontal_alignment = 2
 [node name="RewardsContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 120
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/RewardsContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/RewardsContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 100
+size_flags_vertical = 3
+theme_override_constants/separation = 100
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/RewardsContainer/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/RewardsContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 676
 text = "Rewards"
 label_settings = ExtResource("3_curk1")
 
-[node name="RewardCardContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer/RewardsContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="RewardCard" parent="MarginContainer/HBoxContainer/RewardsContainer/RewardCardContainer" instance=ExtResource("7_tapw6")]
+[node name="RewardCard" parent="MarginContainer/HBoxContainer/RewardsContainer/VBoxContainer" instance=ExtResource("7_tapw6")]
+custom_minimum_size = Vector2(450, 500)
 layout_mode = 2
 
 [node name="Footer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/RewardsContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-size_flags_vertical = 10
+size_flags_vertical = 8
 alignment = 2
 
 [node name="ShopButton" type="Button" parent="MarginContainer/HBoxContainer/RewardsContainer/Footer"]

@@ -9,7 +9,7 @@ const BASE_RANK_IMG_PATH: String = "res://UI/Assets/Score/"
 @onready var inventory_button: Button = %InventoryButton
 @onready var next_arena_button: Button = %NextArenaButton
 # TODO: switch to instantiated scene instead of static one
-@onready var reward_card: RewardCard = $MarginContainer/HBoxContainer/RewardsContainer/RewardCardContainer/RewardCard
+@onready var reward_card: RewardCard = $MarginContainer/HBoxContainer/RewardsContainer/VBoxContainer/RewardCard
 
 @export var final_multiplier:int=1
 

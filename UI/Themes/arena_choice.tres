@@ -4,16 +4,15 @@
 [ext_resource type="StyleBox" uid="uid://c1yc6quufg5xg" path="res://UI/Themes/arena_choice_panel.tres" id="2_4sshk"]
 [ext_resource type="StyleBox" uid="uid://csf2dl2y2ocqr" path="res://UI/Themes/arena_choice_panel__hover.tres" id="2_wapbl"]
 [ext_resource type="StyleBox" uid="uid://c4nif31x3b6vj" path="res://UI/Themes/arena_choice_panel__pressed.tres" id="3_shyc4"]
-[ext_resource type="Texture2D" uid="uid://brgrvcct7gblq" path="res://Shop/Assets/weapon_equipment_empty.png" id="5_ui03c"]
+[ext_resource type="Texture2D" uid="uid://tvcfamlcryc5" path="res://UI/Assets/Panels/GenericPanel.png" id="5_ui03c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2i26n"]
 texture = ExtResource("5_ui03c")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-expand_margin_top = 10.0
-expand_margin_bottom = 10.0
+texture_margin_left = 75.0
+texture_margin_top = 75.0
+texture_margin_right = 75.0
+texture_margin_bottom = 75.0
+region_rect = Rect2(16, 16, 480, 480)
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)

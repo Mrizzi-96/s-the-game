@@ -2,26 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqmkle1m8xehn"
-path="res://.godot/imported/Gun.png-506481dcf3ecd92a81c89025b30ed38d.ctex"
+uid="uid://b10r81cebq6xy"
+path="res://.godot/imported/toilet_paper_active.png-9f4f427c60c93638509a0c2755a0a04c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Weapons/Gun/Gun.png"
-dest_files=["res://.godot/imported/Gun.png-506481dcf3ecd92a81c89025b30ed38d.ctex"]
+source_file="res://UI/Assets/Buttons/toilet_paper_active.png"
+dest_files=["res://.godot/imported/toilet_paper_active.png-9f4f427c60c93638509a0c2755a0a04c.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
