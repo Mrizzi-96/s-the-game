@@ -84,15 +84,19 @@ offset_bottom = 210.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RewardImage" type="TextureRect" parent="VBoxContainer/MarginContainer/Background/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/MarginContainer/Background/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RewardImage" type="TextureRect" parent="VBoxContainer/MarginContainer/Background/VBoxContainer/CenterContainer"]
 unique_name_in_owner = true
 texture_filter = 1
-custom_minimum_size = Vector2(100, 280)
+custom_minimum_size = Vector2(400, 280)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("4_72chl")
-expand_mode = 3
+expand_mode = 1
 stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/Background/VBoxContainer"]

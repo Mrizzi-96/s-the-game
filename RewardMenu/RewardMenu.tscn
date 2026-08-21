@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://grf7iob4hwn3"]
 
 [ext_resource type="Script" uid="uid://dxf1epmiblaby" path="res://RewardMenu/reward_menu.gd" id="1_e4ohg"]
-[ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="2_50cio"]
+[ext_resource type="Texture2D" uid="uid://d2bjmrng7dcm0" path="res://Levels/Assets/BackgroundTEST1.png" id="2_tapw6"]
 [ext_resource type="LabelSettings" uid="uid://wvo6n6icc52h" path="res://RewardMenu/reward_title.tres" id="3_curk1"]
 [ext_resource type="LabelSettings" uid="uid://b7c4f0qsrsjp0" path="res://RewardMenu/reward_subtitle.tres" id="4_76b2l"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="4_curk1"]
@@ -27,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_50cio")
+texture = ExtResource("2_tapw6")
 expand_mode = 3
 stretch_mode = 1
 
