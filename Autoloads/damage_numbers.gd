@@ -1,6 +1,6 @@
 extends Node
 
-@onready var font = load("res://UI/Fonts/PublicPixel.ttf")
+@onready var font = load("res://UI/Fonts/Bungee-Regular.ttf")
 
 func display_damage(damage: int, position: Vector2):
 	#Number label setup
@@ -14,7 +14,7 @@ func display_damage(damage: int, position: Vector2):
 	number.label_settings.font_size = 24
 	number.label_settings.font = font
 	number.label_settings.outline_color = "#000"
-	number.label_settings.outline_size = 8
+	number.label_settings.outline_size = 10
 	
 	call_deferred("add_child", number)
 	

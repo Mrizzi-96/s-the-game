@@ -1,9 +1,9 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cmgl7sm2k83h3"]
 
-[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_gvtbb"]
+[ext_resource type="FontFile" uid="uid://b6og4lqoua7d4" path="res://UI/Fonts/Bungee-Regular.ttf" id="1_d3yy4"]
 
 [resource]
-font = ExtResource("1_gvtbb")
-font_size = 72
+font = ExtResource("1_d3yy4")
+font_size = 96
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)

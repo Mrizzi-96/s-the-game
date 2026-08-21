@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bstpa04rwetgr"]
+[gd_scene load_steps=11 format=3 uid="uid://bstpa04rwetgr"]
 
 [ext_resource type="Script" uid="uid://dgo2oa6vy60l" path="res://Levels/pause_component.gd" id="1_lrkqw"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="2_thagw"]
-[ext_resource type="Texture2D" uid="uid://d3c55eo7juio6" path="res://UI/Assets/background (1).png" id="3_35rst"]
+[ext_resource type="Texture2D" uid="uid://b64vrcjo3s4q7" path="res://Levels/Assets/BackgroundTEST2.png" id="3_nu8xy"]
 [ext_resource type="LabelSettings" uid="uid://cmgl7sm2k83h3" path="res://UI/Themes/TitleLabelSettings.tres" id="4_rbcsd"]
-[ext_resource type="StyleBox" uid="uid://c1yc6quufg5xg" path="res://UI/Themes/arena_choice_panel.tres" id="5_rbcsd"]
+[ext_resource type="Texture2D" uid="uid://dfospef8d751b" path="res://UI/Assets/Panels/SquaredPanel.png" id="5_nu8xy"]
 [ext_resource type="LabelSettings" uid="uid://bf0cq7otvnva3" path="res://ArenaChoice/ArenaSelector/UI/reward_label.tres" id="6_rbcsd"]
 [ext_resource type="PackedScene" uid="uid://dr6pq4er8rgqk" path="res://UI/Components/basic_button.tscn" id="7_nu8xy"]
 [ext_resource type="PackedScene" uid="uid://k7wtatejwabu" path="res://Controls/controls.tscn" id="7_rbcsd"]
@@ -12,18 +12,31 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35rst"]
 bg_color = Color(0, 0, 0, 0.254902)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_impqx"]
+texture = ExtResource("5_nu8xy")
+texture_margin_left = 60.0
+texture_margin_top = 60.0
+texture_margin_right = 60.0
+texture_margin_bottom = 60.0
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
 [node name="PauseComponent" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_lrkqw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.803922, 1, 1, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_thagw")
-texture = ExtResource("3_35rst")
+texture = ExtResource("3_nu8xy")
+stretch_mode = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchors_preset = 15
@@ -47,6 +60,7 @@ theme_override_constants/margin_left = 58
 theme_override_constants/margin_top = 50
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TitleContainer"]
+texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 0
 text = "GAME PAUSED"
@@ -67,7 +81,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("5_rbcsd")
+theme_override_styles/panel = SubResource("StyleBoxTexture_impqx")
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/StatsContainer"]
 layout_mode = 2

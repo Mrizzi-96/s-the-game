@@ -3,20 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b10r81cebq6xy"
-path="res://.godot/imported/toilet_paper_active.png-9f4f427c60c93638509a0c2755a0a04c.ctex"
+path.bptc="res://.godot/imported/toilet_paper_active.png-9f4f427c60c93638509a0c2755a0a04c.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://UI/Assets/Buttons/toilet_paper_active.png"
-dest_files=["res://.godot/imported/toilet_paper_active.png-9f4f427c60c93638509a0c2755a0a04c.ctex"]
+dest_files=["res://.godot/imported/toilet_paper_active.png-9f4f427c60c93638509a0c2755a0a04c.bptc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
@@ -31,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

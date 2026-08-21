@@ -1,11 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqypee2bd7vwm"]
 
 [ext_resource type="Script" uid="uid://cnr0nwx73mibk" path="res://TimerView/timer_view.gd" id="1_7gd0h"]
-[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="2_2msr8"]
+[ext_resource type="FontFile" uid="uid://b6og4lqoua7d4" path="res://UI/Fonts/Bungee-Regular.ttf" id="2_2msr8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j8b60"]
 font = ExtResource("2_2msr8")
 font_size = 120
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="TimerView" type="Control"]
 layout_mode = 3
@@ -20,6 +22,7 @@ size_flags_horizontal = 4
 script = ExtResource("1_7gd0h")
 
 [node name="Label" type="Label" parent="."]
+texture_filter = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.148

@@ -1,8 +1,9 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b7c4f0qsrsjp0"]
 
-[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="1_epayo"]
+[ext_resource type="FontFile" uid="uid://b6og4lqoua7d4" path="res://UI/Fonts/Bungee-Regular.ttf" id="1_epayo"]
 
 [resource]
 font = ExtResource("1_epayo")
 font_size = 48
+outline_size = 10
 outline_color = Color(0, 0, 0, 1)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2n4ww4aewygc"]
 
 [ext_resource type="Script" uid="uid://d2lgeps6dbwvs" path="res://ScoreView/score_view.gd" id="1_yv6g8"]
-[ext_resource type="FontFile" uid="uid://ugd8fkboycyq" path="res://UI/Fonts/PublicPixel.ttf" id="2_yv6g8"]
-[ext_resource type="Shader" uid="uid://dyotvjrhvoabi" path="res://ScoreView/rank_fill.gdshader" id="3_rankfill"]
+[ext_resource type="FontFile" uid="uid://b6og4lqoua7d4" path="res://UI/Fonts/Bungee-Regular.ttf" id="3_f1vam"]
+[ext_resource type="Shader" path="res://ScoreView/rank_fill.gdshader" id="3_rankfill"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rankfill"]
 shader = ExtResource("3_rankfill")
@@ -14,12 +14,16 @@ shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 2.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_xbosy"]
-font = ExtResource("2_yv6g8")
+font = ExtResource("3_f1vam")
 font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_f1vam"]
-font = ExtResource("2_yv6g8")
+font = ExtResource("3_f1vam")
 font_size = 48
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="ScoreView" type="Control"]
 layout_mode = 3
@@ -59,6 +63,7 @@ size_flags_vertical = 4
 
 [node name="EnemyScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/Control"]
 unique_name_in_owner = true
+texture_filter = 2
 layout_mode = 2
 offset_left = -60.0
 offset_right = 140.0
@@ -75,6 +80,7 @@ layout_mode = 2
 
 [node name="MultiplierLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/Control"]
 unique_name_in_owner = true
+texture_filter = 2
 layout_mode = 2
 offset_left = 1.0
 offset_top = 62.0
@@ -88,6 +94,7 @@ layout_mode = 2
 
 [node name="ArenaScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
+texture_filter = 2
 layout_mode = 2
 offset_left = 56.0
 offset_top = 139.0
@@ -102,6 +109,7 @@ theme_override_constants/margin_left = 20
 
 [node name="RankLabel" type="Label" parent="VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
+texture_filter = 2
 layout_mode = 2
 text = "Lorem ipsum"
 label_settings = SubResource("LabelSettings_xbosy")

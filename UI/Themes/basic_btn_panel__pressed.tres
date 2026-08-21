@@ -1,9 +1,9 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cqdhmu383ashn"]
 
-[ext_resource type="Texture2D" uid="uid://bnvdudtv57dai" path="res://UI/Assets/basic_button.png" id="1_qwwdt"]
+[ext_resource type="Texture2D" uid="uid://c17unemkj58t1" path="res://UI/Assets/Buttons/toilet_paper_passive.png" id="1_7inye"]
 
 [resource]
-texture = ExtResource("1_qwwdt")
+texture = ExtResource("1_7inye")
 texture_margin_left = 100.0
 texture_margin_top = 25.0
 texture_margin_right = 100.0
@@ -12,4 +12,4 @@ expand_margin_left = 3.0
 expand_margin_top = 3.0
 expand_margin_right = 3.0
 expand_margin_bottom = 3.0
-modulate_color = Color(0.913725, 0.913725, 0.913725, 1)
+modulate_color = Color(0.758192, 0.758192, 0.758192, 1)

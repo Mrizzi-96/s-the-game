@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://grf7iob4hwn3"]
+[gd_scene load_steps=10 format=3 uid="uid://grf7iob4hwn3"]
 
 [ext_resource type="Script" uid="uid://dxf1epmiblaby" path="res://RewardMenu/reward_menu.gd" id="1_e4ohg"]
 [ext_resource type="Texture2D" uid="uid://d2bjmrng7dcm0" path="res://Levels/Assets/BackgroundTEST1.png" id="2_tapw6"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bp2ehjavfk66h" path="res://UI/Assets/Score/D.png" id="4_tx7ov"]
 [ext_resource type="LabelSettings" uid="uid://4u4thywfyrqj" path="res://RewardMenu/reward_text.tres" id="6_tapw6"]
 [ext_resource type="PackedScene" uid="uid://bekpq5l0dei5u" path="res://RewardMenu/RewardCard/reward_card.tscn" id="7_tapw6"]
+[ext_resource type="Script" uid="uid://bwnoqwm5bmtu1" path="res://UI/Components/basic_button.gd" id="9_ed4ia"]
 
 [node name="RewardMenu" type="Control"]
 layout_mode = 3
@@ -60,6 +61,7 @@ layout_mode = 2
 theme_override_constants/separation = 40
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
 text = "Results"
 label_settings = ExtResource("3_curk1")
@@ -70,6 +72,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="RankLabel" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer/RankContainer"]
+texture_filter = 2
 layout_mode = 2
 text = "Your rank"
 label_settings = ExtResource("4_76b2l")
@@ -86,12 +89,14 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="ArenaScoreTitle" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer/ArenaScore"]
+texture_filter = 2
 layout_mode = 2
 text = "Arena score"
 label_settings = ExtResource("4_76b2l")
 
 [node name="ArenaScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer/ArenaScore"]
 unique_name_in_owner = true
+texture_filter = 2
 layout_mode = 2
 text = "000000"
 label_settings = ExtResource("6_tapw6")
@@ -102,12 +107,14 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="TotalScoreTitle" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer/Total score"]
+texture_filter = 2
 layout_mode = 2
 text = "Total score"
 label_settings = ExtResource("4_76b2l")
 
 [node name="TotalScoreLabel" type="Label" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer/Total score"]
 unique_name_in_owner = true
+texture_filter = 2
 layout_mode = 2
 text = "000000"
 label_settings = ExtResource("6_tapw6")
@@ -124,6 +131,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 100
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/RewardsContainer/VBoxContainer"]
+texture_filter = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 676
 text = "Rewards"
@@ -139,13 +147,6 @@ layout_mode = 2
 size_flags_vertical = 8
 alignment = 2
 
-[node name="ShopButton" type="Button" parent="MarginContainer/HBoxContainer/RewardsContainer/Footer"]
-visible = false
-layout_mode = 2
-theme = ExtResource("4_curk1")
-theme_type_variation = &"FooterButton"
-text = "Shop"
-
 [node name="InventoryButton" type="Button" parent="MarginContainer/HBoxContainer/RewardsContainer/Footer" groups=["Buttons"]]
 unique_name_in_owner = true
 visible = false
@@ -153,6 +154,8 @@ layout_mode = 2
 theme = ExtResource("4_curk1")
 theme_type_variation = &"FooterButton"
 text = "Shop/Inventory"
+script = ExtResource("9_ed4ia")
+metadata/_custom_type_script = "uid://bwnoqwm5bmtu1"
 
 [node name="NextArenaButton" type="Button" parent="MarginContainer/HBoxContainer/RewardsContainer/Footer" groups=["Buttons"]]
 unique_name_in_owner = true
@@ -161,6 +164,8 @@ layout_mode = 2
 theme = ExtResource("4_curk1")
 theme_type_variation = &"FooterButton"
 text = "Next arena"
+script = ExtResource("9_ed4ia")
+metadata/_custom_type_script = "uid://bwnoqwm5bmtu1"
 
 [node name="FinalArenaButton" type="Button" parent="MarginContainer/HBoxContainer/RewardsContainer/Footer" groups=["Buttons"]]
 unique_name_in_owner = true
@@ -169,6 +174,8 @@ layout_mode = 2
 theme = ExtResource("4_curk1")
 theme_type_variation = &"FooterButton"
 text = "Final arena"
+script = ExtResource("9_ed4ia")
+metadata/_custom_type_script = "uid://bwnoqwm5bmtu1"
 
 [connection signal="button_up" from="MarginContainer/HBoxContainer/RewardsContainer/Footer/InventoryButton" to="." method="_on_inventory_button_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/RewardsContainer/Footer/NextArenaButton" to="." method="_on_next_arena_button_button_up"]
