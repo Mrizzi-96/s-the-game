@@ -19,11 +19,11 @@ config/icon="res://icon.svg"
 
 Global="*res://Autoloads/global.gd"
 RunInfo="*res://Autoloads/run_info.gd"
+Utils="*res://Autoloads/utils.gd"
 AudioManager="*res://Autoloads/audio_manager.tscn"
 MainUI="*res://Autoloads/main_ui.tscn"
 DamageNumbers="*res://Autoloads/damage_numbers.gd"
 SceneManager="*res://Autoloads/scene_manager.gd"
-Utils="*res://Autoloads/utils.gd"
 MusicManager="*res://Autoloads/music_manager.tscn"
 
 [display]

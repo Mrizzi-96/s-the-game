@@ -5,7 +5,6 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	DEBUG_MODE = true
 	if(not DEBUG_MODE):
 		%Test.queue_free()
 	# reset arena count, player and run info
