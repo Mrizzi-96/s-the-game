@@ -15,6 +15,7 @@ var movement_speed: float = 1.0
 @onready var hit_impact_animation: AnimatedSprite2D = %HitImpactAnimation
 @onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
 @onready var sprite_2d: Sprite2D = %Sprite2D
+@onready var rigid_body_2d: RigidBody2D = $RigidBody2D
 
 
 func _ready():
@@ -50,6 +51,10 @@ func _hit(damage: int) -> void:
 	
 	
 func _death() -> void:
+	# lock position and placement in death
+	rigid_body_2d.linear_velocity = Vector2.ZERO
+	rigid_body_2d.angular_velocity = 0
+	
 	AudioManager.create_2d_audio_at_location(self.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_ENEMY_DEATH)
 	animate_hit_particle()
 	sprite_2d.visible = false
