@@ -1,7 +1,7 @@
-extends CanvasLayer
+class_name PauseComponent extends CanvasLayer
 
 @onready var _is_paused: bool = false
-@onready var input_blocked : bool = false
+@onready var _input_blocked : bool = false
 @onready var confirmation_overlay: CanvasLayer = %ConfirmationOverlay
 @onready var controls_scene: Control = %Controls
 
@@ -11,19 +11,21 @@ func _ready() -> void:
 	# hide canvas layer and controls scene
 	self.visible = false
 	controls_scene.visible = false
+	# When instantiated, cannot open until arena countdown ends
+	lock_input()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_released("pause") and not input_blocked:
+	if Input.is_action_just_released("pause") and not _input_blocked:
 		_is_paused = !_is_paused
 		get_tree().paused = _is_paused
 		# show/hide canvas layer
 		self.visible = _is_paused
 
 func unlock_input():
-	self.input_blocked = false
+	_input_blocked = false
 	
 func lock_input():
-	self.input_blocked = true
+	_input_blocked = true
 
 func _on_play_button_up() -> void:
 	_is_paused = false

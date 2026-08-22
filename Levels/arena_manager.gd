@@ -10,7 +10,7 @@ extends Node2D
 @onready var _spawn_component=$Components/SpawnComponent
 
 @onready var _score_manager=$Components/ScoreManager
-@onready var _pause_component: CanvasLayer = $PauseComponent
+@onready var _pause_component: PauseComponent = $PauseComponent
 
 @export var final_multiplier:float=10
 
@@ -76,5 +76,7 @@ func _on_arena_number_view_start() -> void:
 		player.enable_input(true)
 	for node in get_tree().get_nodes_in_group("weapon"):
 		node.enable_input(true)
+	# unlock pause menu on game start
+	_pause_component.unlock_input()
 	_spawn_component.start_spawn()
 	_timer_view.start()
