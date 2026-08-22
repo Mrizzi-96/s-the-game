@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="S-the-game"
+config/name="s-buns-of-glory"
+config/version="0.1.0"
 run/main_scene="uid://hp147ctfpi5o"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dgyt3bv2xs8sa"
 
 [autoload]
 
