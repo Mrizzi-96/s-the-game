@@ -24,6 +24,11 @@ position = Vector2(20, 0)
 [node name="ShootingCooldown" type="Timer" parent="." index="4"]
 unique_name_in_owner = true
 
+[node name="MuzzleAnimation" parent="." index="5"]
+position = Vector2(104, -10)
+frame = 7
+frame_progress = 1.0
+
 [node name="ShotgunVfx" parent="." index="6" instance=ExtResource("5_6eg5q")]
 position = Vector2(20, -8)
 

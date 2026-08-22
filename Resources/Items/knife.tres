@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cf5if4viigef8" path="res://Resources/item_data.gd" id="1_4n7uk"]
 [ext_resource type="AudioStream" uid="uid://bknf7x1ym5fgr" path="res://Resources/SFX/SfxSources/swoosh_placeholder.wav" id="1_cijxa"]
 [ext_resource type="Texture2D" uid="uid://bjt5vd18h3mtb" path="res://Weapons/Crossairs/S_sprites_ui_cursor_sword.png" id="2_dfda4"]
-[ext_resource type="Texture2D" uid="uid://bfmwawfl1ar5s" path="res://Weapons/Assets/knife.png" id="2_x02a4"]
+[ext_resource type="Texture2D" uid="uid://d3whdc2abdgtc" path="res://Weapons/Knife/Assets/Knife.png" id="4_dfda4"]
 
 [resource]
 script = ExtResource("1_4n7uk")
@@ -11,7 +11,7 @@ type = 3
 name = "knife"
 description = "A basic knife. Small damage, high movement.
 It propels you forward for a small distance. "
-texture = ExtResource("2_x02a4")
+texture = ExtResource("4_dfda4")
 price = 100
 attack_sound = ExtResource("1_cijxa")
 crossair_texture = ExtResource("2_dfda4")

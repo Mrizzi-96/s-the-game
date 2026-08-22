@@ -46,7 +46,7 @@ metadata/_edit_horizontal_guides_ = [103.0]
 [node name="Hips" type="RigidBody2D" parent="."]
 mass = 5.0
 physics_material_override = ExtResource("4_lmmrb")
-continuous_cd = true
+continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 1
 
@@ -59,7 +59,7 @@ position = Vector2(9.02028, 13.9869)
 [node name="LeftLegSprite" type="Sprite2D" parent="Hips/Ass/LeftLeg"]
 z_index = 1
 texture_filter = 4
-position = Vector2(2.39583e-07, 5.96046e-07)
+position = Vector2(-3.51154e-06, 4.44705e-05)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("4_5htga")
 offset = Vector2(358.82, 4.83691)
@@ -74,7 +74,7 @@ position = Vector2(8.97826, -15.013)
 [node name="RightLegSprite" type="Sprite2D" parent="Hips/Ass/RightLeg"]
 z_index = 1
 texture_filter = 4
-position = Vector2(-2.38419e-07, -4.74975e-07)
+position = Vector2(-2.75729e-07, -2.62242e-05)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("5_p5o4e")
 offset = Vector2(367.583, -5.03802)
