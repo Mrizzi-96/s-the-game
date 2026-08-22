@@ -4,8 +4,20 @@ extends ShootingWeapon
 @export var bullet_number = 8
 @onready var shooting_cooldown = %ShootingCooldown
 @onready var shotgun_vfx: ShotgunVFX = $ShotgunVfx
+var _reload_timer : Timer
 var can_shoot: bool = true
 
+func _ready() -> void:
+	_setup_reload_timer()
+
+func _setup_reload_timer():
+	_reload_timer = Timer.new()
+	_reload_timer.one_shot = true
+	# reload sound timer must start half a second early than the shooting cooldown
+	_reload_timer.wait_time = shooting_cooldown.wait_time / 2
+	_reload_timer.timeout.connect(_on_reload_timeout)
+	# finally add to scene tree
+	get_tree().root.add_child(_reload_timer)
 
 func spawn_bullet() -> bool:
 	if not can_shoot:
@@ -22,6 +34,9 @@ func spawn_bullet() -> bool:
 
 	can_shoot = false
 	shooting_cooldown.start()
+	_reload_timer.start()
+	# sound blast
+	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.ON_BIG_WEAPON_SHOOT)
 	shotgun_vfx.start_vfx()
 	for i in range(bullet_number): # Spawn bullets
 		var bullet = player_bullet.instantiate()
@@ -31,6 +46,8 @@ func spawn_bullet() -> bool:
 		get_tree().root.add_child(bullet)
 	return true
 
+func _on_reload_timeout():
+	AudioManager.create_audio(SoundEffectSettings.SOUND_EFFECT_TYPE.ON_SHOTGUN_RELOAD)
 
 func _on_shooting_cooldown_timeout():
 	can_shoot= true

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://coou2cvqrrdwl"]
+
+[ext_resource type="Script" uid="uid://b4yrtjh8l6b3v" path="res://Resources/SFX/sound_effect_settings.gd" id="1_3151e"]
+[ext_resource type="AudioStream" uid="uid://bub7lpw1pwq3g" path="res://Resources/SFX/SfxSources/on_big_weapon_shoot.wav" id="2_0conx"]
+
+[resource]
+script = ExtResource("1_3151e")
+limit = 5
+type = 9
+sources = Array[AudioStream]([ExtResource("2_0conx")])
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://b4yrtjh8l6b3v"

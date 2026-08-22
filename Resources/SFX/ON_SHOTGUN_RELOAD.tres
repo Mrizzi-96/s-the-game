@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=3 format=3 uid="uid://b5faasuqwopsf"]
+
+[ext_resource type="Script" uid="uid://b4yrtjh8l6b3v" path="res://Resources/SFX/sound_effect_settings.gd" id="1_kpqyl"]
+[ext_resource type="AudioStream" uid="uid://b0nxpbjypseyj" path="res://Resources/SFX/SfxSources/shotgun_reload.wav" id="2_1nift"]
+
+[resource]
+script = ExtResource("1_kpqyl")
+limit = 5
+type = 8
+sources = Array[AudioStream]([ExtResource("2_1nift")])
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.0
+metadata/_custom_type_script = "uid://b4yrtjh8l6b3v"
