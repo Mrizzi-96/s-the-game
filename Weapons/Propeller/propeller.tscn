@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwddr5r2lv0u2"]
+[gd_scene load_steps=13 format=3 uid="uid://bwddr5r2lv0u2"]
 
 [ext_resource type="PackedScene" uid="uid://cf6ymy1cigvxm" path="res://Weapons/SlashingWeaponBase/slashing_weapon_base.tscn" id="1_ov2kn"]
 [ext_resource type="Script" uid="uid://bdij76ot56rl1" path="res://Weapons/Propeller/propeller.gd" id="2_cr344"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bjhfrqfpt1oxj" path="res://Weapons/Propeller/Sprites/Propeller_Animaz1.png" id="4_jeswy"]
 [ext_resource type="Texture2D" uid="uid://c6m4tkjlk3mro" path="res://Weapons/Propeller/Sprites/Propeller_Animaz2.png" id="5_s21rh"]
 [ext_resource type="PackedScene" uid="uid://busc8fd1djpev" path="res://Weapons/Propeller/VFX/propeller_vfx.tscn" id="7_b1vma"]
+[ext_resource type="AudioStream" uid="uid://brp6s6uvo34oi" path="res://Weapons/Propeller/SFX/propeller.wav" id="8_rgb1r"]
 
 [sub_resource type="Animation" id="Animation_s21rh"]
 resource_name = "IDLE"
@@ -58,6 +59,9 @@ acceleration_rate = 20000.0
 max_propeller_speed = 20000.0
 base_tick_damage = 50
 tick_interval = 0.3
+min_pitch = 0.4
+max_pitch = 1.6
+spindown_time = 1.2
 slash_strength = 2500
 item_data = ExtResource("3_o3fwg")
 
@@ -71,5 +75,8 @@ texture = ExtResource("3_f06oe")
 libraries = {
 &"": SubResource("AnimationLibrary_q3cac")
 }
+
+[node name="PropellerAudio" type="AudioStreamPlayer2D" parent="." index="10"]
+stream = ExtResource("8_rgb1r")
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
