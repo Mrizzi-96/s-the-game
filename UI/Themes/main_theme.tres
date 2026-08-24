@@ -1,10 +1,13 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://banjow1tlw1ys"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://banjow1tlw1ys"]
 
 [ext_resource type="FontFile" uid="uid://b6og4lqoua7d4" path="res://UI/Fonts/Bungee-Regular.ttf" id="1_1a0fh"]
 [ext_resource type="StyleBox" uid="uid://cbmupyhd0c621" path="res://UI/Themes/basic_btn_panel.tres" id="1_t6ceb"]
 [ext_resource type="StyleBox" uid="uid://dtevgglhyxevy" path="res://UI/Themes/basic_btn_panel__disabled.tres" id="2_4ndf1"]
 [ext_resource type="StyleBox" uid="uid://blvxnv35cfmhp" path="res://UI/Themes/basic_btn_panel__active.tres" id="3_dhj74"]
 [ext_resource type="StyleBox" uid="uid://cqdhmu383ashn" path="res://UI/Themes/basic_btn_panel__pressed.tres" id="4_j1dle"]
+[ext_resource type="StyleBox" uid="uid://dnitu36alw1e5" path="res://UI/Themes/options_grabber.tres" id="6_0sfyc"]
+[ext_resource type="StyleBox" uid="uid://c1yc6quufg5xg" path="res://UI/Themes/arena_choice_panel.tres" id="6_1a0fh"]
+[ext_resource type="StyleBox" uid="uid://b7iatbkc3o8rv" path="res://UI/Themes/options_slider.tres" id="6_3t1yi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_slqvw"]
 
@@ -62,9 +65,13 @@ FooterButton/styles/focus = SubResource("StyleBoxEmpty_odic3")
 FooterButton/styles/hover = ExtResource("3_dhj74")
 FooterButton/styles/normal = ExtResource("1_t6ceb")
 FooterButton/styles/pressed = ExtResource("4_j1dle")
+HSlider/styles/grabber_area = ExtResource("6_0sfyc")
+HSlider/styles/grabber_area_highlight = ExtResource("6_0sfyc")
+HSlider/styles/slider = ExtResource("6_3t1yi")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_1a0fh")
 MarginContainer/constants/margin_top = 0
+PanelContainer/styles/panel = ExtResource("6_1a0fh")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_odic3")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_1a0fh")
 RichTextLabel/constants/line_separation = 0

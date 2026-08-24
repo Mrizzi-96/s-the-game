@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2k2vpkrd1eyp"]
+
+[ext_resource type="Texture2D" uid="uid://d2bjmrng7dcm0" path="res://Levels/Assets/BackgroundTEST1.png" id="1_f2bdn"]
+[ext_resource type="Script" uid="uid://mo45ktyxkwvi" path="res://SettingsMenu/settings_manager.gd" id="1_fqgjd"]
+[ext_resource type="LabelSettings" uid="uid://cmgl7sm2k83h3" path="res://UI/Themes/TitleLabelSettings.tres" id="1_y7av7"]
+[ext_resource type="FontFile" uid="uid://b6og4lqoua7d4" path="res://UI/Fonts/Bungee-Regular.ttf" id="2_7fmqa"]
+[ext_resource type="LabelSettings" uid="uid://bf0cq7otvnva3" path="res://ArenaChoice/ArenaSelector/UI/reward_label.tres" id="2_jvnd3"]
+[ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="3_hx8jy"]
+[ext_resource type="Script" uid="uid://dcjy60croebid" path="res://UI/Components/volume_slider.gd" id="3_pbt7f"]
+[ext_resource type="Script" uid="uid://bwnoqwm5bmtu1" path="res://UI/Components/basic_button.gd" id="6_ljex6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jvnd3"]
+texture = ExtResource("1_f2bdn")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(0.567575, 0.590316, 0.594865, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y7av7"]
+font = ExtResource("2_7fmqa")
+font_size = 48
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fqgjd")
+
+[node name="background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jvnd3")
+
+[node name="CenterContainer" type="CenterContainer" parent="background"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="background/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("3_hx8jy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background/CenterContainer/PanelContainer"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="Master" type="Label" parent="background/CenterContainer/PanelContainer/VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+size_flags_vertical = 1
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_y7av7")
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="background/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hx8jy")
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("3_pbt7f")
+metadata/_custom_type_script = "uid://dcjy60croebid"
+
+[node name="Music" type="Label" parent="background/CenterContainer/PanelContainer/VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+text = "Music"
+label_settings = ExtResource("2_jvnd3")
+horizontal_alignment = 1
+
+[node name="VolumeSlider2" type="HSlider" parent="background/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hx8jy")
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_pbt7f")
+audio_bus = 1
+metadata/_custom_type_script = "uid://dcjy60croebid"
+
+[node name="Sfx" type="Label" parent="background/CenterContainer/PanelContainer/VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+text = "SFX"
+label_settings = ExtResource("2_jvnd3")
+horizontal_alignment = 1
+
+[node name="VolumeSlider3" type="HSlider" parent="background/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_hx8jy")
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_pbt7f")
+audio_bus = 2
+metadata/_custom_type_script = "uid://dcjy60croebid"
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="background"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ProceedButton" type="Button" parent="background/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("3_hx8jy")
+text = "MAIN MENU"
+script = ExtResource("6_ljex6")
+metadata/_custom_type_script = "uid://bwnoqwm5bmtu1"
+
+[node name="TitleContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 717.0
+offset_bottom = 178.0
+size_flags_horizontal = 3
+theme_type_variation = &"TitleMarginContainer"
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+
+[node name="Label" type="Label" parent="TitleContainer"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Settings"
+label_settings = ExtResource("1_y7av7")
+
+[connection signal="button_up" from="background/MarginContainer/ProceedButton" to="." method="_on_proceed_button_up"]
+[connection signal="button_up" from="background/MarginContainer/ProceedButton" to="background/CenterContainer/PanelContainer/VBoxContainer/VolumeSlider" method="_on_back_button_button_up"]

@@ -5,8 +5,8 @@ const WIP_SCENE : String = "uid://xgwpv7t6h6ok"
 const ARENA_CHOICE_SCENE: String = "uid://c4yvx7bjrrwf0"
 const TEST_SCENE : String = "uid://cv7lkm38tb6o5"
 const CONTROLS_SCENE : String = "uid://k7wtatejwabu"
-
-var DEBUG_MODE : bool = true
+const SETTINGS_SCENE : String = "uid://c2k2vpkrd1eyp"
+var DEBUG_MODE : bool = false
 
 ## returns the reward name as a string.
 func get_reward_name(value: int) -> String:

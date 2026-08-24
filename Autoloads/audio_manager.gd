@@ -15,6 +15,8 @@ func create_2d_audio_at_location(location, type: SoundEffectSettings.SOUND_EFFEC
 		if	sound_effect_setting.has_open_limit():
 			sound_effect_setting.set_audio_count(1)
 			var new_audio = AudioStreamPlayer2D.new()
+			# set audio bus of sound effects to "sfx" bus
+			new_audio.bus = "sfx"
 			self.add_child(new_audio)
 			new_audio.position = location
 			new_audio.stream = sound_effect_setting.get_random_source()
@@ -35,6 +37,8 @@ func create_audio(type: SoundEffectSettings.SOUND_EFFECT_TYPE):
 		if	sound_effect_setting.has_open_limit():
 			sound_effect_setting.set_audio_count(1)
 			var new_audio = AudioStreamPlayer.new()
+			# set audio bus of sound effects to "sfx" bus
+			new_audio.bus = "sfx"
 			self.add_child(new_audio)
 			new_audio.stream = sound_effect_setting.get_random_source()
 			new_audio.volume_db = sound_effect_setting.volume
