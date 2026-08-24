@@ -1,8 +1,11 @@
 extends Control
 
-@onready var proceed_button: Button = %ProceedButton
+@onready var proceed_button: BasicButton = %ProceedButton
 
 func _ready() -> void:
+	init()
+	
+func init() -> void:
 	match SceneManager.scene_origin:
 		SceneManager.Origin.MAIN_MENU_HOW_TO_PLAY:
 			proceed_button.text = "Main menu"

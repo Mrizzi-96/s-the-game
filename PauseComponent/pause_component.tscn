@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bstpa04rwetgr"]
+[gd_scene load_steps=12 format=3 uid="uid://bstpa04rwetgr"]
 
-[ext_resource type="Script" uid="uid://dgo2oa6vy60l" path="res://Levels/pause_component.gd" id="1_lrkqw"]
+[ext_resource type="Script" uid="uid://dgo2oa6vy60l" path="res://PauseComponent/pause_component.gd" id="1_lrkqw"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="2_thagw"]
 [ext_resource type="Texture2D" uid="uid://b64vrcjo3s4q7" path="res://Levels/Assets/BackgroundTEST2.png" id="3_nu8xy"]
 [ext_resource type="LabelSettings" uid="uid://cmgl7sm2k83h3" path="res://UI/Themes/TitleLabelSettings.tres" id="4_rbcsd"]
@@ -8,6 +8,7 @@
 [ext_resource type="LabelSettings" uid="uid://bf0cq7otvnva3" path="res://ArenaChoice/ArenaSelector/UI/reward_label.tres" id="6_rbcsd"]
 [ext_resource type="PackedScene" uid="uid://dr6pq4er8rgqk" path="res://UI/Components/basic_button.tscn" id="7_nu8xy"]
 [ext_resource type="PackedScene" uid="uid://k7wtatejwabu" path="res://Controls/controls.tscn" id="7_rbcsd"]
+[ext_resource type="PackedScene" uid="uid://c2k2vpkrd1eyp" path="res://SettingsMenu/settings_menu.tscn" id="9_impqx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35rst"]
 bg_color = Color(0, 0, 0, 0.254902)
@@ -25,6 +26,7 @@ expand_margin_bottom = 20.0
 
 [node name="PauseComponent" type="CanvasLayer"]
 process_mode = 3
+layer = 2
 script = ExtResource("1_lrkqw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -110,7 +112,6 @@ text = "How to play"
 
 [node name="Settings" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_nu8xy")]
 layout_mode = 2
-disabled = true
 text = "Settings"
 
 [node name="Quit" parent="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("7_nu8xy")]
@@ -122,5 +123,10 @@ text = "Quit"
 unique_name_in_owner = true
 visible = false
 
+[node name="SettingsMenu" parent="." instance=ExtResource("9_impqx")]
+unique_name_in_owner = true
+visible = false
+
 [connection signal="button_up" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_button_up"]
+[connection signal="button_up" from="PanelContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_button_up"]

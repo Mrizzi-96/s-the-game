@@ -20,8 +20,8 @@ func _bus_name() -> String:
 		AudioBus.SFX:    return "sfx"
 	return "Master"
 	
-func _on_value_changed(value: float) -> void:
+func _on_value_changed(in_value: float) -> void:
 	AudioServer.set_bus_volume_db(
 		bus_index,
-		linear_to_db(value) # convert slider value to db to avoid errors
+		linear_to_db(in_value) # convert slider value to db to avoid errors
 	)
