@@ -3,7 +3,7 @@ extends Control
 
 const MAX_LABEL_ROTATION : float = 0
 const MIN_LABEL_ROTATION : float = 0.2
-const BASE_RANK_IMG_PATH: String = "res://UI/Assets/Score/"
+const BASE_RANK_IMG_PATH: String = "res://ScoreView/Sprites/"
 
 @export var score_manager: ScoreManager
 

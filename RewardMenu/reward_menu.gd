@@ -1,7 +1,7 @@
 class_name RewardMenu
 extends Control
 
-const BASE_RANK_IMG_PATH: String = "res://UI/Assets/Score/"
+const BASE_RANK_IMG_PATH: String = "res://ScoreView/Sprites/"
 
 @onready var rank_texture: TextureRect = %RankTexture
 @onready var arena_score_label: Label = %ArenaScoreLabel

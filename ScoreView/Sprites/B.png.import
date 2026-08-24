@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccvo22i670htc"
-path="res://.godot/imported/E.png-6fc483569de09bd5ef3a581aa0415946.ctex"
+uid="uid://dsbtugx1tkjea"
+path="res://.godot/imported/B.png-71d26ec9b4b14445a92bf5bc84c4cdc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Assets/Score/E.png"
-dest_files=["res://.godot/imported/E.png-6fc483569de09bd5ef3a581aa0415946.ctex"]
+source_file="res://ScoreView/Sprites/B.png"
+dest_files=["res://.godot/imported/B.png-71d26ec9b4b14445a92bf5bc84c4cdc1.ctex"]
 
 [params]
 

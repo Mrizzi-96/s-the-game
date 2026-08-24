@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d2lgeps6dbwvs" path="res://ScoreView/score_view.gd" id="1_yv6g8"]
 [ext_resource type="FontFile" uid="uid://b6og4lqoua7d4" path="res://UI/Fonts/Bungee-Regular.ttf" id="3_f1vam"]
-[ext_resource type="Shader" path="res://ScoreView/rank_fill.gdshader" id="3_rankfill"]
+[ext_resource type="Shader" uid="uid://dyotvjrhvoabi" path="res://ScoreView/rank_fill.gdshader" id="3_rankfill"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rankfill"]
 shader = ExtResource("3_rankfill")
@@ -44,6 +44,8 @@ unique_name_in_owner = true
 material = SubResource("ShaderMaterial_rankfill")
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
+size_flags_horizontal = 0
+expand_mode = 3
 
 [node name="MarginContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -65,8 +67,8 @@ size_flags_vertical = 4
 unique_name_in_owner = true
 texture_filter = 2
 layout_mode = 2
-offset_left = -60.0
-offset_right = 140.0
+offset_left = -34.0
+offset_right = 166.0
 offset_bottom = 50.0
 text = "+ 25"
 label_settings = SubResource("LabelSettings_xbosy")
