@@ -31,6 +31,9 @@ func _on_settings_button_up() -> void:
 	SceneManager.scene_origin = SceneManager.Origin.MAIN_MENU_HOW_TO_PLAY
 	Global.goto_scene(Utils.SETTINGS_SCENE)
 
+func _on_credits_button_up() -> void:
+	Global.goto_scene(Utils.CREDITS_SCENE)
+
 func _on_yes_button_button_up() -> void:
 	Global.quit_game()
 

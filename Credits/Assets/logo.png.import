@@ -2,26 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqmkle1m8xehn"
-path="res://.godot/imported/gun.png-3bfc53b7d8fc5c8f75892acdeaddc37d.ctex"
+uid="uid://k4ti5adewf5r"
+path="res://.godot/imported/logo.png-aba1e0321835e2fc9108323addce82c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Weapons/Gun/gun.png"
-dest_files=["res://.godot/imported/gun.png-3bfc53b7d8fc5c8f75892acdeaddc37d.ctex"]
+source_file="res://Credits/Assets/logo.png"
+dest_files=["res://.godot/imported/logo.png-aba1e0321835e2fc9108323addce82c1.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

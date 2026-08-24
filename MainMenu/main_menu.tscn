@@ -77,6 +77,10 @@ text = "How to play"
 layout_mode = 2
 text = "Settings"
 
+[node name="Credits" parent="MarginContainer/HBoxContainer/Sidebar/VBoxContainer2/VBoxContainer" instance=ExtResource("3_po2gx")]
+layout_mode = 2
+text = "Credits"
+
 [node name="Quit" parent="MarginContainer/HBoxContainer/Sidebar/VBoxContainer2/VBoxContainer" instance=ExtResource("3_po2gx")]
 layout_mode = 2
 text = "Quit"
@@ -98,6 +102,7 @@ text = "Test"
 [connection signal="button_up" from="MarginContainer/HBoxContainer/Sidebar/VBoxContainer2/VBoxContainer/Play" to="." method="_start_game"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/Sidebar/VBoxContainer2/VBoxContainer/HowToPlay" to="." method="_on_how_to_play_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/Sidebar/VBoxContainer2/VBoxContainer/Settings" to="." method="_on_settings_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer/Sidebar/VBoxContainer2/VBoxContainer/Credits" to="." method="_on_credits_button_up"]
 [connection signal="button_up" from="MarginContainer/HBoxContainer/Sidebar/VBoxContainer2/VBoxContainer/Quit" to="." method="_on_quit_button_up"]
 [connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/YesButton" to="." method="_on_yes_button_button_up"]
 [connection signal="button_up" from="ConfirmationOverlay/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer/NoButton" to="." method="_on_no_button_button_up"]
