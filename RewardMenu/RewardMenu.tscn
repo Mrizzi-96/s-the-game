@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://grf7iob4hwn3"]
+[gd_scene load_steps=12 format=3 uid="uid://grf7iob4hwn3"]
 
 [ext_resource type="Script" uid="uid://dxf1epmiblaby" path="res://RewardMenu/reward_menu.gd" id="1_e4ohg"]
 [ext_resource type="Texture2D" uid="uid://d2bjmrng7dcm0" path="res://Levels/Assets/BackgroundTEST1.png" id="2_tapw6"]
@@ -6,9 +6,19 @@
 [ext_resource type="LabelSettings" uid="uid://b7c4f0qsrsjp0" path="res://RewardMenu/reward_subtitle.tres" id="4_76b2l"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="4_curk1"]
 [ext_resource type="Texture2D" uid="uid://bp2ehjavfk66h" path="res://UI/Assets/Score/D.png" id="4_tx7ov"]
+[ext_resource type="Shader" uid="uid://dyotvjrhvoabi" path="res://ScoreView/rank_fill.gdshader" id="5_p7j0h"]
 [ext_resource type="LabelSettings" uid="uid://4u4thywfyrqj" path="res://RewardMenu/reward_text.tres" id="6_tapw6"]
 [ext_resource type="PackedScene" uid="uid://bekpq5l0dei5u" path="res://RewardMenu/RewardCard/reward_card.tscn" id="7_tapw6"]
 [ext_resource type="Script" uid="uid://bwnoqwm5bmtu1" path="res://UI/Components/basic_button.gd" id="9_ed4ia"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pjax2"]
+shader = ExtResource("5_p7j0h")
+shader_parameter/progress = 0.0
+shader_parameter/use_fill = true
+shader_parameter/fill_color = Color(0.262745, 0.039216, 0.015686, 1)
+shader_parameter/base_color = Color(0, 0, 0, 1)
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
 
 [node name="RewardMenu" type="Control"]
 layout_mode = 3
@@ -79,6 +89,7 @@ label_settings = ExtResource("4_76b2l")
 
 [node name="RankTexture" type="TextureRect" parent="MarginContainer/HBoxContainer/ResultsContainer/MarginContainer/VBoxContainer/RankContainer"]
 unique_name_in_owner = true
+material = SubResource("ShaderMaterial_pjax2")
 layout_mode = 2
 texture = ExtResource("4_tx7ov")
 expand_mode = 4

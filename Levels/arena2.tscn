@@ -149,7 +149,8 @@ position = Vector2(3232.48, -358.684)
 enemyToSpawn = ExtResource("6_ojro4")
 
 [node name="enemySpawner21" parent="Environment/Ground/Tilemap/EnemySpawners" index="25" instance=ExtResource("5_p0prn")]
-position = Vector2(3224.44, -1771.67)
+position = Vector2(3230.45, -1765.68)
+enemyToSpawn = ExtResource("6_ojro4")
 
 [node name="enemySpawner22" parent="Environment/Ground/Tilemap/EnemySpawners" index="26" instance=ExtResource("5_p0prn")]
 position = Vector2(2295, -1379.33)
