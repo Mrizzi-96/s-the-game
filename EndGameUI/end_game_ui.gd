@@ -2,7 +2,7 @@ class_name EndGameUi
 extends Control
 
 func _ready() -> void:
-	$VBoxContainer/HBoxContainer/Label3.text=str(RunInfo.total_score)
+	$VBoxContainer/HBoxContainer/VBoxContainer/Label3.text=str(RunInfo.total_score)
 	
 
 

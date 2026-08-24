@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2n4ww4aewygc"]
+[gd_scene load_steps=8 format=3 uid="uid://c2n4ww4aewygc"]
 
 [ext_resource type="Script" uid="uid://d2lgeps6dbwvs" path="res://ScoreView/score_view.gd" id="1_yv6g8"]
 [ext_resource type="FontFile" uid="uid://b6og4lqoua7d4" path="res://UI/Fonts/Bungee-Regular.ttf" id="3_f1vam"]
+[ext_resource type="Texture2D" uid="uid://ccvo22i670htc" path="res://ScoreView/Sprites/E.png" id="3_m6bhj"]
 [ext_resource type="Shader" uid="uid://dyotvjrhvoabi" path="res://ScoreView/rank_fill.gdshader" id="3_rankfill"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rankfill"]
@@ -45,6 +46,7 @@ material = SubResource("ShaderMaterial_rankfill")
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
 size_flags_horizontal = 0
+texture = ExtResource("3_m6bhj")
 expand_mode = 3
 
 [node name="MarginContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
