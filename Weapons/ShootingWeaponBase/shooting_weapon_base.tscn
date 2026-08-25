@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bpfcd2356y80c" path="res://Weapons/ShootingWeaponBase/shooting_weapon_base.gd" id="1_6a70b"]
 [ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Bullet/player_bullet.tscn" id="2_7pahs"]
 [ext_resource type="Resource" uid="uid://t6h8xeh2f1b8" path="res://Weapons/Assets/gun.tres" id="3_yyc1e"]
-[ext_resource type="Texture2D" uid="uid://dqmkle1m8xehn" path="res://Weapons/Gun/Gun.png" id="4_q5xeo"]
+[ext_resource type="Texture2D" uid="uid://dqmkle1m8xehn" path="res://Weapons/Gun/gun.png" id="4_q5xeo"]
 [ext_resource type="Texture2D" uid="uid://dabwpaksis6r4" path="res://Weapons/Assets/AnimationSheets/shoot_animation_sprite.png" id="5_q5xeo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yau6o"]

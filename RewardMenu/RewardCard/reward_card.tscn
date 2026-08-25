@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://t6h8xeh2f1b8" path="res://Weapons/Assets/gun.tres" id="2_40bmf"]
 [ext_resource type="FontFile" uid="uid://b6og4lqoua7d4" path="res://UI/Fonts/Bungee-Regular.ttf" id="4_5v0jm"]
 [ext_resource type="Texture2D" uid="uid://cjfy0v568snaa" path="res://Weapons/Assets/gun_locked.png" id="4_72chl"]
-[ext_resource type="Theme" uid="uid://dbmbbfa2dj733" path="res://UI/Themes/arena_choice.tres" id="5_1q2vh"]
+[ext_resource type="Theme" uid="uid://dbmbbfa2dj733" path="res://arena_choice.tres" id="5_1q2vh"]
 [ext_resource type="Texture2D" uid="uid://dicrvbacrspkd" path="res://UI/Assets/Panels/AssPanel.png" id="5_5v0jm"]
 [ext_resource type="Theme" uid="uid://ca0l1kdm7q5yf" path="res://reward_card_theme.tres" id="6_5v0jm"]
 [ext_resource type="PackedScene" uid="uid://dr6pq4er8rgqk" path="res://UI/Components/basic_button.tscn" id="7_l2bic"]
