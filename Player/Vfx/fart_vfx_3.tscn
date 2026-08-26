@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Texture2D" uid="uid://b66vf3v77l0r2" path="res://Player/Vfx/Assets/tx_fart.png" id="1_fart"]
+
+[sub_resource type="Gradient" id="Gradient_lgr22"]
+offsets = PackedFloat32Array(0.008196721, 0.8360656, 0.97540987)
+colors = PackedColorArray(0.33793953, 0.19748458, 0, 1, 0.34230003, 0.36, 0.14760001, 0.45882353, 0.30980393, 0.38431373, 0.11764706, 0.09411765)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_trn2v"]
+gradient = SubResource("Gradient_lgr22")
+
+[sub_resource type="Curve" id="Curve_03owx"]
+_data = [Vector2(0, 0), 0.0, 3.083333, 0, 1, Vector2(0.32432434, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wkp8b"]
+curve = SubResource("Curve_03owx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_20pc6"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+initial_velocity_min = 78.0
+initial_velocity_max = 82.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_wkp8b")
+color_ramp = SubResource("GradientTexture1D_trn2v")
+
+[node name="FartVfx3" type="GPUParticles2D"]
+amount = 1
+one_shot = true
+texture = ExtResource("1_fart")
+lifetime = 0.5
+explosiveness = 1.0
+randomness = 1.0
+trail_lifetime = 4.0
+process_material = SubResource("ParticleProcessMaterial_20pc6")
