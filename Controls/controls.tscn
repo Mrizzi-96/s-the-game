@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://efbkvrxk8j5o" path="res://UI/Assets/Icons/Keyboard & Mouse/Double/mouse_right.png" id="7_twgdm"]
 [ext_resource type="Texture2D" uid="uid://bw84gkm06yi3b" path="res://UI/Assets/Icons/Keyboard & Mouse/Double/keyboard_escape.png" id="7_w7b7g"]
 [ext_resource type="Texture2D" uid="uid://dxj3g7jcwic4b" path="res://Weapons/Assets/Gun_Placeholder.png" id="8_w7b7g"]
-[ext_resource type="Texture2D" uid="uid://d07is00t5n5ip" path="res://UI/Assets/Controls/controls_rank_up.png" id="9_w7b7g"]
-[ext_resource type="Texture2D" uid="uid://bmtv2rt1noolm" path="res://UI/Assets/Score/S.png" id="10_tlx7q"]
-[ext_resource type="Texture2D" uid="uid://bp2ehjavfk66h" path="res://UI/Assets/Score/D.png" id="10_xah8g"]
+[ext_resource type="Texture2D" uid="uid://bd2glcax82l3b" path="res://UI/Assets/Controls/controls_rank_up_v2.png" id="10_emqnb"]
+[ext_resource type="Texture2D" uid="uid://b1u3fhg2gkeft" path="res://UI/Assets/Score/D_v2.png" id="11_r8hol"]
+[ext_resource type="Texture2D" uid="uid://b75330g4qixfi" path="res://UI/Assets/Score/S_v2.png" id="12_iicmw"]
 [ext_resource type="PackedScene" uid="uid://dr6pq4er8rgqk" path="res://UI/Components/basic_button.tscn" id="13_emqnb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_apvvi"]
@@ -89,7 +89,7 @@ theme_override_constants/separation = 200
 [node name="ControlsContainer" type="PanelContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_twgdm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/ControlsContainer"]
@@ -159,7 +159,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_twgdm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer"]
@@ -197,7 +197,7 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("9_w7b7g")
+texture = ExtResource("10_emqnb")
 expand_mode = 1
 stretch_mode = 5
 
@@ -220,7 +220,7 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("10_xah8g")
+texture = ExtResource("11_r8hol")
 expand_mode = 1
 stretch_mode = 4
 
@@ -242,7 +242,7 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("10_tlx7q")
+texture = ExtResource("12_iicmw")
 expand_mode = 1
 stretch_mode = 4
 
@@ -254,14 +254,14 @@ theme_override_constants/line_separation = 16
 text = "Better rank ➜ better rewards!"
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Background/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="ProceedButton" parent="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/MarginContainer" instance=ExtResource("13_emqnb")]
+[node name="ProceedButton" parent="Background/VBoxContainer/MarginContainer/MarginContainer" instance=ExtResource("13_emqnb")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Main menu"
 
-[connection signal="button_up" from="Background/VBoxContainer/MarginContainer/HBoxContainer/WinConditionContainer/VBoxContainer/MarginContainer/ProceedButton" to="." method="_on_proceed_button_up"]
+[connection signal="button_up" from="Background/VBoxContainer/MarginContainer/MarginContainer/ProceedButton" to="." method="_on_proceed_button_up"]
