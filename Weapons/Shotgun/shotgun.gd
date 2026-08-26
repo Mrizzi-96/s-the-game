@@ -30,6 +30,7 @@ func spawn_bullet() -> bool:
 	var mask = probe.collision_mask
 	probe.free()
 	if _is_muzzle_blocked(spawn_pos, mask):
+		_report_wall_blocked()
 		return false
 
 	can_shoot = false

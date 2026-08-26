@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SoundEffectSettings" load_steps=4 format=3]
+
+[ext_resource type="Script" uid="uid://b4yrtjh8l6b3v" path="res://Resources/SFX/sound_effect_settings.gd" id="1_ua6g6"]
+[ext_resource type="AudioStream" uid="uid://bryngkfrf115v" path="res://Resources/SFX/SfxSources/fart_base.mp3" id="2_0tm3b"]
+[ext_resource type="AudioStream" uid="uid://c3x7mvk4ow5qa" path="res://Resources/SFX/SfxSources/732147__blubberfreak__blubberfreak-fart-11.wav" id="3_hsjij"]
+
+[resource]
+script = ExtResource("1_ua6g6")
+limit = 10
+type = 10
+sources = Array[AudioStream]([ExtResource("2_0tm3b"), ExtResource("3_hsjij")])
+volume = 0
+pitch_scale = 1.0
+pitch_randomness = 0.15
+metadata/_custom_type_script = "uid://b4yrtjh8l6b3v"
