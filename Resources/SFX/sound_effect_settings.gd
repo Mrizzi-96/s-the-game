@@ -12,6 +12,7 @@ enum SOUND_EFFECT_TYPE {
 	ON_ENEMY_DEATH,
 	ON_SHOTGUN_RELOAD,
 	ON_BIG_WEAPON_SHOOT,
+	ON_SHOT_BLOCKED
 }
 
 @export_range(0,10) var limit : int = 5

@@ -9,6 +9,7 @@ class_name ShootingWeapon
 @onready var muzzle_animation: AnimatedSprite2D = %MuzzleAnimation
 
 var _block_input:bool=true
+var _shot_blocked_by_wall: bool = false
 
 func enable_input(value:bool):
 	_block_input=not value
@@ -29,7 +30,11 @@ func _process(_delta) -> void:
 			act()
 
 func act() -> void:
+	_shot_blocked_by_wall = false
 	if spawn_bullet():
+		add_impulse_player()
+	elif _shot_blocked_by_wall:
+		# il rinculo del grilletto c'è comunque, anche se non parte nessun proiettile
 		add_impulse_player()
 
 func spawn_bullet() -> bool:
@@ -40,6 +45,7 @@ func spawn_bullet() -> bool:
 
 	if _is_muzzle_blocked(spawn_pos, bullet.collision_mask):
 		bullet.free()
+		_report_wall_blocked()
 		return false
 
 	# start animation
@@ -80,7 +86,15 @@ func _point_in_wall(space_state: PhysicsDirectSpaceState2D, point: Vector2, mask
 	query.collide_with_bodies = true
 	query.exclude = [exclude_body.get_rid()]
 	return not space_state.intersect_point(query).is_empty()
-	
+
+# feedback per il giocatore quando il colpo viene bloccato da un muro: usato anche
+# dalle sottoclassi (es. Shotgun) che spawnano i proiettili con logica propria
+func _report_wall_blocked() -> void:
+	_shot_blocked_by_wall = true
+	AudioManager.create_2d_audio_at_location(
+		self.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_SHOT_BLOCKED
+	)
+
 func add_impulse_player() -> void:
 	$"../../../..".apply_impulse(Vector2(-recoil_force, 0).rotated($"../..".global_rotation))
 	#  ^Hips node										 				^Leg node
