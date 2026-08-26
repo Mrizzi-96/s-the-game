@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://b462tdjecwirp" path="res://RewardMenu/RewardCard/reward_card.gd" id="1_da7ib"]
 [ext_resource type="Resource" uid="uid://t6h8xeh2f1b8" path="res://Weapons/Assets/gun.tres" id="2_40bmf"]
 [ext_resource type="FontFile" uid="uid://b6og4lqoua7d4" path="res://UI/Fonts/Bungee-Regular.ttf" id="4_5v0jm"]
-[ext_resource type="Texture2D" uid="uid://cjfy0v568snaa" path="res://Weapons/Assets/gun_locked.png" id="4_72chl"]
 [ext_resource type="Theme" uid="uid://dbmbbfa2dj733" path="res://arena_choice.tres" id="5_1q2vh"]
 [ext_resource type="Texture2D" uid="uid://dicrvbacrspkd" path="res://UI/Assets/Panels/AssPanel.png" id="5_5v0jm"]
 [ext_resource type="Theme" uid="uid://ca0l1kdm7q5yf" path="res://reward_card_theme.tres" id="6_5v0jm"]
+[ext_resource type="Texture2D" uid="uid://itajj6md5ehg" path="res://ScoreView/Sprites/CartaIgienica.png" id="6_tw34y"]
 [ext_resource type="PackedScene" uid="uid://dr6pq4er8rgqk" path="res://UI/Components/basic_button.tscn" id="7_l2bic"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_72chl"]
@@ -61,6 +61,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Background" type="NinePatchRect" parent="VBoxContainer/MarginContainer"]
+self_modulate = Color(0.59, 0.2655, 0.2655, 1)
 custom_minimum_size = Vector2(200, 500)
 layout_mode = 2
 size_flags_vertical = 3
@@ -92,7 +93,7 @@ texture_filter = 1
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("4_72chl")
+texture = ExtResource("6_tw34y")
 expand_mode = 1
 stretch_mode = 5
 

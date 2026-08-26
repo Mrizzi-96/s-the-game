@@ -9,3 +9,4 @@ texture_margin_top = 80.0
 texture_margin_right = 80.0
 texture_margin_bottom = 80.0
 region_rect = Rect2(0, 0, 512, 512)
+modulate_color = Color(0.290196, 0.184314, 0.290196, 1)
