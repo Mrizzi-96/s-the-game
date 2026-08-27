@@ -43,7 +43,7 @@ func enable_input(value:bool):
 		# la gamba continua a ruotare (look_at) anche a input bloccato: risincronizza le
 		# baseline qui, altrimenti il primo frame sbloccato legge un salto enorme e finto
 		_prev_leg_rotation = $"../..".rotation
-		_prev_mouse_pos = get_global_mouse_position()
+		_prev_mouse_pos = get_viewport().get_mouse_position()
 
 func init():
 	%WeaponSprite.texture = item_data.texture
@@ -52,7 +52,7 @@ func init():
 func _ready():
 	init()
 	_prev_leg_rotation = $"../..".rotation
-	_prev_mouse_pos = get_global_mouse_position()
+	_prev_mouse_pos = get_viewport().get_mouse_position()
 
 func _process(delta) -> void:
 	if _block_input:
@@ -177,7 +177,7 @@ func _update_swing_slash(delta : float) -> void:
 	# la gamba può ruotare anche senza input del mouse (es. il corpo viene spinto da un
 	# impulso d'attacco mentre punta a un bersaglio fermo): conta solo se il mouse si è
 	# davvero mosso, altrimenti è il corpo che si muove sotto la mira, non uno slash
-	var mouse_pos := get_global_mouse_position()
+	var mouse_pos := get_viewport().get_mouse_position()
 	var mouse_speed := mouse_pos.distance_to(_prev_mouse_pos) / real_delta
 	_prev_mouse_pos = mouse_pos
 	if mouse_speed < min_mouse_speed_for_swing:
