@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2k2vpkrd1eyp"]
+[gd_scene load_steps=13 format=3 uid="uid://c2k2vpkrd1eyp"]
 
 [ext_resource type="Texture2D" uid="uid://d2bjmrng7dcm0" path="res://Levels/Assets/BackgroundTEST1.png" id="1_f2bdn"]
 [ext_resource type="Script" uid="uid://mo45ktyxkwvi" path="res://SettingsMenu/settings_manager.gd" id="1_fqgjd"]
@@ -7,6 +7,8 @@
 [ext_resource type="LabelSettings" uid="uid://bf0cq7otvnva3" path="res://ArenaChoice/ArenaSelector/UI/reward_label.tres" id="2_jvnd3"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="3_hx8jy"]
 [ext_resource type="Script" uid="uid://dcjy60croebid" path="res://UI/Components/volume_slider.gd" id="3_pbt7f"]
+[ext_resource type="ButtonGroup" uid="uid://b3anx31kvifq1" path="res://SettingsMenu/fullscreen_btn_group.tres" id="5_c0dm2"]
+[ext_resource type="Script" uid="uid://be8vpm1ur2b1a" path="res://SettingsMenu/fullscreen_settings.gd" id="5_ni08m"]
 [ext_resource type="Script" uid="uid://bwnoqwm5bmtu1" path="res://UI/Components/basic_button.gd" id="6_ljex6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jvnd3"]
@@ -51,6 +53,40 @@ custom_minimum_size = Vector2(500, 200)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="background/CenterContainer/PanelContainer/VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+text = "Fullscreen"
+label_settings = SubResource("LabelSettings_y7av7")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="background/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("5_ni08m")
+
+[node name="BasicButton" type="Button" parent="background/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("5_c0dm2")
+text = "ON"
+script = ExtResource("6_ljex6")
+metadata/_custom_type_script = "uid://bwnoqwm5bmtu1"
+
+[node name="BasicButton2" type="Button" parent="background/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("5_c0dm2")
+text = "OFF"
+script = ExtResource("6_ljex6")
+metadata/_custom_type_script = "uid://bwnoqwm5bmtu1"
+
+[node name="CenterContainer" type="CenterContainer" parent="background/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Master" type="Label" parent="background/CenterContainer/PanelContainer/VBoxContainer"]
 texture_filter = 2
@@ -134,5 +170,7 @@ size_flags_horizontal = 0
 text = "Settings"
 label_settings = ExtResource("1_y7av7")
 
+[connection signal="button_up" from="background/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/BasicButton" to="background/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" method="_on_on_button_pressed"]
+[connection signal="button_up" from="background/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/BasicButton2" to="background/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" method="_on_off_button_pressed"]
 [connection signal="button_up" from="background/MarginContainer/ProceedButton" to="." method="_on_proceed_button_up"]
 [connection signal="button_up" from="background/MarginContainer/ProceedButton" to="background/CenterContainer/PanelContainer/VBoxContainer/VolumeSlider" method="_on_back_button_button_up"]

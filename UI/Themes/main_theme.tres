@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://banjow1tlw1ys"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://banjow1tlw1ys"]
 
 [ext_resource type="FontFile" uid="uid://b6og4lqoua7d4" path="res://UI/Fonts/Bungee-Regular.ttf" id="1_1a0fh"]
 [ext_resource type="StyleBox" uid="uid://cbmupyhd0c621" path="res://UI/Themes/basic_btn_panel.tres" id="1_t6ceb"]
@@ -10,6 +10,8 @@
 [ext_resource type="StyleBox" uid="uid://b7iatbkc3o8rv" path="res://UI/Themes/options_slider.tres" id="6_3t1yi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_slqvw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sfyc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_odic3"]
 
@@ -58,6 +60,7 @@ Button/styles/focus = SubResource("StyleBoxEmpty_slqvw")
 Button/styles/hover = ExtResource("3_dhj74")
 Button/styles/normal = ExtResource("1_t6ceb")
 Button/styles/pressed = ExtResource("4_j1dle")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_0sfyc")
 FooterButton/base_type = &"Button"
 FooterButton/font_sizes/font_size = 24
 FooterButton/styles/disabled = ExtResource("2_4ndf1")
