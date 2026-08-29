@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://d3nquhbe2mid5" path="res://Credits/credits.gd" id="1_credits"]
 [ext_resource type="Texture2D" uid="uid://d2bjmrng7dcm0" path="res://Levels/Assets/BackgroundTEST1.png" id="2_bg"]
 [ext_resource type="Theme" uid="uid://banjow1tlw1ys" path="res://UI/Themes/main_theme.tres" id="4_theme"]
+[ext_resource type="Texture2D" uid="uid://bqwf7ba8skalp" path="res://Credits/Assets/Logo_WHT.png" id="4_ykgdt"]
 [ext_resource type="PackedScene" uid="uid://dr6pq4er8rgqk" path="res://UI/Components/basic_button.tscn" id="5_button"]
-[ext_resource type="Texture2D" uid="uid://k4ti5adewf5r" path="res://Credits/Assets/logo.png" id="6_logo"]
 [ext_resource type="LabelSettings" path="res://UI/Themes/CreditsRoleLabelSettings.tres" id="7_role"]
 [ext_resource type="LabelSettings" path="res://UI/Themes/CreditsNameLabelSettings.tres" id="8_name"]
 
@@ -54,10 +54,12 @@ theme_override_constants/separation = 16
 alignment = 1
 
 [node name="Logo" type="TextureRect" parent="background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+texture_filter = 2
 custom_minimum_size = Vector2(150, 239)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("6_logo")
+texture = ExtResource("4_ykgdt")
 expand_mode = 1
 stretch_mode = 5
 
