@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://cn8mtnkswehm1"]
+[gd_scene load_steps=18 format=3 uid="uid://cn8mtnkswehm1"]
 
 [ext_resource type="Script" uid="uid://ba4h4wqjs8jll" path="res://Player/player.gd" id="1_c6ce5"]
+[ext_resource type="Script" uid="uid://c84jruo7tygei" path="res://Player/hips.gd" id="1_hips"]
 [ext_resource type="PackedScene" uid="uid://b3bsfcpqqewps" path="res://Weapons/Bullet/player_bullet.tscn" id="2_ifgo3"]
 [ext_resource type="Texture2D" uid="uid://e14u0wsilv6j" path="res://Player/Assets/spr_left_leg.PNG" id="4_5htga"]
 [ext_resource type="PhysicsMaterial" uid="uid://b51d82i67iuj6" path="res://Player/Assets/Materials/ass_physics_material.tres" id="4_lmmrb"]
@@ -49,6 +50,7 @@ physics_material_override = ExtResource("4_lmmrb")
 continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 1
+script = ExtResource("1_hips")
 
 [node name="Ass" type="CollisionShape2D" parent="Hips"]
 shape = SubResource("CapsuleShape2D_5w4i3")

@@ -2,6 +2,13 @@ extends RigidBody2D
 
 class_name ShootingWeapon
 
+const FART_VFX_SCENES : Array[PackedScene] = [
+	preload("res://Player/Vfx/fart_vfx_1.tscn"),
+	preload("res://Player/Vfx/fart_vfx_2.tscn"),
+	preload("res://Player/Vfx/fart_vfx_3.tscn"),
+]
+const FART_VFX_MAX_LIFETIME : float = 7.0  # copre anche il caso più lungo (vfx1 + Fly + trail)
+
 @export var player_bullet : PackedScene
 @export var recoil_force = 2000
 @export var item_data : ItemData
@@ -94,6 +101,18 @@ func _report_wall_blocked() -> void:
 	AudioManager.create_2d_audio_at_location(
 		self.global_position, SoundEffectSettings.SOUND_EFFECT_TYPE.ON_SHOT_BLOCKED
 	)
+	_spawn_random_fart_vfx()
+
+func _spawn_random_fart_vfx() -> void:
+	var vfx = FART_VFX_SCENES[randi() % FART_VFX_SCENES.size()].instantiate()
+	# posizione dall'anca (Hips), ma l'orientamento da Cheeks: Cheeks rappresenta dove il
+	# player "punta in basso" (AssSprite ha una sua rotazione locale, diversa da quella di Hips)
+	var hips = $"../../../.."
+	var cheeks = $"../../../AssSprite/Cheeks"
+	vfx.global_position = hips.global_position
+	vfx.global_rotation = cheeks.global_rotation
+	get_tree().root.add_child(vfx)
+	get_tree().create_timer(FART_VFX_MAX_LIFETIME).timeout.connect(vfx.queue_free)
 
 func add_impulse_player() -> void:
 	$"../../../..".apply_impulse(Vector2(-recoil_force, 0).rotated($"../..".global_rotation))

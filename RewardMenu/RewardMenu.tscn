@@ -18,7 +18,7 @@ shader_parameter/use_fill = false
 shader_parameter/fill_color = Color(0.262745, 0.039216, 0.015686, 1)
 shader_parameter/base_color = Color(0, 0, 0, 0)
 shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_width = 2.0
+shader_parameter/outline_width = 10.0
 
 [node name="RewardMenu" type="Control"]
 layout_mode = 3
