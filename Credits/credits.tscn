@@ -185,7 +185,7 @@ horizontal_alignment = 2
 
 [node name="Name10" type="Label" parent="background/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CreditsGrid"]
 layout_mode = 2
-text = "Roberto Fornaro"
+text = "Stefano Panelli"
 label_settings = ExtResource("8_name")
 
 [node name="MarginContainer" type="MarginContainer" parent="background"]
