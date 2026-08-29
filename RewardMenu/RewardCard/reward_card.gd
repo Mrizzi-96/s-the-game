@@ -25,7 +25,7 @@ func update_reward_preview() -> void:
 			var reward_candidates : Array[ItemData] = all_weapons.filter(func(i): return i not in player_weapons)
 			if reward_candidates.size() == 0:
 				# use placeholder
-				reward_image.texture = load("res://Weapons/Assets/gun_locked.png")
+				reward_image.texture = load("res://ScoreView/Sprites/CartaIgienica.png")
 				reward_name.text = "Coming soon!"
 				equip_right.disabled = true
 				equip_left.disabled = true
