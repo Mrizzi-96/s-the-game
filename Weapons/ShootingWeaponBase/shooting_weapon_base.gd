@@ -8,6 +8,7 @@ const FART_VFX_SCENES : Array[PackedScene] = [
 	preload("res://Player/Vfx/fart_vfx_3.tscn"),
 ]
 const FART_VFX_MAX_LIFETIME : float = 7.0  # copre anche il caso più lungo (vfx1 + Fly + trail)
+const FART_VFX_SIZE_MULTIPLIER : float = 1.5
 
 @export var player_bullet : PackedScene
 @export var recoil_force = 2000
@@ -111,8 +112,27 @@ func _spawn_random_fart_vfx() -> void:
 	var cheeks = $"../../../AssSprite/Cheeks"
 	vfx.global_position = hips.global_position
 	vfx.global_rotation = cheeks.global_rotation
+	# la dimensione delle particelle (material) e lo spazio di simulazione (node scale, che
+	# sposta anche quanto viaggiano lontano) sono due cose separate: vanno scalate entrambe
+	# per ingrandire l'effetto in modo uniforme
+	vfx.scale *= FART_VFX_SIZE_MULTIPLIER
+	_scale_particle_size(vfx, FART_VFX_SIZE_MULTIPLIER)
+	vfx.z_index = 100  # sopra a tutti gli elementi di gioco (player/muri usano z_index 0-5)
 	get_tree().root.add_child(vfx)
 	get_tree().create_timer(FART_VFX_MAX_LIFETIME).timeout.connect(vfx.queue_free)
+
+# scalare il node stesso sposta solo lo spazio di simulazione (le particelle vanno più
+# lontano), non la dimensione con cui vengono disegnate: quella dipende dal
+# ParticleProcessMaterial, quindi va duplicato (è condiviso dalla scena) e scalato lì,
+# per ogni GPUParticles2D nell'albero (compreso il sotto-emettitore Fly di fart_vfx_1)
+func _scale_particle_size(node: Node, multiplier: float) -> void:
+	if node is GPUParticles2D and node.process_material is ParticleProcessMaterial:
+		var mat : ParticleProcessMaterial = node.process_material.duplicate()
+		mat.scale_min *= multiplier
+		mat.scale_max *= multiplier
+		node.process_material = mat
+	for child in node.get_children():
+		_scale_particle_size(child, multiplier)
 
 func add_impulse_player() -> void:
 	$"../../../..".apply_impulse(Vector2(-recoil_force, 0).rotated($"../..".global_rotation))
